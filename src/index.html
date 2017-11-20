@@ -14,6 +14,7 @@
   <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -24,7 +25,7 @@
 <div class="container">
   <div class="container">
     <a href="#/inici">
-    <img class="img-responsive" src="assets/images/logo.png"  height="120" width="120" style="margin: 0 auto; padding: 5px" alt="Chania">
+    <img class="img-responsive" src="assets/images/logo.png" border="0" height="120" width="120" style="margin: 0 auto; padding: 5px" alt="Chania">
     </a>
   </div>
 <nav class="navbar navbar-default navbar-inverse">
@@ -39,9 +40,9 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a href="#/inici"><strong>Inici</strong></a></li>
+        <li><a class="navlink" href="#/inici"><strong>Inici</strong></a></li>
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Club</strong><span class="caret"></span></a>
+          <a class="dropdown-toggle navlink" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Club</strong><span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a>Junta Directiva</a></li>
             <li><a>Instal·lacions</a></li>
@@ -51,23 +52,23 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Equips</strong><span class="caret"></span></a>
+          <a class="dropdown-toggle navlink" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Equips</strong><span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#/plantilla?equipo=Sènior A">Sènior A</a></li>
-            <li><a>Sènior B</a></li>
-            <li><a>Sènior C</a></li>
-            <li><a>Juvenil A</a></li>
-            <li><a>Juvenil B</a></li>
-            <li><a>Juvenil C</a></li>
-            <li><a>Infantil A</a></li>
+            <li><a href="#/equip?cat=Sènior A"><strong>Sènior A</strong></a></li>
+            <li><a><strong>Sènior B</strong></a></li>
+            <li><a><strong>Sènior C</strong></a></li>
+            <li><a><strong>Juvenil A</strong></a></li>
+            <li><a><strong>Juvenil B</strong></a></li>
+            <li><a><strong>Juvenil C</strong></a></li>
+            <li><a><strong>Infantil A</strong></a></li>
           </ul>
         </li>
 
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a><strong>Patrocinadors</strong></a></li>
-        <li><a><strong>La Penya</strong></a></li>
-        <li><a href="#/contacte"><strong>Contacte</strong></a></li>
+        <li><a class="navlink"><strong>Patrocinadors</strong></a></li>
+        <li><a class="navlink"><strong>La Penya</strong></a></li>
+        <li><a class="navlink" href="#/contacte"><strong>Contacte</strong></a></li>
         <li><a target="_blank" href="https://twitter.com/CscFutsal" class="fa fa-twitter"></a></li>
         <li><a target="_blank" href="https://www.instagram.com/cscfutsal/" class="fa fa-instagram"></a></li>
       </ul>

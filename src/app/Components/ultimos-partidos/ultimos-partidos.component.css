@@ -1,14 +1,28 @@
 h4{
   background-color: #333;
-  color: #ebebeb;
+  color: #fcfcfc;
   border-radius: 3px;
   border-color: #101010;
   padding: 10px;
 }
 h5{
   background-color: #333;
-  color: #ebebeb;
+  color: #fcfcfc;
   border-radius: 3px;
   border-color: #101010;
   padding: 10px;
+}
+tbody{
+  font-size: 14px;
+  font-weight: bold;
+}
+.equip{
+  width: 33% !important;
+  vertical-align: middle;
+}
+.infor{
+  width: 33% !important;
+}
+.menor{
+  font-size: 12px;
 }

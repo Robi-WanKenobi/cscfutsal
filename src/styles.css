@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+.navlink{
+  color: #fcfcfc !important;
+}
+.navlink:hover{
+  text-decoration: underline !important;
+}
+html{
+  font-family: 'Lato';
+}
+/* Style all font awesome icons */
+.fa {
+  padding: 40px;
+  font-size: 20px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  color: white !important;
+}
+
+/* Add a hover effect if you want */
+.fa-twitter:hover {
+  color: #55ACEE !important;
+}
+
+.fa-instagram:hover{
+  color: #fb7f2f !important;
+}

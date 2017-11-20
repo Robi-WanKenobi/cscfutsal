@@ -15,14 +15,14 @@ import { UltimosPartidosComponent } from './Components/ultimos-partidos/ultimos-
 import { ProximosPartidosComponent } from './Components/proximos-partidos/proximos-partidos.component';
 import { ContactoComponent } from './Layouts/contacto/contacto.component';
 import { PlantillaComponent } from './Components/plantilla/plantilla.component';
-
+import { EquipoComponent } from './Layouts/equipo/equipo.component';
 
 
 const ROUTES = [
   { path: '', redirectTo: 'inici', pathMatch: 'full' },
   { path: 'inici', component: InicioComponent },
   { path: 'contacte', component: ContactoComponent},
-  { path: 'plantilla', component: PlantillaComponent}
+  { path: 'equip', component: EquipoComponent}
 ];
 
 @NgModule({
@@ -32,7 +32,8 @@ const ROUTES = [
     UltimosPartidosComponent,
     ProximosPartidosComponent,
     ContactoComponent,
-    PlantillaComponent
+    PlantillaComponent,
+    EquipoComponent,
   ],
   imports: [BrowserModule,
     FormsModule,

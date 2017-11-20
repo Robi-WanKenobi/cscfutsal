@@ -17,7 +17,7 @@ export class PlantillaComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.forEach((params: Params) => {
-      this.equipo = params['equipo'];
+      this.equipo = params['cat'];
       console.log(this.equipo);
       this.getJugadores(this.equipo);
     });

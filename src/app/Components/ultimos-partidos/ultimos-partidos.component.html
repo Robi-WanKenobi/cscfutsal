@@ -4,27 +4,20 @@
 </h4>
 
 <table class="table table-condensed">
-  <!--<thead>
-  <tr>
-    <th><p class="text-center">Local</p></th>
-    <th><p class="text-center">Resultado</p></th>
-    <th><p class="text-center">Visitante</p></th>
-  </tr>
-  </thead>!-->
-  <tbody style="font-size: 14px; font-weight: bold">
+  <tbody>
   <tr>
     <td></td>
     <td><h5 class="text-center"><strong>SÈNIOR</strong></h5></td>
     <td></td>
   </tr>
   <tr>
-    <td style="width: 33% !important; vertical-align: middle"><p class="text-center">{{ partidoSeniorA.local }}</p></td>
-    <td align="center" style="width: 33% !important;">
-      <p class="text-center" style="font-size: 12px">{{ partidoSeniorA.fecha }}</p>
+    <td class="equip"><p class="text-center">{{ partidoSeniorA.local }}</p></td>
+    <td class="infor" align="center">
+      <p class="text-center menor">{{ partidoSeniorA.fecha }}</p>
       <p class="text-center">{{ partidoSeniorA.resultado }}</p>
-      <p class="text-center" style="font-size: 12px">{{ partidoSeniorA.lugar }}</p>
+      <p class="text-center menor">{{ partidoSeniorA.lugar }}</p>
     </td>
-    <td style="width: 33% !important; vertical-align: middle"><p class="text-center">{{ partidoSeniorA.visitante }}</p></td>
+    <td class="equip"><p class="text-center">{{ partidoSeniorA.visitante }}</p></td>
   </tr>
   <tr>
     <td style="width: 33% !important; vertical-align: middle"><p class="text-center">{{ partidoSeniorB.local }}</p></td>
