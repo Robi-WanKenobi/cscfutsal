@@ -1,4 +1,4 @@
-h4{
+h5{
   background-color: #333;
   color: #fcfcfc;
   border-radius: 3px;
@@ -6,7 +6,7 @@ h4{
   padding: 10px;
 }
 #dorsal{
-  background-color: #fcfcfc;
+  background-color: #e8e8e8;
   color: #333;
   border-radius: 3px;
   border-color: #101010;

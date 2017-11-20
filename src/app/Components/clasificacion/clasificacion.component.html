@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <table class="table">
+      <thead style="font-weight: bold;">
+      <td>Posició</td>
+      <td>Equip</td>
+      <td>Punts</td>
+      <td>PG</td>
+      <td>PE</td>
+      <td>PP</td>
+      <td>GF</td>
+      <td>GC</td>
+      </thead>
+      <tbody>
+      <tr *ngFor="let e of clasificacion">
+        <td>{{e.posicion}}</td>
+        <td>{{e.nombre}}</td>
+        <td>{{e.puntos}}</td>
+        <td>{{e.partidos.ganados}}</td>
+        <td>{{e.partidos.empatados}}</td>
+        <td>{{e.partidos.perdidos}}</td>
+        <td>{{e.goles.favor}}</td>
+        <td>{{e.goles.contra}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

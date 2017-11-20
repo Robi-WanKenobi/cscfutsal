@@ -13,7 +13,7 @@ h5{
   padding: 10px;
 }
 tbody{
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
 }
 .equip{
@@ -24,5 +24,10 @@ tbody{
   width: 33% !important;
 }
 .menor{
-  font-size: 12px;
+  font-size: 10px;
+}
+li a{
+  color: #333;
+  font-weight: bold;
+  font-size: 18px;
 }

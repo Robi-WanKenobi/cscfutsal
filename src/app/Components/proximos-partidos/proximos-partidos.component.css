@@ -12,3 +12,22 @@ h5{
   border-color: #101010;
   padding: 10px;
 }
+tbody{
+  font-size: 12px;
+  font-weight: bold;
+}
+.equip{
+  width: 33% !important;
+  vertical-align: middle;
+}
+.infor{
+  width: 33% !important;
+}
+.menor{
+  font-size: 10px;
+}
+li a{
+  color: #333;
+  font-weight: bold;
+  font-size: 18px;
+}

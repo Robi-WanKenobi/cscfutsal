@@ -2,16 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Params, ActivatedRoute } from '@angular/router';
 import { EquipoService} from "../../Services/equipo.service";
 
-
 @Component({
-  selector: 'app-plantilla',
-  templateUrl: './plantilla.component.html',
-  styleUrls: ['./plantilla.component.css']
+  selector: 'app-clasificacion',
+  templateUrl: './clasificacion.component.html',
+  styleUrls: ['./clasificacion.component.css']
 })
-export class PlantillaComponent implements OnInit {
+export class ClasificacionComponent implements OnInit {
 
   equipo: string;
-  jugadores: any;
+  clasificacion: any;
 
   constructor(public equipoService: EquipoService, private route:  ActivatedRoute) { }
 
@@ -19,15 +18,16 @@ export class PlantillaComponent implements OnInit {
     this.route.queryParams.forEach((params: Params) => {
       this.equipo = params['cat'];
       console.log(this.equipo);
-      this.getJugadores(this.equipo);
+      this.getClasificacion();
     });
   }
 
-  getJugadores(equipo) {
-    this.equipoService.getJugadores(this.equipo).then((res) => {
-      this.jugadores = res;
+  getClasificacion() {
+    this.equipoService.getClasificacion().then((res) => {
+      this.clasificacion = res;
     }, (err) => {
       console.log(err);
     });
   }
+
 }

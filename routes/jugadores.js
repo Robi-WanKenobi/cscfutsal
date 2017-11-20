@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 
 /*GET JUGADORES POR EQUIPO*/
 router.get('/:equipo', function(req, res, next) {
-  Jugador.find({'equipo': req.params.equipo}).exec(function (err, jugadores) {
+  Jugador.find({'equipo': req.params.equipo}, null, {sort: {dorsal: 1 }}).exec(function (err, jugadores) {
     if (err) return next(err);
     res.json(jugadores);
   });

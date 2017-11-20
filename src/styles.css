@@ -4,17 +4,11 @@
 .navlink:hover{
   text-decoration: underline !important;
 }
-html{
-  font-family: 'Lato';
+body{
+  font-family: 'Roboto';
 }
 /* Style all font awesome icons */
 .fa {
-  padding: 40px;
-  font-size: 20px;
-  width: 50px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 50%;
   color: white !important;
 }
 
@@ -24,5 +18,11 @@ html{
 }
 
 .fa-instagram:hover{
-  color: #fb7f2f !important;
+  background: #fbad50; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(-135deg, #8a3ab9, #cd486b, #fbad50, #fccc63); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(-135deg, #8a3ab9, #cd486b, #fbad50, #fccc63); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(-135deg, #8a3ab9, #cd486b, #fbad50, #fccc63); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(-135deg, #8a3ab9, #cd486b, #fbad50, #fccc63); /* Standard syntax */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

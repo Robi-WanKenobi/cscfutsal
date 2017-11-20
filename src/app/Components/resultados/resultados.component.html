@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <table class="table">
+      <thead style="font-weight: bold;">
+      <td>Local</td>
+      <td>Resultat</td>
+      <td>Visitant</td>
+      </thead>
+      <tbody>
+      <tr *ngFor="let p of jornada">
+        <td>{{p.local}}</td>
+        <td>{{p.resultado}}</td>
+        <td>{{p.visitante}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
