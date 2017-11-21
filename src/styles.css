@@ -5,7 +5,8 @@
   text-decoration: underline !important;
 }
 body{
-  font-family: 'Roboto';
+  background-color: #fcfcfc !important;
+  font-family: 'Roboto' !important;
 }
 /* Style all font awesome icons */
 .fa {
