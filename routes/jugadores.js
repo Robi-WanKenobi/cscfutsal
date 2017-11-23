@@ -28,28 +28,4 @@ router.get('/:id', function(req, res, next) {
   });
 });
 
-/* SAVE JUGADOR */
-router.post('/', function(req, res) {
-  Jugador.create(req.body, function (err, jugador) {
-    if (err) return next(err);
-    res.json(jugador);
-  });
-});
-
-/* DELETE JUGADOR */
-router.delete('/:id', function(req, res, next) {
-  Jugador.findByIdAndRemove(req.params.id, req.body, function (err, jugador) {
-    if (err) return next(err);
-    res.json(jugador);
-  });
-});
-
-/* UPDATE JUGADOR */
-router.put('/:id', function(req, res, next) {
-  Jugador.findByIdAndUpdate(req.params.id, req.body, function (err, jugador) {
-    if (err) return next(err);
-    res.json(jugador);
-  });
-});
-
 module.exports = router;

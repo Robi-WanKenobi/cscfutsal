@@ -21,10 +21,12 @@ mongoose.connect('mongodb://localhost/cscfutsaldb', function(err, res) {
 var partidos = require('./routes/partidos');
 var jugadores = require('./routes/jugadores');
 var equipos = require('./routes/equipos');
+var admin = require('./routes/admin')
 
 app.use('/partidos', partidos);
 app.use('/jugadores', jugadores);
 app.use('/equipos', equipos);
+app.use('/admin', admin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

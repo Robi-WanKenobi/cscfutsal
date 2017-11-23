@@ -18,13 +18,20 @@ import { PlantillaComponent } from './Components/plantilla/plantilla.component';
 import { EquipoComponent } from './Layouts/equipo/equipo.component';
 import { ClasificacionComponent } from './Components/clasificacion/clasificacion.component';
 import { ResultadosComponent } from './Components/resultados/resultados.component';
+import {JugadorService} from "./Services/jugador.service";
+import {AdminService} from "./Services/admin.service";
+import { AdminLoginComponent } from './Components/Admin/admin-login/admin-login.component';
+import { AdminComponent } from './Layouts/admin/admin.component';
+import {AuthGuard} from "./Guard/auth.guard";
 
 
-const ROUTES = [
+const appRoutes: Routes = [
   { path: '', redirectTo: 'inici', pathMatch: 'full' },
   { path: 'inici', component: InicioComponent },
   { path: 'contacte', component: ContactoComponent},
-  { path: 'equip', component: EquipoComponent}
+  { path: 'equip', component: EquipoComponent},
+  { path: 'login', component: AdminLoginComponent},
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
@@ -38,12 +45,15 @@ const ROUTES = [
     EquipoComponent,
     ClasificacionComponent,
     ResultadosComponent,
+    AdminLoginComponent,
+    AdminComponent
   ],
   imports: [BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES)],
-  providers: [PartidosService, EquipoService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
+    RouterModule.forRoot(appRoutes)],
+  providers: [PartidosService, EquipoService, AdminService, JugadorService, AuthGuard,
+     {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
