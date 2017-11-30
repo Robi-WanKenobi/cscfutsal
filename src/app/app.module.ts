@@ -28,6 +28,9 @@ import { CalendarioComponent } from './Components/calendario/calendario.componen
 import { MaxGolClubComponent } from './Components/max-gol-club/max-gol-club.component';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { Loader2Component } from './shared/loader2/loader2.component';
+import { MaxAsisClubComponent } from './Components/max-asis-club/max-asis-club.component';
+import { MaxAmonClubComponent } from './Components/max-amon-club/max-amon-club.component';
+import { AdminAddJugadorComponent } from './Components/Admin/admin-add-jugador/admin-add-jugador.component';
 
 
 const appRoutes: Routes = [
@@ -57,7 +60,10 @@ const appRoutes: Routes = [
     CalendarioComponent,
     MaxGolClubComponent,
     LoaderComponent,
-    Loader2Component
+    Loader2Component,
+    MaxAsisClubComponent,
+    MaxAmonClubComponent,
+    AdminAddJugadorComponent
   ],
   imports: [BrowserModule,
     FormsModule,

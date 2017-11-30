@@ -1,18 +1,14 @@
-h5{
+h6{
   background-color: #333;
   color: #fcfcfc;
   border-radius: 3px;
   border-color: #101010;
-  padding: 10px;
+  padding: 5px;
 }
-.dorsal{
+#dorsal{
   background-color: #e8e8e8;
   color: #333;
   border-radius: 3px;
   border-color: #101010;
-  padding: 7px;
-}
-li a{
-  color: #333;
-  font-weight: bold;
+  padding: 5px;
 }

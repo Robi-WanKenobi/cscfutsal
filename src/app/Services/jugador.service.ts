@@ -31,6 +31,30 @@ export class JugadorService {
     });
   }
 
+  getMaxAsisClub() {
+    return new Promise((resolve, reject) => {
+      this.http.get('/jugadores/max_asis_club')
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  getMaxAmonClub() {
+    return new Promise((resolve, reject) => {
+      this.http.get('/jugadores/max_amon_club')
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
   getJugador(id) {
     return new Promise((resolve, reject) => {
       this.http.get('/jugadores/' + id)

@@ -20,6 +20,22 @@ router.get('/max_goles_club', function(req, res, next) {
   });
 });
 
+/*GET MAX ASISTENTES CLUB*/
+router.get('/max_asis_club', function(req, res, next) {
+  Jugador.find(null, null, {sort: { "estadisticas.asistencias": -1 }}).limit(3).exec(function (err, jugadores) {
+    if (err) return next(err);
+    res.json(jugadores);
+  });
+});
+
+/*GET MAX AMONESTADOS CLUB*/
+router.get('/max_amon_club', function(req, res, next) {
+  Jugador.find(null, null, {sort: { "estadisticas.amarillas": -1 }}).limit(3).exec(function (err, jugadores) {
+    if (err) return next(err);
+    res.json(jugadores);
+  });
+});
+
 /*GET JUGADORES POR EQUIPO*/
 router.get('/equipo/:equipo', function(req, res, next) {
   Jugador.find({'equipo': req.params.equipo}, null, {sort: {dorsal: 1 }}).exec(function (err, jugadores) {
