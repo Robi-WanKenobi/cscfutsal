@@ -1,14 +1,16 @@
 <div class="container"></div>
 <h4 class="text-center">
   PROPERS PARTITS
+  <app-loader style="float: right" [loading]="loading"></app-loader>
 </h4>
 
-<ul class="nav nav-tabs nav-justified">
+<ul class="nav nav-tabs nav-justified" *ngIf="!loading">
   <li class="active"><a data-toggle="pill" href="#psenior">Sènior</a></li>
   <li><a data-toggle="pill" href="#pjuvenil">Juvenil</a></li>
+  <li><a data-toggle="pill" href="#pinfantil">Infantil</a></li>
 </ul>
 
-<div class="tab-content">
+<div class="tab-content" *ngIf="!loading">
   <div id="psenior" class="tab-pane fade in active">
     <table class="table table-condensed">
       <tbody>

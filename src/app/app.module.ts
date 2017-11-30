@@ -23,6 +23,12 @@ import {AdminService} from "./Services/admin.service";
 import { AdminLoginComponent } from './Components/Admin/admin-login/admin-login.component';
 import { AdminComponent } from './Layouts/admin/admin.component';
 import {AuthGuard} from "./Guard/auth.guard";
+import { JugadorDetailsComponent } from './Components/jugador-details/jugador-details.component';
+import { AdminPlantillaComponent } from './Components/Admin/admin-plantilla/admin-plantilla.component';
+import { CalendarioComponent } from './Components/calendario/calendario.component';
+import { MaxGolClubComponent } from './Components/max-gol-club/max-gol-club.component';
+import { LoaderComponent } from './shared/loader/loader.component';
+import { Loader2Component } from './shared/loader2/loader2.component';
 
 
 const appRoutes: Routes = [
@@ -30,6 +36,7 @@ const appRoutes: Routes = [
   { path: 'inici', component: InicioComponent },
   { path: 'contacte', component: ContactoComponent},
   { path: 'equip', component: EquipoComponent},
+  { path: 'jugador/:id', component: JugadorDetailsComponent},
   { path: 'login', component: AdminLoginComponent},
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]}
 ];
@@ -46,7 +53,13 @@ const appRoutes: Routes = [
     ClasificacionComponent,
     ResultadosComponent,
     AdminLoginComponent,
-    AdminComponent
+    AdminComponent,
+    JugadorDetailsComponent,
+    AdminPlantillaComponent,
+    CalendarioComponent,
+    MaxGolClubComponent,
+    LoaderComponent,
+    Loader2Component
   ],
   imports: [BrowserModule,
     FormsModule,

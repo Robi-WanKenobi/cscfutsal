@@ -21,7 +21,7 @@ export class EquipoService {
 
   getJugadores(equipo) {
     return new Promise((resolve, reject) => {
-      this.http.get('jugadores/' + equipo)
+      this.http.get('jugadores/equipo/' + equipo)
         .map(res => res.json())
         .subscribe(res => {
           resolve(res);
@@ -31,9 +31,9 @@ export class EquipoService {
     });
   }
 
-  getClasificacion() {
+  getClasificacion(equipo, jornada) {
     return new Promise((resolve, reject) => {
-      this.http.get('equipos/clasificacion/')
+      this.http.get('equipos/clasificacion/' + equipo + '/' + jornada)
         .map(res => res.json())
         .subscribe(res => {
           resolve(res);
@@ -43,9 +43,9 @@ export class EquipoService {
     });
   }
 
-  getResultados(jornada) {
+  getResultados(equipo, jornada) {
     return new Promise((resolve, reject) => {
-      this.http.get('equipos/resultados/seniorA/' + jornada)
+      this.http.get('equipos/resultados/' + equipo + '/' + jornada)
         .map(res => res.json())
         .subscribe(res => {
           resolve(res);

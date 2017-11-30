@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-4" *ngFor="let j of jugadores">
+    <h6 class="text-center">
+      <p id="dorsal" style="float: left;"><strong>{{j.dorsal}}</strong></p>
+      {{j.apodo}}
+    </h6>
+    <img class="img-responsive" src="../../../assets/plantillas/xim2016.jpg"
+         style="max-width: 100%; max-height: 100%;margin-left: auto;margin-right: auto;display: block;"/>
+    <h6 class="text-center">
+      {{ j.posicion}}
+    </h6>
+    <p style="text-align: center; word-spacing: inherit"><strong>{{j.estadisticas.goles}}</strong>  <i style="color: #333 !important;" class="fa fa-futbol-o"></i>
+    </p>
+  </div>
+</div>

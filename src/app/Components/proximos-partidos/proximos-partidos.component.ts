@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { PartidosService} from '../../Services/partidos.service';
 
 @Component({
@@ -8,22 +8,25 @@ import { PartidosService} from '../../Services/partidos.service';
 })
 export class ProximosPartidosComponent implements OnInit {
 
-  partidoSeniorA: {};
-  partidoSeniorB: {};
-  partidoSeniorC: {};
-  partidoJuvenilA: {};
-  partidoJuvenilB: {};
-  partidoJuvenilC: {};
+  @Input() partidoSeniorA: {};
+  @Input() partidoSeniorB: {};
+  @Input() partidoSeniorC: {};
+  @Input() partidoJuvenilA: {};
+  @Input() partidoJuvenilB: {};
+  @Input() partidoJuvenilC: {};
+
+  loading: boolean;
 
   constructor(private partidosService: PartidosService) { }
 
   ngOnInit() {
+    this.loading = true;
     this.setNextJornada();
   }
 
   setNextJornada() {
     this.partidosService.getJornadaProxima().then((res) => {
-      console.log(res);
+      this.loading = false;
       this.getNextSeniorAPartido(res);
       this.getNextSeniorBPartido(res);
       this.getNextSeniorCPartido(res);
@@ -38,7 +41,6 @@ export class ProximosPartidosComponent implements OnInit {
   getNextSeniorAPartido(jornada) {
     this.partidosService.getPartidoSeniorA(jornada).then((res) => {
       this.partidoSeniorA = res;
-      console.log(this.partidoSeniorA);
     }, (err) => {
       console.log(err);
     });
@@ -47,7 +49,6 @@ export class ProximosPartidosComponent implements OnInit {
   getNextSeniorBPartido(jornada) {
     this.partidosService.getPartidoSeniorB(jornada).then((res) => {
       this.partidoSeniorB = res;
-      console.log(this.partidoSeniorB);
     }, (err) => {
       console.log(err);
     });
@@ -56,7 +57,6 @@ export class ProximosPartidosComponent implements OnInit {
   getNextSeniorCPartido(jornada) {
     this.partidosService.getPartidoSeniorC(jornada).then((res) => {
       this.partidoSeniorC = res;
-      console.log(this.partidoSeniorC);
     }, (err) => {
       console.log(err);
     });
@@ -65,7 +65,6 @@ export class ProximosPartidosComponent implements OnInit {
   getNextJuvenilAPartido(jornada) {
     this.partidosService.getPartidoJuvenilA(jornada).then((res) => {
       this.partidoJuvenilA = res;
-      console.log(this.partidoJuvenilA);
     }, (err) => {
       console.log(err);
     });
@@ -74,7 +73,6 @@ export class ProximosPartidosComponent implements OnInit {
   getNextJuvenilBPartido(jornada) {
     this.partidosService.getPartidoJuvenilB(jornada).then((res) => {
       this.partidoJuvenilB = res;
-      console.log(this.partidoJuvenilB);
     }, (err) => {
       console.log(err);
     });
@@ -83,7 +81,6 @@ export class ProximosPartidosComponent implements OnInit {
   getNextJuvenilCPartido(jornada) {
     this.partidosService.getPartidoJuvenilC(jornada).then((res) => {
       this.partidoJuvenilC = res;
-      console.log(this.partidoJuvenilC);
     }, (err) => {
       console.log(err);
     });

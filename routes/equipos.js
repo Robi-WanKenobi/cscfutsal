@@ -26,12 +26,12 @@ router.get('/jornada/actual', function(req, res, next) {
 });
 
 /* GET clasificacion Senior A*/
-router.get('/clasificacion', function(req, res, next) {
+router.get('/clasificacion/S%C3%A8nior%20A/:jornada', function(req, res, next) {
 
   var json = [];
   var equipo = {};
 
-  seniorA = 'http://fcf.cat/classificacio/1718/futbol-sala/lliga-divisio-honor-catalana-futbol-sala/grup-2';
+  seniorA = 'http://fcf.cat/classificacio/1718/futbol-sala/lliga-divisio-honor-catalana-futbol-sala/grup-2/jornada-'+req.params.jornada;
   request(seniorA, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
@@ -70,7 +70,7 @@ router.get('/clasificacion', function(req, res, next) {
 });
 
 /* GET resultados Senior A*/
-router.get('/resultados/seniorA/:jornada', function(req, res, next) {
+router.get('/resultados/S%C3%A8nior%20A/:jornada', function(req, res, next) {
 
   var json = [];
   var partido = {
@@ -83,6 +83,411 @@ router.get('/resultados/seniorA/:jornada', function(req, res, next) {
 
   seniorA = 'http://fcf.cat/resultats/1718/futbol-sala/lliga-divisio-honor-catalana-futbol-sala/grup-2/jornada-'+req.params.jornada;
   request(seniorA, function(error, response, html) {
+    if (!error && response.statusCode == 200) {
+      var $ = cheerio.load(html);
+      $('tr.linia').each(function(i, element) {
+        partido = {
+          local: "",
+          visitante: "",
+          resultado: "",
+          fecha: "",
+          lugar: ""
+        };
+
+        partido.local = $(this).find('td.p-5.resultats-w-equip.tr a').text();
+        partido.visitante = $(this).find('tr.linia td.p-5.resultats-w-equip.tl a').text();
+        partido.resultado = $(this).find('tr.linia td.p-5.resultats-w-resultat.tc a div.tc.fs-17').text();
+        partido.fecha = $(this).find('tr.linia td.p-5.resultats-w-resultat.tc a div.tc.fs-9').text();
+        partido.lugar = $(this).find('tr.linia td.p-5.resultats-w-text2.tr.fs-9 a').text();
+        json.push(partido);
+      });
+      res.json(json);
+    }
+  });
+});
+
+/* GET clasificacion Senior B*/
+router.get('/clasificacion/S%C3%A8nior%20B/:jornada', function(req, res, next) {
+
+  var json = [];
+  var equipo = {};
+
+  seniorB = 'http://fcf.cat/classificacio/1718/futbol-sala/lliga-primera-divisio-catalana-futbol-sala/grup-2/jornada-'+req.params.jornada;
+  request(seniorB, function(error, response, html) {
+    if (!error && response.statusCode == 200) {
+      var $ = cheerio.load(html);
+
+      $('table.fcftable-comp tbody tr').each(function(i, element) {
+        equipo = {
+          posicion: "",
+          nombre: "",
+          puntos: "",
+          jugados: "",
+          partidos: {
+            ganados: "",
+            empatados: "",
+            perdidos: ""
+          },
+          goles: {
+            favor: "",
+            contra: ""
+          }
+        };
+        equipo.posicion = $(this).find('td:nth-child(1)').text();
+        equipo.nombre = $(this).find('td:nth-child(4)').text();
+        equipo.puntos = $(this).find('td:nth-child(5)').text();
+        equipo.jugados = $(this).find('td:nth-child(6)').text();
+        equipo.partidos.ganados = $(this).find('td:nth-child(7)').text();
+        equipo.partidos.empatados = $(this).find('td:nth-child(8)').text();
+        equipo.partidos.perdidos = $(this).find('td:nth-child(9)').text();
+        equipo.goles.favor = $(this).find('td:nth-child(18)').text();
+        equipo.goles.contra = $(this).find('td:nth-child(19)').text();
+        json.push(equipo);
+      });
+      console.log(json);
+      res.json(json);
+    }
+  });
+});
+
+/* GET resultados Senior B*/
+router.get('/resultados/S%C3%A8nior%20B/:jornada', function(req, res, next) {
+
+  var json = [];
+  var partido = {
+    local: "",
+    visitante: "",
+    resultado: "",
+    fecha: "",
+    lugar: ""
+  };
+
+  seniorB = 'http://fcf.cat/resultats/1718/futbol-sala/lliga-primera-divisio-catalana-futbol-sala/grup-2/jornada-'+req.params.jornada;
+  request(seniorB, function(error, response, html) {
+    if (!error && response.statusCode == 200) {
+      var $ = cheerio.load(html);
+      $('tr.linia').each(function(i, element) {
+        partido = {
+          local: "",
+          visitante: "",
+          resultado: "",
+          fecha: "",
+          lugar: ""
+        };
+
+        partido.local = $(this).find('td.p-5.resultats-w-equip.tr a').text();
+        partido.visitante = $(this).find('tr.linia td.p-5.resultats-w-equip.tl a').text();
+        partido.resultado = $(this).find('tr.linia td.p-5.resultats-w-resultat.tc a div.tc.fs-17').text();
+        partido.fecha = $(this).find('tr.linia td.p-5.resultats-w-resultat.tc a div.tc.fs-9').text();
+        partido.lugar = $(this).find('tr.linia td.p-5.resultats-w-text2.tr.fs-9 a').text();
+        json.push(partido);
+      });
+      res.json(json);
+    }
+  });
+});
+
+/* GET clasificacion Senior C*/
+router.get('/clasificacion/S%C3%A8nior%20C/:jornada', function(req, res, next) {
+
+  var json = [];
+  var equipo = {};
+
+  seniorC = 'http://fcf.cat/classificacio/1718/futbol-sala/lliga-tercera-divisio-catalana-futbol-sala/grup-6/jornada-'+req.params.jornada;
+  request(seniorC, function(error, response, html) {
+    if (!error && response.statusCode == 200) {
+      var $ = cheerio.load(html);
+
+      $('table.fcftable-comp tbody tr').each(function(i, element) {
+        equipo = {
+          posicion: "",
+          nombre: "",
+          puntos: "",
+          jugados: "",
+          partidos: {
+            ganados: "",
+            empatados: "",
+            perdidos: ""
+          },
+          goles: {
+            favor: "",
+            contra: ""
+          }
+        };
+        equipo.posicion = $(this).find('td:nth-child(1)').text();
+        equipo.nombre = $(this).find('td:nth-child(4)').text();
+        equipo.puntos = $(this).find('td:nth-child(5)').text();
+        equipo.jugados = $(this).find('td:nth-child(6)').text();
+        equipo.partidos.ganados = $(this).find('td:nth-child(7)').text();
+        equipo.partidos.empatados = $(this).find('td:nth-child(8)').text();
+        equipo.partidos.perdidos = $(this).find('td:nth-child(9)').text();
+        equipo.goles.favor = $(this).find('td:nth-child(18)').text();
+        equipo.goles.contra = $(this).find('td:nth-child(19)').text();
+        json.push(equipo);
+      });
+      console.log(json);
+      res.json(json);
+    }
+  });
+});
+
+/* GET resultados Senior C*/
+router.get('/resultados/S%C3%A8nior%20C/:jornada', function(req, res, next) {
+
+  var json = [];
+  var partido = {
+    local: "",
+    visitante: "",
+    resultado: "",
+    fecha: "",
+    lugar: ""
+  };
+
+  seniorC = 'http://fcf.cat/resultats/1718/futbol-sala/lliga-tercera-divisio-catalana-futbol-sala/grup-6/jornada-'+req.params.jornada;
+  request(seniorC, function(error, response, html) {
+    if (!error && response.statusCode == 200) {
+      var $ = cheerio.load(html);
+      $('tr.linia').each(function(i, element) {
+        partido = {
+          local: "",
+          visitante: "",
+          resultado: "",
+          fecha: "",
+          lugar: ""
+        };
+
+        partido.local = $(this).find('td.p-5.resultats-w-equip.tr a').text();
+        partido.visitante = $(this).find('tr.linia td.p-5.resultats-w-equip.tl a').text();
+        partido.resultado = $(this).find('tr.linia td.p-5.resultats-w-resultat.tc a div.tc.fs-17').text();
+        partido.fecha = $(this).find('tr.linia td.p-5.resultats-w-resultat.tc a div.tc.fs-9').text();
+        partido.lugar = $(this).find('tr.linia td.p-5.resultats-w-text2.tr.fs-9 a').text();
+        json.push(partido);
+      });
+      res.json(json);
+    }
+  });
+});
+
+/* GET clasificacion Juvenil A*/
+router.get('/clasificacion/Juvenil%20A/:jornada', function(req, res, next) {
+
+  var json = [];
+  var equipo = {};
+
+  juvenilA = 'http://fcf.cat/classificacio/1718/futbol-sala/lliga-segona-divisio-juvenil-futbol-sala/grup-3/jornada-'+req.params.jornada;
+  request(juvenilA, function(error, response, html) {
+    if (!error && response.statusCode == 200) {
+      var $ = cheerio.load(html);
+
+      $('table.fcftable-comp tbody tr').each(function(i, element) {
+        equipo = {
+          posicion: "",
+          nombre: "",
+          puntos: "",
+          jugados: "",
+          partidos: {
+            ganados: "",
+            empatados: "",
+            perdidos: ""
+          },
+          goles: {
+            favor: "",
+            contra: ""
+          }
+        };
+        equipo.posicion = $(this).find('td:nth-child(1)').text();
+        equipo.nombre = $(this).find('td:nth-child(4)').text();
+        equipo.puntos = $(this).find('td:nth-child(5)').text();
+        equipo.jugados = $(this).find('td:nth-child(6)').text();
+        equipo.partidos.ganados = $(this).find('td:nth-child(7)').text();
+        equipo.partidos.empatados = $(this).find('td:nth-child(8)').text();
+        equipo.partidos.perdidos = $(this).find('td:nth-child(9)').text();
+        equipo.goles.favor = $(this).find('td:nth-child(18)').text();
+        equipo.goles.contra = $(this).find('td:nth-child(19)').text();
+        json.push(equipo);
+      });
+      console.log(json);
+      res.json(json);
+    }
+  });
+});
+
+/* GET resultados Juvenil A*/
+router.get('/resultados/Juvenil%20A/:jornada', function(req, res, next) {
+
+  var json = [];
+  var partido = {
+    local: "",
+    visitante: "",
+    resultado: "",
+    fecha: "",
+    lugar: ""
+  };
+
+  juvenilA = 'http://fcf.cat/resultats/1718/futbol-sala/lliga-segona-divisio-juvenil-futbol-sala/grup-3/jornada-'+req.params.jornada;
+  request(juvenilA, function(error, response, html) {
+    if (!error && response.statusCode == 200) {
+      var $ = cheerio.load(html);
+      $('tr.linia').each(function(i, element) {
+        partido = {
+          local: "",
+          visitante: "",
+          resultado: "",
+          fecha: "",
+          lugar: ""
+        };
+
+        partido.local = $(this).find('td.p-5.resultats-w-equip.tr a').text();
+        partido.visitante = $(this).find('tr.linia td.p-5.resultats-w-equip.tl a').text();
+        partido.resultado = $(this).find('tr.linia td.p-5.resultats-w-resultat.tc a div.tc.fs-17').text();
+        partido.fecha = $(this).find('tr.linia td.p-5.resultats-w-resultat.tc a div.tc.fs-9').text();
+        partido.lugar = $(this).find('tr.linia td.p-5.resultats-w-text2.tr.fs-9 a').text();
+        json.push(partido);
+      });
+      res.json(json);
+    }
+  });
+});
+
+/* GET clasificacion Juvenil B*/
+router.get('/clasificacion/Juvenil%20B/:jornada', function(req, res, next) {
+
+  var json = [];
+  var equipo = {};
+
+  juvenilB = 'http://fcf.cat/classificacio/1718/futbol-sala/lliga-tercera-divisio-juvenil-futbol-sala/grup-6/jornada-'+req.params.jornada;
+  request(juvenilB, function(error, response, html) {
+    if (!error && response.statusCode == 200) {
+      var $ = cheerio.load(html);
+
+      $('table.fcftable-comp tbody tr').each(function(i, element) {
+        equipo = {
+          posicion: "",
+          nombre: "",
+          puntos: "",
+          jugados: "",
+          partidos: {
+            ganados: "",
+            empatados: "",
+            perdidos: ""
+          },
+          goles: {
+            favor: "",
+            contra: ""
+          }
+        };
+        equipo.posicion = $(this).find('td:nth-child(1)').text();
+        equipo.nombre = $(this).find('td:nth-child(4)').text();
+        equipo.puntos = $(this).find('td:nth-child(5)').text();
+        equipo.jugados = $(this).find('td:nth-child(6)').text();
+        equipo.partidos.ganados = $(this).find('td:nth-child(7)').text();
+        equipo.partidos.empatados = $(this).find('td:nth-child(8)').text();
+        equipo.partidos.perdidos = $(this).find('td:nth-child(9)').text();
+        equipo.goles.favor = $(this).find('td:nth-child(18)').text();
+        equipo.goles.contra = $(this).find('td:nth-child(19)').text();
+        json.push(equipo);
+      });
+      console.log(json);
+      res.json(json);
+    }
+  });
+});
+
+/* GET resultados Juvenil B*/
+router.get('/resultados/Juvenil%20B/:jornada', function(req, res, next) {
+
+  var json = [];
+  var partido = {
+    local: "",
+    visitante: "",
+    resultado: "",
+    fecha: "",
+    lugar: ""
+  };
+
+  juvenilB = 'http://fcf.cat/resultats/1718/futbol-sala/lliga-tercera-divisio-juvenil-futbol-sala/grup-6/jornada-'+req.params.jornada;
+  request(juvenilB, function(error, response, html) {
+    if (!error && response.statusCode == 200) {
+      var $ = cheerio.load(html);
+      $('tr.linia').each(function(i, element) {
+        partido = {
+          local: "",
+          visitante: "",
+          resultado: "",
+          fecha: "",
+          lugar: ""
+        };
+
+        partido.local = $(this).find('td.p-5.resultats-w-equip.tr a').text();
+        partido.visitante = $(this).find('tr.linia td.p-5.resultats-w-equip.tl a').text();
+        partido.resultado = $(this).find('tr.linia td.p-5.resultats-w-resultat.tc a div.tc.fs-17').text();
+        partido.fecha = $(this).find('tr.linia td.p-5.resultats-w-resultat.tc a div.tc.fs-9').text();
+        partido.lugar = $(this).find('tr.linia td.p-5.resultats-w-text2.tr.fs-9 a').text();
+        json.push(partido);
+      });
+      res.json(json);
+    }
+  });
+});
+
+/* GET clasificacion Juvenil B*/
+router.get('/clasificacion/Juvenil%20C/:jornada', function(req, res, next) {
+
+  var json = [];
+  var equipo = {};
+
+  juvenilC = 'http://fcf.cat/classificacio/1718/futbol-sala/lliga-tercera-divisio-juvenil-futbol-sala/grup-7/jornada-'+req.params.jornada;
+  request(juvenilC, function(error, response, html) {
+    if (!error && response.statusCode == 200) {
+      var $ = cheerio.load(html);
+
+      $('table.fcftable-comp tbody tr').each(function(i, element) {
+        equipo = {
+          posicion: "",
+          nombre: "",
+          puntos: "",
+          jugados: "",
+          partidos: {
+            ganados: "",
+            empatados: "",
+            perdidos: ""
+          },
+          goles: {
+            favor: "",
+            contra: ""
+          }
+        };
+        equipo.posicion = $(this).find('td:nth-child(1)').text();
+        equipo.nombre = $(this).find('td:nth-child(4)').text();
+        equipo.puntos = $(this).find('td:nth-child(5)').text();
+        equipo.jugados = $(this).find('td:nth-child(6)').text();
+        equipo.partidos.ganados = $(this).find('td:nth-child(7)').text();
+        equipo.partidos.empatados = $(this).find('td:nth-child(8)').text();
+        equipo.partidos.perdidos = $(this).find('td:nth-child(9)').text();
+        equipo.goles.favor = $(this).find('td:nth-child(18)').text();
+        equipo.goles.contra = $(this).find('td:nth-child(19)').text();
+        json.push(equipo);
+      });
+      console.log(json);
+      res.json(json);
+    }
+  });
+});
+
+/* GET resultados Juvenil C*/
+router.get('/resultados/Juvenil%20C/:jornada', function(req, res, next) {
+
+  var json = [];
+  var partido = {
+    local: "",
+    visitante: "",
+    resultado: "",
+    fecha: "",
+    lugar: ""
+  };
+
+  juvenilC = 'http://fcf.cat/resultats/1718/futbol-sala/lliga-tercera-divisio-juvenil-futbol-sala/grup-7/jornada-'+req.params.jornada;
+  request(juvenilC, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
       $('tr.linia').each(function(i, element) {

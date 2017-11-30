@@ -24,7 +24,7 @@ export class PlantillaComponent implements OnInit {
   }
 
   getJugadores(equipo) {
-    this.equipoService.getJugadores(this.equipo).then((res) => {
+    this.equipoService.getJugadores(equipo).then((res) => {
       this.jugadores = res;
     }, (err) => {
       console.log(err);

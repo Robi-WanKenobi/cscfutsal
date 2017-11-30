@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { PartidosService} from '../../Services/partidos.service';
 
 @Component({
@@ -9,22 +9,25 @@ import { PartidosService} from '../../Services/partidos.service';
 
 export class UltimosPartidosComponent implements OnInit {
 
-  partidoSeniorA: {};
-  partidoSeniorB: {};
-  partidoSeniorC: {};
-  partidoJuvenilA: {};
-  partidoJuvenilB: {};
-  partidoJuvenilC: {};
+  @Input() partidoSeniorA: {};
+  @Input() partidoSeniorB: {};
+  @Input() partidoSeniorC: {};
+  @Input() partidoJuvenilA: {};
+  @Input() partidoJuvenilB: {};
+  @Input() partidoJuvenilC: {};
+
+  loading: boolean;
 
   constructor(private partidosService: PartidosService) { }
 
   ngOnInit() {
+    this.loading = true;
     this.setJornadaActual();
   }
 
   setJornadaActual() {
     this.partidosService.getJornadaActual().then((res) => {
-      console.log(res);
+      this.loading = false;
       this.getLastSeniorAPartido(res);
       this.getLastSeniorBPartido(res);
       this.getLastSeniorCPartido(res);
@@ -39,7 +42,6 @@ export class UltimosPartidosComponent implements OnInit {
   getLastSeniorAPartido(jornada) {
     this.partidosService.getPartidoSeniorA(jornada).then((res) => {
       this.partidoSeniorA = res;
-      console.log(this.partidoSeniorA);
     }, (err) => {
       console.log(err);
     });
@@ -48,7 +50,6 @@ export class UltimosPartidosComponent implements OnInit {
   getLastSeniorBPartido(jornada) {
     this.partidosService.getPartidoSeniorB(jornada).then((res) => {
       this.partidoSeniorB = res;
-      console.log(this.partidoSeniorB);
     }, (err) => {
       console.log(err);
     });
@@ -57,7 +58,6 @@ export class UltimosPartidosComponent implements OnInit {
   getLastSeniorCPartido(jornada) {
     this.partidosService.getPartidoSeniorC(jornada).then((res) => {
       this.partidoSeniorC = res;
-      console.log(this.partidoSeniorC);
     }, (err) => {
       console.log(err);
     });
@@ -66,7 +66,6 @@ export class UltimosPartidosComponent implements OnInit {
   getLastJuvenilAPartido(jornada) {
     this.partidosService.getPartidoJuvenilA(jornada).then((res) => {
       this.partidoJuvenilA = res;
-      console.log(this.partidoJuvenilA);
     }, (err) => {
       console.log(err);
     });
@@ -75,7 +74,6 @@ export class UltimosPartidosComponent implements OnInit {
   getLastJuvenilBPartido(jornada) {
     this.partidosService.getPartidoJuvenilB(jornada).then((res) => {
       this.partidoJuvenilB = res;
-      console.log(this.partidoJuvenilB);
     }, (err) => {
       console.log(err);
     });
@@ -84,7 +82,6 @@ export class UltimosPartidosComponent implements OnInit {
   getLastJuvenilCPartido(jornada) {
     this.partidosService.getPartidoJuvenilC(jornada).then((res) => {
       this.partidoJuvenilC = res;
-      console.log(this.partidoJuvenilC);
     }, (err) => {
       console.log(err);
     });

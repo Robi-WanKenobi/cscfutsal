@@ -4,3 +4,14 @@ td{
 table{
   text-align: center !important;
 }
+.row{
+  margin-top: 10px !important;
+}
+span:hover{
+  cursor: pointer !important;
+  font-weight: bold;
+}
+#now:hover{
+  cursor: pointer !important;
+  font-weight: bold;
+}

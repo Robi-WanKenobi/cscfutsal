@@ -63,7 +63,7 @@ router.post('/login', function(req, res) {
 
 
 /*GET ALL JUGADORES*/
-router.get('/', md_auth.ensureAuth, function(req, res, next) {
+router.get('/jugadores', function(req, res, next) {
   Jugador.find().exec(function (err, jugadores) {
     if (err) return next(err);
     res.json(jugadores);
@@ -71,7 +71,7 @@ router.get('/', md_auth.ensureAuth, function(req, res, next) {
 });
 
 /*GET JUGADORES POR EQUIPO*/
-router.get('/:equipo', function(req, res, next) {
+router.get('/jugadores/equipo/:equipo', function(req, res, next) {
   Jugador.find({'equipo': req.params.equipo}, null, {sort: {dorsal: 1 }}).exec(function (err, jugadores) {
     if (err) return next(err);
     res.json(jugadores);
@@ -79,7 +79,8 @@ router.get('/:equipo', function(req, res, next) {
 });
 
 /* GET JUGADOR BY ID */
-router.get('/:id', function(req, res, next) {
+router.get('/jugadores/:id', function(req, res, next) {
+  console.log(req.params.id);
   Jugador.findById(req.params.id).exec(function (err, jugador) {
     if (err) return next(err);
     res.json(jugador);
@@ -87,7 +88,7 @@ router.get('/:id', function(req, res, next) {
 });
 
 /* SAVE JUGADOR */
-router.post('/',md_auth.ensureAuth, function(req, res) {
+router.post('/jugadores/',md_auth.ensureAuth, function(req, res) {
   Jugador.create(req.body, function (err, jugador) {
     if (err) return next(err);
     res.json(jugador);
@@ -95,7 +96,7 @@ router.post('/',md_auth.ensureAuth, function(req, res) {
 });
 
 /* DELETE JUGADOR */
-router.delete('/:id', md_auth.ensureAuth, function(req, res, next) {
+router.delete('/jugadores/:id', md_auth.ensureAuth, function(req, res, next) {
   Jugador.findByIdAndRemove(req.params.id, req.body, function (err, jugador) {
     if (err) return next(err);
     res.json(jugador);
@@ -103,7 +104,7 @@ router.delete('/:id', md_auth.ensureAuth, function(req, res, next) {
 });
 
 /* UPDATE JUGADOR */
-router.put('/:id', md_auth.ensureAuth, function(req, res, next) {
+router.put('/jugadores/:id', md_auth.ensureAuth, function(req, res, next) {
   Jugador.findByIdAndUpdate(req.params.id, req.body, function (err, jugador) {
     if (err) return next(err);
     res.json(jugador);

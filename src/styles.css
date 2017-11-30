@@ -33,4 +33,9 @@ body{
 }
 #acceso:hover{
   text-decoration: underline;
+  color: #434343;
+}
+.footer {
+  position: fixed;
+  bottom: 0%;
 }

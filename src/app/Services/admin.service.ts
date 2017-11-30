@@ -33,4 +33,65 @@ export class AdminService {
         });
     });
   }
+
+  getAllJugadores() {
+    return new Promise((resolve, reject) => {
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      const token = currentUser.token;
+      this.http.get('/admin/jugadores')
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  getJugador(id) {
+    return new Promise((resolve, reject) => {
+      this.http.get('/admin/jugadores/' + id)
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res)
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  saveJugador(data) {
+    return new Promise((resolve, reject) => {
+      this.http.post('/admin/jugadores/', data)
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  updateJugador(id, data) {
+    return new Promise((resolve, reject) => {
+      this.http.put('/admin/jugadores/' + id, data)
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  deleteJugador(id) {
+    return new Promise((resolve, reject) => {
+      this.http.delete('/admin/jugadores/' + id)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
 }

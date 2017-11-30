@@ -9,7 +9,19 @@ export class JugadorService {
 
   getAllJugadores() {
     return new Promise((resolve, reject) => {
-      this.http.get('/admin/jugadores')
+      this.http.get('/jugadores')
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  getMaxGolsClub() {
+    return new Promise((resolve, reject) => {
+      this.http.get('/jugadores/max_goles_club')
         .map(res => res.json())
         .subscribe(res => {
           resolve(res);
@@ -21,45 +33,10 @@ export class JugadorService {
 
   getJugador(id) {
     return new Promise((resolve, reject) => {
-      this.http.get('/admin/jugadores/' + id)
+      this.http.get('/jugadores/' + id)
         .map(res => res.json())
         .subscribe(res => {
           resolve(res)
-        }, (err) => {
-          reject(err);
-        });
-    });
-  }
-
-  saveJugador(data) {
-    return new Promise((resolve, reject) => {
-      this.http.post('/admin/jugadores/', data)
-        .map(res => res.json())
-        .subscribe(res => {
-          resolve(res);
-        }, (err) => {
-          reject(err);
-        });
-    });
-  }
-
-  updateJugador(id, data) {
-    return new Promise((resolve, reject) => {
-      this.http.put('/admin/jugadores/' + id, data)
-        .map(res => res.json())
-        .subscribe(res => {
-          resolve(res);
-        }, (err) => {
-          reject(err);
-        });
-    });
-  }
-
-  deleteJugador(id) {
-    return new Promise((resolve, reject) => {
-      this.http.delete('/admin/jugadores/' + id)
-        .subscribe(res => {
-          resolve(res);
         }, (err) => {
           reject(err);
         });

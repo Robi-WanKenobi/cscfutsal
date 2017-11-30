@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AdminService} from '../../../Services/admin.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin-login',
@@ -11,7 +12,7 @@ export class AdminLoginComponent implements OnInit {
   usuario: string;
   password: string;
 
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -19,7 +20,7 @@ export class AdminLoginComponent implements OnInit {
   login() {
     this.adminService.Login({'usuario': this.usuario, 'password': this.password}).then((res) => {
       localStorage.setItem('currentUser', JSON.stringify({ token: res}));
-      console.log(localStorage.getItem('currentUser'));
+      this.router.navigate(['admin']);
     }, (err) => {
       console.log(err);
       alert('Dades incorrectes');
