@@ -1,3 +1,20 @@
-<p>
-  calendario works!
-</p>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+  <div class="well" *ngFor="let jornada of calendario">
+    <table class="table table-striped">
+      <thead style="font-weight: bold;">
+      <td id="jornada"><h4>{{jornada.numero}}</h4></td>
+      <td></td>
+      <td id="fecha"><h4>{{jornada.fecha}}</h4></td>
+      </thead>
+      <tbody>
+      <tr *ngFor="let p of jornada.partidos">
+        <td>{{p.local}}</td>
+        <td>-</td>
+        <td>{{p.visitante}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+</div>

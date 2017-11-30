@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EquipoService} from "../../Services/equipo.service";
 import { Params, ActivatedRoute } from '@angular/router';
 
@@ -10,6 +10,7 @@ import { Params, ActivatedRoute } from '@angular/router';
 export class ResultadosComponent implements OnInit {
 
   equipo: string;
+  clasificacion: any;
   jornada: any;
   actual: {};
   loading: boolean;
@@ -30,6 +31,7 @@ export class ResultadosComponent implements OnInit {
       console.log(res);
       this.actual = res;
       this.getResultados(equipo, res);
+      this.getClasificacion(equipo, res);
     }, (err) => {
       console.log(err);
     });
@@ -45,6 +47,15 @@ export class ResultadosComponent implements OnInit {
     });
   }
 
+  getClasificacion(equipo, jornada) {
+    this.equipoService.getClasificacion(equipo, jornada).then((res) => {
+      this.loading = false;
+      this.clasificacion = res;
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
   upJornada() {
     if (parseInt(this.actual.toString(), 10) > 30)
     {
@@ -54,6 +65,7 @@ export class ResultadosComponent implements OnInit {
       this.loading = true;
       this.actual = parseInt(this.actual.toString(), 10) + 1;
       this.getResultados(this.equipo, this.actual);
+      this.getClasificacion(this.equipo, this.actual);
     }
   }
 
@@ -66,6 +78,7 @@ export class ResultadosComponent implements OnInit {
       this.loading = true;
       this.actual = parseInt(this.actual.toString(), 10) - 1;
       this.getResultados(this.equipo, this.actual);
+      this.getClasificacion(this.equipo, this.actual);
     }
   }
 

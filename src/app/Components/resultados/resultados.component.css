@@ -1,8 +1,8 @@
-td{
-  width: 33% !important;
-}
-table{
+table#resultados{
   text-align: center !important;
+}
+table#resultados td{
+  width: 33% !important;
 }
 .row{
   margin-top: 10px !important;
@@ -14,4 +14,7 @@ span:hover{
 #now:hover{
   cursor: pointer !important;
   font-weight: bold;
+}
+.row{
+  margin-top: 10px !important;
 }

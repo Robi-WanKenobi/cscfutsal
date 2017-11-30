@@ -1,0 +1,15 @@
+table{
+  text-align: center;
+}
+table td{
+  width: 33% !important;
+}
+.row{
+  margin-top: 10px !important;
+}
+#jornada{
+  text-align: left !important;
+}
+#fecha{
+  text-align: right !important;
+}

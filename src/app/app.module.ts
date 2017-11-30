@@ -16,7 +16,6 @@ import { ProximosPartidosComponent } from './Components/proximos-partidos/proxim
 import { ContactoComponent } from './Layouts/contacto/contacto.component';
 import { PlantillaComponent } from './Components/plantilla/plantilla.component';
 import { EquipoComponent } from './Layouts/equipo/equipo.component';
-import { ClasificacionComponent } from './Components/clasificacion/clasificacion.component';
 import { ResultadosComponent } from './Components/resultados/resultados.component';
 import {JugadorService} from "./Services/jugador.service";
 import {AdminService} from "./Services/admin.service";
@@ -50,7 +49,6 @@ const appRoutes: Routes = [
     ContactoComponent,
     PlantillaComponent,
     EquipoComponent,
-    ClasificacionComponent,
     ResultadosComponent,
     AdminLoginComponent,
     AdminComponent,
