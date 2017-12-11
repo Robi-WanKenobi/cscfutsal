@@ -27,15 +27,3 @@ body{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-#acceso{
-  text-decoration: none;
-  color: #737373;
-}
-#acceso:hover{
-  text-decoration: underline;
-  color: #434343;
-}
-.footer {
-  position: fixed;
-  bottom: 0%;
-}

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService} from "../../../Services/admin.service";
 import {EquipoService} from "../../../Services/equipo.service";
-
+import {JugadorService} from "../../../Services/jugador.service";
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-admin-plantilla',
   templateUrl: './admin-plantilla.component.html',
@@ -17,8 +18,9 @@ export class AdminPlantillaComponent implements OnInit {
   juvenilB: any;
   juvenilC: any;
   infantilA: any;
+  status: string;
 
-  constructor(private adminService: AdminService, private equipoService: EquipoService) { }
+  constructor(private adminService: AdminService, private equipoService: EquipoService, private router: Router) { }
 
   ngOnInit() {
     this.getAllJugadores();
@@ -32,6 +34,7 @@ export class AdminPlantillaComponent implements OnInit {
   }
 
   getAllJugadores() {
+    /*La petición requiere permisos*/
     this.adminService.getAllJugadores().then((res) => {
       this.jugadores = res;
     }, (err) => {
@@ -84,6 +87,15 @@ export class AdminPlantillaComponent implements OnInit {
   getJugadoresInfantilA() {
     this.equipoService.getJugadores('Infantil A').then((res) => {
       this.infantilA = res;
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+  deleteJugador(id) {
+    this.status = 'borrado';
+    this.adminService.deleteJugador(id).then((result) => {
+      setTimeout(() => {window.location.reload(); }, 1000);
     }, (err) => {
       console.log(err);
     });

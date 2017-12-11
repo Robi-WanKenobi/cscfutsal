@@ -11,6 +11,8 @@ export class AdminLoginComponent implements OnInit {
 
   usuario: string;
   password: string;
+  status: string;
+  public data: {};
 
   constructor(private adminService: AdminService, private router: Router) { }
 
@@ -19,11 +21,15 @@ export class AdminLoginComponent implements OnInit {
 
   login() {
     this.adminService.Login({'usuario': this.usuario, 'password': this.password}).then((res) => {
-      localStorage.setItem('currentUser', JSON.stringify({ token: res}));
-      this.router.navigate(['admin']);
+      this.data = res;
+      console.log(this.data);
+      localStorage.setItem('token', this.data['token']);
+      localStorage.setItem('role', this.data['role']);
+      this.status = 'success';
+      setTimeout(() => {this.router.navigate(['admin']); }, 1500);
     }, (err) => {
       console.log(err);
-      alert('Dades incorrectes');
+      this.status = 'error';
     });
   }
 }

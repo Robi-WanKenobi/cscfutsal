@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import {Http, Headers, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AdminService {
+
+  token = localStorage.getItem('token');
 
   constructor(private http: Http) { }
 
@@ -19,10 +21,10 @@ export class AdminService {
             throw new Error('Dades incorrectes');
           }
           // If everything went fine, return the response
-          if (res.status === 200){
+          if (res.status === 200) {
             let data = res.json();
             if (data.token) {
-              return data.token;
+              return data;
             }
           }
         })
@@ -35,10 +37,10 @@ export class AdminService {
   }
 
   getAllJugadores() {
+    const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': this.token });
+    const options = new RequestOptions({ headers: headers });
     return new Promise((resolve, reject) => {
-      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-      const token = currentUser.token;
-      this.http.get('/admin/jugadores')
+      this.http.get('/admin/jugadores', options)
         .map(res => res.json())
         .subscribe(res => {
           resolve(res);
@@ -49,8 +51,10 @@ export class AdminService {
   }
 
   getJugador(id) {
+    const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': this.token });
+    const options = new RequestOptions({ headers: headers });
     return new Promise((resolve, reject) => {
-      this.http.get('/admin/jugadores/' + id)
+      this.http.get('/admin/jugadores/' + id, options)
         .map(res => res.json())
         .subscribe(res => {
           resolve(res)
@@ -61,8 +65,10 @@ export class AdminService {
   }
 
   saveJugador(data) {
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
     return new Promise((resolve, reject) => {
-      this.http.post('/admin/jugadores/', data)
+      this.http.post('/admin/jugadores/', data, options)
         .map(res => res.json())
         .subscribe(res => {
           resolve(res);
@@ -73,8 +79,10 @@ export class AdminService {
   }
 
   updateJugador(id, data) {
+    const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': this.token });
+    const options = new RequestOptions({ headers: headers });
     return new Promise((resolve, reject) => {
-      this.http.put('/admin/jugadores/' + id, data)
+      this.http.put('/admin/jugadores/' + id, data, options)
         .map(res => res.json())
         .subscribe(res => {
           resolve(res);
@@ -85,8 +93,10 @@ export class AdminService {
   }
 
   deleteJugador(id) {
+    const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': this.token });
+    const options = new RequestOptions({ headers: headers });
     return new Promise((resolve, reject) => {
-      this.http.delete('/admin/jugadores/' + id)
+      this.http.delete('/admin/jugadores/' + id, options)
         .subscribe(res => {
           resolve(res);
         }, (err) => {

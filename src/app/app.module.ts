@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { HashLocationStrategy, LocationStrategy} from '@angular/common';
+import {HashLocationStrategy, LocationStrategy, PathLocationStrategy} from '@angular/common';
 
 import { HttpModule} from '@angular/http';
 import { FormsModule} from '@angular/forms';
@@ -31,6 +31,9 @@ import { Loader2Component } from './shared/loader2/loader2.component';
 import { MaxAsisClubComponent } from './Components/max-asis-club/max-asis-club.component';
 import { MaxAmonClubComponent } from './Components/max-amon-club/max-amon-club.component';
 import { AdminAddJugadorComponent } from './Components/Admin/admin-add-jugador/admin-add-jugador.component';
+import {hasLifecycleHook} from "@angular/compiler/src/lifecycle_reflector";
+import { FooterAccesoComponent } from './tools/footer-acceso/footer-acceso.component';
+import { FooterSortidaComponent } from './tools/footer-sortida/footer-sortida.component';
 
 
 const appRoutes: Routes = [
@@ -63,7 +66,9 @@ const appRoutes: Routes = [
     Loader2Component,
     MaxAsisClubComponent,
     MaxAmonClubComponent,
-    AdminAddJugadorComponent
+    AdminAddJugadorComponent,
+    FooterAccesoComponent,
+    FooterSortidaComponent
   ],
   imports: [BrowserModule,
     FormsModule,

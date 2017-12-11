@@ -1,0 +1,15 @@
+#footer {
+  position: fixed;
+  bottom: 0%;
+}
+.footer{
+  display: none !important;
+}
+#exit{
+  text-decoration: none;
+  color: #737373;
+}
+#exit:hover{
+  text-decoration: underline;
+  color: #434343;
+}

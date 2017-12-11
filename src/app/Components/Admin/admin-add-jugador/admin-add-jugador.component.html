@@ -1,41 +1,35 @@
 <div class="row">
   <div class="col-md-4 col-md-offset-4">
     <div class="well">
-      <form #loginForm="ngForm">
+      <form #jugadorForm="ngForm">
         <div class="form-group">
           <label for="n">Nom</label>
-          <input type="text" class="form-control" name="nom" id="n" required>
+          <input type="text" class="form-control" [(ngModel)]="jugador.nombre" name="nom" id="n" required>
         </div>
         <div class="form-group">
           <label for="c">Cognom</label>
-          <input type="text" class="form-control" name="cognom" id="c" required>
+          <input type="text" class="form-control" [(ngModel)]="jugador.apellido" name="cognom" id="c" required>
         </div>
         <div class="form-group">
           <label for="s">Sobrenom</label>
-          <input type="text" class="form-control" name="cognom" id="s" required>
+          <input type="text" class="form-control" [(ngModel)]="jugador.apodo" name="cognom" id="s" required>
         </div>
         <div class="form-group">
           <label for="d">Dorsal</label>
-          <input type="text" class="form-control" name="dorsal" id="d" required>
+          <input type="number" class="form-control" [(ngModel)]="jugador.dorsal" name="dorsal" id="d" required>
         </div>
         <div class="form-group">
           <label for="p">Posició</label>
-          <input type="text" class="form-control" name="posicio" id="p" required>
+          <input type="text" class="form-control" [(ngModel)]="jugador.posicion" name="posicio" id="p" required>
         </div>
         <div class="form-group">
           <label for="sel1">Equip:</label>
-          <select class="form-control" id="sel1">
-            <option>Sènior A</option>
-            <option>Sènior B</option>
-            <option>Sènior C</option>
-            <option>Juvenil A</option>
-            <option>Juvenil B</option>
-            <option>Juvenil C</option>
-            <option>Infantil A</option>
+          <select class="form-control" id="sel1" [(ngModel)]="jugador.equipo">
+            <option *ngFor="let e of equipos" [value]="e">{{e}}</option>
           </select>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Afegir</button>
+          <button type="submit" (click)="submitJugador()" class="btn btn-success">Afegir</button>
         </div>
       </form>
     </div>

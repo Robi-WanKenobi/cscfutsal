@@ -5,12 +5,14 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AuthGuard implements CanActivate {
 
+
   constructor(private router: Router){}
 
   canActivate() {
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    const token = currentUser.token; // your token
-    if (token) {
+    const token = localStorage.getItem('token');
+    const role = localStorage.getItem('role'); // "csc_admin"
+
+    if ((token) && (role === 'csc_admin')) {
       // logged in so return true
       return true;
     }

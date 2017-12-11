@@ -8,6 +8,7 @@ var jugadorSchema = new Schema({
   apodo: { type: String },
   dorsal: { type: Number },
   posicion: { type:String},
+  imagen: { type:String, default: 'player.png'},
   estadisticas: {
     goles: { type: Number},
     asistencias: {type: Number},

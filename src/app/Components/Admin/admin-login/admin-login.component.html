@@ -1,6 +1,15 @@
 <div class="row">
   <div class="col-md-4 col-md-offset-4">
     <div class="well">
+
+      <div class="alert alert-success" *ngIf="status == 'success'">
+        Benvingut
+      </div>
+
+      <div class="alert alert-danger" *ngIf="status == 'error'">
+        Dades incorrectes
+      </div>
+
     <form (submit)="login()" #loginForm="ngForm">
       <div class="form-group">
         <label for="u">Usuari</label>
