@@ -22,7 +22,6 @@ import {AdminService} from "./Services/admin.service";
 import { AdminLoginComponent } from './Components/Admin/admin-login/admin-login.component';
 import { AdminComponent } from './Layouts/admin/admin.component';
 import {AuthGuard} from "./Guard/auth.guard";
-import { JugadorDetailsComponent } from './Components/jugador-details/jugador-details.component';
 import { AdminPlantillaComponent } from './Components/Admin/admin-plantilla/admin-plantilla.component';
 import { CalendarioComponent } from './Components/calendario/calendario.component';
 import { MaxGolClubComponent } from './Components/max-gol-club/max-gol-club.component';
@@ -31,7 +30,6 @@ import { Loader2Component } from './shared/loader2/loader2.component';
 import { MaxAsisClubComponent } from './Components/max-asis-club/max-asis-club.component';
 import { MaxAmonClubComponent } from './Components/max-amon-club/max-amon-club.component';
 import { AdminAddJugadorComponent } from './Components/Admin/admin-add-jugador/admin-add-jugador.component';
-import {hasLifecycleHook} from "@angular/compiler/src/lifecycle_reflector";
 import { FooterAccesoComponent } from './tools/footer-acceso/footer-acceso.component';
 import { FooterSortidaComponent } from './tools/footer-sortida/footer-sortida.component';
 
@@ -41,7 +39,6 @@ const appRoutes: Routes = [
   { path: 'inici', component: InicioComponent },
   { path: 'contacte', component: ContactoComponent},
   { path: 'equip', component: EquipoComponent},
-  { path: 'jugador/:id', component: JugadorDetailsComponent},
   { path: 'login', component: AdminLoginComponent},
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]}
 ];
@@ -58,7 +55,6 @@ const appRoutes: Routes = [
     ResultadosComponent,
     AdminLoginComponent,
     AdminComponent,
-    JugadorDetailsComponent,
     AdminPlantillaComponent,
     CalendarioComponent,
     MaxGolClubComponent,

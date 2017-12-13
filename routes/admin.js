@@ -8,7 +8,8 @@ var jwt = require('../services/jwt');
 var md_auth = require('../middlewares/authenticated');
 
 var multipart = require('connect-multiparty');
-var md_upload = multipart({ uploadDir: './dist/assets/plantillas'});
+var md_upload = multipart({ uploadDir: './public/plantillas'});
+
 
 
 
@@ -99,12 +100,15 @@ router.post('/image/:id', [md_auth.ensureAuth, md_upload], function (req, res) {
   var jugador = req.params.id;
   var file_name = 'No subido';
 
+
   if(req.files){
     var file_path = req.files.image.path;
     var file_split = file_path.split('\\');
-    var file_name = file_split[3];
+    var file_name = file_split[2];
     var ext_split = file_path.split('\.');
     var file_ext = ext_split[1];
+
+    console.log(file_path +" "+ file_name);
 
     if(file_ext === 'png' || file_ext === 'jpg' || file_ext === 'jpeg'){
       Jugador.findByIdAndUpdate(jugador, {imagen: file_name}, {new: true}, function (err, act) {
