@@ -92,6 +92,20 @@ export class AdminService {
     });
   }
 
+  uploadImage(id, image) {
+    const headers = new Headers({ 'Authorization': this.token });
+    const options = new RequestOptions({ headers: headers });
+    return new Promise((resolve, reject) => {
+      this.http.post('/admin/image/' + id, image, options)
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
   deleteJugador(id) {
     const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': this.token });
     const options = new RequestOptions({ headers: headers });

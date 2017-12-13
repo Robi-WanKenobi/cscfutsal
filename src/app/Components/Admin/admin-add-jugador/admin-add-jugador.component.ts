@@ -27,7 +27,7 @@ export class AdminAddJugadorComponent implements OnInit {
   submitJugador() {
     this.adminService.saveJugador(this.jugador).then((res) => {
       this.status = 'success';
-      setTimeout(() => {window.location.reload(); }, 1500);
+      setTimeout(() => {window.location.reload(); }, 1000);
     }, (err) => {
       console.log(err);
       this.status = 'error';

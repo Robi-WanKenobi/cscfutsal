@@ -102,6 +102,8 @@ router.post('/image/:id', [md_auth.ensureAuth, md_upload], function (req, res) {
 
 
   if(req.files){
+
+    console.log(req.files);
     var file_path = req.files.image.path;
     var file_split = file_path.split('\\');
     var file_name = file_split[2];
@@ -111,17 +113,38 @@ router.post('/image/:id', [md_auth.ensureAuth, md_upload], function (req, res) {
     console.log(file_path +" "+ file_name);
 
     if(file_ext === 'png' || file_ext === 'jpg' || file_ext === 'jpeg'){
-      Jugador.findByIdAndUpdate(jugador, {imagen: file_name}, {new: true}, function (err, act) {
-        if (err){
-          res.status(500).send({message: 'Error al actualizar el jugador'})
+      Jugador.findById(req.params.id).exec(function (err, jugador) {
+        if (err) return next(err);
+        var image_name = jugador.imagen;
+        if (image_name.toString().trim() === 'player.png'){
+          Jugador.findByIdAndUpdate(jugador, {imagen: file_name}, {new: true}, function (err, act) {
+            if (err){
+              res.status(500).send({message: 'Error al actualizar el jugador'})
+            }else {
+              if (!act){
+                res.status(404).send({message: 'No se ha podido actualizar al jugador'})
+              }else{
+                res.status(200).send({jugador: act})
+              }
+            }
+          })
         }else {
-          if (!act){
-            res.status(404).send({message: 'No se ha podido actualizar al jugador'})
-          }else{
-            res.status(200).send({jugador: act})
-          }
+          fs.unlink('/Users/rober/cscfutsal/public/plantillas/' + image_name, function (err2) {
+            if (err2) throw err2;
+            Jugador.findByIdAndUpdate(jugador, {imagen: file_name}, {new: true}, function (err, act) {
+              if (err) {
+                res.status(500).send({message: 'Error al actualizar el jugador'})
+              } else {
+                if (!act) {
+                  res.status(404).send({message: 'No se ha podido actualizar al jugador'})
+                } else {
+                  res.status(200).send({jugador: act})
+                }
+              }
+            })
+          });
         }
-      })
+      });
     }else {
       res.status(300).send({message: 'Extensión no valida'});
     }
@@ -142,9 +165,16 @@ router.post('/jugadores/', md_auth.ensureAuth, function(req, res) {
 
 /* DELETE JUGADOR */
 router.delete('/jugadores/:id', md_auth.ensureAuth, function(req, res, next) {
-  Jugador.findByIdAndRemove(req.params.id, req.body, function (err, jugador) {
+  Jugador.findById(req.params.id).exec(function (err, jugador) {
     if (err) return next(err);
-    res.json(jugador);
+    var image_name = jugador.imagen;
+    fs.unlink('/Users/rober/cscfutsal/public/plantillas/' + image_name, function (err2) {
+      if (err2) throw err2;
+      Jugador.findByIdAndRemove(req.params.id, req.body, function (err, jugador) {
+        if (err) return next(err);
+        res.json(jugador);
+      });
+    });
   });
 });
 

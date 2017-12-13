@@ -1,0 +1,12 @@
+h5{
+  background-color: #333;
+  color: #fcfcfc;
+  border-radius: 3px;
+  border-color: #101010;
+  padding: 10px;
+}
+.dorsal{
+  background-color: transparent;
+  color: #fcfcfc;
+  border-radius: 3px;
+}

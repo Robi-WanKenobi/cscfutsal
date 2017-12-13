@@ -6,11 +6,9 @@ h5{
   padding: 10px;
 }
 .dorsal{
-  background-color: #e8e8e8;
-  color: #333;
+  background-color: transparent;
+  color: #fcfcfc;
   border-radius: 3px;
-  border-color: #101010;
-  padding: 7px;
 }
 li a{
   color: #333;

@@ -11,8 +11,10 @@ import {AdminService} from "../../../Services/admin.service";
 export class AdminEditJugadorComponent implements OnInit {
 
   jugador: any;
-
+  imagen: FormData;
   status: string;
+  image_status: string;
+  datos_status: string;
 
   constructor(private adminService: AdminService, private router: Router, private route: ActivatedRoute) { }
 
@@ -29,14 +31,49 @@ export class AdminEditJugadorComponent implements OnInit {
     });
   }
 
+  updateDatosJugador(id) {
+    this.adminService.updateJugador(id, this.jugador).then((res) => {
+      this.datos_status = 'success';
+      setTimeout(() => {this.datos_status = ''; }, 1000);
+    }, (err) => {
+      console.log(err);
+      this.datos_status = 'error';
+      setTimeout(() => {this.datos_status = ''; }, 1000);
+    });
+  }
+
   updateJugador(id) {
     this.adminService.updateJugador(id, this.jugador).then((res) => {
-      console.log(this.jugador);
       this.status = 'success';
-      setTimeout(() => {this.router.navigate(['/admin']); }, 1500);
+      setTimeout(() => {this.status = ''; }, 1000);
     }, (err) => {
       console.log(err);
       this.status = 'error';
+      setTimeout(() => {this.status = ''; }, 1000);
     });
+  }
+
+  uploadImage(id) {
+    this.adminService.uploadImage(id, this.imagen).then((res) => {
+      console.log(res);
+      this.image_status = 'success';
+      setTimeout(() => {this.image_status = ''; }, 1000);
+      setTimeout(() => {this.getJugador(id); }, 500);
+    }, (err) => {
+      console.log(err);
+      this.image_status = 'error';
+      setTimeout(() => {this.image_status = ''; }, 1000);
+    });
+  }
+
+  fileChange(event) {
+    let fileList: FileList = event.target.files;
+    if (fileList.length > 0) {
+      let file: File = fileList[0];
+      let formData: FormData = new FormData();
+      formData.append('image', file, file.name);
+      this.imagen = formData;
+    }else {
+    }
   }
 }

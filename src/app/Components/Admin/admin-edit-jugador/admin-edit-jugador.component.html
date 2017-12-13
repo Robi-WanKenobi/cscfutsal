@@ -1,19 +1,11 @@
 <div class="row">
-
-  <div class="alert alert-success" *ngIf="status == 'success'">
-    <p class="text-center">Jugador actualitzat</p>
-  </div>
-
-  <div class="alert alert-danger" *ngIf="status == 'error'">
-    <p class="text-center">Error</p>
-  </div>
-
-  <form (submit)="updateJugador(jugador._id)" #updateForm="ngForm">
-    <div class="col-md-4 col-md-offset-2">
+  <form (submit)="updateDatosJugador(jugador._id)" #updateForm="ngForm">
+    <div class="col-md-4 col-md-offset-1">
+      <h5 class="text-center">Dades</h5>
       <div class="well">
         <div class="form-group">
           <label for="n">Nom</label>
-          <input type="text" class="form-control" [(ngModel)]="jugador.nombre" name="nom" id="n" required>
+          <input type="text" class="form-control" [(ngModel)]="jugador.nombre" name="nombre" id="n" required>
         </div>
         <div class="form-group">
           <label for="c">Cognom</label>
@@ -21,7 +13,7 @@
         </div>
         <div class="form-group">
           <label for="s">Sobrenom</label>
-          <input type="text" class="form-control" [(ngModel)]="jugador.apodo" name="cognom" id="s" required>
+          <input type="text" class="form-control" [(ngModel)]="jugador.apodo" name="sobrenom" id="s" required>
         </div>
         <div class="form-group">
           <label for="d">Dorsal</label>
@@ -70,10 +62,41 @@
             <label for="radio126"> Infantil A </label>
           </div>
         </div>
-        <br>
+        <div class="alert alert-success" *ngIf="datos_status == 'success'">
+          <p class="text-center">Actualitzat</p>
+        </div>
+
+        <div class="alert alert-danger" *ngIf="datos_status == 'error'">
+          <p class="text-center">Error</p>
+        </div>
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-success" [disabled]="!updateForm.form.valid">Actualitzar</button>
+        </div>
       </div>
     </div>
-    <div class="col-md-4">
+  </form>
+
+  <div class="col-md-4">
+    <h5 class="text-center">Imatge</h5>
+    <form (submit)="uploadImage(jugador._id)" #updateimageForm="ngForm">
+      <div class="well">
+        <div class="form-group">
+          <input type="file" (change)="fileChange($event)" placeholder="Selecionar foto" accept=".jpeg,.jpg,.png">
+        </div>
+        <div class="alert alert-success" *ngIf="image_status == 'success'">
+          <p class="text-center">Imatge carregada</p>
+        </div>
+
+        <div class="alert alert-danger" *ngIf="image_status == 'error'">
+          <p class="text-center">Error</p>
+        </div>
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-success" [disabled]="!updateimageForm.form.valid">Actualitzar</button>
+        </div>
+      </div>
+    </form>
+    <h5 class="text-center">Estadístiques</h5>
+    <form (submit)="updateJugador(jugador._id)" #updatestatsForm="ngForm">
       <div class="well">
         <div class="form-group">
           <label>Gols</label>
@@ -91,13 +114,43 @@
           <label>Vermelles</label>
           <input type="number" class="form-control" [(ngModel)]="jugador.estadisticas.rojas" name="rojas" required>
         </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-success" [disabled]="!updateForm.form.valid">Actualitzar</button>
-          <a class="btn btn-warning" [routerLink]="['/admin']">Cancel·lar</a>
+        <div class="alert alert-success" *ngIf="status == 'success'">
+          <p class="text-center">Actualitzat</p>
+        </div>
+
+        <div class="alert alert-danger" *ngIf="status == 'error'">
+          <p class="text-center">Error</p>
+        </div>
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-success" [disabled]="!updatestatsForm.form.valid">Actualitzar</button>
         </div>
       </div>
+    </form>
+  </div>
+
+  <div class="col-md-2">
+    <h5 class="text-center">Vista prèvia</h5>
+    <div class="well">
+      <h5 class="text-center">
+        <p class="dorsal" style="float: left;">{{jugador.dorsal}}</p>
+        {{jugador.apodo}}
+      </h5>
+      <img class="img-responsive" src="http://localhost/plantillas/{{jugador.imagen}}"
+           style="max-width: 100%; max-height: 100%;margin-left: auto;margin-right: auto;display: block;"/>
+      <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Detalles</button>!-->
+      <h5 class="text-center">
+        {{ jugador.posicion}}
+      </h5>
+      <p style="text-align: center; word-spacing: inherit"><strong>{{jugador.estadisticas.goles}}</strong>  <i style="color: #333 !important;" class="fa fa-futbol-o"></i>
+        <strong>{{jugador.estadisticas.asistencias}}</strong>  <i style="color: #333 !important;" class="fa fa-arrow-circle-right"></i>
+        <strong>{{jugador.estadisticas.amarillas}}</strong>  <i style="color: yellow !important;" class="fa fa-square"></i>
+        <strong>{{jugador.estadisticas.rojas}}</strong>  <i style="color: red !important;" class="fa fa-square"></i>
+      </p>
+      <br>
+      <a style="display: block" class="btn btn-warning" [routerLink]="['/admin']">Enrere</a>
     </div>
-  </form>
+  </div>
+
 </div>
 
 <app-footer-sortida></app-footer-sortida>

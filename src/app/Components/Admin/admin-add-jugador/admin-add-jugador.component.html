@@ -62,16 +62,16 @@
           </div>
         </div>
         <br>
-        <div class="form-group">
-          <button type="submit" class="btn btn-success" [disabled]="!jugadorForm.form.valid">Afegir</button>
-        </div>
-
         <div class="alert alert-success" *ngIf="status == 'success'">
           <p class="text-center">Jugador afegit</p>
         </div>
 
         <div class="alert alert-danger" *ngIf="status == 'error'">
           <p class="text-center">Error</p>
+        </div>
+
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-success" [disabled]="!jugadorForm.form.valid">Afegir</button>
         </div>
       </form>
     </div>

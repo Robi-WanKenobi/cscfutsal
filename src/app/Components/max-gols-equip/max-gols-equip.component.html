@@ -1,17 +1,16 @@
 <div class="row">
-  <div class="well">
-    <table class="table table-striped" id="resultados">
+    <table class="table" id="resultados">
       <tbody>
       <tr *ngFor="let j of jugadores">
+        <!--<td style="vertical-align: middle !important;"><h1 class="text-center">1</h1></td>-->
         <td>
           <img class="img-responsive" src="http://localhost/plantillas/{{j.imagen}}"
                   style="max-width: 30%; max-height: 40%;margin-left: auto;margin-right: auto;display: block;"/>
         </td>
-        <td style="vertical-align: middle !important;"><strong>{{j.nombre}}</strong></td>
+        <td style="vertical-align: middle !important;"><strong>{{j.apodo}}</strong></td>
         <td style="vertical-align: middle !important;"><strong>{{j.posicion}}</strong></td>
         <td style="vertical-align: middle !important;"><strong>{{j.estadisticas.goles}}</strong>  <i style="color: #333 !important;" class="fa fa-futbol-o"></i></td>
-  </tr>
+        </tr>
       </tbody>
     </table>
-  </div>
 </div>
