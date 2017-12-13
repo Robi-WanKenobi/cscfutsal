@@ -20,6 +20,14 @@ router.get('/max_goles_club', function(req, res, next) {
   });
 });
 
+/*GET MAX GOLEADORES equipo*/
+router.get('/max_goles/:equipo', function(req, res, next) {
+  Jugador.find({'equipo': req.params.equipo}, null, {sort: { "estadisticas.goles": -1 }}).exec(function (err, jugadores) {
+    if (err) return next(err);
+    res.json(jugadores);
+  });
+});
+
 /*GET MAX ASISTENTES CLUB*/
 router.get('/max_asis_club', function(req, res, next) {
   Jugador.find(null, null, {sort: { "estadisticas.asistencias": -1 }}).limit(3).exec(function (err, jugadores) {
@@ -28,9 +36,25 @@ router.get('/max_asis_club', function(req, res, next) {
   });
 });
 
+/*GET MAX ASISTENTES equipo*/
+router.get('/max_asis/:equipo', function(req, res, next) {
+  Jugador.find({'equipo': req.params.equipo}, null, {sort: { "estadisticas.asistencias": -1 }}).exec(function (err, jugadores) {
+    if (err) return next(err);
+    res.json(jugadores);
+  });
+});
+
 /*GET MAX AMONESTADOS CLUB*/
 router.get('/max_amon_club', function(req, res, next) {
   Jugador.find(null, null, {sort: { "estadisticas.amarillas": -1 }}).limit(3).exec(function (err, jugadores) {
+    if (err) return next(err);
+    res.json(jugadores);
+  });
+});
+
+/*GET MAX AMONESTADOS equipo*/
+router.get('/max_amon/:equipo', function(req, res, next) {
+  Jugador.find({'equipo': req.params.equipo}, null, {sort: { "estadisticas.amarillas": -1 }}).exec(function (err, jugadores) {
     if (err) return next(err);
     res.json(jugadores);
   });

@@ -3,11 +3,11 @@
     <div class="well">
 
       <div class="alert alert-success" *ngIf="status == 'success'">
-        Benvingut
+        <p class="text-center">Benvingut</p>
       </div>
 
       <div class="alert alert-danger" *ngIf="status == 'error'">
-        Dades incorrectes
+        <p class="text-center">Dades incorrectes</p>
       </div>
 
     <form (submit)="login()" #loginForm="ngForm">

@@ -13,7 +13,23 @@
     <app-resultados></app-resultados>
   </div>
   <div id="stats" class="tab-pane fade">
-    <h3>Estadístiques</h3>
+    <ul class="nav nav-tabs nav-justified">
+      <li class="active"><a data-toggle="pill" href="#golejadors">Golejadors</a></li>
+      <li><a data-toggle="pill" href="#asistents">Asistents</a></li>
+      <li><a data-toggle="pill" href="#amonestats">Amonestats</a></li>
+    </ul>
+
+    <div class="tab-content" style="padding-top: 10px;">
+      <div id="golejadors" class="tab-pane fade in active">
+        <app-max-gols-equip></app-max-gols-equip>
+      </div>
+      <div id="asistents" class="tab-pane fade">
+        <app-max-asis-equip></app-max-asis-equip>
+      </div>
+      <div id="amonestats" class="tab-pane fade">
+        <app-max-amon-equip></app-max-amon-equip>
+      </div>
+    </div>
   </div>
   <div id="cal" class="tab-pane fade">
     <app-calendario></app-calendario>

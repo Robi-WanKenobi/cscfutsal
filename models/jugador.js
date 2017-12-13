@@ -10,10 +10,10 @@ var jugadorSchema = new Schema({
   posicion: { type:String},
   imagen: { type:String, default: 'player.png'},
   estadisticas: {
-    goles: { type: Number},
-    asistencias: {type: Number},
-    amarillas: { type: Number},
-    rojas: { type: Number}
+    goles: { type: Number, default: 0},
+    asistencias: {type: Number, default: 0},
+    amarillas: { type: Number, default: 0},
+    rojas: { type: Number, default: 0}
   },
   equipo : { type: String, enum:
     ['Sènior A', 'Sènior B', 'Sènior C', 'Juvenil A', 'Juvenil B', 'Juvenil C', 'Infantil A']

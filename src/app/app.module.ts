@@ -32,6 +32,10 @@ import { MaxAmonClubComponent } from './Components/max-amon-club/max-amon-club.c
 import { AdminAddJugadorComponent } from './Components/Admin/admin-add-jugador/admin-add-jugador.component';
 import { FooterAccesoComponent } from './tools/footer-acceso/footer-acceso.component';
 import { FooterSortidaComponent } from './tools/footer-sortida/footer-sortida.component';
+import { AdminEditJugadorComponent } from './Components/Admin/admin-edit-jugador/admin-edit-jugador.component';
+import { MaxGolsEquipComponent } from './Components/max-gols-equip/max-gols-equip.component';
+import { MaxAsisEquipComponent } from './Components/max-asis-equip/max-asis-equip.component';
+import { MaxAmonEquipComponent } from './Components/max-amon-equip/max-amon-equip.component';
 
 
 const appRoutes: Routes = [
@@ -40,7 +44,8 @@ const appRoutes: Routes = [
   { path: 'contacte', component: ContactoComponent},
   { path: 'equip', component: EquipoComponent},
   { path: 'login', component: AdminLoginComponent},
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]}
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
+  { path: 'edit/:id', component: AdminEditJugadorComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
@@ -64,7 +69,11 @@ const appRoutes: Routes = [
     MaxAmonClubComponent,
     AdminAddJugadorComponent,
     FooterAccesoComponent,
-    FooterSortidaComponent
+    FooterSortidaComponent,
+    AdminEditJugadorComponent,
+    MaxGolsEquipComponent,
+    MaxAsisEquipComponent,
+    MaxAmonEquipComponent
   ],
   imports: [BrowserModule,
     FormsModule,
