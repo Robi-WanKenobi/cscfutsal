@@ -18,6 +18,7 @@ RUN npm install
 
 # Bundle app source
 COPY . /fixit
+COPY .angular-cli.json /CSCFUTSAL
 
 RUN ng build --prod
 
