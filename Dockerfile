@@ -14,14 +14,12 @@ RUN npm install -g @angular/cli
 
 # If you are building your code for production
 # RUN npm install --only=production
-RUN npm install
+RUN npm install --only=production
 
 # Bundle app source
 COPY . /fixit
-COPY .angular-cli.json /CSCFUTSAL
-COPY ./src/tsconfig.app.json /CSCFUTSAL/src
 
-RUN ng build --prod
+RUN ng build
 
 EXPOSE 80
 #CMD [ "npm", "start" ]
