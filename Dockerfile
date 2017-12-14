@@ -5,6 +5,8 @@ FROM node:alpine
 RUN mkdir /CSCFUTSAL
 WORKDIR /CSCFUTSAL
 # Install app dependencies
+RUN sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
+
 COPY package.json /CSCFUTSAL
 
 RUN cd /CSCFUTSAL
