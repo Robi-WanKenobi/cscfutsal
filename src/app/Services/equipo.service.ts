@@ -31,6 +31,18 @@ export class EquipoService {
     });
   }
 
+  getTecnics(equipo) {
+    return new Promise((resolve, reject) => {
+      this.http.get('jugadores/tecnicos/' + equipo)
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
   getClasificacion(equipo, jornada) {
     return new Promise((resolve, reject) => {
       this.http.get('equipos/clasificacion/' + equipo + '/' + jornada)

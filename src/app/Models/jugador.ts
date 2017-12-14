@@ -6,6 +6,7 @@ export class Jugador {
   public dorsal: number;
   public posicion: string;
   public equipo: string;
+  public tipo: string;
   public imagen?: string;
 
   constructor() {  }

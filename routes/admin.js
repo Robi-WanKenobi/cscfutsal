@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcryptjs');
 var Jugador = require('../models/jugador');
 var Admin = require('../models/admin');
 var jwt = require('../services/jwt');
@@ -168,13 +168,20 @@ router.delete('/jugadores/:id', md_auth.ensureAuth, function(req, res, next) {
   Jugador.findById(req.params.id).exec(function (err, jugador) {
     if (err) return next(err);
     var image_name = jugador.imagen;
-    fs.unlink('/Users/rober/cscfutsal/public/plantillas/' + image_name, function (err2) {
-      if (err2) throw err2;
+    if (image_name.toString().trim() === 'player.png'){
       Jugador.findByIdAndRemove(req.params.id, req.body, function (err, jugador) {
         if (err) return next(err);
         res.json(jugador);
       });
-    });
+    }else{
+      fs.unlink('/Users/rober/cscfutsal/public/plantillas/' + image_name, function (err2) {
+        if (err2) throw err2;
+        Jugador.findByIdAndRemove(req.params.id, req.body, function (err, jugador) {
+          if (err) return next(err);
+          res.json(jugador);
+        });
+      });
+    }
   });
 });
 

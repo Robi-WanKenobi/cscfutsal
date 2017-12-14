@@ -17,6 +17,9 @@ var jugadorSchema = new Schema({
   },
   equipo : { type: String, enum:
     ['Sènior A', 'Sènior B', 'Sènior C', 'Juvenil A', 'Juvenil B', 'Juvenil C', 'Infantil A']
+  },
+  tipo : { type: String, enum:
+    ['Tècnic', 'Jugador']
   }
 });
 // export

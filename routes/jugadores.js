@@ -62,7 +62,15 @@ router.get('/max_amon/:equipo', function(req, res, next) {
 
 /*GET JUGADORES POR EQUIPO*/
 router.get('/equipo/:equipo', function(req, res, next) {
-  Jugador.find({'equipo': req.params.equipo}, null, {sort: {dorsal: 1 }}).exec(function (err, jugadores) {
+  Jugador.find({$and : [ { 'equipo': req.params.equipo  }, { 'tipo': 'Jugador' } ]}, null, {sort: {dorsal: 1 }}).exec(function (err, jugadores) {
+    if (err) return next(err);
+    res.json(jugadores);
+  });
+});
+
+/*GET TECNICS POR EQUIPO*/
+router.get('/tecnicos/:equipo', function(req, res, next) {
+  Jugador.find({$and : [ { 'equipo': req.params.equipo  }, { 'tipo': 'Tècnic' } ]}, null, {sort: {dorsal: 1 }}).exec(function (err, jugadores) {
     if (err) return next(err);
     res.json(jugadores);
   });

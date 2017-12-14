@@ -27,7 +27,8 @@ export class AdminAddJugadorComponent implements OnInit {
   submitJugador() {
     this.adminService.saveJugador(this.jugador).then((res) => {
       this.status = 'success';
-      setTimeout(() => {window.location.reload(); }, 1000);
+      let id = res['_id'];
+      setTimeout(() => {this.router.navigate(['/edit', id]); }, 1000);
     }, (err) => {
       console.log(err);
       this.status = 'error';

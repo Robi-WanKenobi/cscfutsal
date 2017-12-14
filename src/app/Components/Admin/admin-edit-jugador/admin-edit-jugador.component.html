@@ -62,6 +62,17 @@
             <label for="radio126"> Infantil A </label>
           </div>
         </div>
+        <label>Tipus:</label>
+        <div class="form-inline">
+          <div class="form-group">
+            <input name="group30" type="radio" id="radio130" value="Jugador" [(ngModel)]="jugador.tipo" required>
+            <label for="radio130"> Jugador </label>
+          </div>
+          <div class="form-group">
+            <input name="group30" type="radio" id="radio131" value="Tècnic" [(ngModel)]="jugador.tipo" required>
+            <label for="radio131"> Tècnic </label>
+          </div>
+        </div>
         <div class="alert alert-success" *ngIf="datos_status == 'success'">
           <p class="text-center">Actualitzat</p>
         </div>

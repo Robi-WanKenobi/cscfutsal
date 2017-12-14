@@ -95,7 +95,8 @@ export class AdminPlantillaComponent implements OnInit {
   deleteJugador(id) {
     this.status = 'borrado';
     this.adminService.deleteJugador(id).then((result) => {
-      setTimeout(() => {window.location.reload(); }, 1000);
+      setTimeout(() => {this.status = ''; }, 1000);
+      setTimeout(() => {this.ngOnInit(); }, 1000);
     }, (err) => {
       console.log(err);
     });

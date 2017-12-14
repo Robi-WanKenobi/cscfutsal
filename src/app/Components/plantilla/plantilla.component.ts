@@ -12,6 +12,7 @@ export class PlantillaComponent implements OnInit {
 
   equipo: string;
   jugadores: any;
+  tecnicos: any;
 
   constructor(public equipoService: EquipoService, private route:  ActivatedRoute) { }
 
@@ -20,12 +21,21 @@ export class PlantillaComponent implements OnInit {
       this.equipo = params['cat'];
       console.log(this.equipo);
       this.getJugadores(this.equipo);
+      this.getTecnicos(this.equipo);
     });
   }
 
   getJugadores(equipo) {
     this.equipoService.getJugadores(equipo).then((res) => {
       this.jugadores = res;
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+  getTecnicos(equipo) {
+    this.equipoService.getTecnics(equipo).then((res) => {
+      this.tecnicos = res;
     }, (err) => {
       console.log(err);
     });
