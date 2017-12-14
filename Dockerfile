@@ -10,7 +10,6 @@ COPY package.json /CSCFUTSAL
 COPY .angular-cli.json /CSCFUTSAL
 
 RUN cd /CSCFUTSAL
-RUN mkdir /src/tsconfig.app.json
 # For npm@5 or later, copy package-lock.json as well
 # COPY package.json package-lock.json ./
 RUN npm install
