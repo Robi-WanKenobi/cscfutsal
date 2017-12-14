@@ -19,7 +19,7 @@ RUN npm install
 # Bundle app source
 COPY . /fixit
 
-RUN ng build
+RUN ng build --prod
 
 EXPOSE 80
 #CMD [ "npm", "start" ]
