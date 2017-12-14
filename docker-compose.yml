@@ -7,7 +7,7 @@ services:
    - "27017:27017"
 
 
- webserver:
+ api:
   build: .
   command: node ./bin/www
   volumes:
