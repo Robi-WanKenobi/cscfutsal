@@ -19,7 +19,7 @@ RUN npm install -g @angular/cli
 # RUN npm install --only=production
 
 # Bundle app source
-COPY . /fixit
+COPY . /CSCFUTSAL
 
 RUN ng build
 
