@@ -7,6 +7,7 @@ WORKDIR /CSCFUTSAL
 # Install app dependencies
 
 COPY package.json /CSCFUTSAL
+COPY .angular-cli.json /CSCFUTSAL
 
 RUN cd /CSCFUTSAL
 # For npm@5 or later, copy package-lock.json as well
