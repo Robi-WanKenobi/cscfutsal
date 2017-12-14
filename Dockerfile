@@ -5,7 +5,6 @@ FROM node:alpine
 RUN mkdir /CSCFUTSAL
 WORKDIR /CSCFUTSAL
 # Install app dependencies
-RUN chown -R $(whoami) ../..$(npm config get prefix)/{lib/node_modules,bin,share}
 
 COPY package.json /CSCFUTSAL
 
@@ -16,7 +15,7 @@ RUN npm install -g @angular/cli
 
 # If you are building your code for production
 # RUN npm install --only=production
-RUN npm install --only=production
+RUN npm install
 
 # Bundle app source
 COPY . /fixit
