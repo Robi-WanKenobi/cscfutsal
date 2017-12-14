@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost/cscfutsaldb', function(err, res) {
+mongoose.connect('mongodb://localhost:27017/cscfutsaldb', function(err, res) {
   if(err) throw err;
   console.log('Connected to Database');
 });
