@@ -33,7 +33,7 @@
         </tbody>
       </table>
     </div>
-    <div class="well">
+    <div class="well hide_mobile_big">
       <table class="table">
         <thead style="font-weight: bold;">
         <td>Posició</td>
@@ -55,6 +55,22 @@
           <td>{{e.partidos.perdidos}}</td>
           <td>{{e.goles.favor}}</td>
           <td>{{e.goles.contra}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="well hide_mobile_small">
+      <table class="table">
+        <thead style="font-weight: bold;">
+        <td>Posició</td>
+        <td>Equip</td>
+        <td>Punts</td>
+        </thead>
+        <tbody>
+        <tr *ngFor="let e of clasificacion">
+          <td>{{e.posicion}}</td>
+          <td>{{e.nombre}}</td>
+          <td>{{e.puntos}}</td>
         </tr>
         </tbody>
       </table>
