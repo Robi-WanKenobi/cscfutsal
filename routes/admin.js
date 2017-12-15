@@ -43,7 +43,7 @@ router.post('/login', function(req, res) {
     });
 });
 
-/*router.post('/login', function(req, res) {
+/*router.post('/add', function(req, res) {
 
   var admin = new Admin();
 
