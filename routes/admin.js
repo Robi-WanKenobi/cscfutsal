@@ -129,7 +129,7 @@ router.post('/image/:id', [md_auth.ensureAuth, md_upload], function (req, res) {
           })
         }else {
           var path_dev = '/Users/rober/cscfutsal/public/plantillas/';
-          var path_prod = '/root/public/plantillas/';
+          var path_prod = '/CSCFUTSAL/public/plantillas/';
           fs.unlink(path_prod + image_name, function (err2) {
             if (err2) throw err2;
             Jugador.findByIdAndUpdate(jugador, {imagen: file_name}, {new: true}, function (err, act) {
@@ -176,7 +176,7 @@ router.delete('/jugadores/:id', md_auth.ensureAuth, function(req, res, next) {
       });
     }else{
       var path_dev = '/Users/rober/cscfutsal/public/plantillas/';
-      var path_prod = '/root/public/plantillas/';
+      var path_prod = '/CSCFUTSAL/public/plantillas/';
       fs.unlink(path_prod + image_name, function (err2) {
         if (err2) throw err2;
         Jugador.findByIdAndRemove(req.params.id, req.body, function (err, jugador) {
