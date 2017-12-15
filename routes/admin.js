@@ -8,7 +8,7 @@ var jwt = require('../services/jwt');
 var md_auth = require('../middlewares/authenticated');
 
 var multipart = require('connect-multiparty');
-var md_upload = multipart({ uploadDir: './public/plantillas'});
+var md_upload = multipart({ uploadDir: '/public/plantillas'});
 
 
 
@@ -105,7 +105,7 @@ router.post('/image/:id', [md_auth.ensureAuth, md_upload], function (req, res) {
     console.log(req.files);
     var file_path = req.files.image.path;
     var file_split = file_path.split('\/');
-    var file_name = file_split[2];
+    var file_name = file_split[3];
     var ext_split = file_path.split('\.');
     var file_ext = ext_split[1];
 
@@ -129,7 +129,7 @@ router.post('/image/:id', [md_auth.ensureAuth, md_upload], function (req, res) {
           })
         }else {
           var path_dev = '/Users/rober/cscfutsal/public/plantillas/';
-          var path_prod = '/cscfutsal_prod/public/plantillas/';
+          var path_prod = '/root/public/plantillas/';
           fs.unlink(path_prod + image_name, function (err2) {
             if (err2) throw err2;
             Jugador.findByIdAndUpdate(jugador, {imagen: file_name}, {new: true}, function (err, act) {
@@ -176,7 +176,7 @@ router.delete('/jugadores/:id', md_auth.ensureAuth, function(req, res, next) {
       });
     }else{
       var path_dev = '/Users/rober/cscfutsal/public/plantillas/';
-      var path_prod = '/cscfutsal_prod/public/plantillas/';
+      var path_prod = '/root/public/plantillas/';
       fs.unlink(path_prod + image_name, function (err2) {
         if (err2) throw err2;
         Jugador.findByIdAndRemove(req.params.id, req.body, function (err, jugador) {
