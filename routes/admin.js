@@ -8,7 +8,7 @@ var jwt = require('../services/jwt');
 var md_auth = require('../middlewares/authenticated');
 
 var multipart = require('connect-multiparty');
-var md_upload = multipart({ uploadDir: '/public/plantillas'});
+var md_upload = multipart({ uploadDir: './public/plantillas'});
 
 
 
@@ -105,7 +105,7 @@ router.post('/image/:id', [md_auth.ensureAuth, md_upload], function (req, res) {
     console.log(req.files);
     var file_path = req.files.image.path;
     var file_split = file_path.split('\/');
-    var file_name = file_split[3];
+    var file_name = file_split[2];
     var ext_split = file_path.split('\.');
     var file_ext = ext_split[1];
 
