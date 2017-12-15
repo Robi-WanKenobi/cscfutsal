@@ -12,7 +12,7 @@ services:
   build: .
   command: node ./bin/www
   volumes:
-   - api-img:/public/plantillas
+   - api-img:/public/plantillas/
   ports:
    - "80:80"
   links:
