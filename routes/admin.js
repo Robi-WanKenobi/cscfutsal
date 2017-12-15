@@ -8,7 +8,7 @@ var jwt = require('../services/jwt');
 var md_auth = require('../middlewares/authenticated');
 
 var multipart = require('connect-multiparty');
-var md_upload = multipart({ uploadDir: 'public/plantillas'});
+var md_upload = multipart({ uploadDir: './public/plantillas'});
 
 
 
