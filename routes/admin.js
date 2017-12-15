@@ -116,7 +116,7 @@ router.post('/image/:id', [md_auth.ensureAuth, md_upload], function (req, res) {
       Jugador.findById(req.params.id).exec(function (err, jugador) {
         if (err) return next(err);
         var image_name = jugador.imagen;
-        if (image_name.trim() === 'player.png'){
+        if (image_name.toString().trim() === 'player.png'){
           Jugador.findByIdAndUpdate(jugador, {imagen: file_name}, {new: true}, function (err, act) {
             if (err){
               res.status(500).send({message: 'Error al actualizar el jugador'})
@@ -168,7 +168,7 @@ router.delete('/jugadores/:id', md_auth.ensureAuth, function(req, res, next) {
   Jugador.findById(req.params.id).exec(function (err, jugador) {
     if (err) return next(err);
     var image_name = jugador.imagen;
-    if (image_name.trim() === 'player.png'){
+    if (image_name.toString().trim() === 'player.png'){
       Jugador.findByIdAndRemove(req.params.id, req.body, function (err, jugador) {
         if (err) return next(err);
         res.json(jugador);
