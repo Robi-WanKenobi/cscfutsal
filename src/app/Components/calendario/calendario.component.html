@@ -3,9 +3,9 @@
   <div class="well" *ngFor="let jornada of calendario">
     <table class="table table-striped">
       <thead style="font-weight: bold;">
-      <td id="jornada"><h4>{{jornada.numero}}</h4></td>
+      <td id="jornada"><h5><strong>{{jornada.numero}}</strong></h5></td>
       <td></td>
-      <td id="fecha"><h4>{{jornada.fecha}}</h4></td>
+      <td id="fecha"><h5><strong>{{jornada.fecha}}</strong></h5></td>
       </thead>
       <tbody>
       <tr *ngFor="let p of jornada.partidos">

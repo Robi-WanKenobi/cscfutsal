@@ -13,3 +13,16 @@ table td{
 #fecha{
   text-align: right !important;
 }
+
+@media  screen and (min-width: 600px) {
+  .well {
+    font-size: 14px;
+  }
+}
+
+@media  screen and (max-width: 600px) {
+
+  .well{
+    font-size: 11px !important;
+  }
+}
