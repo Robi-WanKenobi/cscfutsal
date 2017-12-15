@@ -12,8 +12,12 @@ services:
   build: .
   command: node ./bin/www
   volumes:
-   - /public/plantillas:/public/plantillas
+   - api-img:/public/plantillas
   ports:
    - "80:80"
   links:
    - mongo
+
+volumes:
+  api-img:
+    driver: local
