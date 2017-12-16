@@ -5,8 +5,20 @@ h6{
   border-color: #101010;
   padding: 5px;
 }
-#dorsal{
+#dorsal, #dorsal_s{
   background-color: transparent;
   color: #fcfcfc;
   border-radius: 3px;
+}
+
+@media  screen and (min-width: 993px) {
+  #small {
+  }
+}
+
+@media  screen and (max-width: 993px) {
+  #small {
+    display: inline-block;
+    width: 33% !important;
+  }
 }
