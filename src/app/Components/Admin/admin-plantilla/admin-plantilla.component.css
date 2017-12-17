@@ -44,5 +44,5 @@ a:hover {
 
 .well {
   padding: 5px !important;
-  background-image: linear-gradient(to bottom, #d3ccde, #95959b 100%) !important;
+  background-image: linear-gradient(to bottom, #95959b, #d3ccde 100%) !important;
 }

@@ -40,5 +40,5 @@ h6#down{
 }
 .well{
   padding: 5px !important;
-  background-image: linear-gradient(to bottom, #d6b700 0, #916200 100%) !important;
+  background-image: linear-gradient(to bottom, #95959b, #d3ccde 100%) !important;
 }
