@@ -23,3 +23,7 @@ h6{
     width: 33% !important;
   }
 }
+.well{
+  padding: 5px !important;
+  background-image: linear-gradient(to bottom, #d6b700 0, #916200 100%) !important;
+}

@@ -11,3 +11,8 @@ h5{
   color: #fcfcfc;
   border-radius: 3px;
 }
+
+.well {
+  padding: 5px !important;
+  background-image: linear-gradient(to bottom, #d3ccde, #95959b 100%) !important;
+}
