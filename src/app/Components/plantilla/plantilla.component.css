@@ -25,6 +25,6 @@ a:hover{
 @media  screen and (max-width: 993px) {
   .small_p {
     display: inline-block;
-    width: 33% !important;
+    width: 50% !important;
   }
 }
