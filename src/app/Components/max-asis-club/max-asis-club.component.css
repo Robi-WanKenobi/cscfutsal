@@ -25,8 +25,8 @@ h6#down{
 
 @media  screen and (min-width: 993px) {
   #small_asis {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
@@ -40,5 +40,5 @@ h6#down{
 }
 .well{
   padding: 5px !important;
-  background-image: linear-gradient(to bottom, #d6b700 0, #916200 100%) !important;
+  background-image: linear-gradient(to bottom, #95959b, #d3ccde 100%) !important;
 }
