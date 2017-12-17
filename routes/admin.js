@@ -190,7 +190,13 @@ router.delete('/jugadores/:id', md_auth.ensureAuth, function(req, res, next) {
 
 /* UPDATE JUGADOR */
 router.put('/jugadores/:id', md_auth.ensureAuth, function(req, res, next) {
-  Jugador.findByIdAndUpdate(req.params.id, req.body, function (err, jugador) {
+
+  _Jugador = req.body;
+  _Jugador.estadisticas.tarjetas = parseInt(_Jugador.estadisticas.amarillas) + parseInt(_Jugador.estadisticas.rojas);
+
+  console.log(_Jugador);
+
+  Jugador.findByIdAndUpdate(req.params.id, _Jugador, function (err, jugador) {
     if (err) return next(err);
     res.json(jugador);
   });
