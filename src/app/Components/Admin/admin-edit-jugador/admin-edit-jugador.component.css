@@ -1,3 +1,11 @@
+h4{
+  background-color: #333;
+  color: #fcfcfc;
+  border-radius: 3px;
+  border-color: #101010;
+  padding: 10px;
+  margin: 0px;
+}
 h5#up{
   background-color: #333;
   color: #fcfcfc;
@@ -23,7 +31,7 @@ h5#down{
   border-radius: 3px;
 }
 
-.well {
+.p {
   padding: 5px !important;
   background-image: linear-gradient(to bottom, #95959b, #d3ccde 100%) !important;
 }
