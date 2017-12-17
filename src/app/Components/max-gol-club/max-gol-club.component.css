@@ -12,12 +12,12 @@ h6{
 }
 
 @media  screen and (min-width: 993px) {
-  #small {
+  #small_g {
   }
 }
 
 @media  screen and (max-width: 993px) {
-  #small {
+  #small_g {
     display: inline-block;
     width: 33% !important;
   }
