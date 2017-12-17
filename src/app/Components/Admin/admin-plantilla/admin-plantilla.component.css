@@ -26,6 +26,6 @@ a:hover {
 @media  screen and (max-width: 993px) {
   .small_pa {
     display: inline-block;
-    width: 33% !important;
+    width: 50% !important;
   }
 }
