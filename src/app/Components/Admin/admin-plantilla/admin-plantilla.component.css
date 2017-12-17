@@ -1,7 +1,18 @@
-h5{
+h5.up{
   background-color: #333;
   color: #fcfcfc;
-  border-radius: 3px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-color: #101010;
+  padding: 10px;
+  margin: 0px;
+}
+
+h5.down{
+  background-color: #333;
+  color: #fcfcfc;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
   border-color: #101010;
   padding: 10px;
   margin: 0px;
