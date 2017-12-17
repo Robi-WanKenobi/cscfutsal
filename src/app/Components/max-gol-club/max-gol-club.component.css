@@ -1,11 +1,23 @@
-h6{
+h6#up{
   background-color: #333;
   color: #fcfcfc;
-  border-radius: 3px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
   border-color: #101010;
-  padding: 5px;
+  padding: 10px;
   margin: 0px;
 }
+
+h6#down{
+  background-color: #333;
+  color: #fcfcfc;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-color: #101010;
+  padding: 10px;
+  margin: 0px;
+}
+
 #dorsal, #dorsal_s{
   background-color: transparent;
   color: #fcfcfc;
@@ -25,5 +37,5 @@ h6{
 }
 .well{
   padding: 5px !important;
-  background-image: linear-gradient(to bottom, #d6b700 0, #916200 100%) !important;
+  background-image: linear-gradient(to bottom, #e8e400 0, #004691 100%) !important;
 }

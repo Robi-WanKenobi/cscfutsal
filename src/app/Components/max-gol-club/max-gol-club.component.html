@@ -1,13 +1,13 @@
 <div class="row">
   <div id="small_g" class="col-md-4" *ngFor="let j of jugadores">
     <div class="well">
-    <h6 class="text-center">
+    <h6 id="up" class="text-center">
       <p id="dorsal" style="float: left;">{{j.dorsal}}</p>
       {{j.apodo}}
     </h6>
     <img class="img-responsive" src="/plantillas/{{j.imagen}}"
-         style="max-width: 100%; max-height: 100%; margin-left: auto;margin-right: auto;display: block;"/>
-    <h6 class="text-center">
+         style="max-width: 100%; max-height: 100%; margin: 0px; display: block;"/>
+    <h6 id="down" class="text-center">
       {{ j.posicion}}
     </h6>
     <p style="text-align: center; word-spacing: inherit; margin-top: 5px;"><strong>{{j.estadisticas.goles}}</strong>  <i style="color: #333 !important;" class="fa fa-futbol-o"></i>
