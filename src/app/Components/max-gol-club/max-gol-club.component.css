@@ -4,6 +4,7 @@ h6{
   border-radius: 3px;
   border-color: #101010;
   padding: 5px;
+  margin: 0px;
 }
 #dorsal, #dorsal_s{
   background-color: transparent;
@@ -21,4 +22,7 @@ h6{
     display: inline-block;
     width: 33% !important;
   }
+}
+.well{
+  padding: 5px !important;
 }
