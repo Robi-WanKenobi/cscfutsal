@@ -30,3 +30,8 @@ a:hover {
     width: 50% !important;
   }
 }
+
+.well {
+  padding: 5px !important;
+  background-image: linear-gradient(to bottom, #d3ccde, #95959b 100%) !important;
+}
