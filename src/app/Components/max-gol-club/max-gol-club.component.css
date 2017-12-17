@@ -26,6 +26,8 @@ h6#down{
 
 @media  screen and (min-width: 993px) {
   #small_g {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 
@@ -33,6 +35,8 @@ h6#down{
   #small_g {
     display: inline-block;
     width: 33% !important;
+    padding-left: 5px;
+    padding-right: 5px;
   }
 }
 
