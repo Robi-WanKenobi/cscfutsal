@@ -10,3 +10,15 @@ h6{
   color: #fcfcfc;
   border-radius: 3px;
 }
+
+@media  screen and (min-width: 993px) {
+  #small_asis {
+  }
+}
+
+@media  screen and (max-width: 993px) {
+  #small_asis {
+    display: inline-block;
+    width: 33% !important;
+  }
+}

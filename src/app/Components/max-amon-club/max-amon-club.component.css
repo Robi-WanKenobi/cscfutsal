@@ -10,3 +10,15 @@ h6{
   color: #fcfcfc;
   border-radius: 3px;
 }
+
+@media  screen and (min-width: 992px) {
+  #small_amon {
+  }
+}
+
+@media  screen and (max-width: 992px) {
+  #small_amon {
+    display: inline-block;
+    width: 33% !important;
+  }
+}

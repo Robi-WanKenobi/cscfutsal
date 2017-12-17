@@ -17,3 +17,14 @@ a:hover{
   text-decoration: none !important;
 }
 
+@media  screen and (min-width: 993px) {
+  .small_p {
+  }
+}
+
+@media  screen and (max-width: 993px) {
+  .small_p {
+    display: inline-block;
+    width: 33% !important;
+  }
+}

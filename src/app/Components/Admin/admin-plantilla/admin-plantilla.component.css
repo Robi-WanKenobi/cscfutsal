@@ -17,3 +17,15 @@ li a{
 a:hover {
   cursor: pointer;
 }
+
+@media  screen and (min-width: 993px) {
+  .small_pa {
+  }
+}
+
+@media  screen and (max-width: 993px) {
+  .small_pa {
+    display: inline-block;
+    width: 33% !important;
+  }
+}
