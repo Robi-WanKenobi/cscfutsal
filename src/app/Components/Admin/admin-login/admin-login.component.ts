@@ -25,12 +25,12 @@ export class AdminLoginComponent implements OnInit {
       localStorage.setItem('token', this.data['token']);
       localStorage.setItem('role', this.data['role']);
       this.status = 'success';
-      setTimeout(() => {this.status = ''; }, 1000);
+      setTimeout(() => {this.status = ''; }, 1500);
       setTimeout(() => {this.router.navigate(['admin']); }, 1500);
     }, (err) => {
       console.log(err);
       this.status = 'error';
-      setTimeout(() => {this.status = ''; }, 1000);
+      setTimeout(() => {this.status = ''; }, 1500);
     });
   }
 }
