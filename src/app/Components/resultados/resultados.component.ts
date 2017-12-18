@@ -85,7 +85,6 @@ export class ResultadosComponent implements OnInit {
       this.getClasificacion(this.equipo, this.actual);
     }
   }
-
 }
 
 

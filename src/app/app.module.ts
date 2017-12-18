@@ -36,12 +36,16 @@ import { AdminEditJugadorComponent } from './Components/Admin/admin-edit-jugador
 import { MaxGolsEquipComponent } from './Components/max-gols-equip/max-gols-equip.component';
 import { MaxAsisEquipComponent } from './Components/max-asis-equip/max-asis-equip.component';
 import { MaxAmonEquipComponent } from './Components/max-amon-equip/max-amon-equip.component';
+import { EquipacionesComponent } from './Layouts/equipaciones/equipaciones.component';
+import { InstalacionesComponent} from "./Layouts/instalaciones/instalaciones.component";
 
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'inici', pathMatch: 'full' },
   { path: 'inici', component: InicioComponent },
   { path: 'contacte', component: ContactoComponent},
+  { path: 'equipacions', component: EquipacionesComponent},
+  { path: 'instalacions', component: InstalacionesComponent},
   { path: 'equip', component: EquipoComponent},
   { path: 'login', component: AdminLoginComponent},
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
@@ -73,7 +77,9 @@ const appRoutes: Routes = [
     AdminEditJugadorComponent,
     MaxGolsEquipComponent,
     MaxAsisEquipComponent,
-    MaxAmonEquipComponent
+    MaxAmonEquipComponent,
+    EquipacionesComponent,
+    InstalacionesComponent
   ],
   imports: [BrowserModule,
     FormsModule,
