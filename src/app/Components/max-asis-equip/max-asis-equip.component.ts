@@ -17,7 +17,6 @@ export class MaxAsisEquipComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams.forEach((params: Params) => {
       this.equipo = params['cat'];
-      console.log(this.equipo);
       this.getMaxAsis(this.equipo);
     });
   }

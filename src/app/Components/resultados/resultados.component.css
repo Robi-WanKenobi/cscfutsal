@@ -33,3 +33,6 @@ span:hover{
     font-size: 11px;
   }
 }
+a:hover{
+  text-decoration: none;
+}

@@ -22,14 +22,15 @@ export class AdminLoginComponent implements OnInit {
   login() {
     this.adminService.Login({'usuario': this.usuario, 'password': this.password}).then((res) => {
       this.data = res;
-      console.log(this.data);
       localStorage.setItem('token', this.data['token']);
       localStorage.setItem('role', this.data['role']);
       this.status = 'success';
+      setTimeout(() => {this.status = ''; }, 1000);
       setTimeout(() => {this.router.navigate(['admin']); }, 1500);
     }, (err) => {
       console.log(err);
       this.status = 'error';
+      setTimeout(() => {this.status = ''; }, 1000);
     });
   }
 }

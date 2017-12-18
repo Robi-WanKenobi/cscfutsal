@@ -1,4 +1,4 @@
-<div class="col-md-8 col-md-offset-2">
+<div class="col-md-8 col-md-offset-2" *ngIf="!infantil">
   <div class="row">
     <table class="table">
       <tbody>
@@ -84,3 +84,16 @@
   </div>
 </div>
 
+<div class="col-md-8 col-md-offset-2" *ngIf="infantil">
+  <h2 class="text-center">Informació no disponible</h2>
+  <a target="_blank" href="http://www.elconsell.cat/elconsell/ceeb/classificacions-futbol5-fase1-menu">
+  <h3 class="text-center">
+      <span class="label label-primary">
+        Consulta la classificació al Consell Escolar
+      </span>
+      <span class="label label-default">
+        Mixt - Infantil - Grup 6
+      </span>
+  </h3>
+  </a>
+</div>

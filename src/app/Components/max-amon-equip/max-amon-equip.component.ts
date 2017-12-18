@@ -18,7 +18,6 @@ export class MaxAmonEquipComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams.forEach((params: Params) => {
       this.equipo = params['cat'];
-      console.log(this.equipo);
       this.getMaxAmon(this.equipo);
     });
   }

@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
+  <div class="col-md-8 col-md-offset-2" *ngIf="!infantil">
   <div class="well" *ngFor="let jornada of calendario">
     <table class="table table-striped">
       <thead style="font-weight: bold;">
@@ -16,5 +16,15 @@
       </tbody>
     </table>
   </div>
+  </div>
+  <div class="col-md-8 col-md-offset-2" *ngIf="infantil">
+    <h2 class="text-center">Informació no disponible</h2>
+    <a target="_blank" href="http://www.elconsell.cat/ceeb/xml/fase1/jornadaxml.php?&p2=4182">
+      <h3 class="text-center">
+      <span class="label label-primary">
+        Consulta el calendari al Consell Escolar
+      </span>
+      </h3>
+    </a>
   </div>
 </div>
