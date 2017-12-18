@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { EquipoService} from "../../Services/equipo.service";
 import { Params, ActivatedRoute } from '@angular/router';
 
@@ -9,6 +9,7 @@ import { Params, ActivatedRoute } from '@angular/router';
 })
 export class ResultadosComponent implements OnInit {
 
+  @Input() infantil: boolean;
   equipo: string;
   clasificacion: any;
   jornada: any;
@@ -21,14 +22,18 @@ export class ResultadosComponent implements OnInit {
     this.loading = true;
     this.route.queryParams.forEach((params: Params) => {
       this.equipo = params['cat'];
-      console.log(this.equipo);
-      this.setJornadaActual(this.equipo);
+      if (this.equipo === 'Infantil A')
+      {
+        this.infantil = true;
+      }else {
+        this.infantil = false;
+        this.setJornadaActual(this.equipo);
+      }
     });
   }
 
   setJornadaActual(equipo) {
     this.equipoService.getJornadaActual().then((res) => {
-      console.log(res);
       this.actual = res;
       this.getResultados(equipo, res);
       this.getClasificacion(equipo, res);
@@ -41,7 +46,6 @@ export class ResultadosComponent implements OnInit {
     this.equipoService.getResultados(equipo , jornada).then((res) => {
       this.loading = false;
       this.jornada = res;
-      console.log(jornada);
     }, (err) => {
       console.log(err);
     });

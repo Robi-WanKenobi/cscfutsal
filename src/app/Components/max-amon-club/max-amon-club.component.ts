@@ -19,7 +19,6 @@ export class MaxAmonClubComponent implements OnInit {
   getMaxAmonClub() {
     this.jugadoresService.getMaxAmonClub().then((res) => {
       this.jugadores = res;
-      console.log(this.jugadores);
     }, (err) => {
       console.log(err);
     });

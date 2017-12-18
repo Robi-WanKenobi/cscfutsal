@@ -30,3 +30,6 @@ li a{
   color: #333;
   font-size: 18px;
 }
+h3 a:hover{
+  text-decoration: none;
+}

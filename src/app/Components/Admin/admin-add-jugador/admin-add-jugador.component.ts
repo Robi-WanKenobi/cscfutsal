@@ -12,10 +12,6 @@ export class AdminAddJugadorComponent implements OnInit {
 
   jugador = new Jugador();
 
-  equipos: string[] = ['Sènior A', 'Sènior B', 'Sènior C',
-    'Juvenil A', 'Juvenil B', 'Juvenil C',
-    'Infantil A'];
-
   status: string;
 
   constructor(private adminService: AdminService, private router: Router) { }

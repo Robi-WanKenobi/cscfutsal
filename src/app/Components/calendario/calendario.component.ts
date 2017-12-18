@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {EquipoService} from "../../Services/equipo.service";
 import {Params, ActivatedRoute} from "@angular/router";
 
@@ -9,6 +9,7 @@ import {Params, ActivatedRoute} from "@angular/router";
 })
 export class CalendarioComponent implements OnInit {
 
+  @Input() infantil: boolean;
   calendario: any;
   equipo: string;
 
@@ -17,8 +18,13 @@ export class CalendarioComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams.forEach((params: Params) => {
       this.equipo = params['cat'];
-      console.log(this.equipo);
-      this.getCalendario(this.equipo);
+      if (this.equipo === 'Infantil A')
+      {
+        this.infantil = true;
+      }else {
+        this.infantil = false;
+        this.getCalendario(this.equipo);
+      }
     });
   }
 
