@@ -32,7 +32,7 @@ export class AdminPlantillaComponent implements OnInit {
       this.getJugadoresJuvenilA();
       this.getJugadoresJuvenilB();
       this.getJugadoresJuvenilC();
-      this.getJugadoresInfantilA(); }, 2000);
+      this.getJugadoresInfantilA(); }, 1000);
 
   }
 
