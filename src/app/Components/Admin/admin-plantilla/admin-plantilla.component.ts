@@ -23,14 +23,17 @@ export class AdminPlantillaComponent implements OnInit {
   constructor(private adminService: AdminService, private equipoService: EquipoService, private router: Router) { }
 
   ngOnInit() {
-    this.getAllJugadores();
-    this.getJugadoresSeniorA();
-    this.getJugadoresSeniorB();
-    this.getJugadoresSeniorC();
-    this.getJugadoresJuvenilA();
-    this.getJugadoresJuvenilB();
-    this.getJugadoresJuvenilC();
-    this.getJugadoresInfantilA();
+
+    setTimeout(() => {
+      this.getAllJugadores();
+      this.getJugadoresSeniorA();
+      this.getJugadoresSeniorB();
+      this.getJugadoresSeniorC();
+      this.getJugadoresJuvenilA();
+      this.getJugadoresJuvenilB();
+      this.getJugadoresJuvenilC();
+      this.getJugadoresInfantilA(); }, 2000);
+
   }
 
   getAllJugadores() {
