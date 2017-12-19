@@ -33,7 +33,6 @@ h5.down{
   border-radius: 3px;
 }
 .row{
-  display: table-row;
   margin-top: 10px !important;
 }
 
@@ -54,7 +53,6 @@ a:hover{
 }
 
 .well {
-  display: table-cell;
   padding: 5px !important;
   background-image: linear-gradient(to bottom, #95959b, #d3ccde 100%) !important;
 }
