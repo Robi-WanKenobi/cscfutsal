@@ -10,7 +10,6 @@ import {Router} from "@angular/router";
 })
 export class AdminPlantillaComponent implements OnInit {
 
-  jugadores: any;
   seniorA: any;
   seniorB: any;
   seniorC: any;
@@ -24,8 +23,6 @@ export class AdminPlantillaComponent implements OnInit {
 
   ngOnInit() {
 
-
-      this.getAllJugadores();
       this.getJugadoresSeniorA();
       this.getJugadoresSeniorB();
       this.getJugadoresSeniorC();
@@ -34,15 +31,6 @@ export class AdminPlantillaComponent implements OnInit {
       this.getJugadoresJuvenilC();
       this.getJugadoresInfantilA();
 
-  }
-
-  getAllJugadores() {
-    /*La petición requiere permisos*/
-    this.adminService.getAllJugadores().then((res) => {
-      this.jugadores = res;
-    }, (err) => {
-      console.log(err);
-    });
   }
 
   getJugadoresSeniorA() {
