@@ -33,6 +33,7 @@ h5.down{
   border-radius: 3px;
 }
 .row{
+  display: flex; /* equal height of the children */
   margin-top: 10px !important;
 }
 a:hover{
