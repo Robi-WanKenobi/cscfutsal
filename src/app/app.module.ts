@@ -22,7 +22,7 @@ import {AdminService} from "./Services/admin.service";
 import { AdminLoginComponent } from './Components/Admin/admin-login/admin-login.component';
 import { AdminComponent } from './Layouts/admin/admin.component';
 import {AuthGuard} from "./Guard/auth.guard";
-import { AdminPlantillaComponent } from './Components/Admin/admin-plantilla/admin-plantilla.component';
+import { AdminPlantillaComponent } from './Layouts/admin-plantilla/admin-plantilla.component';
 import { CalendarioComponent } from './Components/calendario/calendario.component';
 import { MaxGolClubComponent } from './Components/max-gol-club/max-gol-club.component';
 import { LoaderComponent } from './shared/loader/loader.component';
@@ -49,6 +49,7 @@ const appRoutes: Routes = [
   { path: 'equip', component: EquipoComponent},
   { path: 'login', component: AdminLoginComponent},
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
+  { path: 'admin-plantillas', component: AdminPlantillaComponent, canActivate: [AuthGuard]},
   { path: 'edit/:id', component: AdminEditJugadorComponent, canActivate: [AuthGuard]}
 ];
 
