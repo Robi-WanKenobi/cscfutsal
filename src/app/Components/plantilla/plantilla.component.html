@@ -4,7 +4,8 @@
 </h4>
 </div>
 <div class="col-md-12">
-  <div class="col-md-2 small_p" *ngFor="let j of jugadores">
+  <div class="wrap">
+  <div class="col-md-2 small_p" *ngFor="let j of jugadores" style="margin-top: 10px">
       <div class="well">
         <h5 class="text-center up">
           <p id="dorsal" style="float: left;">{{j.dorsal}}</p>
@@ -22,6 +23,7 @@
         </p>
       </div>
   </div>
+  </div>
 </div>
 
 <hr>
@@ -31,7 +33,7 @@
 </h4>
 </div>
 <div class="col-mg-12">
-  <div class="col-md-2 small_p" *ngFor="let j of tecnicos">
+  <div class="col-md-2 small_p" *ngFor="let j of tecnicos" style="margin-top: 10px">
     <div class="well">
       <h5 class="text-center up">
         {{j.apodo}}
