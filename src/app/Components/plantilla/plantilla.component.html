@@ -1,9 +1,10 @@
+<div class="col-md-12">
 <h4 class="text-center">
   Jugadors
 </h4>
-<div class="row">
+</div>
+<div class="col-md-12">
   <div class="col-md-2 small_p" *ngFor="let j of jugadores">
-    <div class="wrap">
       <div class="well">
         <h5 class="text-center up">
           <p id="dorsal" style="float: left;">{{j.dorsal}}</p>
@@ -20,15 +21,16 @@
           <strong>{{j.estadisticas.rojas}}</strong>  <i style="color: red !important;" class="fa fa-square"></i>
         </p>
       </div>
-    </div>
   </div>
 </div>
 
 <hr>
+<div class="col-md-12">
 <h4 class="text-center">
   Cos tècnic
 </h4>
-<div class="row">
+</div>
+<div class="col-mg-12">
   <div class="col-md-2 small_p" *ngFor="let j of tecnicos">
     <div class="well">
       <h5 class="text-center up">
