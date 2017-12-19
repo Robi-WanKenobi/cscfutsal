@@ -33,15 +33,11 @@ h5.down{
   border-radius: 3px;
 }
 .row{
-  overflow: hidden;
   margin-top: 10px !important;
 }
-
-[class*="col-"]{
-  margin-bottom: -99999px;
-  padding-bottom: 99999px;
+.wrap{
+  padding: 5px;
 }
-
 a:hover{
   text-decoration: none !important;
 }
