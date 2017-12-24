@@ -193,8 +193,17 @@ router.put('/jugadores/:id', md_auth.ensureAuth, function(req, res, next) {
 
   _Jugador = req.body;
   _Jugador.estadisticas.tarjetas = parseInt(_Jugador.estadisticas.amarillas) + parseInt(_Jugador.estadisticas.rojas);
-  _Jugador.estadisticas.goles_pp = parseInt(_Jugador.goles) / parseFloat(_Jugador.partidos);
-  _Jugador.estadisticas.goles_encajados_pp = parseInt(_Jugador.goles_encajados) / parseFloat(_Jugador.partidos);
+  _Jugador.estadisticas.goles_pp = (parseInt(_Jugador.estadisticas.goles) / parseFloat(_Jugador.estadisticas.partidos));
+  _Jugador.estadisticas.goles_encajados_pp = (parseInt(_Jugador.estadisticas.goles_encajados) / parseFloat(_Jugador.estadisticas.partidos));
+
+  console.log()
+  console.log("Goles" + parseInt(_Jugador.goles));
+  console.log("Encaj" + parseInt(_Jugador.goles_encajados));
+  console.log("Partidos" + parseFloat(_Jugador.partidos));
+
+
+  console.log(_Jugador.estadisticas.goles_pp);
+  console.log(_Jugador.estadisticas.goles_encajados_pp);
 
   console.log(_Jugador);
 
