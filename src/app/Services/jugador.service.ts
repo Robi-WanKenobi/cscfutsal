@@ -31,6 +31,17 @@ export class JugadorService {
     });
   }
 
+  getMinGolClub() {
+    return new Promise((resolve, reject) => {
+      this.http.get('/jugadores/min_gol_club')
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
   getMaxAsisClub() {
     return new Promise((resolve, reject) => {
       this.http.get('/jugadores/max_asis_club')

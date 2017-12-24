@@ -38,6 +38,8 @@ import { MaxAsisEquipComponent } from './Components/max-asis-equip/max-asis-equi
 import { MaxAmonEquipComponent } from './Components/max-amon-equip/max-amon-equip.component';
 import { EquipacionesComponent } from './Layouts/equipaciones/equipaciones.component';
 import { InstalacionesComponent} from "./Layouts/instalaciones/instalaciones.component";
+import { MinGolClubComponent } from './Components/min-gol-club/min-gol-club.component';
+import {MinGolEquipComponent} from "./Components/min-gol-equip/min-gol-equip.component";
 
 
 const appRoutes: Routes = [
@@ -80,7 +82,9 @@ const appRoutes: Routes = [
     MaxAsisEquipComponent,
     MaxAmonEquipComponent,
     EquipacionesComponent,
-    InstalacionesComponent
+    InstalacionesComponent,
+    MinGolClubComponent,
+    MinGolEquipComponent,
   ],
   imports: [BrowserModule,
     FormsModule,

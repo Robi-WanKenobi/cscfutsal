@@ -60,6 +60,22 @@ router.get('/max_amon/:equipo', function(req, res, next) {
   });
 });
 
+/*GET MIN GOLEADOS CLUB*/
+router.get('/min_gol_club', function(req, res, next) {
+  Jugador.find({ 'tipo': 'Porter' }, null, {sort: { "estadisticas.goles_encajados_pp": +1 }}).limit(3).exec(function (err, jugadores) {
+    if (err) return next(err);
+    res.json(jugadores);
+  });
+});
+
+/*GET MIN GOLEADOS equipo*/
+router.get('/min_gol/:equipo', function(req, res, next) {
+  Jugador.find({$and : [ { 'equipo': req.params.equipo  }, { 'tipo': 'Porter' } ]}, null, {sort: { "estadisticas.goles_encajados_pp": +1 }}).exec(function (err, jugadores) {
+    if (err) return next(err);
+    res.json(jugadores);
+  });
+});
+
 /*GET JUGADORES POR EQUIPO*/
 router.get('/equipo/:equipo', function(req, res, next) {
   Jugador.find({$and : [ { 'equipo': req.params.equipo  }, { 'tipo': 'Jugador' } ]}, null, {sort: {dorsal: 1 }}).exec(function (err, jugadores) {

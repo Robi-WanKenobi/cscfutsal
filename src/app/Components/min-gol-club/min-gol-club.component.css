@@ -1,0 +1,51 @@
+h6#up{
+  background-color: #333;
+  color: #fcfcfc;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-color: #101010;
+  padding: 10px;
+  margin: 0px;
+  font-size: 15px !important;
+}
+
+h6#down{
+  background-color: #333;
+  color: #fcfcfc;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-color: #101010;
+  padding: 10px;
+  margin: 0px;
+  font-size: 15px !important;
+}
+h5{
+  font-size: 15px !important;
+  font-weight: bold !important;
+}
+#dorsal, #dorsal_s{
+  background-color: transparent;
+  color: #fcfcfc;
+  border-radius: 3px;
+}
+
+@media  screen and (min-width: 993px) {
+  #small_g {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+@media  screen and (max-width: 993px) {
+  #small_g {
+    display: inline-block;
+    width: 33% !important;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+.well{
+  padding: 5px !important;
+  background-image: linear-gradient(to bottom, #95959b, #d3ccde 100%) !important;
+}

@@ -91,6 +91,18 @@ export class EquipoService {
     });
   }
 
+  getMinGol(equipo) {
+    return new Promise((resolve, reject) => {
+      this.http.get('/jugadores/min_gol/' + equipo)
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
   getMaxAsis(equipo) {
     return new Promise((resolve, reject) => {
       this.http.get('/jugadores/max_asis/' + equipo)
