@@ -17,4 +17,7 @@ export class FooterSortidaComponent implements OnInit {
     localStorage.clear();
     setTimeout(() => {this.router.navigate(['/inici']); }, 1000);
   }
+  toMenu(){
+    this.router.navigate(['/admin']);
+  }
 }

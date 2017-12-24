@@ -9,7 +9,7 @@
         <td>
           <h4 class="text-center">Jornada {{actual}}</h4>
           <p class="text-center" id="now" (click)="ngOnInit()">Jornada actual</p>
-          <h4 class="text-center"><a href="#"><span class="label label-primary">Crònica</span></a></h4>
+          <h4 class="text-center"><a data-toggle="modal" data-target="#cronica"><span class="label label-primary">Crònica</span></a></h4>
           <app-loader2 [loading]="loading"></app-loader2>
         </td>
         <td>
@@ -92,5 +92,27 @@
   </h3>
   </a>
   <h3 id="info" class="text-center"><span class="label label-default">Mixt - Infantil - Grup 6</span></h3>
+  </div>
+</div>
+
+<!-- Crónica -->
+<div class="modal fade" id="cronica" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <app-cronica></app-cronica>
+      <!--<div class="modal-header">-->
+        <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+        <!--<h4 class="modal-title">Modal Header</h4>-->
+      <!--</div>-->
+      <!--<div class="modal-body">-->
+        <!--<p>Some text in the modal.</p>-->
+      <!--</div>-->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Tancar</button>
+      </div>
+    </div>
+
   </div>
 </div>

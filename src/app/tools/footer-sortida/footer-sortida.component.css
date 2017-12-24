@@ -1,8 +1,8 @@
-#sortida{
+.sortida{
   text-decoration: none;
   color: #737373;
 }
-#sortida:hover{
+.sortida:hover{
   text-decoration: underline;
   color: #434343;
   cursor: pointer;

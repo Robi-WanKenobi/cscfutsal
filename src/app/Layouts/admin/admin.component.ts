@@ -14,6 +14,10 @@ export class AdminComponent implements OnInit {
   }
 
    toPlantillas() {
-     this.router.navigate(['/admin-plantillas']);
+     this.router.navigate(['/admin-plantilles']);
    }
+
+    toCronicas() {
+      this.router.navigate(['/admin-croniques']);
+    }
 }

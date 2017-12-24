@@ -40,6 +40,8 @@ import { EquipacionesComponent } from './Layouts/equipaciones/equipaciones.compo
 import { InstalacionesComponent} from "./Layouts/instalaciones/instalaciones.component";
 import { MinGolClubComponent } from './Components/min-gol-club/min-gol-club.component';
 import {MinGolEquipComponent} from "./Components/min-gol-equip/min-gol-equip.component";
+import { CronicaComponent } from './Components/cronica/cronica.component';
+import { AdminCronicasComponent } from './Layouts/admin-cronicas/admin-cronicas.component';
 
 
 const appRoutes: Routes = [
@@ -51,7 +53,8 @@ const appRoutes: Routes = [
   { path: 'equip', component: EquipoComponent},
   { path: 'login', component: AdminLoginComponent},
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
-  { path: 'admin-plantillas', component: AdminPlantillaComponent, canActivate: [AuthGuard]},
+  { path: 'admin-plantilles', component: AdminPlantillaComponent, canActivate: [AuthGuard]},
+  { path: 'admin-croniques', component: AdminCronicasComponent, canActivate: [AuthGuard]},
   { path: 'edit/:id', component: AdminEditJugadorComponent, canActivate: [AuthGuard]}
 ];
 
@@ -85,6 +88,8 @@ const appRoutes: Routes = [
     InstalacionesComponent,
     MinGolClubComponent,
     MinGolEquipComponent,
+    CronicaComponent,
+    AdminCronicasComponent,
   ],
   imports: [BrowserModule,
     FormsModule,

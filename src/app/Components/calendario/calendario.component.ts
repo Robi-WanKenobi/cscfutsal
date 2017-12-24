@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, OnChanges} from '@angular/core';
 import {EquipoService} from "../../Services/equipo.service";
 import {Params, ActivatedRoute} from "@angular/router";
 
@@ -33,7 +33,6 @@ export class CalendarioComponent implements OnInit {
   getCalendario(equipo) {
     this.equipoService.getCalendario(equipo).then((res) => {
       this.calendario = res;
-      console.log(this.calendario);
       for (let i = 0; i < this.calendario.length / 2; i++) {
         this.calendario_1.push(this.calendario[i]);
       }
