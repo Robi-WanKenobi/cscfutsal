@@ -7,11 +7,19 @@ table td{
 .row{
   margin-top: 10px !important;
 }
-#jornada{
+.jornada{
   text-align: left !important;
 }
-#fecha{
+.fecha{
   text-align: right !important;
+}
+h4.text-center{
+  background-color: #333;
+  color: #fcfcfc;
+  border-radius: 3px;
+  border-color: #101010;
+  padding: 10px;
+  margin: 0px;
 }
 
 @media  screen and (min-width: 600px) {

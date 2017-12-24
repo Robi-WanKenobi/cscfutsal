@@ -2,7 +2,20 @@ li a{
   color: #333;
   font-weight: bold;
 }
+.nav-pills>li>a{
+  font-size: 17px !important;
+}
 .nav-pills>li.active>a{
   background-color: #333 !important;
   color: #fcfcfc;
+}
+.nav-tabs li a:hover{
+  color: #ff9300;
+}
+.nav-tabs li.active a{
+  color: #fcfcfc !important;
+  background-color: #333 !important;
+}
+.nav-tabs li a{
+  font-size: 17px !important;
 }

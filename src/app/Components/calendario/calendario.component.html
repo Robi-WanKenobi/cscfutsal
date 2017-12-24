@@ -1,11 +1,14 @@
 <div class="row">
-  <div class="col-md-8 col-md-offset-2" *ngIf="!infantil">
-  <div class="well" *ngFor="let jornada of calendario">
+  <div class="col-md-5 col-md-offset-1" *ngIf="!infantil">
+  <h4 id  class="text-center">
+    Primera volta
+  </h4><br>
+  <div class="well" *ngFor="let jornada of calendario_1">
     <table class="table table-striped">
       <thead style="font-weight: bold;">
-      <td id="jornada"><h5><strong>{{jornada.numero}}</strong></h5></td>
+      <td class="jornada"><h4><strong>{{jornada.numero}}</strong></h4></td>
       <td></td>
-      <td id="fecha"><h5><strong>{{jornada.fecha}}</strong></h5></td>
+      <td class="fecha"><h4><strong>{{jornada.fecha}}</strong></h4></td>
       </thead>
       <tbody>
       <tr *ngFor="let p of jornada.partidos">
@@ -16,6 +19,27 @@
       </tbody>
     </table>
   </div>
+  </div>
+  <div class="col-md-5" *ngIf="!infantil">
+  <h4 class="text-center">
+    Segona volta
+  </h4><br>
+    <div class="well" *ngFor="let jornada of calendario_2">
+      <table class="table table-striped">
+        <thead style="font-weight: bold;">
+        <td class="jornada"><h4><strong>{{jornada.numero}}</strong></h4></td>
+        <td></td>
+        <td class="fecha"><h4><strong>{{jornada.fecha}}</strong></h4></td>
+        </thead>
+        <tbody>
+        <tr *ngFor="let p of jornada.partidos">
+          <td>{{p.local}}</td>
+          <td>-</td>
+          <td>{{p.visitante}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
   <div class="col-md-4 col-md-offset-4" *ngIf="infantil">
     <div class="well">

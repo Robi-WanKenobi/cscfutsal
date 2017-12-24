@@ -1,8 +1,17 @@
 .navlink{
   color: #fcfcfc !important;
+  font-size: 17px;
+}
+
+.dropdown-menu a{
+  font-size: 17px;
+}
+
+.dropdown-menu a:hover{
+  color: #ff9300 !important;
 }
 .navlink:hover{
-  text-decoration: underline !important;
+  color: #ff9300 !important;
 }
 body{
   background-color: #fcfcfc !important;

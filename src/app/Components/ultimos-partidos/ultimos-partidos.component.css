@@ -23,6 +23,9 @@ tbody{
 .infor{
   width: 33% !important;
 }
+.result{
+  font-size: 14px;
+}
 .menor{
   font-size: 10px;
 }
@@ -32,4 +35,14 @@ li a{
 }
 h3 a:hover{
   text-decoration: none;
+}
+.nav-tabs li a:hover{
+  color: #ff9300;
+}
+.nav-tabs li.active a{
+  color: #fcfcfc;
+  background-color: #333 !important;
+}
+.tab-pane table {
+  border: #333 !important;
 }

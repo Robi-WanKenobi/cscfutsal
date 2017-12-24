@@ -6,6 +6,7 @@ h6#up{
   border-color: #101010;
   padding: 10px;
   margin: 0px;
+  font-size: 15px !important;
 }
 
 h6#down{
@@ -16,8 +17,12 @@ h6#down{
   border-color: #101010;
   padding: 10px;
   margin: 0px;
+  font-size: 15px !important;
 }
-
+h5{
+  font-size: 15px !important;
+  font-weight: bold !important;
+}
 #dorsal, #dorsal_s{
   background-color: transparent;
   color: #fcfcfc;

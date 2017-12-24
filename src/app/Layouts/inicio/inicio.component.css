@@ -9,3 +9,17 @@ h4{
   border-color: #101010;
   padding: 10px;
 }
+.nav-tabs li a:hover{
+  color: #ff9300;
+}
+.nav-tabs li.active a{
+  color: #fcfcfc !important;
+  background-color: #333 !important;
+}
+.nav-tabs li a{
+  font-size: 15px !important;
+}
+.tab-content {
+  padding: 5px !important;
+}
+

@@ -14,13 +14,15 @@ var jugadorSchema = new Schema({
     asistencias: {type: Number, default: 0},
     amarillas: { type: Number, default: 0},
     rojas: { type: Number, default: 0},
-    tarjetas: {type: Number, default: 0}
+    tarjetas: {type: Number, default: 0},
+    partidos: {type: Number, default: 0},
+    goles_encajados: {type: Number, default: 0}
   },
   equipo : { type: String, enum:
     ['Sènior A', 'Sènior B', 'Sènior C', 'Juvenil A', 'Juvenil B', 'Juvenil C', 'Infantil A']
   },
   tipo : { type: String, enum:
-    ['Tècnic', 'Jugador']
+    ['Tècnic', 'Jugador', 'Porter']
   }
 });
 // export

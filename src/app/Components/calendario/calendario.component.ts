@@ -12,6 +12,8 @@ export class CalendarioComponent implements OnInit {
   @Input() infantil: boolean;
   calendario: any;
   equipo: string;
+  calendario_1 = new Array();
+  calendario_2 = new Array();
 
   constructor(private equipoService: EquipoService,  private route:  ActivatedRoute) { }
 
@@ -31,6 +33,13 @@ export class CalendarioComponent implements OnInit {
   getCalendario(equipo) {
     this.equipoService.getCalendario(equipo).then((res) => {
       this.calendario = res;
+      console.log(this.calendario);
+      for (let i = 0; i < this.calendario.length / 2; i++) {
+        this.calendario_1.push(this.calendario[i]);
+      }
+      for (let i = this.calendario.length / 2; i < this.calendario.length; i++) {
+        this.calendario_2.push(this.calendario[i]);
+      }
     }, (err) => {
       console.log(err);
     });

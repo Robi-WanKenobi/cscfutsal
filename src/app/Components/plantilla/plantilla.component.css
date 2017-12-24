@@ -15,6 +15,7 @@ h5.up{
   border-color: #101010;
   padding: 10px;
   margin: 0px;
+  font-size: 17px !important;
 }
 
 h5.down{
@@ -25,6 +26,7 @@ h5.down{
   border-color: #101010;
   padding: 10px;
   margin: 0px;
+  font-size: 17px !important;
 }
 
 #dorsal{
@@ -53,6 +55,7 @@ a:hover{
 }
 
 .well {
+  margin: 15px !important;
   padding: 5px !important;
   background-image: linear-gradient(to bottom, #95959b, #d3ccde 100%) !important;
 }
