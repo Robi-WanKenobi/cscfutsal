@@ -7,7 +7,7 @@ import { HttpModule} from '@angular/http';
 import { FormsModule} from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { PartidosService} from './Services/partidos.service';
-import { EquipoService} from "./Services/equipo.service";
+import { EquipoService} from './Services/equipo.service';
 
 import { AppComponent } from './app.component';
 import { InicioComponent } from './Layouts/inicio/inicio.component';
@@ -17,11 +17,11 @@ import { ContactoComponent } from './Layouts/contacto/contacto.component';
 import { PlantillaComponent } from './Components/plantilla/plantilla.component';
 import { EquipoComponent } from './Layouts/equipo/equipo.component';
 import { ResultadosComponent } from './Components/resultados/resultados.component';
-import {JugadorService} from "./Services/jugador.service";
-import {AdminService} from "./Services/admin.service";
+import {JugadorService} from './Services/jugador.service';
+import {AdminService} from './Services/admin.service';
 import { AdminLoginComponent } from './Components/Admin/admin-login/admin-login.component';
 import { AdminComponent } from './Layouts/admin/admin.component';
-import {AuthGuard} from "./Guard/auth.guard";
+import {AuthGuard} from './Guard/auth.guard';
 import { AdminPlantillaComponent } from './Layouts/admin-plantilla/admin-plantilla.component';
 import { CalendarioComponent } from './Components/calendario/calendario.component';
 import { MaxGolClubComponent } from './Components/max-gol-club/max-gol-club.component';
@@ -37,9 +37,9 @@ import { MaxGolsEquipComponent } from './Components/max-gols-equip/max-gols-equi
 import { MaxAsisEquipComponent } from './Components/max-asis-equip/max-asis-equip.component';
 import { MaxAmonEquipComponent } from './Components/max-amon-equip/max-amon-equip.component';
 import { EquipacionesComponent } from './Layouts/equipaciones/equipaciones.component';
-import { InstalacionesComponent} from "./Layouts/instalaciones/instalaciones.component";
+import { InstalacionesComponent} from './Layouts/instalaciones/instalaciones.component';
 import { MinGolClubComponent } from './Components/min-gol-club/min-gol-club.component';
-import {MinGolEquipComponent} from "./Components/min-gol-equip/min-gol-equip.component";
+import { MinGolEquipComponent } from './Components/min-gol-equip/min-gol-equip.component';
 import { CronicaComponent } from './Components/cronica/cronica.component';
 import { AdminCronicasComponent } from './Layouts/admin-cronicas/admin-cronicas.component';
 
