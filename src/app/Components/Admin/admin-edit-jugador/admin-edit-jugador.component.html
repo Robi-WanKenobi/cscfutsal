@@ -170,6 +170,12 @@
         <strong>{{jugador.estadisticas.amarillas}}</strong>  <i style="color: yellow !important;" class="fa fa-square"></i>
         <strong>{{jugador.estadisticas.rojas}}</strong>  <i style="color: red !important;" class="fa fa-square"></i>
       </p>
+      <p>
+        Ratio de goles: {{jugador.estadisticas.goles_pp}} %
+      </p>
+      <p>
+        Ratio de encajados: {{jugador.estadisticas.goles_encajados_pp}} %
+      </p>
       <br>
       <a style="display: block" class="btn btn-warning" [routerLink]="['/admin-plantillas']">Enrere</a>
     </div>
