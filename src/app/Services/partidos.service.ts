@@ -103,15 +103,4 @@ export class PartidosService {
     });
   }
 
-  getCronicaToComplete(id){
-    return new Promise((resolve, reject) => {
-      this.http.get('partidos/cronica/' + id)
-        .map(res => res.json())
-        .subscribe(res => {
-          resolve(res);
-        }, (err) => {
-          reject(err);
-        });
-    });
-  }
 }

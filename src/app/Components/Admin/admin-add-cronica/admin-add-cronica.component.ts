@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PartidosService} from "../../../Services/partidos.service";
 import {EquipoService} from "../../../Services/equipo.service";
 import {AdminService} from "../../../Services/admin.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-admin-add-cronica',
@@ -22,7 +23,11 @@ export class AdminAddCronicaComponent implements OnInit {
 
   status: string;
 
-  constructor(private partidosService: PartidosService, private equipoService: EquipoService, private adminService: AdminService) { }
+  constructor(private partidosService: PartidosService,
+              private equipoService: EquipoService,
+              private adminService: AdminService,
+              private router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -33,23 +38,14 @@ export class AdminAddCronicaComponent implements OnInit {
         'local': this.local, 'visitante': this.visitante, 'resultado': this.resultado
       }).then((res) => {
       this.status = 'creada';
-      this.cronica_id = res['_id'];
-      this.getCronicaTo();
-    }, (err) => {
-      console.log(err);
-    });
-  }
-
-  getJugadores(equipo) {
-    this.equipoService.getJugadores(equipo).then((res) => {
-      this.jugadores = res;
+      let id = res['_id'];
+      setTimeout(() => {this.router.navigate(['/edit-cronica', id]); }, 1500);
     }, (err) => {
       console.log(err);
     });
   }
 
   getPartido() {
-    this.getJugadores(this.equipo);
     if (this.equipo === 'Sènior A') {
       this.getSeniorAPartido(this.jornada);
     }
@@ -68,24 +64,6 @@ export class AdminAddCronicaComponent implements OnInit {
     if (this.equipo === 'Juvenil C') {
       this.getJuvenilCPartido(this.jornada);
     }
-  }
-
-  getCronicaTo() {
-    this.partidosService.getCronicaToComplete(this.cronica_id).then((res) => {
-      this.cronica = res;
-      this.goleadores = this.cronica['goleadores'];
-      console.log(this.goleadores);
-    }, (err) => {
-      console.log(err);
-    });
-  }
-
-  toGoles(idjugador) {
-    this.adminService.addToGols(this.cronica_id, idjugador).then((res) => {
-      this.getCronicaTo();
-    }, (err) => {
-      console.log(err);
-    });
   }
 
   getSeniorAPartido(jornada) {

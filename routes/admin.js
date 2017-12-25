@@ -223,17 +223,26 @@ router.get('/cronicas', md_auth.ensureAuth, function(req, res, next) {
 /* GET CRONICA BY ID */
 router.get('/cronicas/:id',  md_auth.ensureAuth, function(req, res, next) {
   console.log(req.params.id);
-  Cronica.findById(req.params.id).exec(function (err, cronica) {
+  Cronica.findById(req.params.id).populate('goleadores').populate('asistentes')
+    .populate('amonestados.amarillas').populate('amonestados.rojas').exec(function(err, cronica) {
     if (err) return next(err);
     res.json(cronica);
   });
 });
 
 /*GET CRONICA POR EQUIPO*/
-router.get('/cronicas/equipo/:equipo', function(req, res, next) {
+router.get('/cronicas/equipo/:equipo', md_auth.ensureAuth, function(req, res, next) {
   Cronica.find({'equipo': req.params.equipo}, null, {sort: {fecha_creacion: 1 }}).exec(function (err, jugadores) {
     if (err) return next(err);
     res.json(jugadores);
+  });
+});
+
+/* DELETE CRONICA*/
+router.delete('/cronicas/:id', md_auth.ensureAuth, function(req, res, next) {
+  Croni.findByIdAndRemove(req.params.id, req.body, function (err, jugador) {
+    if (err) return next(err);
+    res.json(jugador);
   });
 });
 

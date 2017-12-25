@@ -305,7 +305,6 @@ router.get('/juvenilC/:jornada', function(req, res, next) {
   });
 });
 
-/* CREATE CRONICA */
 router.get('/cronica/:id', function(req, res) {
   Cronica.findById(req.param.id).populate('goleadores').populate('asistentes')
     .populate('amonestados.amarillas').populate('amonestados.rojas').exec(function(err, cronica) {

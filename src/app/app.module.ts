@@ -57,7 +57,8 @@ const appRoutes: Routes = [
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
   { path: 'admin-plantilles', component: AdminPlantillaComponent, canActivate: [AuthGuard]},
   { path: 'admin-croniques', component: AdminCronicasComponent, canActivate: [AuthGuard]},
-  { path: 'edit/:id', component: AdminEditJugadorComponent, canActivate: [AuthGuard]}
+  { path: 'edit/:id', component: AdminEditJugadorComponent, canActivate: [AuthGuard]},
+  { path: 'edit-cronica/:id', component: AdminEditCronicaComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

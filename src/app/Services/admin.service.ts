@@ -51,8 +51,10 @@ export class AdminService {
   }
 
   getJugadores(equipo) {
+    const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': this.token });
+    const options = new RequestOptions({ headers: headers });
     return new Promise((resolve, reject) => {
-      this.http.get('admin/jugadores/equipo/' + equipo)
+      this.http.get('admin/jugadores/equipo/' + equipo, options)
         .map(res => res.json())
         .subscribe(res => {
           resolve(res);
@@ -63,8 +65,10 @@ export class AdminService {
   }
 
   getCronicas(equipo) {
+    const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': this.token });
+    const options = new RequestOptions({ headers: headers });
     return new Promise((resolve, reject) => {
-      this.http.get('admin/cronicas/equipo/' + equipo)
+      this.http.get('admin/cronicas/equipo/' + equipo, options)
         .map(res => res.json())
         .subscribe(res => {
           resolve(res);
@@ -156,6 +160,34 @@ export class AdminService {
         });
     });
   }
+
+  getCronica(id) {
+    const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': this.token });
+    const options = new RequestOptions({ headers: headers });
+    return new Promise((resolve, reject) => {
+      this.http.get('/admin/cronicas/' + id, options)
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  deleteCronica(id) {
+    const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': this.token });
+    const options = new RequestOptions({ headers: headers });
+    return new Promise((resolve, reject) => {
+      this.http.delete('/admin/cronicas/' + id, options)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
 
   addToGols(id, idjugador) {
     const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': this.token });

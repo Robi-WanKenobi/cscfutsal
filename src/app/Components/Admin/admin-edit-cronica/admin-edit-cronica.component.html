@@ -1,3 +1,16 @@
-<p>
-  admin-edit-cronica works!
-</p>
+<div class="col-md-3 col-md-offset-1">
+  <h4 class="text-center">Jugadors</h4>
+  <div class="well">
+    <table class="table">
+      <tbody>
+      <tr *ngFor="let j of jugadores">
+        <td style="vertical-align: middle !important;"><strong>{{j.nombre}} {{j.apellido}}</strong></td>
+        <td><a><i style="color: #333 !important;" class="fa fa-futbol-o"></i></a></td>
+        <!--<td><a (click)="toAsis(j._id)"><i style="color: #333 !important;" class="fa fa-arrow-circle-right"></i></a></td>-->
+        <!--<td><a (click)="toAmar(j._id)"><i style="color: yellow !important;" class="fa fa-square"></i></a></td>-->
+        <!--<td><a (click)="toRojas(j._id)"><i style="color: red !important;" class="fa fa-square"></i></a></td>-->
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -22,7 +22,6 @@ export class AdminPlantillaComponent implements OnInit {
   constructor(private adminService: AdminService, private equipoService: EquipoService, private router: Router) { }
 
   ngOnInit() {
-
       this.getJugadoresSeniorA();
       this.getJugadoresSeniorB();
       this.getJugadoresSeniorC();
@@ -30,7 +29,6 @@ export class AdminPlantillaComponent implements OnInit {
       this.getJugadoresJuvenilB();
       this.getJugadoresJuvenilC();
       this.getJugadoresInfantilA();
-
   }
 
   getJugadoresSeniorA() {

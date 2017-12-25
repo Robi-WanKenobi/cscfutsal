@@ -13,28 +13,186 @@
 
     <div class="tab-content" style="margin-top: 10px">
 
+      <div class="content">
+        <div class="alert alert-danger" *ngIf="status == 'borrado'">
+          <p class="text-center">Crònica el·liminada</p>
+        </div>
+      </div>
+
       <div id="sA" class="tab-pane fade in active">
-        <table class="table">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Local</th>
+            <th>Resultat</th>
+            <th>Visitant</th>
+            <th>Data de creació</th>
+            <th>Accions</th>
+          </tr>
+          </thead>
           <tbody>
           <tr *ngFor="let cronica of seniorA">
-            <td style="vertical-align: middle !important;"><strong>{{cronica.local}}</strong>
-            <td style="vertical-align: middle !important;"><strong>{{cronica.resultado}}</strong>
-            <td style="vertical-align: middle !important;"><strong>{{cronica.visitante}}</strong>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.local}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.resultado}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.visitante}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.fecha_creacion}}</strong></td>
+            <td>
+              <a style="float: left;" [routerLink]="['/edit-cronica', cronica._id]"><span class="glyphicon glyphicon-pencil"></span></a>
+              <a style="float: right; color: red" (click)="deleteCronica(cronica._id)"><span class="glyphicon glyphicon-remove"></span></a>
+            </td>
           </tr>
           </tbody>
         </table>
       </div>
       <div id="sB" class="tab-pane fade">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Local</th>
+            <th>Resultat</th>
+            <th>Visitant</th>
+            <th>Data de creació</th>
+            <th>Accions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let cronica of seniorB">
+            <td style="vertical-align: middle !important;"><strong>{{cronica.local}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.resultado}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.visitante}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.fecha_creacion}}</strong></td>
+            <td>
+              <a style="float: left;" [routerLink]="['/edit-cronica', cronica._id]"><span class="glyphicon glyphicon-pencil"></span></a>
+              <a style="float: right; color: red" (click)="deleteCronica(cronica._id)"><span class="glyphicon glyphicon-remove"></span></a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
       </div>
       <div id="sC" class="tab-pane fade">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Local</th>
+            <th>Resultat</th>
+            <th>Visitant</th>
+            <th>Data de creació</th>
+            <th>Accions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let cronica of seniorC">
+            <td style="vertical-align: middle !important;"><strong>{{cronica.local}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.resultado}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.visitante}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.fecha_creacion}}</strong></td>
+            <td>
+              <a style="float: left;" [routerLink]="['/edit-cronica', cronica._id]"><span class="glyphicon glyphicon-pencil"></span></a>
+              <a style="float: right; color: red" (click)="deleteCronica(cronica._id)"><span class="glyphicon glyphicon-remove"></span></a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
       </div>
       <div id="jA" class="tab-pane fade">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Local</th>
+            <th>Resultat</th>
+            <th>Visitant</th>
+            <th>Data de creació</th>
+            <th>Accions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let cronica of juvenilA">
+            <td style="vertical-align: middle !important;"><strong>{{cronica.local}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.resultado}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.visitante}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.fecha_creacion}}</strong></td>
+            <td>
+              <a style="float: left;" [routerLink]="['/edit-cronica', cronica._id]"><span class="glyphicon glyphicon-pencil"></span></a>
+              <a style="float: right; color: red" (click)="deleteCronica(cronica._id)"><span class="glyphicon glyphicon-remove"></span></a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
       </div>
       <div id="jB" class="tab-pane fade">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Local</th>
+            <th>Resultat</th>
+            <th>Visitant</th>
+            <th>Data de creació</th>
+            <th>Accions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let cronica of juvenilB">
+            <td style="vertical-align: middle !important;"><strong>{{cronica.local}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.resultado}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.visitante}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.fecha_creacion}}</strong></td>
+            <td>
+              <a style="float: left;" [routerLink]="['/edit-cronica', cronica._id]"><span class="glyphicon glyphicon-pencil"></span></a>
+              <a style="float: right; color: red" (click)="deleteCronica(cronica._id)"><span class="glyphicon glyphicon-remove"></span></a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
       </div>
       <div id="jC" class="tab-pane fade">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Local</th>
+            <th>Resultat</th>
+            <th>Visitant</th>
+            <th>Data de creació</th>
+            <th>Accions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let cronica of juvenilC">
+            <td style="vertical-align: middle !important;"><strong>{{cronica.local}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.resultado}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.visitante}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.fecha_creacion}}</strong></td>
+            <td>
+              <a style="float: left;" [routerLink]="['/edit-cronica', cronica._id]"><span class="glyphicon glyphicon-pencil"></span></a>
+              <a style="float: right; color: red" (click)="deleteCronica(cronica._id)"><span class="glyphicon glyphicon-remove"></span></a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
       </div>
       <div id="iA" class="tab-pane fade">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Local</th>
+            <th>Resultat</th>
+            <th>Visitant</th>
+            <th>Data de creació</th>
+            <th>Accions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let cronica of infantilA">
+            <td style="vertical-align: middle !important;"><strong>{{cronica.local}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.resultado}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.visitante}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.fecha_creacion}}</strong></td>
+            <td>
+              <a style="float: left;" [routerLink]="['/edit-cronica', cronica._id]"><span class="glyphicon glyphicon-pencil"></span></a>
+              <a style="float: right; color: red" (click)="deleteCronica(cronica._id)"><span class="glyphicon glyphicon-remove"></span></a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
       </div>
       <div id="add" class="tab-pane fade">
         <app-admin-add-cronica></app-admin-add-cronica>
