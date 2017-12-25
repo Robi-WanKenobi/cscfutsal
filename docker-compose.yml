@@ -1,12 +1,11 @@
 version: '2'
 services:
  mongo:
-  image: mongo:3.4.10
+  image: mongo:3.6.0
   volumes:
    - /data/mongodb/db:/data/db
   ports:
    - "27017:27017"
-
 
  api:
   build: .
