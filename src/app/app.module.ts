@@ -42,6 +42,7 @@ import { MinGolClubComponent } from './Components/min-gol-club/min-gol-club.comp
 import { MinGolEquipComponent } from './Components/min-gol-equip/min-gol-equip.component';
 import { CronicaComponent } from './Components/cronica/cronica.component';
 import { AdminCronicasComponent } from './Layouts/admin-cronicas/admin-cronicas.component';
+import { AdminAddCronicaComponent } from './Components/Admin/admin-add-cronica/admin-add-cronica.component';
 
 
 const appRoutes: Routes = [
@@ -90,6 +91,7 @@ const appRoutes: Routes = [
     MinGolEquipComponent,
     CronicaComponent,
     AdminCronicasComponent,
+    AdminAddCronicaComponent,
   ],
   imports: [BrowserModule,
     FormsModule,

@@ -130,4 +130,70 @@ export class AdminService {
         });
     });
   }
+
+  saveCronica(data) {
+    const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': this.token });
+    const options = new RequestOptions({ headers: headers });
+    return new Promise((resolve, reject) => {
+      this.http.post('/admin/cronicas/', data, options)
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  addToGols(id, idjugador) {
+    const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': this.token });
+    const options = new RequestOptions({ headers: headers });
+    return new Promise((resolve, reject) => {
+      this.http.post('/admin/' + id + '/goleadores/' + idjugador, null, options)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  addToAsis(id, idjugador) {
+    const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': this.token });
+    const options = new RequestOptions({ headers: headers });
+    return new Promise((resolve, reject) => {
+      this.http.post('/admin/' + id + '/asistentes/' + idjugador, null, options)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  addToAmarillas(id, idjugador) {
+    const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': this.token });
+    const options = new RequestOptions({ headers: headers });
+    return new Promise((resolve, reject) => {
+      this.http.post('/admin/' + id + '/amarillas/' + idjugador, null, options)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  addToRojas(id, idjugador) {
+    const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': this.token });
+    const options = new RequestOptions({ headers: headers });
+    return new Promise((resolve, reject) => {
+      this.http.post('/admin/' + id + '/rojas/' + idjugador, null, options)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
 }

@@ -4,6 +4,7 @@ var fs = require('fs');
 var bcrypt = require('bcryptjs');
 var Jugador = require('../models/jugador');
 var Admin = require('../models/admin');
+var Cronica = require('../models/cronica');
 var jwt = require('../services/jwt');
 var md_auth = require('../middlewares/authenticated');
 
@@ -196,21 +197,59 @@ router.put('/jugadores/:id', md_auth.ensureAuth, function(req, res, next) {
   _Jugador.estadisticas.goles_pp = (parseInt(_Jugador.estadisticas.goles) / parseFloat(_Jugador.estadisticas.partidos));
   _Jugador.estadisticas.goles_encajados_pp = (parseInt(_Jugador.estadisticas.goles_encajados) / parseFloat(_Jugador.estadisticas.partidos));
 
-  console.log()
-  console.log("Goles" + parseInt(_Jugador.goles));
-  console.log("Encaj" + parseInt(_Jugador.goles_encajados));
-  console.log("Partidos" + parseFloat(_Jugador.partidos));
-
-
-  console.log(_Jugador.estadisticas.goles_pp);
-  console.log(_Jugador.estadisticas.goles_encajados_pp);
-
-  console.log(_Jugador);
-
   Jugador.findByIdAndUpdate(req.params.id, _Jugador, function (err, jugador) {
     if (err) return next(err);
     res.json(jugador);
   });
+});
+
+/* CREATE CRONICA */
+router.post('/cronicas/', md_auth.ensureAuth, function(req, res) {
+  console.log(req.body);
+  Cronica.create(req.body, function (err, cronica) {
+    if (err) return next(err);
+    res.json(cronica);
+  });
+});
+
+/* ADD JUGADOR TO A CRONICA GOLEADORES */
+router.post('/:id/goleadores/:idjugador', md_auth.ensureAuth, function (req, res, next) {
+  Cronica.update({ _id: req.params.id },
+    {"$push": { "goleadores" :  req.params.idjugador }},
+    function (err, post) {
+      if (err) return next(err);
+      res.json(post);
+    });
+});
+
+/* ADD JUGADOR TO A CRONICA ASISTENTES */
+router.post('/:id/asistentes/:idjugador', md_auth.ensureAuth, function (req, res, next) {
+  Cronica.update({ _id: req.params.id },
+    {"$push": { "asistentes" :  req.params.idjugador }},
+    function (err, post) {
+      if (err) return next(err);
+      res.json(post);
+    });
+});
+
+/* ADD JUGADOR TO A CRONICA amarillas */
+router.post('/:id/amarillas/:idjugador', md_auth.ensureAuth, function (req, res, next) {
+  Cronica.update({ _id: req.params.id },
+    {"$push": { "amonestados.amarillas" :  req.params.idjugador }},
+    function (err, post) {
+      if (err) return next(err);
+      res.json(post);
+    });
+});
+
+/* ADD JUGADOR TO A CRONICA rojas */
+router.post('/:id/rojas/:idjugador', md_auth.ensureAuth, function (req, res, next) {
+  Cronica.update({ _id: req.params.id },
+    {"$push": { "amonestados.rojas" :  req.params.idjugador }},
+    function (err, post) {
+      if (err) return next(err);
+      res.json(post);
+    });
 });
 
 module.exports = router;

@@ -1,0 +1,115 @@
+<div class="row">
+
+  <div class="alert alert-success" *ngIf="status == 'creada'">
+    <p class="text-center">Crònica creada correctament, ara s'ha de completar.</p>
+  </div>
+
+  <div class="alert alert-danger" *ngIf="status == 'error'">
+    <p class="text-center">Error</p>
+  </div>
+
+      <form #cronica1Form="ngForm">
+        <div class="col-md-3 col-md-offset-1">
+          <div class="well">
+            <label>Equip:</label>
+            <div class="form-inline">
+              <div class="form-group">
+                <input name="group20" type="radio" id="radio120" value="Sènior A" [(ngModel)]="equipo" required>
+                <label for="radio120"> Sènior A </label>
+              </div>
+
+              <div class="form-group">
+                <input name="group20" type="radio" id="radio121" value="Sènior B" [(ngModel)]="equipo" required>
+                <label for="radio121"> Sènior B </label>
+              </div>
+
+              <div class="form-group">
+                <input name="group20" type="radio" id="radio122" value="Sènior C" [(ngModel)]="equipo" required>
+                <label for="radio122"> Sènior C </label>
+              </div>
+            </div>
+            <div class="form-inline">
+              <div class="form-group">
+                <input name="group20" type="radio" id="radio123" value="Juvenil A" [(ngModel)]="equipo" required>
+                <label for="radio123"> Juvenil A </label>
+              </div>
+
+              <div class="form-group">
+                <input name="group20" type="radio" id="radio124" value="Juvenil B" [(ngModel)]="equipo" required>
+                <label for="radio124"> Juvenil B </label>
+              </div>
+
+              <div class="form-group">
+                <input name="group20" type="radio" id="radio125" value="Juvenil C" [(ngModel)]="equipo" required>
+                <label for="radio125"> Juvenil C </label>
+              </div>
+            </div>
+            <div class="form-inline">
+              <div class="form-group">
+                <input name="group20" type="radio" id="radio126" value="Infantil A" [(ngModel)]="equipo" required>
+                <label for="radio126"> Infantil A </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="d">Jornada</label>
+              <input type="number" class="form-control" [(ngModel)]="jornada" name="dorsal" id="d" required>
+            </div>
+            <div class="form-group text-center">
+              <button type="button" class="btn btn-primary" (click)="getPartido()">Cerca</button>
+            </div>
+            <div class="form-group text-center">
+              <button type="submit" class="btn btn-success" (click)="saveCronica()" [disabled]="!cronica1Form.form.valid">Aceptar</button>
+            </div>
+          </div>
+          <h4 class="text-center">Jugadors</h4>
+          <table class="table">
+            <tbody>
+            <tr *ngFor="let j of jugadores">
+              <td style="vertical-align: middle !important;"><strong>{{j.nombre}} {{j.apellido}}</strong></td>
+              <td><a (click)="toGoles(j._id)"><i style="color: #333 !important;" class="fa fa-futbol-o"></i></a></td>
+              <!--<td><a (click)="toAsis(j._id)"><i style="color: #333 !important;" class="fa fa-arrow-circle-right"></i></a></td>-->
+              <!--<td><a (click)="toAmar(j._id)"><i style="color: yellow !important;" class="fa fa-square"></i></a></td>-->
+              <!--<td><a (click)="toRojas(j._id)"><i style="color: red !important;" class="fa fa-square"></i></a></td>-->
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col-md-7">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="n">Local</label>
+                <input type="text" class="form-control" [(ngModel)]="partido.local" name="local" id="n" required>
+              </div>
+
+              <h4 class="text-center">Golejadors</h4>
+              <table class="table">
+                <tbody>
+                <tr *ngFor="let g of goleadores">
+                  <td style="vertical-align: middle !important;"><strong>{{g.nombre}} {{g.apellido}}</strong></td>
+                  <!--<td><a (click)="toGoles(j._id)"><i style="color: #333 !important;" class="fa fa-futbol-o"></i></a></td>-->
+                  <!--<td><a (click)="toAsis(j._id)"><i style="color: #333 !important;" class="fa fa-arrow-circle-right"></i></a></td>-->
+                  <!--<td><a (click)="toAmar(j._id)"><i style="color: yellow !important;" class="fa fa-square"></i></a></td>-->
+                  <!--<td><a (click)="toRojas(j._id)"><i style="color: red !important;" class="fa fa-square"></i></a></td>-->
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="c">Resultat</label>
+                <input type="text" class="form-control" [(ngModel)]="partido.resultado" name="resultado" id="c" required>
+              </div>
+              <h4 class="text-center">Assistents</h4>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="s">Visitant</label>
+                <input type="text" class="form-control" [(ngModel)]="partido.visitante" name="visitante" id="s" required>
+              </div>
+              <h4 class="text-center">Grogues</h4>
+              <h4 class="text-center">Vermelles</h4>
+            </div>
+          </div>
+      </form>
+</div>

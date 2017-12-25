@@ -36,3 +36,40 @@ body{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+
+.navbar .navbar-inner {
+  padding: 0;
+}
+
+.navbar .nav {
+  margin: 0;
+  display: table;
+  width: 100%;
+}
+
+.navbar .nav > li {
+  display: table-cell;
+  width: 1%;
+  float: none;
+  text-align: center;
+}
+
+
+.navbar .nav li:first-child a {
+  border-left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.navbar .nav li:last-child a {
+  border-right: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.dropdown-menu li:hover .sub-menu {
+  visibility: visible;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}

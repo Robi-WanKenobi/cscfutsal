@@ -3,6 +3,7 @@ var router = express.Router();
 var fs = require('fs');
 var request = require('request');
 var cheerio = require('cheerio');
+var Cronica = require('../models/cronica');
 
 /* Get JORNADA ACTUAL */
 router.get('/jornada/actual', function(req, res, next) {
@@ -301,6 +302,15 @@ router.get('/juvenilC/:jornada', function(req, res, next) {
         }
       }
     }
+  });
+});
+
+/* CREATE CRONICA */
+router.get('/cronica/:id', function(req, res) {
+  Cronica.findById(req.param.id).populate('goleadores').populate('asistentes')
+    .populate('amonestados.amarillas').populate('amonestados.rojas').exec(function(err, cronica) {
+    if (err) return next(err);
+    res.json(cronica);
   });
 });
 
