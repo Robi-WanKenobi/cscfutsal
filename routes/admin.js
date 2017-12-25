@@ -212,6 +212,31 @@ router.post('/cronicas/', md_auth.ensureAuth, function(req, res) {
   });
 });
 
+/*GET ALL CRONICAS*/
+router.get('/cronicas', md_auth.ensureAuth, function(req, res, next) {
+  Cronica.find().exec(function (err, cronicas) {
+    if (err) return next(err);
+    res.json(cronicas);
+  });
+});
+
+/* GET CRONICA BY ID */
+router.get('/cronicas/:id',  md_auth.ensureAuth, function(req, res, next) {
+  console.log(req.params.id);
+  Cronica.findById(req.params.id).exec(function (err, cronica) {
+    if (err) return next(err);
+    res.json(cronica);
+  });
+});
+
+/*GET CRONICA POR EQUIPO*/
+router.get('/cronicas/equipo/:equipo', function(req, res, next) {
+  Cronica.find({'equipo': req.params.equipo}, null, {sort: {fecha_creacion: 1 }}).exec(function (err, jugadores) {
+    if (err) return next(err);
+    res.json(jugadores);
+  });
+});
+
 /* ADD JUGADOR TO A CRONICA GOLEADORES */
 router.post('/:id/goleadores/:idjugador', md_auth.ensureAuth, function (req, res, next) {
   Cronica.update({ _id: req.params.id },

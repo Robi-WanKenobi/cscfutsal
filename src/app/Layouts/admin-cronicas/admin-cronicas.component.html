@@ -1,1 +1,46 @@
-<app-admin-add-cronica></app-admin-add-cronica>
+<div class="container-fluid">
+  <div class="col-md-12">
+    <ul class="nav nav-tabs nav-justified">
+      <li class="active"><a data-toggle="pill" href="#sA">Sènior A</a></li>
+      <li><a data-toggle="pill" href="#sB">Sènior B</a></li>
+      <li><a data-toggle="pill" href="#sC">Sènior C</a></li>
+      <li><a data-toggle="pill" href="#jA">Juvenil A</a></li>
+      <li><a data-toggle="pill" href="#jB">Juvenil B</a></li>
+      <li><a data-toggle="pill" href="#jC">Juvenil C</a></li>
+      <li><a data-toggle="pill" href="#iA">Infantil A</a></li>
+      <li><a data-toggle="pill" href="#add"><span class="glyphicon glyphicon-plus"></span></a></li>
+    </ul>
+
+    <div class="tab-content" style="margin-top: 10px">
+
+      <div id="sA" class="tab-pane fade in active">
+        <table class="table">
+          <tbody>
+          <tr *ngFor="let cronica of seniorA">
+            <td style="vertical-align: middle !important;"><strong>{{cronica.local}}</strong>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.resultado}}</strong>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.visitante}}</strong>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="sB" class="tab-pane fade">
+      </div>
+      <div id="sC" class="tab-pane fade">
+      </div>
+      <div id="jA" class="tab-pane fade">
+      </div>
+      <div id="jB" class="tab-pane fade">
+      </div>
+      <div id="jC" class="tab-pane fade">
+      </div>
+      <div id="iA" class="tab-pane fade">
+      </div>
+      <div id="add" class="tab-pane fade">
+        <app-admin-add-cronica></app-admin-add-cronica>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer-sortida></app-footer-sortida>

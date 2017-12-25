@@ -14,11 +14,9 @@ export class AdminAddCronicaComponent implements OnInit {
   jugadores: any;
   jornada: number;
   equipo: string;
-  partido: {
-    visitante: string,
-    local: string,
-    resultado: string
-  };
+  visitante: string;
+  local: string;
+  resultado: string;
   cronica_id: any;
   goleadores: any[];
 
@@ -32,7 +30,7 @@ export class AdminAddCronicaComponent implements OnInit {
   saveCronica() {
     this.adminService.saveCronica(
       {'equipo': this.equipo, 'jornada':this.jornada,
-        'local': this.partido['local'], 'visitante': this.partido['visitante'], 'resultado': this.partido['resultado']
+        'local': this.local, 'visitante': this.visitante, 'resultado': this.resultado
       }).then((res) => {
       this.status = 'creada';
       this.cronica_id = res['_id'];
@@ -92,9 +90,9 @@ export class AdminAddCronicaComponent implements OnInit {
 
   getSeniorAPartido(jornada) {
     this.partidosService.getPartidoSeniorA(jornada).then((res) => {
-      this.partido.visitante = res['visitante'];
-      this.partido.local = res['local'];
-      this.partido.resultado = res['resultado'];
+      this.visitante = res['visitante'];
+      this.local = res['local'];
+      this.resultado = res['resultado'];
     }, (err) => {
       console.log(err);
     });
@@ -102,9 +100,9 @@ export class AdminAddCronicaComponent implements OnInit {
 
   getSeniorBPartido(jornada) {
     this.partidosService.getPartidoSeniorB(jornada).then((res) => {
-      this.partido.visitante = res['visitante'];
-      this.partido.local = res['local'];
-      this.partido.resultado = res['resultado'];
+      this.visitante = res['visitante'];
+      this.local = res['local'];
+      this.resultado = res['resultado'];
     }, (err) => {
       console.log(err);
     });
@@ -112,9 +110,9 @@ export class AdminAddCronicaComponent implements OnInit {
 
   getSeniorCPartido(jornada) {
     this.partidosService.getPartidoSeniorC(jornada).then((res) => {
-      this.partido.visitante = res['visitante'];
-      this.partido.local = res['local'];
-      this.partido.resultado = res['resultado'];
+      this.visitante = res['visitante'];
+      this.local = res['local'];
+      this.resultado = res['resultado'];
     }, (err) => {
       console.log(err);
     });
@@ -122,9 +120,9 @@ export class AdminAddCronicaComponent implements OnInit {
 
   getJuvenilAPartido(jornada) {
     this.partidosService.getPartidoJuvenilA(jornada).then((res) => {
-      this.partido.visitante = res['visitante'];
-      this.partido.local = res['local'];
-      this.partido.resultado = res['resultado'];
+      this.visitante = res['visitante'];
+      this.local = res['local'];
+      this.resultado = res['resultado'];
     }, (err) => {
       console.log(err);
     });
@@ -132,9 +130,9 @@ export class AdminAddCronicaComponent implements OnInit {
 
   getJuvenilBPartido(jornada) {
     this.partidosService.getPartidoJuvenilB(jornada).then((res) => {
-      this.partido.visitante = res['visitante'];
-      this.partido.local = res['local'];
-      this.partido.resultado = res['resultado'];
+      this.visitante = res['visitante'];
+      this.local = res['local'];
+      this.resultado = res['resultado'];
     }, (err) => {
       console.log(err);
     });
@@ -142,9 +140,9 @@ export class AdminAddCronicaComponent implements OnInit {
 
   getJuvenilCPartido(jornada) {
     this.partidosService.getPartidoJuvenilC(jornada).then((res) => {
-      this.partido.visitante = res['visitante'];
-      this.partido.local = res['local'];
-      this.partido.resultado = res['resultado'];
+      this.visitante = res['visitante'];
+      this.local = res['local'];
+      this.resultado = res['resultado'];
     }, (err) => {
       console.log(err);
     });

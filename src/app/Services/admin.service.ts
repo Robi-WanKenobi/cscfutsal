@@ -62,6 +62,18 @@ export class AdminService {
     });
   }
 
+  getCronicas(equipo) {
+    return new Promise((resolve, reject) => {
+      this.http.get('admin/cronicas/equipo/' + equipo)
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
   getJugador(id) {
     const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': this.token });
     const options = new RequestOptions({ headers: headers });
