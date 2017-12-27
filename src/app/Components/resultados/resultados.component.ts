@@ -15,10 +15,12 @@ export class ResultadosComponent implements OnInit {
   jornada: any;
   actual: {};
   loading: boolean;
+  cronica: boolean = false;
 
   constructor(private equipoService: EquipoService, private route:  ActivatedRoute) { }
 
   ngOnInit() {
+    this.cronica = false;
     this.loading = true;
     this.route.queryParams.forEach((params: Params) => {
       this.equipo = params['cat'];
@@ -27,8 +29,21 @@ export class ResultadosComponent implements OnInit {
         this.infantil = true;
       }else {
         this.infantil = false;
-        this.setJornadaActual(this.equipo);
       }
+
+      this.setJornadaActual(this.equipo);
+      this.getCronicaPartido();
+    });
+  }
+
+  getCronicaPartido() {
+    this.equipoService.getCronicaPartido(this.equipo, this.actual).then((res) => {
+      console.log(res);
+      if (res) {
+        this.cronica = true;
+      }else this.cronica = false;
+    }, (err) => {
+      console.log(err);
     });
   }
 
@@ -70,6 +85,7 @@ export class ResultadosComponent implements OnInit {
       this.actual = parseInt(this.actual.toString(), 10) + 1;
       this.getResultados(this.equipo, this.actual);
       this.getClasificacion(this.equipo, this.actual);
+      this.getCronicaPartido();
     }
   }
 
@@ -83,6 +99,7 @@ export class ResultadosComponent implements OnInit {
       this.actual = parseInt(this.actual.toString(), 10) - 1;
       this.getResultados(this.equipo, this.actual);
       this.getClasificacion(this.equipo, this.actual);
+      this.getCronicaPartido();
     }
   }
 }

@@ -4,6 +4,8 @@ import {EquipoService} from "../../../Services/equipo.service";
 import {AdminService} from "../../../Services/admin.service";
 import {Router} from "@angular/router";
 
+declare var swal: any;
+
 @Component({
   selector: 'app-admin-add-cronica',
   templateUrl: './admin-add-cronica.component.html',
@@ -20,6 +22,7 @@ export class AdminAddCronicaComponent implements OnInit {
   resultado: string;
   cronica_id: any;
   goleadores: any[];
+  loading: boolean;
 
   status: string;
 
@@ -30,6 +33,7 @@ export class AdminAddCronicaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.loading = false;
   }
 
   saveCronica() {
@@ -37,15 +41,25 @@ export class AdminAddCronicaComponent implements OnInit {
       {'equipo': this.equipo, 'jornada':this.jornada,
         'local': this.local, 'visitante': this.visitante, 'resultado': this.resultado
       }).then((res) => {
-      this.status = 'creada';
+      swal(
+        'Creada',
+        'La crònica s\'ha afegit correctament',
+        'success'
+      );
       let id = res['_id'];
-      setTimeout(() => {this.router.navigate(['/edit-cronica', id]); }, 1500);
+      setTimeout(() => {this.router.navigate(['/edit-cronica', id]); }, 1000);
     }, (err) => {
       console.log(err);
+      swal(
+        'Error',
+        'S\'ha produït un error en afegir la crònica',
+        'error'
+      );
     });
   }
 
   getPartido() {
+    this.loading = true;
     if (this.equipo === 'Sènior A') {
       this.getSeniorAPartido(this.jornada);
     }
@@ -71,6 +85,7 @@ export class AdminAddCronicaComponent implements OnInit {
       this.visitante = res['visitante'];
       this.local = res['local'];
       this.resultado = res['resultado'];
+      this.loading = false;
     }, (err) => {
       console.log(err);
     });

@@ -65,6 +65,7 @@
 
     <div class="col-md-3">
       <div class="well">
+        <app-loader2 [loading]="loading"></app-loader2>
       <div class="form-group">
         <label for="n">Local</label>
         <input type="text" class="form-control" [(ngModel)]="local" name="local" id="n" required>

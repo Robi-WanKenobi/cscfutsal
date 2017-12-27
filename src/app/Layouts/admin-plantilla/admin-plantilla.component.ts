@@ -3,6 +3,8 @@ import { AdminService} from "../../Services/admin.service";
 import {EquipoService} from "../../Services/equipo.service";
 import {JugadorService} from "../../Services/jugador.service";
 import {Router} from "@angular/router";
+declare var swal: any;
+
 @Component({
   selector: 'app-admin-plantilla',
   templateUrl: './admin-plantilla.component.html',
@@ -82,12 +84,20 @@ export class AdminPlantillaComponent implements OnInit {
   }
 
   deleteJugador(id) {
-    this.status = 'borrado';
+    swal(
+      'Eliminat',
+      'El jugador s\'ha esborrat correctament',
+      'success'
+    );
     this.adminService.deleteJugador(id).then((result) => {
-      setTimeout(() => {this.status = ''; }, 1000);
       setTimeout(() => {this.ngOnInit(); }, 1000);
     }, (err) => {
       console.log(err);
+      swal(
+        'Error',
+        'S\'ha produït un error en eliminar al jugador',
+        'error'
+      );
     });
   }
 }

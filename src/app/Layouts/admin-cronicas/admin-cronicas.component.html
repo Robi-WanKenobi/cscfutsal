@@ -15,7 +15,7 @@
 
       <div class="content">
         <div class="alert alert-danger" *ngIf="status == 'borrado'">
-          <p class="text-center">Crònica el·liminada</p>
+          <p class="text-center">Crònica eliminada</p>
         </div>
       </div>
 
@@ -26,6 +26,7 @@
             <th>Local</th>
             <th>Resultat</th>
             <th>Visitant</th>
+            <th>Jornada</th>
             <th>Data de creació</th>
             <th>Accions</th>
           </tr>
@@ -35,6 +36,7 @@
             <td style="vertical-align: middle !important;"><strong>{{cronica.local}}</strong></td>
             <td style="vertical-align: middle !important;"><strong>{{cronica.resultado}}</strong></td>
             <td style="vertical-align: middle !important;"><strong>{{cronica.visitante}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.jornada}}</strong></td>
             <td style="vertical-align: middle !important;"><strong>{{cronica.fecha_creacion}}</strong></td>
             <td>
               <a style="float: left;" [routerLink]="['/edit-cronica', cronica._id]"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -51,15 +53,17 @@
             <th>Local</th>
             <th>Resultat</th>
             <th>Visitant</th>
+            <th>Jornada</th>
             <th>Data de creació</th>
             <th>Accions</th>
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let cronica of seniorB">
+          <tr *ngFor="let cronica of seniorA">
             <td style="vertical-align: middle !important;"><strong>{{cronica.local}}</strong></td>
             <td style="vertical-align: middle !important;"><strong>{{cronica.resultado}}</strong></td>
             <td style="vertical-align: middle !important;"><strong>{{cronica.visitante}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.jornada}}</strong></td>
             <td style="vertical-align: middle !important;"><strong>{{cronica.fecha_creacion}}</strong></td>
             <td>
               <a style="float: left;" [routerLink]="['/edit-cronica', cronica._id]"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -76,15 +80,17 @@
             <th>Local</th>
             <th>Resultat</th>
             <th>Visitant</th>
+            <th>Jornada</th>
             <th>Data de creació</th>
             <th>Accions</th>
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let cronica of seniorC">
+          <tr *ngFor="let cronica of seniorA">
             <td style="vertical-align: middle !important;"><strong>{{cronica.local}}</strong></td>
             <td style="vertical-align: middle !important;"><strong>{{cronica.resultado}}</strong></td>
             <td style="vertical-align: middle !important;"><strong>{{cronica.visitante}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.jornada}}</strong></td>
             <td style="vertical-align: middle !important;"><strong>{{cronica.fecha_creacion}}</strong></td>
             <td>
               <a style="float: left;" [routerLink]="['/edit-cronica', cronica._id]"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -101,15 +107,17 @@
             <th>Local</th>
             <th>Resultat</th>
             <th>Visitant</th>
+            <th>Jornada</th>
             <th>Data de creació</th>
             <th>Accions</th>
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let cronica of juvenilA">
+          <tr *ngFor="let cronica of seniorA">
             <td style="vertical-align: middle !important;"><strong>{{cronica.local}}</strong></td>
             <td style="vertical-align: middle !important;"><strong>{{cronica.resultado}}</strong></td>
             <td style="vertical-align: middle !important;"><strong>{{cronica.visitante}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.jornada}}</strong></td>
             <td style="vertical-align: middle !important;"><strong>{{cronica.fecha_creacion}}</strong></td>
             <td>
               <a style="float: left;" [routerLink]="['/edit-cronica', cronica._id]"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -126,15 +134,17 @@
             <th>Local</th>
             <th>Resultat</th>
             <th>Visitant</th>
+            <th>Jornada</th>
             <th>Data de creació</th>
             <th>Accions</th>
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let cronica of juvenilB">
+          <tr *ngFor="let cronica of seniorA">
             <td style="vertical-align: middle !important;"><strong>{{cronica.local}}</strong></td>
             <td style="vertical-align: middle !important;"><strong>{{cronica.resultado}}</strong></td>
             <td style="vertical-align: middle !important;"><strong>{{cronica.visitante}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.jornada}}</strong></td>
             <td style="vertical-align: middle !important;"><strong>{{cronica.fecha_creacion}}</strong></td>
             <td>
               <a style="float: left;" [routerLink]="['/edit-cronica', cronica._id]"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -151,15 +161,17 @@
             <th>Local</th>
             <th>Resultat</th>
             <th>Visitant</th>
+            <th>Jornada</th>
             <th>Data de creació</th>
             <th>Accions</th>
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let cronica of juvenilC">
+          <tr *ngFor="let cronica of seniorA">
             <td style="vertical-align: middle !important;"><strong>{{cronica.local}}</strong></td>
             <td style="vertical-align: middle !important;"><strong>{{cronica.resultado}}</strong></td>
             <td style="vertical-align: middle !important;"><strong>{{cronica.visitante}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.jornada}}</strong></td>
             <td style="vertical-align: middle !important;"><strong>{{cronica.fecha_creacion}}</strong></td>
             <td>
               <a style="float: left;" [routerLink]="['/edit-cronica', cronica._id]"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -176,15 +188,17 @@
             <th>Local</th>
             <th>Resultat</th>
             <th>Visitant</th>
+            <th>Jornada</th>
             <th>Data de creació</th>
             <th>Accions</th>
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let cronica of infantilA">
+          <tr *ngFor="let cronica of seniorA">
             <td style="vertical-align: middle !important;"><strong>{{cronica.local}}</strong></td>
             <td style="vertical-align: middle !important;"><strong>{{cronica.resultado}}</strong></td>
             <td style="vertical-align: middle !important;"><strong>{{cronica.visitante}}</strong></td>
+            <td style="vertical-align: middle !important;"><strong>{{cronica.jornada}}</strong></td>
             <td style="vertical-align: middle !important;"><strong>{{cronica.fecha_creacion}}</strong></td>
             <td>
               <a style="float: left;" [routerLink]="['/edit-cronica', cronica._id]"><span class="glyphicon glyphicon-pencil"></span></a>

@@ -126,4 +126,16 @@ export class EquipoService {
         });
     });
   }
+
+  getCronicaPartido(equipo, jornada) {
+    return new Promise((resolve, reject) => {
+      this.http.get('/partidos/cronica/' + equipo + '/' + jornada)
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
 }

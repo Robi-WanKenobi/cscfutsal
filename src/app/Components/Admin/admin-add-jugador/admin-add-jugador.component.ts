@@ -3,6 +3,8 @@ import {AdminService} from '../../../Services/admin.service';
 import {Jugador} from '../../../Models/jugador';
 import {Router} from "@angular/router";
 
+declare var swal: any;
+
 @Component({
   selector: 'app-admin-add-jugador',
   templateUrl: './admin-add-jugador.component.html',
@@ -22,12 +24,20 @@ export class AdminAddJugadorComponent implements OnInit {
 
   submitJugador() {
     this.adminService.saveJugador(this.jugador).then((res) => {
-      this.status = 'success';
+      swal(
+        'Afegit',
+        'El jugador s\'ha creat correctament',
+        'success'
+      );
       let id = res['_id'];
-      setTimeout(() => {this.router.navigate(['/edit', id]); }, 1500);
+      setTimeout(() => {this.router.navigate(['/edit', id]); }, 1000);
     }, (err) => {
       console.log(err);
-      this.status = 'error';
+      swal(
+        'Error',
+        'S\'ha produït un error en afegit al jugador',
+        'error'
+      );
     });
   }
 }
