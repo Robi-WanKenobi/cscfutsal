@@ -195,6 +195,7 @@ router.put('/jugadores/:id', md_auth.ensureAuth, function(req, res, next) {
   _Jugador = req.body;
   _Jugador.estadisticas.tarjetas = parseInt(_Jugador.estadisticas.amarillas) + parseInt(_Jugador.estadisticas.rojas);
   _Jugador.estadisticas.goles_pp = (parseInt(_Jugador.estadisticas.goles) / parseFloat(_Jugador.estadisticas.partidos));
+  _Jugador.estadisticas.asistencias_pp = (parseInt(_Jugador.estadisticas.asistencias) / parseFloat(_Jugador.estadisticas.partidos));
   _Jugador.estadisticas.goles_encajados_pp = (parseInt(_Jugador.estadisticas.goles_encajados) / parseFloat(_Jugador.estadisticas.partidos));
 
   Jugador.findByIdAndUpdate(req.params.id, _Jugador, function (err, jugador) {
