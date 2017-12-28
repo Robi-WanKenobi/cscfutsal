@@ -56,7 +56,6 @@ export class AdminEditCronicaComponent implements OnInit {
 
   submitCronica() {
     this.adminService.updateCronica(this.id, {'texto': this.texto}).then((res) => {
-      console.log(this.texto);
       swal(
         'Actualitzada',
         'La crònica s\'ha actualitzat correctament',

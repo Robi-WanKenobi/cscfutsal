@@ -308,7 +308,7 @@ router.get('/juvenilC/:jornada', function(req, res, next) {
 /*GET CRONICA POR EQUIPO Y JORNADA*/
 router.get('/cronica/:equipo/:jornada', function(req, res, next) {
   Cronica.find( {$and: [ { equipo: req.params.equipo }, { jornada: req.params.jornada} ]}).populate('goleadores').populate('asistentes')
-    .populate('amonestados.amarillas').populate('amonestados.rojas').exec(function(err, cronica) {
+    .populate('amarillas').populate('rojas').exec(function(err, cronica) {
     if (err) return next(err);
     res.json(cronica);
   });

@@ -8,8 +8,8 @@
         </td>
         <td>
           <h4 class="text-center">Jornada {{actual}}</h4>
-          <p class="text-center" id="now" (click)="ngOnInit()">Jornada actual</p>
-          <h4 *ngIf="cronica" class="text-center"><button class="btn btn-primary" data-toggle="modal" data-target="#cronica" >Crònica</button></h4>
+          <p class="text-center" id="now" (click)="ngOnInit()" *ngIf="!in_jornada_actual">Anar a jornada actual</p>
+          <h4 *ngIf="is_cronica" class="text-center"><button class="btn btn-primary" data-toggle="collapse" data-target="#cronica" >Veure crònica <i class="fa fa-arrows-v" aria-hidden="true"></i></button></h4>
           <app-loader2 [loading]="loading"></app-loader2>
         </td>
         <td>
@@ -18,6 +18,87 @@
       </tr>
       </tbody>
     </table>
+  </div>
+  <!-- Crónica -->
+  <div *ngIf="is_cronica" id="cronica" class="collapse row">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+        <tr>
+          <th style="width: 33%" class="text-left">Local</th>
+          <th style="width: 33%" class="text-center">Resultat</th>
+          <th style="width: 33%" class="text-right">Visitant</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td style="width: 33%" class="text-left">{{local}}</td>
+          <td style="width: 33%" class="text-center">{{resultado}}</td>
+          <td style="width: 33%" class="text-right">{{visitante}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-3">
+      <h5 class="text-center">Golejadors</h5>
+      <table class="table">
+        <tbody>
+        <tr *ngFor="let j of goleadores">
+          <td style="vertical-align: middle !important;"><strong>{{j.apodo}}</strong> <i style="color: #333 !important;" class="fa fa-futbol-o"></i></td>
+          <!--<td><a (click)="toAmar(j._id)"><i style="color: yellow !important;" class="fa fa-square"></i></a></td>-->
+          <!--<td><a (click)="toRojas(j._id)"><i style="color: red !important;" class="fa fa-square"></i></a></td>-->
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-3">
+      <h5 class="text-center">Asistents</h5>
+      <table class="table">
+        <tbody>
+        <tr *ngFor="let j of asistentes">
+          <td style="vertical-align: middle !important;"><strong>{{j.apodo}}</strong> <i style="color: #333 !important;" class="fa fa-arrow-circle-right"></i></td>
+          <!--<td><a (click)="toAsis(j._id)"><i style="color: #333 !important;" class="fa fa-arrow-circle-right"></i></a></td>-->
+          <!--<td><a (click)="toAmar(j._id)"><i style="color: yellow !important;" class="fa fa-square"></i></a></td>-->
+          <!--<td><a (click)="toRojas(j._id)"><i style="color: red !important;" class="fa fa-square"></i></a></td>-->
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-3">
+      <h5 class="text-center">Grogues</h5>
+      <table class="table">
+        <tbody>
+        <tr *ngFor="let j of amarillas">
+          <td style="vertical-align: middle !important;"><strong>{{j.apodo}}</strong> <i style="color: yellow !important;" class="fa fa-square"></i></td>
+          <!--<td><a (click)="toAsis(j._id)"><i style="color: #333 !important;" class="fa fa-arrow-circle-right"></i></a></td>-->
+          <!--<td><a (click)="toAmar(j._id)"><i style="color: yellow !important;" class="fa fa-square"></i></a></td>-->
+          <!--<td><a (click)="toRojas(j._id)"><i style="color: red !important;" class="fa fa-square"></i></a></td>-->
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-3">
+      <h5 class="text-center">Vermelles</h5>
+      <table class="table">
+        <tbody>
+        <tr *ngFor="let j of rojas">
+          <td style="vertical-align: middle !important;"><strong>{{j.apodo}}</strong> <i style="color: red !important;" class="fa fa-square"></i></td>
+          <!--<td><a (click)="toAsis(j._id)"><i style="color: #333 !important;" class="fa fa-arrow-circle-right"></i></a></td>-->
+          <!--<td><a (click)="toAmar(j._id)"><i style="color: yellow !important;" class="fa fa-square"></i></a></td>-->
+          <!--<td><a (click)="toRojas(j._id)"><i style="color: red !important;" class="fa fa-square"></i></a></td>-->
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-12">
+      <h5 class="text-center">Crònica</h5>
+      <div class="well">
+        <p class="text-justify" style="font-size: 15px">{{texto}}</p>
+      </div>
+    </div>
   </div>
   <div class="row">
     <div class="well">
@@ -39,14 +120,14 @@
     <div class="well hide_mobile_big">
       <table class="table">
         <thead style="font-weight: bold;">
-        <td>Posició</td>
-        <td>Equip</td>
-        <td>Punts</td>
-        <td>PG</td>
-        <td>PE</td>
-        <td>PP</td>
-        <td>GF</td>
-        <td>GC</td>
+        <th>Posició</th>
+        <th>Equip</th>
+        <th>Punts</th>
+        <th>PG</th>
+        <th>PE</th>
+        <th>PP</th>
+        <th>GF</th>
+        <th>GC</th>
         </thead>
         <tbody>
         <tr *ngFor="let e of clasificacion">
@@ -65,14 +146,14 @@
     <div class="well hide_mobile_small" style="font-size: 12px">
       <table class="table">
         <thead style="font-weight: bold;">
-        <td>Posició</td>
-        <td><p class="text-center">Equip</p></td>
-        <td>Punts</td>
+        <th>Posició</th>
+        <th style="padding-left: 15px" >Equip</th>
+        <th>Punts</th>
         </thead>
         <tbody>
         <tr *ngFor="let e of clasificacion">
           <td>{{e.posicion}}</td>
-          <td>{{e.nombre}}</td>
+          <td style="padding-left: 15px">{{e.nombre}}</td>
           <td>{{e.puntos}}</td>
         </tr>
         </tbody>
@@ -83,36 +164,14 @@
 
 <div class="col-md-4 col-md-offset-4" *ngIf="infantil">
   <div class="well">
-  <a target="_blank" href="http://www.elconsell.cat/elconsell/ceeb/classificacions-futbol5-fase1-menu">
-    <h3 class="text-center"><span class="glyphicon glyphicon-hand-down"></span></h3>
-  <h3 class="text-center">
+    <a target="_blank" href="http://www.elconsell.cat/elconsell/ceeb/classificacions-futbol5-fase1-menu">
+      <h3 class="text-center"><span class="glyphicon glyphicon-hand-down"></span></h3>
+      <h3 class="text-center">
       <span class="label label-primary">
         Consulta la classificació
       </span>
-  </h3>
-  </a>
-  <h3 id="info" class="text-center"><span class="label label-default">Mixt - Infantil - Grup 6</span></h3>
-  </div>
-</div>
-
-<!-- Crónica -->
-<div class="modal fade" id="cronica" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <app-cronica></app-cronica>
-      <!--<div class="modal-header">-->
-        <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
-        <!--<h4 class="modal-title">Modal Header</h4>-->
-      <!--</div>-->
-      <!--<div class="modal-body">-->
-        <!--<p>Some text in the modal.</p>-->
-      <!--</div>-->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Tancar</button>
-      </div>
-    </div>
-
+      </h3>
+    </a>
+    <h3 id="info" class="text-center"><span class="label label-default">Mixt - Infantil - Grup 6</span></h3>
   </div>
 </div>
