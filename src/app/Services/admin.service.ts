@@ -202,11 +202,11 @@ export class AdminService {
   }
 
 
-  addToGols(id, idjugador) {
+  addToGols(id, data) {
     const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': this.token });
     const options = new RequestOptions({ headers: headers });
     return new Promise((resolve, reject) => {
-      this.http.post('/admin/' + id + '/goleadores/' + idjugador, null, options)
+      this.http.post('/admin/' + id + '/goleadores/', data, options)
         .subscribe(res => {
           resolve(res);
         }, (err) => {
@@ -215,11 +215,11 @@ export class AdminService {
     });
   }
 
-  addToAsis(id, idjugador) {
+  addToAsis(id, data) {
     const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': this.token });
     const options = new RequestOptions({ headers: headers });
     return new Promise((resolve, reject) => {
-      this.http.post('/admin/' + id + '/asistentes/' + idjugador, null, options)
+      this.http.post('/admin/' + id + '/asistentes/', data, options)
         .subscribe(res => {
           resolve(res);
         }, (err) => {
@@ -228,11 +228,11 @@ export class AdminService {
     });
   }
 
-  addToAmarillas(id, idjugador) {
+  addToAmarillas(id, data) {
     const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': this.token });
     const options = new RequestOptions({ headers: headers });
     return new Promise((resolve, reject) => {
-      this.http.post('/admin/' + id + '/amarillas/' + idjugador, null, options)
+      this.http.post('/admin/' + id + '/amarillas/', data, options)
         .subscribe(res => {
           resolve(res);
         }, (err) => {
@@ -241,11 +241,11 @@ export class AdminService {
     });
   }
 
-  addToRojas(id, idjugador) {
+  addToRojas(id, data) {
     const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': this.token });
     const options = new RequestOptions({ headers: headers });
     return new Promise((resolve, reject) => {
-      this.http.post('/admin/' + id + '/rojas/' + idjugador, null, options)
+      this.http.post('/admin/' + id + '/rojas/', data, options)
         .subscribe(res => {
           resolve(res);
         }, (err) => {

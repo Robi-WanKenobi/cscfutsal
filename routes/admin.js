@@ -233,8 +233,8 @@ router.put('/cronicas/:id', md_auth.ensureAuth, function(req, res, next) {
 /* GET CRONICA BY ID */
 router.get('/cronicas/:id',  md_auth.ensureAuth, function(req, res, next) {
   console.log(req.params.id);
-  Cronica.findById(req.params.id).populate('goleadores').populate('asistentes')
-    .populate('amarillas').populate('rojas').exec(function(err, cronica) {
+  Cronica.findById(req.params.id).populate('goleadores.jugador').populate('asistentes.jugador')
+    .populate('amarillas.jugador').populate('rojas.jugador').exec(function(err, cronica) {
     if (err) return next(err);
     res.json(cronica);
   });
@@ -257,9 +257,9 @@ router.delete('/cronicas/:id', md_auth.ensureAuth, function(req, res, next) {
 });
 
 /* ADD JUGADOR TO A CRONICA GOLEADORES */
-router.post('/:id/goleadores/:idjugador', md_auth.ensureAuth, function (req, res, next) {
+router.post('/:id/goleadores/', md_auth.ensureAuth, function (req, res, next) {
   Cronica.update({ _id: req.params.id },
-    {"$push": { "goleadores" :  req.params.idjugador }},
+    {"$push": { "goleadores" :  req.body }},
     function (err, post) {
       if (err) return next(err);
       res.json(post);
@@ -267,9 +267,9 @@ router.post('/:id/goleadores/:idjugador', md_auth.ensureAuth, function (req, res
 });
 
 /* ADD JUGADOR TO A CRONICA ASISTENTES */
-router.post('/:id/asistentes/:idjugador', md_auth.ensureAuth, function (req, res, next) {
+router.post('/:id/asistentes/', md_auth.ensureAuth, function (req, res, next) {
   Cronica.update({ _id: req.params.id },
-    {"$push": { "asistentes" :  req.params.idjugador }},
+    {"$push": { "asistentes" :  req.body }},
     function (err, post) {
       if (err) return next(err);
       res.json(post);
@@ -277,9 +277,9 @@ router.post('/:id/asistentes/:idjugador', md_auth.ensureAuth, function (req, res
 });
 
 /* ADD JUGADOR TO A CRONICA amarillas */
-router.post('/:id/amarillas/:idjugador', md_auth.ensureAuth, function (req, res, next) {
+router.post('/:id/amarillas/', md_auth.ensureAuth, function (req, res, next) {
   Cronica.update({ _id: req.params.id },
-    {"$push": { "amarillas" :  req.params.idjugador }},
+    {"$push": { "amarillas" :  req.body }},
     function (err, post) {
       if (err) return next(err);
       res.json(post);
@@ -287,19 +287,19 @@ router.post('/:id/amarillas/:idjugador', md_auth.ensureAuth, function (req, res,
 });
 
 /* ADD JUGADOR TO A CRONICA rojas */
-router.post('/:id/rojas/:idjugador', md_auth.ensureAuth, function (req, res, next) {
+router.post('/:id/rojas/', md_auth.ensureAuth, function (req, res, next) {
   Cronica.update({ _id: req.params.id },
-    {"$push": { "rojas" :  req.params.idjugador }},
+    {"$push": { "rojas" :  req.body }},
     function (err, post) {
       if (err) return next(err);
       res.json(post);
     });
 });
 
-/* DEL JUGADOR TO A CRONICA GOLEADORES */
+/* DEL JUGADOR FROM CRONICA GOLEADORES */
 router.put('/:id/goleadores/:idjugador', md_auth.ensureAuth, function (req, res, next) {
   Cronica.update({ _id: req.params.id },
-    {"$pull": { "goleadores" :  req.params.idjugador }},
+    {"$pull": { "goleadores" :  {"_id":req.params.idjugador} }},
     function (err, post) {
       if (err) return next(err);
       res.json(post);
@@ -309,7 +309,7 @@ router.put('/:id/goleadores/:idjugador', md_auth.ensureAuth, function (req, res,
 /* DEL JUGADOR TO A CRONICA ASISTENTES */
 router.put('/:id/asistentes/:idjugador', md_auth.ensureAuth, function (req, res, next) {
   Cronica.update({ _id: req.params.id },
-    {"$pull": { "asistentes" :  req.params.idjugador }},
+    {"$pull": { "asistentes" :  {"_id":req.params.idjugador} }},
     function (err, post) {
       if (err) return next(err);
       res.json(post);
@@ -319,7 +319,7 @@ router.put('/:id/asistentes/:idjugador', md_auth.ensureAuth, function (req, res,
 /* DEL JUGADOR TO A CRONICA amarillas */
 router.put('/:id/amarillas/:idjugador', md_auth.ensureAuth, function (req, res, next) {
   Cronica.update({ _id: req.params.id },
-    {"$pull": { "amarillas" :  req.params.idjugador }},
+    {"$pull": { "amarillas" :  {"_id":req.params.idjugador} }},
     function (err, post) {
       if (err) return next(err);
       res.json(post);
@@ -329,7 +329,7 @@ router.put('/:id/amarillas/:idjugador', md_auth.ensureAuth, function (req, res, 
 /* DEL JUGADOR TO A CRONICA rojas */
 router.put('/:id/rojas/:idjugador', md_auth.ensureAuth, function (req, res, next) {
   Cronica.update({ _id: req.params.id },
-    {"$pull": { "rojas" :  req.params.idjugador }},
+    {"$pull": { "rojas" :  {"_id":req.params.idjugador} }},
     function (err, post) {
       if (err) return next(err);
       res.json(post);

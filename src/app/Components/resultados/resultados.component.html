@@ -44,7 +44,8 @@
       <table class="table">
         <tbody>
         <tr *ngFor="let j of goleadores">
-          <td style="vertical-align: middle !important;"><strong>{{j.apodo}}</strong> <i style="color: #333 !important;" class="fa fa-futbol-o"></i></td>
+          <td style="vertical-align: middle !important;"><strong>{{j.jugador.apodo}}</strong> <i style="color: #333 !important;" class="fa fa-futbol-o"></i></td>
+          <td style="vertical-align: middle !important;"><strong>min {{j.minuto}}</strong></td>
           <!--<td><a (click)="toAmar(j._id)"><i style="color: yellow !important;" class="fa fa-square"></i></a></td>-->
           <!--<td><a (click)="toRojas(j._id)"><i style="color: red !important;" class="fa fa-square"></i></a></td>-->
         </tr>
@@ -57,11 +58,8 @@
       <table class="table">
         <tbody>
         <tr *ngFor="let j of asistentes">
-          <td style="vertical-align: middle !important;"><strong>{{j.apodo}}</strong> <i style="color: #333 !important;" class="fa fa-arrow-circle-right"></i></td>
-          <!--<td><a (click)="toAsis(j._id)"><i style="color: #333 !important;" class="fa fa-arrow-circle-right"></i></a></td>-->
-          <!--<td><a (click)="toAmar(j._id)"><i style="color: yellow !important;" class="fa fa-square"></i></a></td>-->
-          <!--<td><a (click)="toRojas(j._id)"><i style="color: red !important;" class="fa fa-square"></i></a></td>-->
-        </tr>
+          <td style="vertical-align: middle !important;"><strong>{{j.jugador.apodo}}</strong> <i style="color: #333 !important;" class="fa fa-arrow-circle-right"></i></td>
+          <td style="vertical-align: middle !important;"><strong>min {{j.minuto}}</strong></td></tr>
         </tbody>
       </table>
     </div>
@@ -70,11 +68,8 @@
       <table class="table">
         <tbody>
         <tr *ngFor="let j of amarillas">
-          <td style="vertical-align: middle !important;"><strong>{{j.apodo}}</strong> <i style="color: yellow !important;" class="fa fa-square"></i></td>
-          <!--<td><a (click)="toAsis(j._id)"><i style="color: #333 !important;" class="fa fa-arrow-circle-right"></i></a></td>-->
-          <!--<td><a (click)="toAmar(j._id)"><i style="color: yellow !important;" class="fa fa-square"></i></a></td>-->
-          <!--<td><a (click)="toRojas(j._id)"><i style="color: red !important;" class="fa fa-square"></i></a></td>-->
-        </tr>
+          <td style="vertical-align: middle !important;"><strong>{{j.jugador.apodo}}</strong> <i style="color: yellow !important;" class="fa fa-square"></i></td>
+          <td style="vertical-align: middle !important;"><strong>min {{j.minuto}}</strong></td></tr>
         </tbody>
       </table>
     </div>
@@ -84,11 +79,8 @@
       <table class="table">
         <tbody>
         <tr *ngFor="let j of rojas">
-          <td style="vertical-align: middle !important;"><strong>{{j.apodo}}</strong> <i style="color: red !important;" class="fa fa-square"></i></td>
-          <!--<td><a (click)="toAsis(j._id)"><i style="color: #333 !important;" class="fa fa-arrow-circle-right"></i></a></td>-->
-          <!--<td><a (click)="toAmar(j._id)"><i style="color: yellow !important;" class="fa fa-square"></i></a></td>-->
-          <!--<td><a (click)="toRojas(j._id)"><i style="color: red !important;" class="fa fa-square"></i></a></td>-->
-        </tr>
+          <td style="vertical-align: middle !important;"><strong>{{j.jugador.apodo}}</strong> <i style="color: red !important;" class="fa fa-square"></i></td>
+          <td style="vertical-align: middle !important;"><strong>min {{j.minuto}}</strong></td></tr>
         </tbody>
       </table>
     </div>

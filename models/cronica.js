@@ -8,10 +8,30 @@ var cronicaSchema = new Schema({
   resultado: { type: String },
   jornada: { type:Number },
   texto: { type: String, default: 'Crònica en procés...'},
-  goleadores: [{type: Schema.Types.ObjectId, ref: 'Jugador'}],
-  asistentes: [{type: Schema.Types.ObjectId, ref: 'Jugador'}],
-  amarillas: [{type: Schema.Types.ObjectId, ref: 'Jugador'}],
-  rojas: [{type: Schema.Types.ObjectId, ref: 'Jugador'}],
+  goleadores: [
+      {
+        jugador: {type: Schema.Types.ObjectId, ref: 'Jugador'},
+        minuto: {type: Number}
+      }
+    ],
+  asistentes: [
+    {
+      jugador: {type: Schema.Types.ObjectId, ref: 'Jugador'},
+      minuto: {type: Number}
+    }
+  ],
+  amarillas: [
+    {
+      jugador: {type: Schema.Types.ObjectId, ref: 'Jugador'},
+      minuto: {type: Number}
+    }
+  ],
+  rojas: [
+    {
+      jugador: {type: Schema.Types.ObjectId, ref: 'Jugador'},
+      minuto: {type: Number}
+    }
+  ],
   equipo : { type: String, enum:
     ['Sènior A', 'Sènior B', 'Sènior C', 'Juvenil A', 'Juvenil B', 'Juvenil C', 'Infantil A']
   },

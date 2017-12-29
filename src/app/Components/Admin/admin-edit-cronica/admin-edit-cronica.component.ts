@@ -23,6 +23,8 @@ export class AdminEditCronicaComponent implements OnInit {
   visitante:string;
   resultado:string;
 
+  minuto: number;
+
   id: any;
 
   constructor(private adminService: AdminService,
@@ -36,9 +38,11 @@ export class AdminEditCronicaComponent implements OnInit {
 
   getCronica(id) {
     this.adminService.getCronica(id).then((res) => {
+      console.log(res);
      this.equipo = res['equipo'];
      this.jornada = res['jornada'];
      this.goleadores = res['goleadores'];
+     console.log(this.goleadores);
      this.asistentes = res['asistentes'];
      this.amarillas = res['amarillas'];
      this.rojas = res['rojas'];
@@ -79,7 +83,7 @@ export class AdminEditCronicaComponent implements OnInit {
   }
 
   toGoleadores(id) {
-    this.adminService.addToGols(this.id, id).then((res) => {
+    this.adminService.addToGols(this.id,{ 'jugador': id, 'minuto':this.minuto }).then((res) => {
       this.getCronica(this.id);
     }, (err) => {
       console.log(err);
@@ -95,7 +99,7 @@ export class AdminEditCronicaComponent implements OnInit {
   }
 
   toAsistentes(id) {
-    this.adminService.addToAsis(this.id, id).then((res) => {
+    this.adminService.addToAsis(this.id, { 'jugador': id, 'minuto':this.minuto }).then((res) => {
       this.getCronica(this.id);
     }, (err) => {
       console.log(err);
@@ -111,7 +115,7 @@ export class AdminEditCronicaComponent implements OnInit {
   }
 
   toAmarillas(id) {
-    this.adminService.addToAmarillas(this.id, id).then((res) => {
+    this.adminService.addToAmarillas(this.id, { 'jugador': id, 'minuto':this.minuto }).then((res) => {
       this.getCronica(this.id);
     }, (err) => {
       console.log(err);
@@ -127,7 +131,7 @@ export class AdminEditCronicaComponent implements OnInit {
   }
 
   toRojas(id) {
-    this.adminService.addToRojas(this.id, id).then((res) => {
+    this.adminService.addToRojas(this.id, { 'jugador': id, 'minuto':this.minuto }).then((res) => {
       this.getCronica(this.id);
     }, (err) => {
       console.log(err);
