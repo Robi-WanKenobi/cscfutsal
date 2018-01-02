@@ -96,6 +96,7 @@ export class AdminAddCronicaComponent implements OnInit {
       this.visitante = res['visitante'];
       this.local = res['local'];
       this.resultado = res['resultado'];
+      this.loading = false;
     }, (err) => {
       console.log(err);
     });
@@ -106,6 +107,7 @@ export class AdminAddCronicaComponent implements OnInit {
       this.visitante = res['visitante'];
       this.local = res['local'];
       this.resultado = res['resultado'];
+      this.loading = false;
     }, (err) => {
       console.log(err);
     });
@@ -116,6 +118,7 @@ export class AdminAddCronicaComponent implements OnInit {
       this.visitante = res['visitante'];
       this.local = res['local'];
       this.resultado = res['resultado'];
+      this.loading = false;
     }, (err) => {
       console.log(err);
     });
@@ -126,6 +129,7 @@ export class AdminAddCronicaComponent implements OnInit {
       this.visitante = res['visitante'];
       this.local = res['local'];
       this.resultado = res['resultado'];
+      this.loading = false;
     }, (err) => {
       console.log(err);
     });
@@ -136,6 +140,7 @@ export class AdminAddCronicaComponent implements OnInit {
       this.visitante = res['visitante'];
       this.local = res['local'];
       this.resultado = res['resultado'];
+      this.loading = false;
     }, (err) => {
       console.log(err);
     });
