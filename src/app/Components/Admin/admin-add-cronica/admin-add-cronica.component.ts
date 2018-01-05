@@ -59,23 +59,28 @@ export class AdminAddCronicaComponent implements OnInit {
   }
 
   getPartido() {
-    this.loading = true;
     if (this.equipo === 'Sènior A') {
+      this.loading = true;
       this.getSeniorAPartido(this.jornada);
     }
     if (this.equipo === 'Sènior B') {
+      this.loading = true;
       this.getSeniorBPartido(this.jornada);
     }
     if (this.equipo === 'Sènior C') {
+      this.loading = true;
       this.getSeniorCPartido(this.jornada);
     }
     if (this.equipo === 'Juvenil A') {
+      this.loading = true;
       this.getJuvenilAPartido(this.jornada);
     }
     if (this.equipo === 'Juvenil B') {
+      this.loading = true;
       this.getJuvenilBPartido(this.jornada);
     }
     if (this.equipo === 'Juvenil C') {
+      this.loading = true;
       this.getJuvenilCPartido(this.jornada);
     }
   }
@@ -96,6 +101,7 @@ export class AdminAddCronicaComponent implements OnInit {
       this.visitante = res['visitante'];
       this.local = res['local'];
       this.resultado = res['resultado'];
+      this.loading = false;
     }, (err) => {
       console.log(err);
     });
@@ -106,6 +112,7 @@ export class AdminAddCronicaComponent implements OnInit {
       this.visitante = res['visitante'];
       this.local = res['local'];
       this.resultado = res['resultado'];
+      this.loading = false;
     }, (err) => {
       console.log(err);
     });
@@ -116,6 +123,7 @@ export class AdminAddCronicaComponent implements OnInit {
       this.visitante = res['visitante'];
       this.local = res['local'];
       this.resultado = res['resultado'];
+      this.loading = false;
     }, (err) => {
       console.log(err);
     });
@@ -126,6 +134,7 @@ export class AdminAddCronicaComponent implements OnInit {
       this.visitante = res['visitante'];
       this.local = res['local'];
       this.resultado = res['resultado'];
+      this.loading = false;
     }, (err) => {
       console.log(err);
     });
@@ -136,6 +145,7 @@ export class AdminAddCronicaComponent implements OnInit {
       this.visitante = res['visitante'];
       this.local = res['local'];
       this.resultado = res['resultado'];
+      this.loading = false;
     }, (err) => {
       console.log(err);
     });
