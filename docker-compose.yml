@@ -1,21 +1,24 @@
 version: '2'
 services:
+  api:
+    container_name: cscfutsal
+    restart: always
+    build: .
+    command: node ./bin/www
+    volumes:
+     - api-img:/CSCFUTSAL/public/plantillas
+    ports:
+     - "80:80"
+    links:
+     - mongo
+     
  mongo:
+  container_name: mongo
   image: mongo:3.6.0
   volumes:
-   - /data/mongodb/db:/data/db
+   - /data/db:/data/db
   ports:
    - "27017:27017"
-
- api:
-  build: .
-  command: node ./bin/www
-  volumes:
-   - api-img:/CSCFUTSAL/public/plantillas
-  ports:
-   - "80:80"
-  links:
-   - mongo
 
 volumes:
   api-img:
