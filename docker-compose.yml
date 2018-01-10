@@ -1,14 +1,14 @@
 version: '2'
 services:
- mongo:
-  container_name: mongo
-  image: mongo:3.6.0
-  volumes:
-   - /data/db:/data/db
-  ports:
-   - "27017:27017"
+  mongo:
+    container_name: mongo
+    image: mongo:3.6.0
+    volumes:
+     - /data/db:/data/db
+    ports:
+     - "27017:27017"
    
-api:
+  api:
     container_name: cscfutsal
     restart: always
     build: .
