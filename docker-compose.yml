@@ -1,6 +1,14 @@
 version: '2'
 services:
-  api:
+ mongo:
+  container_name: mongo
+  image: mongo:3.6.0
+  volumes:
+   - /data/db:/data/db
+  ports:
+   - "27017:27017"
+   
+api:
     container_name: cscfutsal
     restart: always
     build: .
@@ -12,14 +20,6 @@ services:
     links:
      - mongo
      
- mongo:
-  container_name: mongo
-  image: mongo:3.6.0
-  volumes:
-   - /data/db:/data/db
-  ports:
-   - "27017:27017"
-
 volumes:
   api-img:
     driver: local
