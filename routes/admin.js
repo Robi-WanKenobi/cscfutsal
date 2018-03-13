@@ -44,7 +44,7 @@ router.post('/login', function(req, res) {
     });
 });
 
-/*router.post('/add', function(req, res) {
+router.post('/add', function(req, res) {
 
   var admin = new Admin();
 
@@ -61,7 +61,7 @@ router.post('/login', function(req, res) {
         });
     })
   }
-});*/
+});
 
 /*router.delete('/login/:id', function(req, res, next) {
   Admin.findByIdAndRemove(req.params.id, req.body, function (err, jugador) {
