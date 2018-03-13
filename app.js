@@ -23,7 +23,7 @@ var options = {
   bufferMaxEntries: 0
 };
 
-mongoose.connect('mongodb://45.63.114.161:27017/cscfutsaldb', options, function(err, res) {
+mongoose.connect('mongodb://localhost:27017/cscfutsaldb', options, function(err, res) {
   if(err) throw err;
   console.log('Connected to Database');
 });
