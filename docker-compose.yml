@@ -6,7 +6,7 @@ services:
     volumes:
      - /data/db:/data/db
     ports:
-     - "127.0.0.1:27017:270177"
+     - "127.0.0.1:27017:27017"
    
   api:
     container_name: cscfutsal
