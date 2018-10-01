@@ -133,7 +133,8 @@ router.get('/calendario/S%C3%A8nior%20A', function(req, res, next) {
             resultado: ""
           };
 
-          partido.local = $(this).find('td.tr a').text();
+          partido.local = $(this).find('td.a').get(0).text();
+          console.log(partido.local);
           partido.visitante = $(this).find('td.tl a').text();
           partido.resultado = $(this).find('td.tc a').text();
           jornada.partidos.push(partido);
