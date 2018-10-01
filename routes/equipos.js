@@ -117,14 +117,16 @@ router.get('/calendario/S%C3%A8nior%20A', function(req, res, next) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
 
-      $('table.fcftable.w-100.mb-20').each(function(i, element) {
+      $('table.calendaritable').each(function(i, element) {
         jornada = {
           numero: "",
           fecha: "",
           partidos: []
         };
-        jornada.numero = $(this).find('thead tr th span.f-l').text();
-        jornada.fecha = $(this).find('thead tr span.f-r').text();
+        jornada.numero = $(this).find('thead tr th:first-child').text();
+        console.log(jornada.numero)
+        jornada.fecha = $(this).find('thead tr th:last-child').text();
+        console.log(jornada.fecha)
 
         $(this).find('tbody tr').each(function (i, e) {
           partido = {
@@ -133,7 +135,7 @@ router.get('/calendario/S%C3%A8nior%20A', function(req, res, next) {
             resultado: ""
           };
 
-          partido.local = $(this).find('td:eq(0) a').text();
+          partido.local = $(this).find('td:nth-child(0) a').text();
           console.log(partido.local);
           partido.visitante = $(this).find('td.tl a').text();
           partido.resultado = $(this).find('td.tc a').text();
