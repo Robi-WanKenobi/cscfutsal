@@ -9,7 +9,7 @@ router.get('/jornada/actual', function(req, res, next) {
 
   var jornada = {};
 
-  jornada = 'http://fcf.cat/resultats/1718/futbol-sala/lliga-divisio-honor-catalana-futbol-sala/grup-2';
+  jornada = 'http://fcf.cat/resultats/1819/futbol-sala/lliga-divisio-honor-catalana-futbol-sala/grup-2';
   request(jornada, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
@@ -135,7 +135,7 @@ router.get('/calendario/S%C3%A8nior%20A', function(req, res, next) {
             resultado: ""
           };
 
-          partido.local = $(this).find('td:nth-child(0) a').text();
+          partido.local = $(this).find('td').get(0).find('a').text();
           console.log(partido.local);
           partido.visitante = $(this).find('td.tl a').text();
           partido.resultado = $(this).find('td.tc a').text();
