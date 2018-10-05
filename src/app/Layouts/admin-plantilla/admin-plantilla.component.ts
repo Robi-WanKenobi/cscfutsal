@@ -14,11 +14,9 @@ export class AdminPlantillaComponent implements OnInit {
 
   seniorA: any;
   seniorB: any;
-  seniorC: any;
   juvenilA: any;
   juvenilB: any;
-  juvenilC: any;
-  infantilA: any;
+  cadeteA: any;
   status: string;
 
   constructor(private adminService: AdminService, private equipoService: EquipoService, private router: Router) { }
@@ -26,11 +24,9 @@ export class AdminPlantillaComponent implements OnInit {
   ngOnInit() {
       this.getJugadoresSeniorA();
       this.getJugadoresSeniorB();
-      this.getJugadoresSeniorC();
       this.getJugadoresJuvenilA();
       this.getJugadoresJuvenilB();
-      this.getJugadoresJuvenilC();
-      this.getJugadoresInfantilA();
+      this.getJugadoresCadeteA();
   }
 
   getJugadoresSeniorA() {
@@ -47,13 +43,7 @@ export class AdminPlantillaComponent implements OnInit {
       console.log(err);
     });
   }
-  getJugadoresSeniorC() {
-    this.adminService.getJugadores('Sènior C').then((res) => {
-      this.seniorC = res;
-    }, (err) => {
-      console.log(err);
-    });
-  }
+
   getJugadoresJuvenilA() {
     this.adminService.getJugadores('Juvenil A').then((res) => {
       this.juvenilA = res;
@@ -68,16 +58,9 @@ export class AdminPlantillaComponent implements OnInit {
       console.log(err);
     });
   }
-  getJugadoresJuvenilC() {
-    this.adminService.getJugadores('Juvenil C').then((res) => {
-      this.juvenilC = res;
-    }, (err) => {
-      console.log(err);
-    });
-  }
-  getJugadoresInfantilA() {
-    this.adminService.getJugadores('Infantil A').then((res) => {
-      this.infantilA = res;
+  getJugadoresCadeteA() {
+    this.adminService.getJugadores('Cadete A').then((res) => {
+      this.cadeteA = res;
     }, (err) => {
       console.log(err);
     });
