@@ -22,7 +22,7 @@ router.get('/jornada/actual', function(req, res, next) {
       var $ = cheerio.load(html);
 
       $('#select_jornada').filter(function () {
-        jornada = parseInt(($(this).find('option:selected').text()).match(/\d+/)[0]) - 1;
+        jornada = parseInt(($(this).find('option:selected').text()).match(/\d+/)[0]);
       });
         console.log(jornada);
         res.json(jornada);
