@@ -9,7 +9,7 @@
 <ul class="nav nav-tabs nav-justified" *ngIf="!loading">
   <li class="active"><a data-toggle="pill" href="#usenior">Sènior</a></li>
   <li><a data-toggle="pill" href="#ujuvenil">Juvenil</a></li>
-  <li><a data-toggle="pill" href="#uinfantil">Infantil</a></li>
+  <li><a data-toggle="pill" href="#ucadete">Cadete</a></li>
 </ul>
 
 <div class="tab-content" *ngIf="!loading">
@@ -33,15 +33,6 @@
             <p class="text-center menor">{{ partidoSeniorB.lugar }}</p>
           </td>
           <td class="equip"><p class="text-center">{{ partidoSeniorB.visitante }}</p></td>
-        </tr>
-        <tr>
-          <td class="equip"><p class="text-center">{{ partidoSeniorC.local }}</p></td>
-          <td align="center" class="infor">
-            <p class="text-center  menor">{{ partidoSeniorC.fecha }}</p>
-            <p class="text-center result">{{ partidoSeniorC.resultado }}</p>
-            <p class="text-center  menor">{{ partidoSeniorC.lugar }}</p>
-          </td>
-          <td class="equip"><p class="text-center">{{ partidoSeniorC.visitante }}</p></td>
         </tr>
       </tbody>
     </table>
@@ -67,20 +58,22 @@
         </td>
         <td class="equip"><p class="text-center">{{ partidoJuvenilB.visitante }}</p></td>
       </tr>
-      <tr>
-        <td class="equip"><p class="text-center">{{ partidoJuvenilC.local }}</p></td>
-        <td align="center" class="infor">
-          <p class="text-center  menor">{{ partidoJuvenilC.fecha }}</p>
-          <p class="text-center result">{{ partidoJuvenilC.resultado }}</p>
-          <p class="text-center  menor">{{ partidoJuvenilC.lugar }}</p>
-        </td>
-        <td class="equip"><p class="text-center">{{ partidoJuvenilC.visitante }}</p></td>
-      </tr>
       </tbody>
     </table>
   </div>
   <div id="uinfantil" class="tab-pane fade">
-    <h3 class="text-center"><span class="glyphicon glyphicon-hand-down"></span></h3>
-    <h3 class="text-center"><a href="#/equip?cat=Infantil A"><span class="label label-primary">Accedeix a la secció de l'equip</span></a></h3>
+   <table class="table table-condensed">
+      <tbody>
+      <tr>
+        <td class="equip"><p class="text-center">{{ partidoCadeteA.local }}</p></td>
+        <td align="center" class="infor">
+          <p class="text-center  menor">{{ partidoCadeteA.fecha }}</p>
+          <p class="text-center result">{{ partidoCadeteA.resultado }}</p>
+          <p class="text-center  menor">{{ partidoCadeteA.lugar }}</p>
+        </td>
+        <td class="equip"><p class="text-center">{{ partidoCadeteA.visitante }}</p></td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </div>
