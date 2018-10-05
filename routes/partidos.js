@@ -5,12 +5,18 @@ var request = require('request');
 var cheerio = require('cheerio');
 var Cronica = require('../models/cronica');
 
+var seniorA_res = 'http://fcf.cat/resultats/1819/futbol-sala/lliga-primera-divisio-catalana-futbol-sala/grup-2/jornada-';
+var seniorB_res = 'http://fcf.cat/resultats/1819/futbol-sala/lliga-segona-divisio-catalana-futbol-sala/grup-5/jornada-';
+var juvenilA_res = 'http://fcf.cat/resultats/1819/futbol-sala/lliga-segona-divisio-juvenil-futbol-sala/grup-4/jornada-';
+var juvenilB_res = 'http://fcf.cat/resultats/1819/futbol-sala/lliga-tercera-divisio-juvenil-futbol-sala/grup-3/jornada-';
+var cadete_res = 'http://fcf.cat/resultats/1819/futbol-sala/lliga-tercera-divisio-cadet-futbol-sala/grup-3/jornada-';
+
 /* Get JORNADA ACTUAL */
 router.get('/jornada/actual', function(req, res, next) {
 
   var jornada = {};
 
-  jornada = 'http://fcf.cat/resultats/1718/futbol-sala/lliga-divisio-honor-catalana-futbol-sala/grup-2';
+  jornada = 'http://fcf.cat/resultats/1819/futbol-sala/lliga-primera-divisio-catalana-futbol-sala/grup-2';
   request(jornada, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
@@ -21,7 +27,6 @@ router.get('/jornada/actual', function(req, res, next) {
         console.log(jornada);
         res.json(jornada);
       }
-      //console.log(JSON.stringify(json))
   });
 
 });
@@ -31,7 +36,7 @@ router.get('/jornada/proxima', function(req, res, next) {
 
   var jornada = {};
 
-  jornada = 'http://fcf.cat/resultats/1718/futbol-sala/lliga-divisio-honor-catalana-futbol-sala/grup-2';
+  jornada = 'http://fcf.cat/resultats/1819/futbol-sala/lliga-primera-divisio-catalana-futbol-sala/grup-2';
   request(jornada, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
@@ -42,7 +47,6 @@ router.get('/jornada/proxima', function(req, res, next) {
       console.log(jornada);
       res.json(jornada);
     }
-    //console.log(JSON.stringify(json))
   });
 
 });
