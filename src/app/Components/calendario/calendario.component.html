@@ -13,7 +13,9 @@
       <tbody>
       <tr *ngFor="let p of jornada.partidos">
         <td>{{p.local}}</td>
-        <td>{{p.resultado.split('  ').join(' - ')}}</td>
+        <td>{{p.res_local}}</td>
+        <td>-</td>
+        <td>{{p.res_visitante}}</td>
         <td>{{p.visitante}}</td>
       </tr>
       </tbody>
@@ -34,7 +36,9 @@
         <tbody>
         <tr *ngFor="let p of jornada.partidos">
           <td>{{p.local}}</td>
-          <td>{{p.resultado.split('  ').join(' - ')}}</td>
+          <td>{{p.res_local}}</td>
+          <td>-</td>
+          <td>{{p.res_visitante}}</td>
           <td>{{p.visitante}}</td>
         </tr>
         </tbody>
