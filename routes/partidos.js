@@ -52,7 +52,7 @@ router.get('/jornada/proxima', function(req, res, next) {
 });
 
 
-/* GET ultimos partidos Senior A*/
+/* GET partidos Senior A*/
 router.get('/seniorA/:jornada', function(req, res, next) {
 
   var json = [];
@@ -99,7 +99,7 @@ router.get('/seniorA/:jornada', function(req, res, next) {
   });
 });
 
-/* GET ultimos partidos Senior B*/
+/* GET partidos Senior B*/
 router.get('/seniorB/:jornada', function(req, res, next) {
 
   var json = [];
@@ -132,7 +132,8 @@ router.get('/seniorB/:jornada', function(req, res, next) {
       var nameToSearchFor = 'CSC FUTSAL,B';
 
       for (var index = 0; index < json.length; index++) {
-        if ((json[index].local === nameToSearchFor) || (json[index].visitante === nameToSearchFor)) {
+        if ((json[index].local === nameToSearchFor) || (json[index].visitante === nameToSearchFor)) 
+        {
           console.log(json[index]);
           res.json(json[index]);
         }
@@ -214,7 +215,7 @@ router.get('/juvenilA/:jornada', function(req, res, next) {
       });
       //console.log(json);
       var nameToSearchFor = 'CSC FUTSAL,A';
-      console.log(json);
+
       for (var index = 0; index < json.length; index++) {
         if ((json[index].local === nameToSearchFor) || (json[index].visitante === nameToSearchFor)) {
           console.log(json[index]);
@@ -256,7 +257,7 @@ router.get('/juvenilB/:jornada', function(req, res, next) {
       });
       //console.log(json);
       var nameToSearchFor = 'CSC FUTSAL,B';
-      console.log(json);
+
       for (var index = 0; index < json.length; index++) {
         if ((json[index].local === nameToSearchFor) || (json[index].visitante === nameToSearchFor)) {
           console.log(json[index]);
@@ -297,8 +298,8 @@ router.get('/cadeteA/:jornada', function(req, res, next) {
         json.push(partido);
       });
       //console.log(json);
-      var nameToSearchFor = 'CSC FUTSAL ,C';
-      console.log(json);
+      var nameToSearchFor = 'CSC FUTSAL ,A';
+      
       for (var index = 0; index < json.length; index++) {
         if ((json[index].local === nameToSearchFor) || (json[index].visitante === nameToSearchFor)) {
           console.log(json[index]);
