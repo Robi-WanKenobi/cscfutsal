@@ -52,14 +52,6 @@ export class ProximosPartidosComponent implements OnInit {
     });
   }
 
-  getNextSeniorCPartido(jornada) {
-    this.partidosService.getPartidoSeniorC(jornada).then((res) => {
-      this.partidoSeniorC = res;
-    }, (err) => {
-      console.log(err);
-    });
-  }
-
   getNextJuvenilAPartido(jornada) {
     this.partidosService.getPartidoJuvenilA(jornada).then((res) => {
       this.partidoJuvenilA = res;
@@ -76,12 +68,11 @@ export class ProximosPartidosComponent implements OnInit {
     });
   }
 
-  getNextJuvenilCPartido(jornada) {
-    this.partidosService.getPartidoJuvenilC(jornada).then((res) => {
-      this.partidoJuvenilC = res;
+  getNextCadeteAPartido(jornada) {
+    this.partidosService.getPartidoCadeteA(jornada).then((res) => {
+      this.partidoCadeteA = res;
     }, (err) => {
       console.log(err);
     });
   }
-
 }
