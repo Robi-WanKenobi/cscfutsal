@@ -156,8 +156,8 @@ router.get('/calendario/S%C3%A8nior%20A', function(req, res, next) {
 
           partido.local = $(this).find('td:first-child a').text();
           partido.visitante = $(this).find('td:last-child a').text();
-          partido.res_local = $(this).find('td:nth-child(2)').text();
-          partido.res_visitante = $(this).find('td:nth-child(3)').text();
+          partido.res_local = $(this).find('td:nth-child(3)').text();
+          partido.res_visitante = $(this).find('td:nth-child(5)').text();
           jornada.partidos.push(partido);
         });
         json.push(jornada);
@@ -278,8 +278,8 @@ router.get('/calendario/S%C3%A8nior%20B', function(req, res, next) {
 
           partido.local = $(this).find('td:first-child a').text();
           partido.visitante = $(this).find('td:last-child a').text();
-          partido.res_local = $(this).find('td:nth-child(2)').text();
-          partido.res_visitante = $(this).find('td:nth-child(3)').text();
+          partido.res_local = $(this).find('td:nth-child(3)').text();
+          partido.res_visitante = $(this).find('td:nth-child(5)').text();
           jornada.partidos.push(partido);
         });
         json.push(jornada);
@@ -521,8 +521,8 @@ router.get('/calendario/Juvenil%20A', function(req, res, next) {
 
           partido.local = $(this).find('td:first-child a').text();
           partido.visitante = $(this).find('td:last-child a').text();
-          partido.res_local = $(this).find('td:nth-child(2)').text();
-          partido.res_visitante = $(this).find('td:nth-child(3)').text();
+          partido.res_local = $(this).find('td:nth-child(3)').text();
+          partido.res_visitante = $(this).find('td:nth-child(5)').text();
           jornada.partidos.push(partido);
         });
         json.push(jornada);
@@ -643,8 +643,8 @@ router.get('/calendario/Juvenil%20B', function(req, res, next) {
 
           partido.local = $(this).find('td:first-child a').text();
           partido.visitante = $(this).find('td:last-child a').text();
-          partido.res_local = $(this).find('td:nth-child(2)').text();
-          partido.res_visitante = $(this).find('td:nth-child(3)').text();
+          partido.res_local = $(this).find('td:nth-child(3)').text();
+          partido.res_visitante = $(this).find('td:nth-child(5)').text();
           jornada.partidos.push(partido);
         });
         json.push(jornada);
@@ -765,8 +765,8 @@ router.get('/calendario/Cadete%20A', function(req, res, next) {
 
           partido.local = $(this).find('td:first-child a').text();
           partido.visitante = $(this).find('td:last-child a').text();
-          partido.res_local = $(this).find('td:nth-child(2)').text();
-          partido.res_visitante = $(this).find('td:nth-child(3)').text();
+          partido.res_local = $(this).find('td:nth-child(3)').text();
+          partido.res_visitante = $(this).find('td:nth-child(5)').text();
           jornada.partidos.push(partido);
         });
         json.push(jornada);
