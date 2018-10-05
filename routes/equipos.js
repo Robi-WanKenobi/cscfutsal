@@ -150,12 +150,14 @@ router.get('/calendario/S%C3%A8nior%20A', function(req, res, next) {
           partido = {
             local: "",
             visitante: "",
-            resultado: ""
+            res_local: "",
+            res_visitante: ""
           };
 
           partido.local = $(this).find('td:first-child a').text();
           partido.visitante = $(this).find('td:last-child a').text();
-          partido.resultado = $(this).find('td:nth-child(2)').text();
+          partido.res_local = $(this).find('td:nth-child(2)').text();
+          partido.res_visitante = $(this).find('td:nth-child(4)').text();
           jornada.partidos.push(partido);
         });
         json.push(jornada);
@@ -256,25 +258,28 @@ router.get('/calendario/S%C3%A8nior%20B', function(req, res, next) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
 
-      $('table.fcftable.w-100.mb-20').each(function(i, element) {
+      $('table.calendaritable').each(function(i, element) {
         jornada = {
           numero: "",
           fecha: "",
           partidos: []
         };
-        jornada.numero = $(this).find('thead tr th span.f-l').text();
-        jornada.fecha = $(this).find('thead tr span.f-r').text();
+     
+        jornada.numero = $(this).find('thead tr th:first-child').text();
+        jornada.fecha = $(this).find('thead tr th:last-child').text();
 
         $(this).find('tbody tr').each(function (i, e) {
           partido = {
             local: "",
             visitante: "",
-            resultado: ""
+            res_local: "",
+            res_visitante: ""
           };
 
-          partido.local = $(this).find('td.tr a').text();
-          partido.visitante = $(this).find('td.tl a').text();
-          partido.resultado = $(this).find('td.tc a').text();
+          partido.local = $(this).find('td:first-child a').text();
+          partido.visitante = $(this).find('td:last-child a').text();
+          partido.res_local = $(this).find('td:nth-child(2)').text();
+          partido.res_visitante = $(this).find('td:nth-child(4)').text();
           jornada.partidos.push(partido);
         });
         json.push(jornada);
@@ -496,25 +501,28 @@ router.get('/calendario/Juvenil%20A', function(req, res, next) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
 
-      $('table.fcftable.w-100.mb-20').each(function(i, element) {
+      $('table.calendaritable').each(function(i, element) {
         jornada = {
           numero: "",
           fecha: "",
           partidos: []
         };
-        jornada.numero = $(this).find('thead tr th span.f-l').text();
-        jornada.fecha = $(this).find('thead tr span.f-r').text();
+     
+        jornada.numero = $(this).find('thead tr th:first-child').text();
+        jornada.fecha = $(this).find('thead tr th:last-child').text();
 
         $(this).find('tbody tr').each(function (i, e) {
           partido = {
             local: "",
             visitante: "",
-            resultado: ""
+            res_local: "",
+            res_visitante: ""
           };
 
-          partido.local = $(this).find('td.tr a').text();
-          partido.visitante = $(this).find('td.tl a').text();
-          partido.resultado = $(this).find('td.tc a').text();
+          partido.local = $(this).find('td:first-child a').text();
+          partido.visitante = $(this).find('td:last-child a').text();
+          partido.res_local = $(this).find('td:nth-child(2)').text();
+          partido.res_visitante = $(this).find('td:nth-child(4)').text();
           jornada.partidos.push(partido);
         });
         json.push(jornada);
@@ -615,25 +623,28 @@ router.get('/calendario/Juvenil%20B', function(req, res, next) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
 
-      $('table.fcftable.w-100.mb-20').each(function(i, element) {
+      $('table.calendaritable').each(function(i, element) {
         jornada = {
           numero: "",
           fecha: "",
           partidos: []
         };
-        jornada.numero = $(this).find('thead tr th span.f-l').text();
-        jornada.fecha = $(this).find('thead tr span.f-r').text();
+     
+        jornada.numero = $(this).find('thead tr th:first-child').text();
+        jornada.fecha = $(this).find('thead tr th:last-child').text();
 
         $(this).find('tbody tr').each(function (i, e) {
           partido = {
             local: "",
             visitante: "",
-            resultado: ""
+            res_local: "",
+            res_visitante: ""
           };
 
-          partido.local = $(this).find('td.tr a').text();
-          partido.visitante = $(this).find('td.tl a').text();
-          partido.resultado = $(this).find('td.tc a').text();
+          partido.local = $(this).find('td:first-child a').text();
+          partido.visitante = $(this).find('td:last-child a').text();
+          partido.res_local = $(this).find('td:nth-child(2)').text();
+          partido.res_visitante = $(this).find('td:nth-child(4)').text();
           jornada.partidos.push(partido);
         });
         json.push(jornada);
@@ -734,30 +745,32 @@ router.get('/calendario/Cadete%20A', function(req, res, next) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
 
-      $('table.fcftable.w-100.mb-20').each(function(i, element) {
+      $('table.calendaritable').each(function(i, element) {
         jornada = {
           numero: "",
           fecha: "",
           partidos: []
         };
-        jornada.numero = $(this).find('thead tr th span.f-l').text();
-        jornada.fecha = $(this).find('thead tr span.f-r').text();
+     
+        jornada.numero = $(this).find('thead tr th:first-child').text();
+        jornada.fecha = $(this).find('thead tr th:last-child').text();
 
         $(this).find('tbody tr').each(function (i, e) {
           partido = {
             local: "",
             visitante: "",
-            resultado: ""
+            res_local: "",
+            res_visitante: ""
           };
 
-          partido.local = $(this).find('td.tr a').text();
-          partido.visitante = $(this).find('td.tl a').text();
-          partido.resultado = $(this).find('td.tc a').text();
+          partido.local = $(this).find('td:first-child a').text();
+          partido.visitante = $(this).find('td:last-child a').text();
+          partido.res_local = $(this).find('td:nth-child(2)').text();
+          partido.res_visitante = $(this).find('td:nth-child(4)').text();
           jornada.partidos.push(partido);
         });
         json.push(jornada);
       });
-      console.log(json);
       res.json(json);
     }
   });
