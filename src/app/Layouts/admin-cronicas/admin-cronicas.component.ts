@@ -15,11 +15,9 @@ export class AdminCronicasComponent implements OnInit {
 
   seniorA: any;
   seniorB: any;
-  seniorC: any;
   juvenilA: any;
   juvenilB: any;
-  juvenilC: any;
-  infantilA: any;
+  cadeteA: any;
   status: string;
 
   constructor(private adminService: AdminService) { }
@@ -27,11 +25,9 @@ export class AdminCronicasComponent implements OnInit {
   ngOnInit() {
     this.getCronicasSeniorA();
     this.getCronicasSeniorB();
-    this.getCronicasSeniorC();
     this.getCronicasJuvenilA();
     this.getCronicasJuvenilB();
-    this.getCronicasJuvenilC();
-    this.getCronicasInfantilA();
+    this.getCronicasCadeteA();
   }
 
   getCronicasSeniorA() {
@@ -48,13 +44,7 @@ export class AdminCronicasComponent implements OnInit {
       console.log(err);
     });
   }
-  getCronicasSeniorC() {
-    this.adminService.getCronicas('Sènior C').then((res) => {
-      this.seniorC = res;
-    }, (err) => {
-      console.log(err);
-    });
-  }
+
   getCronicasJuvenilA() {
     this.adminService.getCronicas('Juvenil A').then((res) => {
       this.juvenilA = res;
@@ -69,20 +59,14 @@ export class AdminCronicasComponent implements OnInit {
       console.log(err);
     });
   }
-  getCronicasJuvenilC() {
-    this.adminService.getCronicas('Juvenil C').then((res) => {
-      this.juvenilC = res;
+  getCronicasCadeteA() {
+    this.adminService.getCronicas('Cadete A').then((res) => {
+      this.cadeteA = res;
     }, (err) => {
       console.log(err);
     });
   }
-  getCronicasInfantilA() {
-    this.adminService.getCronicas('Infantil A').then((res) => {
-      this.infantilA = res;
-    }, (err) => {
-      console.log(err);
-    });
-  }
+
 
   deleteCronica(id) {
     this.adminService.deleteCronica(id).then((result) => {
