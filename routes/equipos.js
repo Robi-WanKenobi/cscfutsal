@@ -5,8 +5,26 @@ var request = require('request');
 var cheerio = require('cheerio');
 
 var num_jornada = 'http://fcf.cat/resultats/1819/futbol-sala/lliga-divisio-honor-catalana-futbol-sala/grup-2';
-var seniorA_class = 'http://fcf.cat/classificacio/1819/futbol-sala/lliga-primera-divisio-catalana-futbol-sala/grup-2/jornada-';
+
+var seniorA_clas = 'http://fcf.cat/classificacio/1819/futbol-sala/lliga-primera-divisio-catalana-futbol-sala/grup-2/jornada-';
+var seniorA_res = 'http://fcf.cat/resultats/1819/futbol-sala/lliga-primera-divisio-catalana-futbol-sala/grup-2/jornada-';
 var seniorA_cal = 'http://fcf.cat/calendari/1819/futbol-sala/lliga-primera-divisio-catalana-futbol-sala/grup-2';
+
+var seniorB_clas = 'http://fcf.cat/classificacio/1819/futbol-sala/lliga-segona-divisio-catalana-futbol-sala/grup-5/jornada-';
+var seniorB_res = 'http://fcf.cat/resultats/1819/futbol-sala/lliga-segona-divisio-catalana-futbol-sala/grup-5/jornada-';
+var seniorB_cal = 'http://fcf.cat/calendari/1819/futbol-sala/lliga-segona-divisio-catalana-futbol-sala/grup-5';
+
+var juvenilA_clas = 'http://fcf.cat/classificacio/1819/futbol-sala/lliga-segona-divisio-juvenil-futbol-sala/grup-4/jornada-';
+var juvenilA_res = 'http://fcf.cat/resultats/1819/futbol-sala/lliga-segona-divisio-juvenil-futbol-sala/grup-4/jornada-';
+var juvenilA_cal = 'http://fcf.cat/calendari/1819/futbol-sala/lliga-segona-divisio-juvenil-futbol-sala/grup-4';
+
+var juvenilB_clas = 'http://fcf.cat/classificacio/1819/futbol-sala/lliga-tercera-divisio-juvenil-futbol-sala/grup-3/jornada-';
+var juvenilB_res = 'http://fcf.cat/resultats/1819/futbol-sala/lliga-tercera-divisio-juvenil-futbol-sala/grup-3/jornada-';
+var juvenilB_cal = 'http://fcf.cat/calendari/1819/futbol-sala/lliga-tercera-divisio-juvenil-futbol-sala/grup-3';
+
+var cadete_clas = 'http://fcf.cat/classificacio/1819/futbol-sala/lliga-tercera-divisio-cadet-futbol-sala/grup-3/jornada-';
+var cadete_res = 'http://fcf.cat/resultats/1819/futbol-sala/lliga-tercera-divisio-cadet-futbol-sala/grup-3/jornada-';
+var cadete_cal = 'http://fcf.cat/calendari/1819/futbol-sala/lliga-tercera-divisio-cadet-futbol-sala/grup-3';
 
 /* Get JORNADA ACTUAL */
 router.get('/jornada/actual', function(req, res, next) {
@@ -33,7 +51,7 @@ router.get('/clasificacion/S%C3%A8nior%20A/:jornada', function(req, res, next) {
   var json = [];
   var equipo = {};
 
-  seniorA = seniorA_class+req.params.jornada;
+  seniorA = seniorA_clas+req.params.jornada;
   console.log(seniorA);
   request(seniorA, function(error, response, html) {
     if (!error && response.statusCode == 200) {
@@ -84,8 +102,8 @@ router.get('/resultados/S%C3%A8nior%20A/:jornada', function(req, res, next) {
     lugar: ""
   };
 
-  seniorA = 'http://fcf.cat/resultats/1819/futbol-sala/lliga-primera-divisio-catalana-futbol-sala/grup-2/jornada-'+req.params.jornada;
-  request(seniorA, function(error, response, html) {
+  seniorA = seniorA_res+req.params.jornada;
+  request(seniorA_res, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
       $('tr.linia').each(function(i, element) {
@@ -125,6 +143,7 @@ router.get('/calendario/S%C3%A8nior%20A', function(req, res, next) {
           fecha: "",
           partidos: []
         };
+     
         jornada.numero = $(this).find('thead tr th:first-child').text();
         console.log(jornada.numero)
         jornada.fecha = $(this).find('thead tr th:last-child').text();
@@ -156,7 +175,7 @@ router.get('/clasificacion/S%C3%A8nior%20B/:jornada', function(req, res, next) {
   var json = [];
   var equipo = {};
 
-  seniorB = 'http://fcf.cat/classificacio/1718/futbol-sala/lliga-primera-divisio-catalana-futbol-sala/grup-2/jornada-'+req.params.jornada;
+  seniorB = seniorB_clas+req.params.jornada;
   request(seniorB, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
@@ -206,7 +225,7 @@ router.get('/resultados/S%C3%A8nior%20B/:jornada', function(req, res, next) {
     lugar: ""
   };
 
-  seniorB = 'http://fcf.cat/resultats/1718/futbol-sala/lliga-primera-divisio-catalana-futbol-sala/grup-2/jornada-'+req.params.jornada;
+  seniorB = seniorB_res+req.params.jornada;
   request(seniorB, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
@@ -237,7 +256,7 @@ router.get('/calendario/S%C3%A8nior%20B', function(req, res, next) {
   var json = [];
   var jornada = {};
 
-  seniorB = 'http://fcf.cat/calendari/1718/futbol-sala/lliga-primera-divisio-catalana-futbol-sala/grup-2';
+  seniorB = seniorB_cal;
   request(seniorB, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
@@ -272,7 +291,7 @@ router.get('/calendario/S%C3%A8nior%20B', function(req, res, next) {
 });
 
 /* GET clasificacion Senior C*/
-router.get('/clasificacion/S%C3%A8nior%20C/:jornada', function(req, res, next) {
+/*router.get('/clasificacion/S%C3%A8nior%20C/:jornada', function(req, res, next) {
 
   var json = [];
   var equipo = {};
@@ -316,7 +335,7 @@ router.get('/clasificacion/S%C3%A8nior%20C/:jornada', function(req, res, next) {
 });
 
 /* GET resultados Senior C*/
-router.get('/resultados/S%C3%A8nior%20C/:jornada', function(req, res, next) {
+/*router.get('/resultados/S%C3%A8nior%20C/:jornada', function(req, res, next) {
 
   var json = [];
   var partido = {
@@ -353,7 +372,7 @@ router.get('/resultados/S%C3%A8nior%20C/:jornada', function(req, res, next) {
 });
 
 /* GET calendario Senior C*/
-router.get('/calendario/S%C3%A8nior%20C', function(req, res, next) {
+/*router.get('/calendario/S%C3%A8nior%20C', function(req, res, next) {
 
   var json = [];
   var jornada = {};
@@ -398,7 +417,7 @@ router.get('/clasificacion/Juvenil%20A/:jornada', function(req, res, next) {
   var json = [];
   var equipo = {};
 
-  juvenilA = 'http://fcf.cat/classificacio/1718/futbol-sala/lliga-segona-divisio-juvenil-futbol-sala/grup-3/jornada-'+req.params.jornada;
+  juvenilA = juvenilA_clas+req.params.jornada;
   request(juvenilA, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
@@ -448,7 +467,7 @@ router.get('/resultados/Juvenil%20A/:jornada', function(req, res, next) {
     lugar: ""
   };
 
-  juvenilA = 'http://fcf.cat/resultats/1718/futbol-sala/lliga-segona-divisio-juvenil-futbol-sala/grup-3/jornada-'+req.params.jornada;
+  juvenilA = juvenilA_res+req.params.jornada;
   request(juvenilA, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
@@ -479,7 +498,7 @@ router.get('/calendario/Juvenil%20A', function(req, res, next) {
   var json = [];
   var jornada = {};
 
-  juvenilA = 'http://fcf.cat/calendari/1718/futbol-sala/lliga-segona-divisio-juvenil-futbol-sala/grup-3';
+  juvenilA = juvenilA_cal;
   request(juvenilA, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
@@ -519,7 +538,7 @@ router.get('/clasificacion/Juvenil%20B/:jornada', function(req, res, next) {
   var json = [];
   var equipo = {};
 
-  juvenilB = 'http://fcf.cat/classificacio/1718/futbol-sala/lliga-tercera-divisio-juvenil-futbol-sala/grup-6/jornada-'+req.params.jornada;
+  juvenilB = juvenilB_clas+req.params.jornada;
   request(juvenilB, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
@@ -569,7 +588,7 @@ router.get('/resultados/Juvenil%20B/:jornada', function(req, res, next) {
     lugar: ""
   };
 
-  juvenilB = 'http://fcf.cat/resultats/1718/futbol-sala/lliga-tercera-divisio-juvenil-futbol-sala/grup-6/jornada-'+req.params.jornada;
+  juvenilB = juvenilB_res+req.params.jornada;
   request(juvenilB, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
@@ -600,7 +619,7 @@ router.get('/calendario/Juvenil%20B', function(req, res, next) {
   var json = [];
   var jornada = {};
 
-  juvenilB = 'http://fcf.cat/calendari/1718/futbol-sala/lliga-tercera-divisio-juvenil-futbol-sala/grup-6';
+  juvenilB = juvenilB_cal;
   request(juvenilB, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
@@ -634,14 +653,14 @@ router.get('/calendario/Juvenil%20B', function(req, res, next) {
   });
 });
 
-/* GET clasificacion Juvenil C*/
-router.get('/clasificacion/Juvenil%20C/:jornada', function(req, res, next) {
+/* GET clasificacion Cadete*/
+router.get('/clasificacion/Cadete%20A/:jornada', function(req, res, next) {
 
   var json = [];
   var equipo = {};
 
-  juvenilC = 'http://fcf.cat/classificacio/1718/futbol-sala/lliga-tercera-divisio-juvenil-futbol-sala/grup-7/jornada-'+req.params.jornada;
-  request(juvenilC, function(error, response, html) {
+  cadete = cadete_clas+req.params.jornada;
+  request(cadete, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
 
@@ -678,8 +697,8 @@ router.get('/clasificacion/Juvenil%20C/:jornada', function(req, res, next) {
   });
 });
 
-/* GET resultados Juvenil C*/
-router.get('/resultados/Juvenil%20C/:jornada', function(req, res, next) {
+/* GET resultados Cadete*/
+router.get('/resultados/Cadete%20A/:jornada', function(req, res, next) {
 
   var json = [];
   var partido = {
@@ -690,8 +709,8 @@ router.get('/resultados/Juvenil%20C/:jornada', function(req, res, next) {
     lugar: ""
   };
 
-  juvenilC = 'http://fcf.cat/resultats/1718/futbol-sala/lliga-tercera-divisio-juvenil-futbol-sala/grup-7/jornada-'+req.params.jornada;
-  request(juvenilC, function(error, response, html) {
+  cadete = cadete_res+req.params.jornada;
+  request(cadete, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
       $('tr.linia').each(function(i, element) {
@@ -715,14 +734,14 @@ router.get('/resultados/Juvenil%20C/:jornada', function(req, res, next) {
   });
 });
 
-/* GET calendario Juvenil C*/
-router.get('/calendario/Juvenil%20C', function(req, res, next) {
+/* GET calendario Cadete A*/
+router.get('/calendario/Cadete%20A', function(req, res, next) {
 
   var json = [];
   var jornada = {};
 
-  juvenilC = 'http://fcf.cat/calendari/1718/futbol-sala/lliga-tercera-divisio-juvenil-futbol-sala/grup-7';
-  request(juvenilC, function(error, response, html) {
+  cadete = cadete_cal;
+  request(cadete, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
 
