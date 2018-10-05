@@ -6,19 +6,19 @@
   <div class="well" *ngFor="let jornada of calendario_1">
     <table class="table table-striped">
       <thead style="font-weight: bold;">
-      <td class="jornada"><h4><strong>{{jornada.numero}}</strong></h4></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td class="fecha"><h4><strong>{{jornada.fecha}}</strong></h4></td>
+      <td style="width:40%" class="jornada"><h4><strong>{{jornada.numero}}</strong></h4></td>
+      <td style="width:8%"></td>
+      <td style="width:4%"></td>
+      <td style="width:8%"></td>
+      <td style="width:40%" class="fecha"><h4><strong>{{jornada.fecha}}</strong></h4></td>
       </thead>
       <tbody>
       <tr *ngFor="let p of jornada.partidos">
-        <td width="40%">{{p.local}}</td>
-        <td width="8%">{{p.res_local}}</td>
-        <td width="4%">-</td>
-        <td width="8%">{{p.res_visitante}}</td>
-        <td width="40%">{{p.visitante}}</td>
+        <td style="width:40%">{{p.local}}</td>
+        <td style="width:8%">{{p.res_local}}</td>
+        <td style="width:4%">-</td>
+        <td style="width:8%">{{p.res_visitante}}</td>
+        <td style="width:40%">{{p.visitante}}</td>
       </tr>
       </tbody>
     </table>
@@ -31,19 +31,19 @@
     <div class="well" *ngFor="let jornada of calendario_2">
       <table class="table table-striped">
         <thead style="font-weight: bold;">
-        <td class="jornada"><h4><strong>{{jornada.numero}}</strong></h4></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="fecha"><h4><strong>{{jornada.fecha}}</strong></h4></td>
+        <td style="width:40%" class="jornada"><h4><strong>{{jornada.numero}}</strong></h4></td>
+        <td style="width:8%"></td>
+        <td style="width:4%"></td>
+        <td style="width:8%"></td>
+        <td style="width:40%" class="fecha"><h4><strong>{{jornada.fecha}}</strong></h4></td>
         </thead>
         <tbody>
         <tr *ngFor="let p of jornada.partidos">
-          <td width="40%">{{p.local}}</td>
-          <td width="8%">{{p.res_local}}</td>
-          <td width="4%">-</td>
-          <td width="8%">{{p.res_visitante}}</td>
-          <td width="40%">{{p.visitante}}</td>
+          <td style="width:40%">{{p.local}}</td>
+          <td style="width:8%">{{p.res_local}}</td>
+          <td style="width:4%">-</td>
+          <td style="width:8%">{{p.res_visitante}}</td>
+          <td style="width:40%">{{p.visitante}}</td>
         </tr>
         </tbody>
       </table>
