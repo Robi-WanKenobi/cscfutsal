@@ -3,20 +3,20 @@
       <ul class="nav nav-tabs nav-justified">
         <li class="active"><a data-toggle="pill" href="#sA">Sènior A</a></li>
         <li><a data-toggle="pill" href="#sB">Sènior B</a></li>
-        <li><a data-toggle="pill" href="#sC">Sènior C</a></li>
         <li><a data-toggle="pill" href="#jA">Juvenil A</a></li>
         <li><a data-toggle="pill" href="#jB">Juvenil B</a></li>
-        <li><a data-toggle="pill" href="#jC">Juvenil C</a></li>
-        <li><a data-toggle="pill" href="#iA">Infantil A</a></li>
+        <li><a data-toggle="pill" href="#cA">Cadete A</a></li>
         <li><a data-toggle="pill" href="#add"><span class="glyphicon glyphicon-plus"></span></a></li>
       </ul>
 
       <div class="tab-content" style="margin-top: 10px">
+        
         <div class="content">
           <div class="alert alert-danger" *ngIf="status == 'borrado'">
             <p class="text-center">Jugador esborrat</p>
           </div>
         </div>
+        
         <div id="sA" class="tab-pane fade in active">
           <div class="col-md-2 small_pa" *ngFor="let j of seniorA">
             <div class="well p">
@@ -40,6 +40,7 @@
             </div>
           </div>
         </div>
+        
         <div id="sB" class="tab-pane fade">
           <div class="col-md-2 small_pa" *ngFor="let j of seniorB">
             <div class="well p">
@@ -63,29 +64,7 @@
             </div>
           </div>
         </div>
-        <div id="sC" class="tab-pane fade">
-          <div class="col-md-2 small_pa" *ngFor="let j of seniorC">
-            <div class="well p">
-              <h5 class="text-center up">
-                <p class="dorsal" style="float: left;">{{j.dorsal}}</p>
-                {{j.apodo}}
-                <a style="float: right;" (click)="deleteJugador(j._id)"><span class="glyphicon glyphicon-remove"></span></a>
-              </h5>
-              <img class="img-responsive" src="/plantillas/{{j.imagen}}"
-                   style="max-width: 100%; max-height: 100%;margin-left: auto;margin-right: auto;display: block;"/>
-              <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Detalles</button>!-->
-              <h5 class="text-center down">
-                {{ j.posicion}}
-                <a style="float: right;" [routerLink]="['/edit', j._id]"><span class="glyphicon glyphicon-pencil"></span></a>
-              </h5>
-              <p style="text-align: center; word-spacing: inherit; margin-top: 5px;"><strong>{{j.estadisticas.goles}}</strong>  <i style="color: #333 !important;" class="fa fa-futbol-o"></i>
-                <strong>{{j.estadisticas.asistencias}}</strong>  <i style="color: #333 !important;" class="fa fa-arrow-circle-right"></i>
-                <strong>{{j.estadisticas.amarillas}}</strong>  <i style="color: yellow !important;" class="fa fa-square"></i>
-                <strong>{{j.estadisticas.rojas}}</strong>  <i style="color: red !important;" class="fa fa-square"></i>
-              </p>
-            </div>
-          </div>
-        </div>
+        
         <div id="jA" class="tab-pane fade">
           <div class="col-md-2 small_pa" *ngFor="let j of juvenilA">
             <div class="well p">
@@ -109,6 +88,7 @@
             </div>
           </div>
         </div>
+        
         <div id="jB" class="tab-pane fade">
           <div class="col-md-2 small_pa" *ngFor="let j of juvenilB">
             <div class="well p">
@@ -132,8 +112,9 @@
             </div>
           </div>
         </div>
-        <div id="jC" class="tab-pane fade">
-          <div class="col-md-2 small_pa" *ngFor="let j of juvenilC">
+        
+        <div id="cA" class="tab-pane fade">
+          <div class="col-md-2 small_pa" *ngFor="let j of cadeteA">
             <div class="well p">
               <h5 class="text-center up">
                 <p class="dorsal" style="float: left;">{{j.dorsal}}</p>
@@ -152,35 +133,14 @@
                 <strong>{{j.estadisticas.amarillas}}</strong>  <i style="color: yellow !important;" class="fa fa-square"></i>
                 <strong>{{j.estadisticas.rojas}}</strong>  <i style="color: red !important;" class="fa fa-square"></i>
               </p>
-            </div>
+            </div
           </div>
         </div>
-        <div id="iA" class="tab-pane fade">
-          <div class="col-md-2 small_pa" *ngFor="let j of infantilA">
-            <div class="well p">
-              <h5 class="text-center up">
-                <p class="dorsal" style="float: left;">{{j.dorsal}}</p>
-                {{j.apodo}}
-                <a style="float: right; color: red;" (click)="deleteJugador(j._id)"><span class="glyphicon glyphicon-remove"></span></a>
-              </h5>
-              <img class="img-responsive" src="/plantillas/{{j.imagen}}"
-                   style="max-width: 100%; max-height: 100%;margin-left: auto;margin-right: auto;display: block;"/>
-              <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Detalles</button>!-->
-              <h5 class="text-center down">
-                {{ j.posicion}}
-                <a style="float: right;" [routerLink]="['/edit', j._id]"><span class="glyphicon glyphicon-pencil"></span></a>
-              </h5>
-              <p style="text-align: center; word-spacing: inherit; margin-top: 5px;"><strong>{{j.estadisticas.goles}}</strong>  <i style="color: #333 !important;" class="fa fa-futbol-o"></i>
-                <strong>{{j.estadisticas.asistencias}}</strong>  <i style="color: #333 !important;" class="fa fa-arrow-circle-right"></i>
-                <strong>{{j.estadisticas.amarillas}}</strong>  <i style="color: yellow !important;" class="fa fa-square"></i>
-                <strong>{{j.estadisticas.rojas}}</strong>  <i style="color: red !important;" class="fa fa-square"></i>
-              </p>
-            </div>
-          </div>
-        </div>
+     
         <div id="add" class="tab-pane fade">
           <app-admin-add-jugador></app-admin-add-jugador>
         </div>
+        
       </div>
     </div>
 </div>
