@@ -39,6 +39,7 @@ export class ProximosPartidosComponent implements OnInit {
   getNextSeniorAPartido(jornada) {
     this.partidosService.getPartidoSeniorA(jornada).then((res) => {
       this.partidoSeniorA = res;
+      console.log(res);
     }, (err) => {
       console.log(err);
     });
@@ -71,6 +72,7 @@ export class ProximosPartidosComponent implements OnInit {
   getNextCadeteAPartido(jornada) {
     this.partidosService.getPartidoCadeteA(jornada).then((res) => {
       this.partidoCadeteA = res;
+      console.log(res);
     }, (err) => {
       console.log(err);
     });
