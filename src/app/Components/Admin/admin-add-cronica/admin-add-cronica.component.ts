@@ -67,10 +67,6 @@ export class AdminAddCronicaComponent implements OnInit {
       this.loading = true;
       this.getSeniorBPartido(this.jornada);
     }
-    if (this.equipo === 'Sènior C') {
-      this.loading = true;
-      this.getSeniorCPartido(this.jornada);
-    }
     if (this.equipo === 'Juvenil A') {
       this.loading = true;
       this.getJuvenilAPartido(this.jornada);
@@ -79,9 +75,9 @@ export class AdminAddCronicaComponent implements OnInit {
       this.loading = true;
       this.getJuvenilBPartido(this.jornada);
     }
-    if (this.equipo === 'Juvenil C') {
+    if (this.equipo === 'Cadete A') {
       this.loading = true;
-      this.getJuvenilCPartido(this.jornada);
+      this.getCadeteAPartido(this.jornada);
     }
   }
 
@@ -98,17 +94,6 @@ export class AdminAddCronicaComponent implements OnInit {
 
   getSeniorBPartido(jornada) {
     this.partidosService.getPartidoSeniorB(jornada).then((res) => {
-      this.visitante = res['visitante'];
-      this.local = res['local'];
-      this.resultado = res['resultado'];
-      this.loading = false;
-    }, (err) => {
-      console.log(err);
-    });
-  }
-
-  getSeniorCPartido(jornada) {
-    this.partidosService.getPartidoSeniorC(jornada).then((res) => {
       this.visitante = res['visitante'];
       this.local = res['local'];
       this.resultado = res['resultado'];
@@ -140,8 +125,8 @@ export class AdminAddCronicaComponent implements OnInit {
     });
   }
 
-  getJuvenilCPartido(jornada) {
-    this.partidosService.getPartidoJuvenilC(jornada).then((res) => {
+  getCadeteAPartido(jornada) {
+    this.partidosService.getPartidoCadeteA(jornada).then((res) => {
       this.visitante = res['visitante'];
       this.local = res['local'];
       this.resultado = res['resultado'];
