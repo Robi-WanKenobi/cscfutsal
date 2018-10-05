@@ -72,13 +72,22 @@
     <table class="table table-condensed">
       <tbody>
       <tr>
-        <td class="equip"><p class="text-center">{{ partidoCadeteA.local }}</p></td>
+        <td class="equip"><p class="text-center">{{ partidoJuvenilA.local }}</p></td>
         <td align="center" class="infor">
-          <p class="text-center  menor">{{ partidoCadeteA.fecha }}</p>
-          <p class="text-center result">{{ partidoCadeteA.resultado }}</p>
-          <a target="_blank" href="http://maps.google.com/?q={{partidoCadeteA.lugar}}"><p class="text-center  menor">{{ partidoCadeteA.lugar }}</p></a>
+          <p class="text-center  menor">{{ partidoJuvenilA.fecha }}</p>
+          <p class="text-center result">{{ partidoJuvenilA.resultado }}</p>
+          <a target="_blank" href="http://maps.google.com/?q={{partidoJuvenilA.lugar}}"><p class="text-center  menor">{{ partidoJuvenilA.lugar }}</p></a>
         </td>
-        <td class="equip"><p class="text-center">{{ partidoCadeteA.visitante }}</p></td>
+        <td class="equip"><p class="text-center">{{ partidoJuvenilA.visitante }}</p></td>
+      </tr>
+      <tr>
+        <td class="equip"><p class="text-center">{{ partidoCadeteA?.local }}</p></td>
+        <td align="center" class="infor">
+          <p class="text-center  menor">{{ partidoCadeteA?.fecha }}</p>
+          <p class="text-center result">{{ partidoCadeteA?.resultado }}</p>
+          <a target="_blank" href="http://maps.google.com/?q={{partidoCadeteA?.lugar}}"><p class="text-center  menor">{{ partidoCadeteA?.lugar }}</p></a>
+        </td>
+        <td class="equip"><p class="text-center">{{ partidoCadeteA?.visitante }}</p></td>
       </tr>
       </tbody>
     </table>
