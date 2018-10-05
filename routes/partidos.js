@@ -64,7 +64,7 @@ router.get('/seniorA/:jornada', function(req, res, next) {
     lugar: ""
   };
 
-  seniorA = 'http://fcf.cat/resultats/1718/futbol-sala/lliga-divisio-honor-catalana-futbol-sala/grup-2/jornada-'+req.params.jornada;
+  seniorA = seniorA_res+req.params.jornada;
   request(seniorA, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
@@ -110,7 +110,7 @@ router.get('/seniorB/:jornada', function(req, res, next) {
     fecha: ""
   };
 
-  seniorB = 'http://fcf.cat/resultats/1718/futbol-sala/lliga-primera-divisio-catalana-futbol-sala/grup-2/jornada-'+req.params.jornada;
+  seniorB = seniorB_res+req.params.jornada;
   request(seniorB, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
@@ -142,7 +142,7 @@ router.get('/seniorB/:jornada', function(req, res, next) {
 });
 
 /* GET ultimos partidos Senior C*/
-router.get('/seniorC/:jornada', function(req, res, next) {
+/*router.get('/seniorC/:jornada', function(req, res, next) {
 
   var json = [];
   var partido = {
@@ -194,7 +194,7 @@ router.get('/juvenilA/:jornada', function(req, res, next) {
     fecha: ""
   };
 
-  juvenilA = 'http://fcf.cat/resultats/1718/futbol-sala/lliga-segona-divisio-juvenil-futbol-sala/grup-3/jornada-'+req.params.jornada;
+  juvenilA = juvenilA_res+req.params.jornada;
   request(juvenilA, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
@@ -236,7 +236,7 @@ router.get('/juvenilB/:jornada', function(req, res, next) {
     fecha: ""
   };
 
-  juvenilB = 'http://fcf.cat/resultats/1718/futbol-sala/lliga-tercera-divisio-juvenil-futbol-sala/grup-6/jornada-'+req.params.jornada;
+  juvenilB = juvenilB_res+req.params.jornada;
   request(juvenilB, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
@@ -267,8 +267,8 @@ router.get('/juvenilB/:jornada', function(req, res, next) {
   });
 });
 
-/* GET ultimos partidos Juvenil C*/
-router.get('/juvenilC/:jornada', function(req, res, next) {
+/* GET ultimos partidos Cadete*/
+router.get('/cadeteA/:jornada', function(req, res, next) {
 
   var json = [];
   var partido = {
@@ -278,8 +278,8 @@ router.get('/juvenilC/:jornada', function(req, res, next) {
     fecha: ""
   };
 
-  juvenilC = 'http://fcf.cat/resultats/1718/futbol-sala/lliga-tercera-divisio-juvenil-futbol-sala/grup-7/jornada-'+req.params.jornada;
-  request(juvenilC, function(error, response, html) {
+  cadete = cadete_res+req.params.jornada;
+  request(cadete, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
       $('tr.linia').each(function (i, element) {
