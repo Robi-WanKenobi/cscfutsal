@@ -52,7 +52,6 @@ router.get('/clasificacion/S%C3%A8nior%20A/:jornada', function(req, res, next) {
   var equipo = {};
 
   seniorA = seniorA_clas+req.params.jornada;
-  console.log(seniorA);
   request(seniorA, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
@@ -84,7 +83,6 @@ router.get('/clasificacion/S%C3%A8nior%20A/:jornada', function(req, res, next) {
           equipo.goles.contra = $(this).find('td:nth-child(19)').text();
           json.push(equipo);
         });
-      console.log(json);
       res.json(json);
     }
   });
@@ -103,7 +101,7 @@ router.get('/resultados/S%C3%A8nior%20A/:jornada', function(req, res, next) {
   };
 
   seniorA = seniorA_res+req.params.jornada;
-  request(seniorA_res, function(error, response, html) {
+  request(seniorA, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
       $('tr.linia').each(function(i, element) {
@@ -133,7 +131,8 @@ router.get('/calendario/S%C3%A8nior%20A', function(req, res, next) {
   var json = [];
   var jornada = {};
   
-  request(seniorA_cal, function(error, response, html) {
+  seniorA = seniorA_cal;
+  request(seniorA, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
 
@@ -145,9 +144,7 @@ router.get('/calendario/S%C3%A8nior%20A', function(req, res, next) {
         };
      
         jornada.numero = $(this).find('thead tr th:first-child').text();
-        console.log(jornada.numero)
         jornada.fecha = $(this).find('thead tr th:last-child').text();
-        console.log(jornada.fecha)
 
         $(this).find('tbody tr').each(function (i, e) {
           partido = {
@@ -163,7 +160,6 @@ router.get('/calendario/S%C3%A8nior%20A', function(req, res, next) {
         });
         json.push(jornada);
       });
-      console.log(json);
       res.json(json);
     }
   });
@@ -207,7 +203,6 @@ router.get('/clasificacion/S%C3%A8nior%20B/:jornada', function(req, res, next) {
         equipo.goles.contra = $(this).find('td:nth-child(19)').text();
         json.push(equipo);
       });
-      console.log(json);
       res.json(json);
     }
   });
@@ -284,7 +279,6 @@ router.get('/calendario/S%C3%A8nior%20B', function(req, res, next) {
         });
         json.push(jornada);
       });
-      console.log(json);
       res.json(json);
     }
   });
@@ -449,7 +443,6 @@ router.get('/clasificacion/Juvenil%20A/:jornada', function(req, res, next) {
         equipo.goles.contra = $(this).find('td:nth-child(19)').text();
         json.push(equipo);
       });
-      console.log(json);
       res.json(json);
     }
   });
@@ -526,7 +519,6 @@ router.get('/calendario/Juvenil%20A', function(req, res, next) {
         });
         json.push(jornada);
       });
-      console.log(json);
       res.json(json);
     }
   });
@@ -570,7 +562,6 @@ router.get('/clasificacion/Juvenil%20B/:jornada', function(req, res, next) {
         equipo.goles.contra = $(this).find('td:nth-child(19)').text();
         json.push(equipo);
       });
-      console.log(json);
       res.json(json);
     }
   });
@@ -647,7 +638,6 @@ router.get('/calendario/Juvenil%20B', function(req, res, next) {
         });
         json.push(jornada);
       });
-      console.log(json);
       res.json(json);
     }
   });
@@ -691,7 +681,6 @@ router.get('/clasificacion/Cadete%20A/:jornada', function(req, res, next) {
         equipo.goles.contra = $(this).find('td:nth-child(19)').text();
         json.push(equipo);
       });
-      console.log(json);
       res.json(json);
     }
   });
