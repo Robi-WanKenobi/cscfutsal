@@ -4,13 +4,16 @@ var fs = require('fs');
 var request = require('request');
 var cheerio = require('cheerio');
 
+var num_jornada = 'http://fcf.cat/resultats/1819/futbol-sala/lliga-divisio-honor-catalana-futbol-sala/grup-2';
+var seniorA_class = 'http://fcf.cat/classificacio/1819/futbol-sala/lliga-primera-divisio-catalana-futbol-sala/grup-2/jornada-';
+var seniorA_cal = 'http://fcf.cat/calendari/1819/futbol-sala/lliga-primera-divisio-catalana-futbol-sala/grup-2';
+
 /* Get JORNADA ACTUAL */
 router.get('/jornada/actual', function(req, res, next) {
 
   var jornada = {};
-
-  jornada = 'http://fcf.cat/resultats/1819/futbol-sala/lliga-divisio-honor-catalana-futbol-sala/grup-2';
-  request(jornada, function(error, response, html) {
+  
+  request(num_jornada, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
 
@@ -20,7 +23,6 @@ router.get('/jornada/actual', function(req, res, next) {
       console.log(jornada);
       res.json(jornada);
     }
-    //console.log(JSON.stringify(json))
   });
 
 });
@@ -31,7 +33,8 @@ router.get('/clasificacion/S%C3%A8nior%20A/:jornada', function(req, res, next) {
   var json = [];
   var equipo = {};
 
-  seniorA = 'http://fcf.cat/classificacio/1819/futbol-sala/lliga-primera-divisio-catalana-futbol-sala/grup-2/jornada-'+req.params.jornada;
+  seniorA = seniorA_class+req.params.jornada;
+  console.log(seniorA);
   request(seniorA, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
@@ -111,9 +114,8 @@ router.get('/calendario/S%C3%A8nior%20A', function(req, res, next) {
 
   var json = [];
   var jornada = {};
-
-  seniorA = 'http://fcf.cat/calendari/1819/futbol-sala/lliga-primera-divisio-catalana-futbol-sala/grup-2';
-  request(seniorA, function(error, response, html) {
+  
+  request(seniorA_cal, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
 
