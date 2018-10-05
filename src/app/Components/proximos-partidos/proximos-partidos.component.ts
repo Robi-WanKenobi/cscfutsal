@@ -10,10 +10,9 @@ export class ProximosPartidosComponent implements OnInit {
 
   @Input() partidoSeniorA: {};
   @Input() partidoSeniorB: {};
-  @Input() partidoSeniorC: {};
   @Input() partidoJuvenilA: {};
   @Input() partidoJuvenilB: {};
-  @Input() partidoJuvenilC: {};
+  @Input() partidoCadeteA: {};
 
   loading: boolean;
 
@@ -29,10 +28,9 @@ export class ProximosPartidosComponent implements OnInit {
       this.loading = false;
       this.getNextSeniorAPartido(res);
       this.getNextSeniorBPartido(res);
-      this.getNextSeniorCPartido(res);
       this.getNextJuvenilAPartido(res);
       this.getNextJuvenilBPartido(res);
-      this.getNextJuvenilCPartido(res);
+      this.getNextCadeteAPartido(res);
     }, (err) => {
       console.log(err);
     });
