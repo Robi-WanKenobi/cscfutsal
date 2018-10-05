@@ -33,7 +33,7 @@ var cronicaSchema = new Schema({
     }
   ],
   equipo : { type: String, enum:
-    ['Sènior A', 'Sènior B', 'Sènior C', 'Juvenil A', 'Juvenil B', 'Juvenil C', 'Infantil A']
+    ['Sènior A', 'Sènior B', 'Juvenil A', 'Juvenil B', 'Cadete A']
   },
   fecha_creacion: { type: Date, default: Date.now }
 });
