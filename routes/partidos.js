@@ -16,7 +16,7 @@ router.get('/jornada/actual', function(req, res, next) {
 
   var jornada = {};
 
-  jornada = 'http://fcf.cat/resultats/1819/futbol-sala/lliga-primera-divisio-catalana-futbol-sala/grup-2';
+  jornada = 'http://fcf.cat/resultats/1718/futbol-sala/lliga-primera-divisio-catalana-futbol-sala/grup-2';
   request(jornada, function(error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
@@ -42,7 +42,7 @@ router.get('/jornada/proxima', function(req, res, next) {
       var $ = cheerio.load(html);
 
       $('#select_jornada').filter(function () {
-        jornada = parseInt(($(this).find('option:selected').text()).match(/\d+/)[0] +1);
+        jornada = parseInt(($(this).find('option:selected').text()).match(/\d+/)[0]);
       });
       console.log(jornada);
       res.json(jornada);
