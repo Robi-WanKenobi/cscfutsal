@@ -70,7 +70,7 @@ export class ProximosPartidosComponent implements OnInit {
   }
 
   getNextCadeteAPartido(jornada) {
-    this.partidosService.getPartidoCadeteA(jornada).then((res) => {
+    this.partidosService.getPartidoCadeteA(jornada + 2).then((res) => {
       this.partidoCadeteA = res;
       console.log(res);
     }, (err) => {
