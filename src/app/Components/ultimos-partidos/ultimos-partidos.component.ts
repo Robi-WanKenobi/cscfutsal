@@ -70,7 +70,8 @@ export class UltimosPartidosComponent implements OnInit {
   }
 
   getLastCadeteAPartido(jornada) {
-    this.partidosService.getPartidoCadeteA(jornada).then((res) => {
+    this.partidosService.getPartidoCadeteA(jornada + 2).then((res) => {
+      console.log(jornada + 2);
       this.partidoCadeteA = res;
     }, (err) => {
       console.log(err);
