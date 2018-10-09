@@ -15,7 +15,7 @@
     <table class="table table-condensed">
       <tbody>
       <tr>
-        <td class="equip"><p class="text-center">{{ partidoSeniorA.local }}</p></td>
+        <td class="equip"><p class="text-center">{{ partidoSeniorA?.local }}</p></td>
         <td align="center" class="infor">
           <p class="text-center menor">{{ partidoSeniorA.fecha }}</p>
           <p class="text-center result">{{ partidoSeniorA.resultado }}</p>
@@ -24,7 +24,7 @@
         <td class="equip"><p class="text-center">{{ partidoSeniorA.visitante }}</p></td>
       </tr>
       <tr>
-        <td class="equip"><p class="text-center">{{ partidoSeniorB.local }}</p></td>
+        <td class="equip"><p class="text-center">{{ partidoSeniorB?.local }}</p></td>
         <td align="center" class="infor">
           <p class="text-center menor">{{ partidoSeniorB.fecha }}</p>
           <p class="text-center result">{{ partidoSeniorB.resultado }}</p>
@@ -39,7 +39,7 @@
     <table class="table table-condensed">
       <tbody>
       <tr>
-        <td class="equip"><p class="text-center">{{ partidoJuvenilA.local }}</p></td>
+        <td class="equip"><p class="text-center">{{ partidoJuvenilA?.local }}</p></td>
         <td align="center" class="infor">
           <p class="text-center  menor">{{ partidoJuvenilA.fecha }}</p>
           <p class="text-center result">{{ partidoJuvenilA.resultado }}</p>
@@ -48,7 +48,7 @@
         <td class="equip"><p class="text-center">{{ partidoJuvenilA.visitante }}</p></td>
       </tr>
       <tr>
-        <td class="equip"><p class="text-center">{{ partidoJuvenilB.local }}</p></td>
+        <td class="equip"><p class="text-center">{{ partidoJuvenilB?.local }}</p></td>
         <td align="center" class="infor">
           <p class="text-center  menor">{{ partidoJuvenilB.fecha }}</p>
           <p class="text-center result">{{ partidoJuvenilB.resultado }}</p>
@@ -56,30 +56,12 @@
         </td>
         <td class="equip"><p class="text-center">{{ partidoJuvenilB.visitante }}</p></td>
       </tr>
-      <tr>
-        <td class="equip"><p class="text-center">{{ partidoJuvenilC.local }}</p></td>
-        <td align="center" class="infor">
-          <p class="text-center  menor">{{ partidoJuvenilC.fecha }}</p>
-          <p class="text-center result">{{ partidoJuvenilC.resultado }}</p>
-          <a target="_blank" href="http://maps.google.com/?q={{partidoJuvenilC.lugar}}"><p class="text-center  menor">{{ partidoJuvenilC.lugar }}</p></a>
-        </td>
-        <td class="equip"><p class="text-center">{{ partidoJuvenilC.visitante }}</p></td>
-      </tr>
       </tbody>
     </table>
   </div>
   <div id="pcadete" class="tab-pane fade">
     <table class="table table-condensed">
       <tbody>
-      <tr>
-        <td class="equip"><p class="text-center">{{ partidoJuvenilA.local }}</p></td>
-        <td align="center" class="infor">
-          <p class="text-center  menor">{{ partidoJuvenilA.fecha }}</p>
-          <p class="text-center result">{{ partidoJuvenilA.resultado }}</p>
-          <a target="_blank" href="http://maps.google.com/?q={{partidoJuvenilA.lugar}}"><p class="text-center  menor">{{ partidoJuvenilA.lugar }}</p></a>
-        </td>
-        <td class="equip"><p class="text-center">{{ partidoJuvenilA.visitante }}</p></td>
-      </tr>
       <tr>
         <td class="equip"><p class="text-center">{{ partidoCadeteA?.local }}</p></td>
         <td align="center" class="infor">
