@@ -1,12 +1,31 @@
-<div class="container">
-<div class="row">
-  <div class="col-md-4 col-md-offset-2 text-center" style="margin-top: 20px;">
-    <button type="button" (click)="toPlantillas()" class="btn btn-primary btn-lg butt">Plantilles</button>
+<div class="container-fluid">
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse1">Administración d'equips</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in">
+        <ul class="list-group">
+          <li class="list-group-item" (click)="toPlantillas()">Gestió de plantilles</li>
+          <li class="list-group-item" (click)="toStats()">Gestión d'estadístiques</li>
+        </ul>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse2">Administració de cròniques</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse in">
+        <ul class="list-group">
+          <li class="list-group-item" (click)="toCronicas()">Gestió de cròniques</li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div class="col-md-4 text-center" style="margin-top: 20px;">
-    <button type="button" (click)="toCronicas()" class="btn btn-primary btn-lg butt">Cròniques</button>
-  </div>
-</div>
 </div>
 
 <app-footer-sortida></app-footer-sortida>

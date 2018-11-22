@@ -13,11 +13,15 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
   }
 
-   toPlantillas() {
-     this.router.navigate(['/admin-plantilles']);
-   }
+     toPlantillas() {
+       this.router.navigate(['/admin-plantilles']);
+     }
 
-    toCronicas() {
-      this.router.navigate(['/admin-croniques']);
-    }
+     toCronicas() {
+        this.router.navigate(['/admin-croniques']);
+     }
+
+     toStats() {
+        this.router.navigate(['/admin-stats']);
+     }
 }

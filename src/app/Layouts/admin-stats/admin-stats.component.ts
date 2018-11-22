@@ -5,11 +5,11 @@ import {Router} from "@angular/router";
 declare var swal: any;
 
 @Component({
-  selector: 'app-admin-plantilla',
-  templateUrl: './admin-plantilla.component.html',
-  styleUrls: ['./admin-plantilla.component.css']
+  selector: 'app-admin-stats',
+  templateUrl: './admin-stats.component.html',
+  styleUrls: ['./admin-stats.component.css']
 })
-export class AdminPlantillaComponent implements OnInit {
+export class AdminStatsComponent implements OnInit {
 
   seniorA: any;
   seniorB: any;
@@ -18,14 +18,16 @@ export class AdminPlantillaComponent implements OnInit {
   cadeteA: any;
   status: string;
 
+  loading: boolean;
+
   constructor(private adminService: AdminService, private equipoService: EquipoService, private router: Router) { }
 
   ngOnInit() {
-      this.getJugadoresSeniorA();
-      this.getJugadoresSeniorB();
-      this.getJugadoresJuvenilA();
-      this.getJugadoresJuvenilB();
-      this.getJugadoresCadeteA();
+    this.getJugadoresSeniorA();
+    this.getJugadoresSeniorB();
+    this.getJugadoresJuvenilA();
+    this.getJugadoresJuvenilB();
+    this.getJugadoresCadeteA();
   }
 
   getJugadoresSeniorA() {
@@ -65,21 +67,26 @@ export class AdminPlantillaComponent implements OnInit {
     });
   }
 
-  deleteJugador(id) {
+  popSave() {
     swal(
-      'Eliminat',
-      'El jugador s\'ha esborrat correctament',
+      'Actualitzat',
+      'Les estadístiques s\'han actualitzat correctament',
       'success'
     );
-    this.adminService.deleteJugador(id).then((result) => {
-      setTimeout(() => {this.ngOnInit(); }, 1000);
+  }
+
+  updateJugador(j) {
+    this.loading = true;
+    console.log(j);
+
+    this.adminService.updateJugador(j._id, j).then((res) => {
+      this.status = 'success';
+      setTimeout(() => {this.status = ''; }, 1000);
+      this.loading = false;
     }, (err) => {
       console.log(err);
-      swal(
-        'Error',
-        'S\'ha produït un error en eliminar al jugador',
-        'error'
-      );
+      this.status = 'error';
+      setTimeout(() => {this.status = ''; }, 1000);
     });
   }
 }

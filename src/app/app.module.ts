@@ -44,6 +44,7 @@ import { CronicaComponent } from './Components/cronica/cronica.component';
 import { AdminCronicasComponent } from './Layouts/admin-cronicas/admin-cronicas.component';
 import { AdminAddCronicaComponent } from './Components/Admin/admin-add-cronica/admin-add-cronica.component';
 import { AdminEditCronicaComponent } from './Components/Admin/admin-edit-cronica/admin-edit-cronica.component';
+import { AdminStatsComponent } from './Layouts/admin-stats/admin-stats.component';
 
 
 const appRoutes: Routes = [
@@ -57,6 +58,7 @@ const appRoutes: Routes = [
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
   { path: 'admin-plantilles', component: AdminPlantillaComponent, canActivate: [AuthGuard]},
   { path: 'admin-croniques', component: AdminCronicasComponent, canActivate: [AuthGuard]},
+  { path: 'admin-stats', component: AdminStatsComponent, canActivate: [AuthGuard]},
   { path: 'edit/:id', component: AdminEditJugadorComponent, canActivate: [AuthGuard]},
   { path: 'edit-cronica/:id', component: AdminEditCronicaComponent, canActivate: [AuthGuard]}
 ];
@@ -95,6 +97,7 @@ const appRoutes: Routes = [
     AdminCronicasComponent,
     AdminAddCronicaComponent,
     AdminEditCronicaComponent,
+    AdminStatsComponent,
   ],
   imports: [BrowserModule,
     FormsModule,
