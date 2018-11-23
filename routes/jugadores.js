@@ -1,3 +1,5 @@
+//jugadores
+
 var express = require('express'),
   router = express.Router(),
   mongoose = require('mongoose');
@@ -14,7 +16,7 @@ router.get('/', function(req, res, next) {
 
 /*GET MAX GOLEADORES CLUB*/
 router.get('/max_goles_club', function(req, res, next) {
-  Jugador.find({$or : [ { 'tipo': 'Jugador' }, { 'tipo': 'Porter' } ]}, null, {sort: { "estadisticas.goles": -1 }}).limit(3).exec(function (err, jugadores) {
+  Jugador.find({$or : [ { 'tipo': 'Jugador' }, { 'tipo': 'Porter' } ]}, null, {sort: { "estadisticas.goles": -1 }}).limit(5).exec(function (err, jugadores) {
     if (err) return next(err);
     res.json(jugadores);
   });
@@ -22,7 +24,16 @@ router.get('/max_goles_club', function(req, res, next) {
 
 /*GET MAX GOLEADORES equipo*/
 router.get('/max_goles/:equipo', function(req, res, next) {
-  Jugador.find({$and : [ { 'equipo': req.params.equipo  }, {$or : [ { 'tipo': 'Jugador' }, { 'tipo': 'Porter' } ]} ]}, null, {sort: { "estadisticas.goles": -1 }}).exec(function (err, jugadores) {
+  if (req.params.equipo === 'SeniorA') {
+    equipo_search = 'Sènior A'
+  }
+  else if (req.params.equipo === 'SeniorB'){
+    equipo_search = 'Sènior B'
+  }
+  else {
+    equipo_search = req.params.equipo.replace(/(?=.{1}$)/,' ');
+  }
+  Jugador.find({$and : [ { 'equipo': equipo_search  }, {$or : [ { 'tipo': 'Jugador' }, { 'tipo': 'Porter' } ]} ]}, null, {sort: { "estadisticas.goles": -1 }}).exec(function (err, jugadores) {
     if (err) return next(err);
     res.json(jugadores);
   });
@@ -30,7 +41,7 @@ router.get('/max_goles/:equipo', function(req, res, next) {
 
 /*GET MAX ASISTENTES CLUB*/
 router.get('/max_asis_club', function(req, res, next) {
-  Jugador.find({$or : [ { 'tipo': 'Jugador' }, { 'tipo': 'Porter' } ]}, null, {sort: { "estadisticas.asistencias": -1 }}).limit(3).exec(function (err, jugadores) {
+  Jugador.find({$or : [ { 'tipo': 'Jugador' }, { 'tipo': 'Porter' } ]}, null, {sort: { "estadisticas.asistencias": -1 }}).limit(5).exec(function (err, jugadores) {
     if (err) return next(err);
     res.json(jugadores);
   });
@@ -38,7 +49,16 @@ router.get('/max_asis_club', function(req, res, next) {
 
 /*GET MAX ASISTENTES equipo*/
 router.get('/max_asis/:equipo', function(req, res, next) {
-  Jugador.find({$and : [ { 'equipo': req.params.equipo  }, {$or : [ { 'tipo': 'Jugador' }, { 'tipo': 'Porter' } ]} ]}, null, {sort: { "estadisticas.asistencias": -1 }}).exec(function (err, jugadores) {
+  if (req.params.equipo === 'SeniorA') {
+    equipo_search = 'Sènior A'
+  }
+  else if (req.params.equipo === 'SeniorB'){
+    equipo_search = 'Sènior B'
+  }
+  else {
+    equipo_search = req.params.equipo.replace(/(?=.{1}$)/,' ');
+  }
+  Jugador.find({$and : [ { 'equipo': equipo_search  }, {$or : [ { 'tipo': 'Jugador' }, { 'tipo': 'Porter' } ]} ]}, null, {sort: { "estadisticas.asistencias": -1 }}).exec(function (err, jugadores) {
     if (err) return next(err);
     res.json(jugadores);
   });
@@ -46,7 +66,7 @@ router.get('/max_asis/:equipo', function(req, res, next) {
 
 /*GET MAX AMONESTADOS CLUB*/
 router.get('/max_amon_club', function(req, res, next) {
-  Jugador.find({$or : [ { 'tipo': 'Jugador' }, { 'tipo': 'Porter' } ]}, null, {sort: { "estadisticas.tarjetas": -1 }}).limit(3).exec(function (err, jugadores) {
+  Jugador.find({$or : [ { 'tipo': 'Jugador' }, { 'tipo': 'Porter' } ]}, null, {sort: { "estadisticas.tarjetas": -1 }}).limit(5).exec(function (err, jugadores) {
     if (err) return next(err);
     res.json(jugadores);
   });
@@ -54,7 +74,16 @@ router.get('/max_amon_club', function(req, res, next) {
 
 /*GET MAX AMONESTADOS equipo*/
 router.get('/max_amon/:equipo', function(req, res, next) {
-  Jugador.find({$and : [ { 'equipo': req.params.equipo  }, {$or : [ { 'tipo': 'Jugador' }, { 'tipo': 'Porter' } ]} ]}, null, {sort: { "estadisticas.tarjetas": -1 }}).exec(function (err, jugadores) {
+  if (req.params.equipo === 'SeniorA') {
+    equipo_search = 'Sènior A'
+  }
+  else if (req.params.equipo === 'SeniorB'){
+    equipo_search = 'Sènior B'
+  }
+  else {
+    equipo_search = req.params.equipo.replace(/(?=.{1}$)/,' ');
+  }
+  Jugador.find({$and : [ { 'equipo': equipo_search  }, {$or : [ { 'tipo': 'Jugador' }, { 'tipo': 'Porter' } ]} ]}, null, {sort: { "estadisticas.tarjetas": -1 }}).exec(function (err, jugadores) {
     if (err) return next(err);
     res.json(jugadores);
   });
@@ -62,7 +91,7 @@ router.get('/max_amon/:equipo', function(req, res, next) {
 
 /*GET MIN GOLEADOS CLUB*/
 router.get('/min_gol_club', function(req, res, next) {
-  Jugador.find({ 'tipo': 'Porter' }, null, {sort: { "estadisticas.goles_encajados_pp": +1 }}).limit(3).exec(function (err, jugadores) {
+  Jugador.find({ 'tipo': 'Porter' }, null, {sort: { "estadisticas.goles_encajados_pp": +1 }}).limit(5).exec(function (err, jugadores) {
     if (err) return next(err);
     res.json(jugadores);
   });
@@ -70,7 +99,16 @@ router.get('/min_gol_club', function(req, res, next) {
 
 /*GET MIN GOLEADOS equipo*/
 router.get('/min_gol/:equipo', function(req, res, next) {
-  Jugador.find({$and : [ { 'equipo': req.params.equipo  }, { 'tipo': 'Porter' } ]}, null, {sort: { "estadisticas.goles_encajados_pp": +1 }}).exec(function (err, jugadores) {
+  if (req.params.equipo === 'SeniorA') {
+    equipo_search = 'Sènior A'
+  }
+  else if (req.params.equipo === 'SeniorB'){
+    equipo_search = 'Sènior B'
+  }
+  else {
+    equipo_search = req.params.equipo.replace(/(?=.{1}$)/,' ');
+  }
+  Jugador.find({$and : [ { 'equipo': equipo_search  }, { 'tipo': 'Porter' } ]}, null, {sort: { "estadisticas.goles_encajados_pp": +1 }}).exec(function (err, jugadores) {
     if (err) return next(err);
     res.json(jugadores);
   });
@@ -78,7 +116,16 @@ router.get('/min_gol/:equipo', function(req, res, next) {
 
 /*GET JUGADORES POR EQUIPO*/
 router.get('/equipo/:equipo', function(req, res, next) {
-  Jugador.find({$and : [ { 'equipo': req.params.equipo  }, {$or : [ { 'tipo': 'Jugador' }, { 'tipo': 'Porter' } ]} ]}, null, {sort: {dorsal: 1 }}).exec(function (err, jugadores) {
+  if (req.params.equipo === 'SeniorA') {
+    equipo_search = 'Sènior A'
+  }
+  else if (req.params.equipo === 'SeniorB'){
+    equipo_search = 'Sènior B'
+  }
+  else {
+    equipo_search = req.params.equipo.replace(/(?=.{1}$)/,' ');
+  }
+  Jugador.find({$and : [ { 'equipo': equipo_search  }, {$or : [ { 'tipo': 'Jugador' }, { 'tipo': 'Porter' } ]} ]}, null, {sort: {dorsal: 1 }}).exec(function (err, jugadores) {
     if (err) return next(err);
     res.json(jugadores);
   });
@@ -86,7 +133,16 @@ router.get('/equipo/:equipo', function(req, res, next) {
 
 /*GET TECNICS POR EQUIPO*/
 router.get('/tecnicos/:equipo', function(req, res, next) {
-  Jugador.find({$and : [ { 'equipo': req.params.equipo  }, { 'tipo': 'Tècnic' } ]}, null, {sort: {dorsal: 1 }}).exec(function (err, jugadores) {
+  if (req.params.equipo === 'SeniorA') {
+    equipo_search = 'Sènior A'
+  }
+  else if (req.params.equipo === 'SeniorB'){
+    equipo_search = 'Sènior B'
+  }
+  else {
+    equipo_search = req.params.equipo.replace(/(?=.{1}$)/,' ');
+  }
+  Jugador.find({$and : [ { 'equipo': equipo_search  }, { 'tipo': 'Tècnic' } ]}, null, {sort: {dorsal: 1 }}).exec(function (err, jugadores) {
     if (err) return next(err);
     res.json(jugadores);
   });

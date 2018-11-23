@@ -37,7 +37,7 @@ export class ProximosPartidosComponent implements OnInit {
   }
 
   getNextSeniorAPartido(jornada) {
-    this.partidosService.getPartidoSeniorA(jornada).then((res) => {
+    this.partidosService.getPartidos('SeniorA', jornada).then((res) => {
       this.partidoSeniorA = res;
       console.log(res);
     }, (err) => {
@@ -46,7 +46,7 @@ export class ProximosPartidosComponent implements OnInit {
   }
 
   getNextSeniorBPartido(jornada) {
-    this.partidosService.getPartidoSeniorB(jornada).then((res) => {
+    this.partidosService.getPartidos('SeniorB', jornada).then((res) => {
       this.partidoSeniorB = res;
     }, (err) => {
       console.log(err);
@@ -54,7 +54,7 @@ export class ProximosPartidosComponent implements OnInit {
   }
 
   getNextJuvenilAPartido(jornada) {
-    this.partidosService.getPartidoJuvenilA(jornada).then((res) => {
+    this.partidosService.getPartidos('JuvenilA', jornada).then((res) => {
       this.partidoJuvenilA = res;
     }, (err) => {
       console.log(err);
@@ -62,7 +62,7 @@ export class ProximosPartidosComponent implements OnInit {
   }
 
   getNextJuvenilBPartido(jornada) {
-    this.partidosService.getPartidoJuvenilB(jornada).then((res) => {
+    this.partidosService.getPartidos('JuvenilB', jornada).then((res) => {
       this.partidoJuvenilB = res;
     }, (err) => {
       console.log(err);
@@ -70,8 +70,7 @@ export class ProximosPartidosComponent implements OnInit {
   }
 
   getNextCadeteAPartido(jornada) {
-    this.partidosService.getPartidoCadeteA(jornada + 2).then((res) => {
-      console.log(jornada + 2);
+    this.partidosService.getPartidos('CadetA', jornada).then((res) => {
       this.partidoCadeteA = res;
       console.log(res);
     }, (err) => {

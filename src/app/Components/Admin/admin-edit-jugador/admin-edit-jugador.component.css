@@ -37,3 +37,7 @@ h5#down{
   padding: 5px !important;
   background-image: linear-gradient(to bottom, #95959b, #d3ccde 100%) !important;
 }
+
+.dades {
+  margin-top: 15px;
+}
