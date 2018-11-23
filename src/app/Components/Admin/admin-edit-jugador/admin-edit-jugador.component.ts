@@ -41,17 +41,6 @@ export class AdminEditJugadorComponent implements OnInit {
     });
   }
 
-  updateJugador(id) {
-    this.adminService.updateJugador(id, this.jugador).then((res) => {
-      this.status = 'success';
-      setTimeout(() => {this.status = ''; }, 1000);
-    }, (err) => {
-      console.log(err);
-      this.status = 'error';
-      setTimeout(() => {this.status = ''; }, 1000);
-    });
-  }
-
   uploadImage(id) {
     this.adminService.uploadImage(id, this.imagen).then((res) => {
       this.image_status = 'success';

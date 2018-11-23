@@ -31,57 +31,9 @@ export class PartidosService {
     });
   }
 
-  getPartidoSeniorA(jornada) {
+  getPartidos(equipo, jornada) {
     return new Promise((resolve, reject) => {
-      this.http.get('partidos/seniorA/' + jornada)
-        .map(res => res.json())
-        .subscribe(res => {
-          resolve(res);
-        }, (err) => {
-          reject(err);
-        });
-    });
-  }
-
-  getPartidoSeniorB(jornada) {
-    return new Promise((resolve, reject) => {
-      this.http.get('partidos/seniorB/' + jornada)
-        .map(res => res.json())
-        .subscribe(res => {
-          resolve(res);
-        }, (err) => {
-          reject(err);
-        });
-    });
-  }
-
-  getPartidoJuvenilA(jornada) {
-    return new Promise((resolve, reject) => {
-      this.http.get('partidos/juvenilA/' + jornada)
-        .map(res => res.json())
-        .subscribe(res => {
-          resolve(res);
-        }, (err) => {
-          reject(err);
-        });
-    });
-  }
-
-  getPartidoJuvenilB(jornada) {
-    return new Promise((resolve, reject) => {
-      this.http.get('partidos/juvenilB/' + jornada)
-        .map(res => res.json())
-        .subscribe(res => {
-          resolve(res);
-        }, (err) => {
-          reject(err);
-        });
-    });
-  }
-
-  getPartidoCadeteA(jornada) {
-    return new Promise((resolve, reject) => {
-      this.http.get('partidos/cadeteA/' + jornada)
+      this.http.get('partidos/' + equipo + '/' + jornada)
         .map(res => res.json())
         .subscribe(res => {
           resolve(res);
