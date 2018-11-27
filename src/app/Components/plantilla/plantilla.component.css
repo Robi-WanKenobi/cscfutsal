@@ -4,29 +4,31 @@ h4{
   border-radius: 3px;
   border-color: #101010;
   padding: 10px;
-  margin: 0px;
+  margin: 0px 0px 10px 0px;
 }
 
-h5.up{
+h5.top{
   background-color: #333;
-  color: #fcfcfc;
+  color: #fcfcfc !important;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   border-color: #101010;
   padding: 10px;
   margin: 0px;
-  font-size: 17px !important;
+  font-size: 14px !important;
+  font-weight: normal !important;
 }
 
-h5.down{
+h5.bot{
   background-color: #333;
-  color: #fcfcfc;
+  color: #fcfcfc !important;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
   border-color: #101010;
   padding: 10px;
   margin: 0px;
-  font-size: 17px !important;
+  font-size: 14px !important;
+  font-weight: normal !important;
 }
 
 #dorsal{
@@ -50,12 +52,14 @@ a:hover{
 @media  screen and (max-width: 993px) {
   .small_p {
     display: inline-block;
+    width: 25% !important;
+  }
+}
+
+@media  screen and (max-width: 574px) {
+  .small_p {
+    display: inline-block;
     width: 50% !important;
   }
 }
 
-.well {
-  margin: 15px !important;
-  padding: 5px !important;
-  background-image: linear-gradient(to bottom, #95959b, #d3ccde 100%) !important;
-}

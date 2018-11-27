@@ -3,6 +3,18 @@
   font-size: 17px;
 }
 
+h4{
+  background-color: #333;
+  color: #fcfcfc;
+  border-radius: 3px;
+  border-color: #101010;
+  padding: 10px;
+}
+h5{
+  font-weight: bold;
+  font-size: 18px;
+}
+
 .dropdown-menu a{
   font-size: 17px;
 }
@@ -77,4 +89,12 @@ body{
 .separador {
   height: 10%;
   margin-bottom: 12%;
+}
+
+.inicio {
+  height:70vh;
+}
+
+.carousel-control {
+  background: none !important;
 }
