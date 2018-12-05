@@ -29,13 +29,13 @@ span:hover{
   margin-top: 10px !important;
 }
 
-@media  screen and (min-width: 600px) {
+@media screen and (min-width: 600px) {
   .hide_mobile_small {
     display: none;
   }
 }
 
-@media  screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
   .hide_mobile_big {
     display: none;
   }
