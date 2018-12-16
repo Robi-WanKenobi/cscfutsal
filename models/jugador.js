@@ -22,7 +22,7 @@ var jugadorSchema = new Schema({
     asistencias_pp: {type: Number, default: 0}
   },
   equipo : { type: String, enum:
-    ['Sènior A', 'Sènior B', 'Juvenil A', 'Juvenil B', 'Cadete A']
+    ['Sènior A', 'Sènior B', 'Juvenil A', 'Juvenil B', 'Cadet A']
   },
   tipo : { type: String, enum:
     ['Tècnic', 'Jugador', 'Porter']
