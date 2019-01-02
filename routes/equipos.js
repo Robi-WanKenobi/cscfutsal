@@ -78,7 +78,7 @@ router.get('/clasificacion/:equipo/:jornada', function(req, res, next) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
 
-      $('table.fcftable-comp tbody tr').each(function(i, element) {
+      $('table.fcftable-e tbody tr').each(function(i, element) {
         equipo = {
           posicion: "",
           nombre: "",

@@ -60,7 +60,7 @@ export class AdminStatsComponent implements OnInit {
     });
   }
   getJugadoresCadeteA() {
-    this.adminService.getJugadores('Cadete A').then((res) => {
+    this.adminService.getJugadores('Cadet A').then((res) => {
       this.cadeteA = res;
     }, (err) => {
       console.log(err);
