@@ -13,7 +13,7 @@ export class AdminComponent implements OnInit {
     ngOnInit() {
       if(this.route.queryParams['logged'] !== 'csc_admin' ) {
           this.router.navigate(['/admin'], { queryParams: { logged: 'csc_admin' } });
-          win.location.reload();
+          window.location.reload();
       }
     }
   
