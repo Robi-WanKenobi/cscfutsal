@@ -8,6 +8,8 @@ import {Router} from "@angular/router";
 })
 export class AdminComponent implements OnInit {
 
+  reloaded: boolean = false;
+  
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -15,7 +17,10 @@ export class AdminComponent implements OnInit {
   }
 
      reload() {
-       window.location.reload();
+       if (!reloaded) {
+         window.location.reload();
+         this.reloaded = true;
+       }
      }
   
      toPlantillas() {
