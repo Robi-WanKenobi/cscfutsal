@@ -71,11 +71,11 @@ export class ResultadosComponent implements OnInit {
   setJornadaActual(equipo) {
     this.equipoService.getJornadaActual().then((res) => {
       this.true_actual = res;
+      this.actual = res;
       if (this.equipo === 'CadetA')
       {
+        this.true_actual = parseInt(this.actual.toString(), 10) + 3;
         this.actual = parseInt(this.actual.toString(), 10) + 3;
-      }else {
-        this.actual = res;
       }
       this.getResultados(equipo, res);
       this.getClasificacion(equipo, res);
