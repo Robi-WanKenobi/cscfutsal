@@ -7,21 +7,17 @@ import {Router} from "@angular/router";
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-
-  reloaded: boolean = false;
   
   constructor(private router: Router) { }
 
   ngOnInit() {
-    this.reload();
+    let win = (window as any);
+      if(win.location.search !== '?logged' ) {
+          win.location.search = '?logged';
+          win.location.reload();
+      }
   }
 
-     reload() {
-       if (!this.reloaded) {
-         window.location.reload();
-         this.reloaded = true;
-       }
-     }
   
      toPlantillas() {
        this.router.navigate(['/admin-plantilles']);
