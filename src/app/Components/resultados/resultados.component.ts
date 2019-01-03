@@ -77,9 +77,9 @@ export class ResultadosComponent implements OnInit {
         this.true_actual = parseInt(this.actual.toString(), 10) + 3;
         this.actual = parseInt(this.actual.toString(), 10) + 3;
       }
-      this.getResultados(equipo, res);
-      this.getClasificacion(equipo, res);
-      this.getCronicaPartido(equipo, res);
+      this.getResultados(equipo, this.actual);
+      this.getClasificacion(equipo, this.actual);
+      this.getCronicaPartido(equipo, this.actual);
     }, (err) => {
       console.log(err);
     });
