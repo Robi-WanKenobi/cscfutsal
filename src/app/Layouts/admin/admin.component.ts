@@ -11,7 +11,7 @@ export class AdminComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) { }
 
     ngOnInit() {
-      if(this.route.queryParams['logged'] !== 'csc_admin' ) {
+      if(this.route.snapshot.queryParams['logged'] !== 'csc_admin' ) {
           this.router.navigate(['/admin'], { queryParams: { logged: 'csc_admin' } });
           window.location.reload();
       }
