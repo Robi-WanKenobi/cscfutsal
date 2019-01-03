@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {Router, Params, ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-admin',
@@ -8,11 +8,10 @@ import {Router} from "@angular/router";
 })
 export class AdminComponent implements OnInit {
   
-  constructor(private router: Router) { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
     ngOnInit() {
-      let win = (window as any);
-      if(win.location.search !== '?logged=csc_admin' ) {
+      if(this.route.queryParams['logged'] !== 'csc_admin' ) {
           this.router.navigate(['/admin'], { queryParams: { logged: 'csc_admin' } });
           win.location.reload();
       }
