@@ -71,8 +71,7 @@ router.get('/clasificacion/:equipo/:jornada', function(req, res, next) {
   }
 
   if (req.params.equipo === 'CadetA') {
-    var jornada_cadete = parseInt(req.params.jornada) + parseInt(3);
-    enlace_equipo = cadete_clas+jornada_cadete;
+    enlace_equipo = cadete_clas+req.params.jornada;
   }
 
   request(enlace_equipo, function(error, response, html) {
@@ -142,8 +141,7 @@ router.get('/resultados/:equipo/:jornada', function(req, res, next) {
   }
 
   if (req.params.equipo === 'CadetA') {
-    var jornada_cadete = parseInt(req.params.jornada) + parseInt(3);
-    enlace_equipo = cadete_res+jornada_cadete;
+    enlace_equipo = cadete_res+req.params.jornada;
   }
 
   request(enlace_equipo, function(error, response, html) {
