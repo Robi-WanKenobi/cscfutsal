@@ -91,7 +91,8 @@ router.get('/:equipo/:jornada', function(req, res, next) {
   }
 
   if (req.params.equipo === 'CadetA') {
-    enlace_equipo = cadete_res+req.params.jornada;
+    var jornada_cadete = parseInt(req.params.jornada) + parseInt(3);
+    enlace_equipo = cadete_res+jornada_cadete;
     nameToSearchFor = 'CSC FUTSAL ,A';
   }
 
