@@ -13,7 +13,7 @@ export class AdminComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    reload();
+    this.reload();
   }
 
      reload() {
