@@ -11,8 +11,13 @@ export class AdminComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+    reload();
   }
 
+     reload() {
+       window.location.reload();
+     }
+  
      toPlantillas() {
        this.router.navigate(['/admin-plantilles']);
      }
