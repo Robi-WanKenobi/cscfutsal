@@ -17,7 +17,7 @@ export class AdminComponent implements OnInit {
   }
 
      reload() {
-       if (!reloaded) {
+       if (!this.reloaded) {
          window.location.reload();
          this.reloaded = true;
        }
