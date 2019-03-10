@@ -11,7 +11,7 @@
             <p class="dorsal">{{j.dorsal}}</p>
             {{j.apodo}}
           </h5>
-          <div style="background: url('./plantillas/{{j.imagen}}') no-repeat center !important; background-size: cover !important;" class="image-player">
+          <div [ngStyle]="{'background':'url('./plantillas/{{j.imagen}}') no-repeat center','background-size':'cover'}" class="image-player">
           </div>
           <h5 class="caption bot text-center">
             {{j.posicion}}
