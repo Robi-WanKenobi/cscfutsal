@@ -48,7 +48,7 @@ a:hover{
   .small_p {
   }
   .image-player {
-    height: 30vh;
+    height: 25vh;
   }
 }
 
@@ -68,7 +68,7 @@ a:hover{
     width: 50% !important;
   }
   .image-player {
-    height: 90vh;
+    height: 30vh;
   }
 }
 
