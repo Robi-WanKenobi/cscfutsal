@@ -22,3 +22,8 @@ h4{
 .tab-content {
   padding: 5px !important;
 }
+
+.carrousel-inner {
+  padding-left: 15px;
+  padding-right: 15px;
+}
