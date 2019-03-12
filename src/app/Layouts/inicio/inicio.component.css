@@ -23,7 +23,7 @@ h4{
   padding: 5px !important;
 }
 
-.carrousel-inner {
+.carousel-inner>.active, .carousel-inner>.next, .carousel-inner>.prev {
   padding-left: 15px;
   padding-right: 15px;
 }
