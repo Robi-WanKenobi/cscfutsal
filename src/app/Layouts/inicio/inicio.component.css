@@ -27,3 +27,7 @@ h4{
   padding-left: 15px;
   padding-right: 15px;
 }
+
+.active>.text-center {
+  padding: 3px;
+}
