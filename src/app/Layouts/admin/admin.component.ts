@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router, Params, ActivatedRoute} from "@angular/router";
+import {Router, Params, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -13,7 +13,7 @@ export class AdminComponent implements OnInit {
     ngOnInit() {
       if(this.route.snapshot.queryParams['logged'] !== 'csc_admin' ) {
           this.router.navigate(['/admin'], { queryParams: { logged: 'csc_admin' } });
-          window.location.reload();
+          setTimeout(() => {window.location.reload(); }, 250);
       }
     }
   
