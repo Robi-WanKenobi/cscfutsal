@@ -22,3 +22,12 @@ h4{
 .tab-content {
   padding: 5px !important;
 }
+
+.carousel-inner>.active, .carousel-inner>.next, .carousel-inner>.prev {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.item>.text-center {
+  padding: 3px;
+}

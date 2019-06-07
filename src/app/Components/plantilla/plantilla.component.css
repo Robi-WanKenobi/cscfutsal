@@ -47,6 +47,9 @@ a:hover{
 @media  screen and (min-width: 993px) {
   .small_p {
   }
+  .image-player {
+    height: 25vh;
+  }
 }
 
 @media  screen and (max-width: 993px) {
@@ -54,12 +57,18 @@ a:hover{
     display: inline-block;
     width: 25% !important;
   }
+  .image-player {
+    height: 60vh;
+  }
 }
 
 @media  screen and (max-width: 574px) {
   .small_p {
     display: inline-block;
     width: 50% !important;
+  }
+  .image-player {
+    height: 30vh;
   }
 }
 
