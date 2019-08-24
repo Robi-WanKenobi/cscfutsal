@@ -1,133 +1,59 @@
 <div class="row">
-  <form (submit)="updateDatosJugador(jugador._id)" #updateForm="ngForm">
-    <div class="col-md-6">
-      <h4 class="text-center">Dades</h4>
-      <div class="well">
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="n">Nom</label>
-            <input type="text" class="form-control" [(ngModel)]="jugador.nombre" name="nombre" id="n" required>
-          </div>
-          <div class="form-group">
-            <label for="c">Cognom</label>
-            <input type="text" class="form-control" [(ngModel)]="jugador.apellido" name="cognom" id="c" required>
-          </div>
-          <div class="form-group">
-            <label for="s">Sobrenom</label>
-            <input type="text" class="form-control" [(ngModel)]="jugador.apodo" name="sobrenom" id="s" required>
-          </div>
-          <div class="form-group">
-            <label for="d">Dorsal</label>
-            <input type="number" class="form-control" [(ngModel)]="jugador.dorsal" name="dorsal" id="d" required>
-          </div>
+  <div class="col-md-10 col-md-offset-1 container-equipo new-team">
+    <button [routerLink]="['/admin/admin-equips']" type="button" class="btn btn-info">A gestió d'equips</button>
+  </div>
+  <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-6 custom-card">
+      <form (submit)="updateDatosJugador(jugador._id)" #updateForm="ngForm">
+        <div class="form-group">
+          <label for="n">Nom</label>
+          <input type="text" class="form-control" [(ngModel)]="jugador.nombre" name="nom" id="n" required>
         </div>
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="p">Posició</label>
-            <input type="text" class="form-control" [(ngModel)]="jugador.posicion" name="posicio" id="p" required>
-          </div>
-          <label>Equip:</label>
-          <div class="form-inline">
-            <div class="form-group">
-              <input name="group20" type="radio" id="radio120" value="Sènior A" [(ngModel)]="jugador.equipo" required>
-              <label for="radio120"> Sènior A </label>
-            </div>
-            <div class="form-group">
-              <input name="group20" type="radio" id="radio121" value="Sènior B" [(ngModel)]="jugador.equipo" required>
-              <label for="radio121"> Sènior B </label>
-            </div>
-          </div>
-          <div class="form-inline">
-            <div class="form-group">
-              <input name="group20" type="radio" id="radio123" value="Juvenil A" [(ngModel)]="jugador.equipo" required>
-              <label for="radio123"> Juvenil A </label>
-            </div>
-            <div class="form-group">
-              <input name="group20" type="radio" id="radio124" value="Juvenil B" [(ngModel)]="jugador.equipo" required>
-              <label for="radio124"> Juvenil B </label>
-            </div>
-          </div>
-          <div class="form-inline">
-            <div class="form-group">
-              <input name="group20" type="radio" id="radio126" value="Cadet A" [(ngModel)]="jugador.equipo" required>
-              <label for="radio126"> Cadet A </label>
-            </div>
-          </div>
+        <div class="form-group">
+          <label for="c">Cognom</label>
+          <input type="text" class="form-control" [(ngModel)]="jugador.apellido" name="cognom" id="c" required>
+        </div>
+        <div class="form-group">
+          <label for="s">Sobrenom</label>
+          <input type="text" class="form-control" [(ngModel)]="jugador.apodo" name="apodo" id="s" required>
+        </div>
+        <div class="form-group">
+          <label for="d">Dorsal</label>
+          <input type="number" class="form-control" [(ngModel)]="jugador.dorsal" name="dorsal" id="d" required>
+        </div>
+        <div class="form-group">
+          <label for="p">Posició</label>
+          <input type="text" class="form-control" [(ngModel)]="jugador.posicion" name="posicio" id="p" required>
+        </div>
+        <div class="form-group">
           <label>Tipus:</label>
-          <div class="form-inline">
-            <div class="form-group">
-              <input name="group30" type="radio" id="radio130" value="Jugador" [(ngModel)]="jugador.tipo" required>
-              <label for="radio130"> Jugador </label>
-            </div>
-            <div class="form-group">
-              <input name="group30" type="radio" id="radio131" value="Porter" [(ngModel)]="jugador.tipo" required>
-              <label for="radio130"> Porter </label>
-            </div>
-            <div class="form-group">
-              <input name="group30" type="radio" id="radio132" value="Tècnic" [(ngModel)]="jugador.tipo" required>
-              <label for="radio131"> Tècnic </label>
-            </div>
-          </div>
-        </div>
-        <div class="alert alert-success" *ngIf="datos_status == 'success'">
-          <p class="text-center">Actualitzat</p>
-        </div>
-        <div class="alert alert-danger" *ngIf="datos_status == 'error'">
-          <p class="text-center">Error</p>
+          <select class="form-control" [(ngModel)]="jugador.tipo" name="tipo" required>
+            <option value="Jugador">Jugador</option>
+            <option value="Porter">Porter</option>
+            <option value="Tècnic">Técnic</option>
+          </select>
         </div>
         <div class="form-group text-center">
           <button type="submit" class="btn btn-success dades" [disabled]="!updateForm.form.valid">Actualitzar</button>
         </div>
-      </div>
+      </form>
     </div>
-  </form>
-
-  <div class="col-md-4">
-    <h4 class="text-center">Imatge</h4>
-    <form (submit)="uploadImage(jugador._id)" #updateimageForm="ngForm">
-      <div class="well">
-        <p>Totes les imatges han de tenir la mateixa mida.</p>
-      <p>(Mida recomanada 242x335)</p>
-        <div class="form-group">
-          <input type="file" (change)="fileChange($event)" placeholder="Selecionar foto" accept=".jpeg,.jpg,.png">
-        </div>
-        <div class="alert alert-success" *ngIf="image_status == 'success'">
-          <p class="text-center">Imatge carregada</p>
-        </div>
-
-        <div class="alert alert-danger" *ngIf="image_status == 'error'">
-          <p class="text-center">Error</p>
-        </div>
-        <div class="form-group text-center">
-          <button type="submit" class="btn btn-success" [disabled]="!updateimageForm.form.valid">Actualitzar</button>
-        </div>
-      </div>
-    </form>
-  </div>
-
-  <div class="col-md-2">
-    <h4 class="text-center">Vista prèvia</h4>
-    <div class="well p">
-      <h5 id="up" class="text-center">
-        <p class="dorsal" style="float: left;">{{jugador.dorsal}}</p>
-        {{jugador.apodo}}
-      </h5>
-      <img class="img-responsive" src="/plantillas/{{jugador.imagen}}"
-           style="max-width: 100%; max-height: 100%;margin-left: auto;margin-right: auto;display: block;"/>
-      <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Detalles</button>!-->
-      <h5 id="down" class="text-center">
-        {{ jugador.posicion}}
-      </h5>
-      <p style="font-size:17px;text-align: center; word-spacing: inherit"><strong>{{jugador.estadisticas.goles}}</strong>  <i style="color: #333 !important;" class="fa fa-futbol-o"></i>
-        <strong>{{jugador.estadisticas.asistencias}}</strong>  <i style="color: #333 !important;" class="fa fa-arrow-circle-right"></i>
-        <strong>{{jugador.estadisticas.amarillas}}</strong>  <i style="color: yellow !important;" class="fa fa-square"></i>
-        <strong>{{jugador.estadisticas.rojas}}</strong>  <i style="color: red !important;" class="fa fa-square"></i>
-      </p>
+    <div class="col-md-4 col-md-offset-1 custom-card">
+      <img class="img-responsive jugador-image" src="/plantillas/{{jugador.imagen}}"
+          style="max-width: 100%; max-height: 100%;margin-left: auto;margin-right: auto;display: block;"/>
       <br>
-      <a style="display: block" class="btn btn-warning" [routerLink]="['/admin-plantilles']">Enrere</a>
+      <h4 class="text-center">Imatge</h4>
+      <form (submit)="uploadImage(jugador._id)" #updateimageForm="ngForm">
+          <p>(Mida recomanada 242x335)</p>
+          <div class="form-group">
+            <input type="file" (change)="fileChange($event)" placeholder="Selecionar foto" accept=".jpeg,.jpg,.png" name="image" required>
+          </div>
+          <div class="form-group text-center">
+            <button type="submit" class="btn btn-success" [disabled]="!updateimageForm.form.valid">Actualitzar</button>
+          </div>
+      </form>
     </div>
   </div>
-
 </div>
 
 <app-footer-sortida></app-footer-sortida>

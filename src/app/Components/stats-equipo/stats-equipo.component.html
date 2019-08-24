@@ -1,0 +1,77 @@
+<div class="col-md-12 jugadores-stats">
+  <div class="row tool-bar">
+    <div class="col-md-6 search-bar"> 
+      <input class="form-control search" [(ngModel)]="searchText" placeholder="Busca per nom o posició">
+    </div>
+    <div class="col-md-6 sort-bar"> 
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label (click)="sortByGol()" class="btn btn-secondary active">
+          <input type="radio" name="options">
+          <i class="negro fa fa-futbol-o"></i>
+        </label>
+        <label (click)="sortByAsis()" class="btn btn-secondary">
+          <input type="radio" name="options">
+          <i class="negro fa fa-arrow-circle-right"></i>
+        </label>
+        <label (click)="sortByAmon()" class="btn btn-secondary">
+          <input type="radio" name="options">
+          <i class="amarillo fa fa-square"></i>
+          <i class="rojo fa fa-square"></i>
+        </label>
+        <label (click)="sortByMinGol()" class="btn btn-secondary">
+          <input type="radio" name="options">
+          <i class="rojo fa fa-futbol-o"></i>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div *ngFor="let jugador of jugadores 
+    | filterStats : searchText | sortStats : {property: property, subproperty: subproperty, direction: direction} " class="player">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td class="photo">
+            <img class="img-responsive" src="/plantillas/{{jugador.imagen}}"
+            style="max-width: 40px; max-height: 50px;display: block;"/>
+          </td>
+          <td class="name">{{jugador.apodo}}</td>
+          <td class="position">{{jugador.posicion}}</td>
+          <td class="icons goles">
+            {{jugador.estadisticas.goles}}
+            <i class="fa fa-futbol-o"></i>
+          </td>
+          <td class="icons goles pp">
+            {{jugador.estadisticas.goles_pp | number : '1.1-1'}}
+            <i class="fa fa-futbol-o"></i>/p
+          </td>
+          <td class="icons goles-contra">
+            {{jugador.estadisticas.goles_encajados}}
+            <i class="fa fa-futbol-o"></i>
+          </td>
+          <td class="icons goles-contra pp">
+            {{jugador.estadisticas.goles_encajados_pp | number : '1.1-1'}}
+            <i class="fa fa-futbol-o"></i>/p
+          </td>
+          <td class="icons asistencias">
+            {{jugador.estadisticas.asistencias}}
+            <i class="fa fa-arrow-circle-right"></i>
+          </td>
+          <td class="icons asistencias pp">
+            {{jugador.estadisticas.asistencias_pp | number : '1.1-1'}}
+            <i class="fa fa-arrow-circle-right"></i>/p
+          </td>
+          <td class="icons amarillas">
+            {{jugador.estadisticas.amarillas}}
+            <i class="fa fa-square"></i>
+          </td>
+          <td class="icons rojas">
+            {{jugador.estadisticas.rojas}}
+            <i class="fa fa-square"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>

@@ -1,36 +1,25 @@
 h4{
-  background-color: #333;
-  color: #fcfcfc;
-  border-radius: 3px;
-  border-color: #101010;
-  padding: 10px;
-  margin: 0px 0px 10px 0px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
-
 h5.top{
   background-color: #333;
   color: #fcfcfc !important;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
   border-color: #101010;
   padding: 10px;
   margin: 0px;
   font-size: 14px !important;
   font-weight: normal !important;
 }
-
 h5.bot{
   background-color: #333;
   color: #fcfcfc !important;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
   border-color: #101010;
   padding: 10px;
   margin: 0px;
   font-size: 14px !important;
   font-weight: normal !important;
 }
-
 #dorsal{
   background-color: transparent;
   color:  #fcfcfc;
@@ -39,41 +28,56 @@ h5.bot{
 .row{
   margin-top: 10px !important;
 }
-
 a:hover{
   text-decoration: none !important;
 }
-
+.small_p {
+  padding-left: 5px;
+  padding-right: 5px;
+}
 @media  screen and (min-width: 993px) {
-  .small_p {
-  }
   .image-player {
-    height: 25vh;
+    height: 30vh;
   }
 }
-
 @media  screen and (max-width: 993px) {
   .small_p {
     display: inline-block;
-    width: 25% !important;
-  }
-  .image-player {
-    height: 60vh;
-  }
-}
-
-@media  screen and (max-width: 574px) {
-  .small_p {
-    display: inline-block;
-    width: 50% !important;
+    width: 16.5% !important;
   }
   .image-player {
     height: 30vh;
   }
 }
-
+@media screen and (max-width: 768px) {
+  .small_p {
+    width: 19.5% !important;
+  }
+}
+@media  screen and (max-width: 654px) {
+  .small_p {
+    width: 24.5% !important;
+  }
+}
+@media  screen and (max-width: 574px) {
+  .small_p {
+    width: 32.5% !important;
+  }
+}
+@media  screen and (max-width: 390px) {
+  .small_p {
+    width: 49.5% !important;
+  }
+}
 .dorsal {
   float: left;
-
+}
+.thumbnail {
+  padding: 0px;
+  margin-top: 10px;
+  border: 0.5px solid #dedede;
+  -webkit-box-shadow: 5px 5px 2px 2px rgba(222,222,222,1);
+  -moz-box-shadow: 5px 5px 2px 2px rgba(222,222,222,1);
+  box-shadow: 5px 5px 2px 2px rgba(222,222,222,1);
 }
 

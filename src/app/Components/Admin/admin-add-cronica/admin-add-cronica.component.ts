@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {PartidosService} from "../../../Services/partidos.service";
-import {EquipoService} from "../../../Services/equipo.service";
-import {AdminService} from "../../../Services/admin.service";
-import {Router} from "@angular/router";
-
-declare var swal: any;
+import {EquipoService} from '../../../Services/equipo.service';
+import {CronicaService} from '../../../Services/cronica.service';
+import {Router, ActivatedRoute, Params} from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-add-cronica',
@@ -26,63 +24,22 @@ export class AdminAddCronicaComponent implements OnInit {
 
   status: string;
 
-  constructor(private partidosService: PartidosService,
-              private equipoService: EquipoService,
-              private adminService: AdminService,
-              private router: Router
+  constructor(private equipoService: EquipoService,
+              private cronicaService: CronicaService,
+              private router: Router,
+              private route:  ActivatedRoute
   ) { }
 
   ngOnInit() {
+    this.route.queryParams.forEach((params: Params) => {
+      this.equipo = params['equipo'];
+    });
     this.loading = false;
   }
 
-  saveCronica() {
-    this.adminService.saveCronica(
-      {'equipo': this.equipo, 'jornada':this.jornada,
-        'local': this.local, 'visitante': this.visitante, 'resultado': this.resultado
-      }).then((res) => {
-      swal(
-        'Creada',
-        'La crònica s\'ha afegit correctament',
-        'success'
-      );
-      let id = res['_id'];
-      setTimeout(() => {this.router.navigate(['/edit-cronica', id]); }, 1000);
-    }, (err) => {
-      console.log(err);
-      swal(
-        'Error',
-        'S\'ha produït un error en afegir la crònica',
-        'error'
-      );
-    });
-  }
-
   getPartido() {
-    if (this.equipo === 'Sènior A') {
-      this.loading = true;
-      this.getSeniorAPartido(this.jornada);
-    }
-    if (this.equipo === 'Sènior B') {
-      this.loading = true;
-      this.getSeniorBPartido(this.jornada);
-    }
-    if (this.equipo === 'Juvenil A') {
-      this.loading = true;
-      this.getJuvenilAPartido(this.jornada);
-    }
-    if (this.equipo === 'Juvenil B') {
-      this.loading = true;
-      this.getJuvenilBPartido(this.jornada);
-    }
-    if (this.equipo === 'Cadete A') {
-      this.loading = true;
-      this.getCadeteAPartido(this.jornada);
-    }
-  }
-
-  getSeniorAPartido(jornada) {
-    this.partidosService.getPartidos('SeniorA', jornada).then((res) => {
+    this.loading = true;
+    this.equipoService.getPartido(this.equipo, this.jornada).then((res) => {
       this.visitante = res['visitante'];
       this.local = res['local'];
       this.resultado = res['resultado'];
@@ -92,47 +49,37 @@ export class AdminAddCronicaComponent implements OnInit {
     });
   }
 
-  getSeniorBPartido(jornada) {
-    this.partidosService.getPartidos('SeniorB', jornada).then((res) => {
-      this.visitante = res['visitante'];
-      this.local = res['local'];
-      this.resultado = res['resultado'];
-      this.loading = false;
+  saveCronica() {
+    this.cronicaService.saveCronica({
+      'jornada': this.jornada,
+      'local': this.local, 
+      'visitante': this.visitante, 
+      'resultado': this.resultado
+      }).then((res) => {
+        const id = res['_id'];
+        this.equipoService.addCronicaToEquipo(this.equipo, id).then((res) => {
+        Swal.fire({
+          type: 'success',
+          title: 'Afegit',
+          text: 'La crónica s\'ha creat correctament'
+        })      
+        setTimeout(() => {this.router.navigate(['/admin/edit-cronica', id],{queryParams: {equipo: this.equipo}}); }, 1000);
+        },
+        (err) => {
+          console.log(err);
+          Swal.fire({
+            type: 'error',
+            title: 'Error',
+            text: 'S\'ha produït un error en afegit la crònica a l\'equip'
+          })  
+        });
     }, (err) => {
       console.log(err);
-    });
-  }
-
-  getJuvenilAPartido(jornada) {
-    this.partidosService.getPartidos('JuvenilA', jornada).then((res) => {
-      this.visitante = res['visitante'];
-      this.local = res['local'];
-      this.resultado = res['resultado'];
-      this.loading = false;
-    }, (err) => {
-      console.log(err);
-    });
-  }
-
-  getJuvenilBPartido(jornada) {
-    this.partidosService.getPartidos('JuvenilB', jornada).then((res) => {
-      this.visitante = res['visitante'];
-      this.local = res['local'];
-      this.resultado = res['resultado'];
-      this.loading = false;
-    }, (err) => {
-      console.log(err);
-    });
-  }
-
-  getCadeteAPartido(jornada) {
-    this.partidosService.getPartidos('CadetA', jornada).then((res) => {
-      this.visitante = res['visitante'];
-      this.local = res['local'];
-      this.resultado = res['resultado'];
-      this.loading = false;
-    }, (err) => {
-      console.log(err);
+      Swal.fire({
+        type: 'error',
+        title: 'Error',
+        text: 'S\'ha produït un error en afegit la crònica a la base de dades'
+      })
     });
   }
 }

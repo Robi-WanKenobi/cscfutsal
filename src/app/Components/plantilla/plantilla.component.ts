@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Params, ActivatedRoute } from '@angular/router';
-import { EquipoService} from "../../Services/equipo.service";
+import { EquipoService} from '../../Services/equipo.service';
+import {JugadorService} from '../../Services/jugador.service';
 
 
 @Component({
@@ -10,31 +11,34 @@ import { EquipoService} from "../../Services/equipo.service";
 })
 export class PlantillaComponent implements OnInit {
 
-  equipo: string;
-  jugadores: any;
-  tecnicos: any;
+  @Input() equipo: string;
+  jugadores: {}[];
+  tecnicos: {}[];
 
-  constructor(public equipoService: EquipoService, private route:  ActivatedRoute) { }
+  constructor(private equipoService: EquipoService) {
+  }
 
   ngOnInit() {
-    this.route.queryParams.forEach((params: Params) => {
-      this.equipo = params['cat'];
+  }
+
+  ngOnChanges(){
+    if (this.equipo) {
       this.getJugadores(this.equipo);
-      this.getTecnicos(this.equipo);
-    });
+    this.getTecnicos(this.equipo);
+    }
   }
 
   getJugadores(equipo) {
     this.equipoService.getJugadores(equipo).then((res) => {
-      this.jugadores = res;
+      this.jugadores = res['jugadores'];
     }, (err) => {
       console.log(err);
     });
   }
 
   getTecnicos(equipo) {
-    this.equipoService.getTecnics(equipo).then((res) => {
-      this.tecnicos = res;
+    this.equipoService.getTecnicos(equipo).then((res) => {
+      this.tecnicos = res['jugadores'];
     }, (err) => {
       console.log(err);
     });

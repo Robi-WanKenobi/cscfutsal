@@ -1,10 +1,10 @@
 
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-9">
     <h4 class="text-center">
       Jugadors
     </h4>
-    <div class="col-md-3 small_p" *ngFor="let j of jugadores">
+    <div class="col-md-2 small_p" *ngFor="let j of jugadores">
       <div class="thumbnail">
           <h5 class="caption top text-center">
             <p class="dorsal">{{j.dorsal}}</p>
@@ -18,11 +18,11 @@
       </div>
     </div>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-3">
     <h4 class="text-center">
       Cos tècnic
     </h4>
-    <div class="col-md-3 small_p" *ngFor="let j of tecnicos">
+    <div class="col-md-6 small_p" *ngFor="let j of tecnicos">
       <div class="thumbnail">
         <h5 class="caption top text-center">
           {{j.apodo}}

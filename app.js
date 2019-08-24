@@ -23,20 +23,20 @@ var options = {
   bufferMaxEntries: 0
 };
 
-mongoose.connect('mongodb://mongo:27017/cscfutsaldb', options, function(err, res) {
+mongoose.connect('mongodb://localhost:27017/cscfutsaldb', options, function(err, res) {
   if(err) throw err;
-  console.log('Connected to Database');
+  console.log('Connected to database');
 });
 
-var partidos = require('./routes/partidos');
-var jugadores = require('./routes/jugadores');
-var equipos = require('./routes/equipos');
-var admin = require('./routes/admin');
+var jugador = require('./api/controllers/jugadorController');
+var equipo = require('./api/controllers/equipoController');
+var admin = require('./api/controllers/adminController');
+var cronica = require('./api/controllers/cronicaController');
 
-app.use('/partidos', partidos);
-app.use('/jugadores', jugadores);
-app.use('/equipos', equipos);
+app.use('/jugador', jugador);
+app.use('/equipo', equipo);
 app.use('/admin', admin);
+app.use('/cronica', cronica);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -53,12 +53,6 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  console.log("ERROR -->" + err.message);
-  console.log('PROMISE -->' + err.promise);
-  console.log('TASK -->' + err.task);
-  console.log('source url -->' +err.sourceUrl);
-  console.log('type -->' + err.type);
-  console.log('rejection' + err.rejection);
   res.render('error');
 });
 

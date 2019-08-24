@@ -12,3 +12,10 @@
   bottom: 0%;
   width: 100%;
 }
+.footer .row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+.sortida-container{
+  float: left;
+}

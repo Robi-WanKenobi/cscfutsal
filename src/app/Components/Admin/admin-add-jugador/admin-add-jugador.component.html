@@ -1,87 +1,40 @@
 <div class="row">
-  <div class="col-md-4 col-md-offset-4">
-    <div class="well">
-      <form (submit)="submitJugador()" #jugadorForm="ngForm">
-        <div class="form-group">
-          <label for="n">Nom</label>
-          <input type="text" class="form-control" [(ngModel)]="jugador.nombre" name="nom" id="n" required>
-        </div>
-        <div class="form-group">
-          <label for="c">Cognom</label>
-          <input type="text" class="form-control" [(ngModel)]="jugador.apellido" name="cognom" id="c" required>
-        </div>
-        <div class="form-group">
-          <label for="s">Sobrenom</label>
-          <input type="text" class="form-control" [(ngModel)]="jugador.apodo" name="cognom" id="s" required>
-        </div>
-        <div class="form-group">
-          <label for="d">Dorsal</label>
-          <input type="number" class="form-control" [(ngModel)]="jugador.dorsal" name="dorsal" id="d" required>
-        </div>
-        <div class="form-group">
-          <label for="p">Posició</label>
-          <input type="text" class="form-control" [(ngModel)]="jugador.posicion" name="posicio" id="p" required>
-        </div>
-        <label>Equip:</label>
-        <div class="form-inline">
-          <div class="form-group">
-            <input name="group20" type="radio" id="radio120" value="Sènior A" [(ngModel)]="jugador.equipo" required>
-            <label for="radio120"> Sènior A </label>
-          </div>
-
-          <div class="form-group">
-            <input name="group20" type="radio" id="radio121" value="Sènior B" [(ngModel)]="jugador.equipo" required>
-            <label for="radio121"> Sènior B </label>
-          </div>
-
-        </div>
-        <div class="form-inline">
-          <div class="form-group">
-            <input name="group20" type="radio" id="radio123" value="Juvenil A" [(ngModel)]="jugador.equipo" required>
-            <label for="radio123"> Juvenil A </label>
-          </div>
-
-          <div class="form-group">
-            <input name="group20" type="radio" id="radio124" value="Juvenil B" [(ngModel)]="jugador.equipo" required>
-            <label for="radio124"> Juvenil B </label>
-          </div>
-
-        </div>
-        <div class="form-inline">
-          <div class="form-group">
-            <input name="group20" type="radio" id="radio126" value="Cadet A" [(ngModel)]="jugador.equipo" required>
-            <label for="radio126"> Cadet A </label>
-          </div>
-        </div>
+  <div class="col-md-4 col-md-offset-4 custom-card">
+    <form (submit)="submitJugador()" #jugadorForm="ngForm">
+      <div class="form-group">
+        <label for="n">Nom</label>
+        <input type="text" class="form-control" [(ngModel)]="jugador.nombre" name="nom" id="n" required>
+      </div>
+      <div class="form-group">
+        <label for="c">Cognom</label>
+        <input type="text" class="form-control" [(ngModel)]="jugador.apellido" name="cognom" id="c" required>
+      </div>
+      <div class="form-group">
+        <label for="s">Sobrenom</label>
+        <input type="text" class="form-control" [(ngModel)]="jugador.apodo" name="apodo" id="s" required>
+      </div>
+      <div class="form-group">
+        <label for="d">Dorsal</label>
+        <input type="number" class="form-control" [(ngModel)]="jugador.dorsal" name="dorsal" id="d" required>
+      </div>
+      <div class="form-group">
+        <label for="p">Posició</label>
+        <input type="text" class="form-control" [(ngModel)]="jugador.posicion" name="posicio" id="p" required>
+      </div>
+      <div class="form-group">
         <label>Tipus:</label>
-        <div class="form-inline">
-          <div class="form-group">
-            <input name="group30" type="radio" id="radio130" value="Jugador" [(ngModel)]="jugador.tipo" required>
-            <label for="radio130"> Jugador </label>
-          </div>
-          <div class="form-group">
-            <input name="group30" type="radio" id="radio131" value="Porter" [(ngModel)]="jugador.tipo" required>
-            <label for="radio130"> Porter </label>
-          </div>
-          <div class="form-group">
-            <input name="group30" type="radio" id="radio132" value="Tècnic" [(ngModel)]="jugador.tipo" required>
-            <label for="radio131"> Tècnic </label>
-          </div>
-        </div>
-        <br>
-        <div class="alert alert-success" *ngIf="status == 'success'">
-          <p class="text-center">Jugador afegit</p>
-        </div>
-
-        <div class="alert alert-danger" *ngIf="status == 'error'">
-          <p class="text-center">Error</p>
-        </div>
-
-        <div class="form-group text-center">
-          <button type="submit" class="btn btn-success" [disabled]="!jugadorForm.form.valid">Afegir</button>
-        </div>
-      </form>
-    </div>
+        <select class="form-control" [(ngModel)]="jugador.tipo" name="tipo" required>
+          <option value="Jugador">Jugador</option>
+          <option value="Porter">Porter</option>
+          <option value="Tècnic">Técnic</option>
+        </select>
+      </div>
+      <br>
+      <div class="form-group text-center">
+        <button type="submit" class="btn btn-success" [disabled]="!jugadorForm.form.valid">Afegir</button>
+        <button [routerLink]="['/admin/admin-equips']" class="btn btn-warning" >Cancel·lar</button>
+      </div>
+    </form>
   </div>
 </div>
 

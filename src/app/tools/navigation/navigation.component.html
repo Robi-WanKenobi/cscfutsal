@@ -1,0 +1,42 @@
+<img class="img-responsive" src="assets/images/header_csc.jpg" border="0" style="margin: 0 auto; width: 100%" alt="Logo">
+
+<nav class="navbar navbar-inverse">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+  <div id="navbar" class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+      <li><a class="navlink" href="#/inici">Inici</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle navlink" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Club</a>
+        <ul class="dropdown-menu">
+          <li><a>Junta Directiva</a></li>
+          <li><a href="#/instalacions">Instal·lacions</a></li>
+          <li><a href="#/equipacions">Equipacions</a></li>
+          <li><a>Història</a></li>
+          <li><a>Palmarès</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle navlink link" 
+          data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Equips</a>
+        <ul class="dropdown-menu">
+          <li *ngFor="let equipo of equipos">
+            <a (click)="navigateToEquipo(equipo._id)">{{equipo.nombre}}</a> 
+          </li>
+        </ul>
+      </li>
+      <li><a class="navlink">Patrocinadors</a></li>
+      <li><a target="_blank" href="https://play2015.es/csc-futsal/" class="navlink" onclick="password_shop()">Botiga</a></li>
+      <li><a class="navlink" href="#/contacte">Contacte</a></li>
+      <li><a target="_blank" href="http://www.sangcule.cat/" class="navlink"><img src="assets/images/penyaicon.png" width="20px" height="20px"/></a></li>
+      <li><a target="_blank" href="https://twitter.com/CscFutsal" class="fa fa-twitter"></a></li>
+      <li><a target="_blank" href="https://www.instagram.com/cscfutsal/" class="fa fa-instagram"></a></li>
+    </ul>
+  </div>
+</nav>

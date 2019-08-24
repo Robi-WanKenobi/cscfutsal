@@ -1,50 +1,47 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { DndModule } from 'ngx-drag-drop';
 
-import {HashLocationStrategy, LocationStrategy, PathLocationStrategy} from '@angular/common';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { HttpModule} from '@angular/http';
 import { FormsModule} from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { PartidosService} from './Services/partidos.service';
-import { EquipoService} from './Services/equipo.service';
+import { EquipoService } from './Services/equipo.service';
+import { JugadorService } from './Services/jugador.service';
+import { AdminService } from './Services/admin.service';
+import { CronicaService } from './Services/cronica.service';
 
 import { AppComponent } from './app.component';
 import { InicioComponent } from './Layouts/inicio/inicio.component';
-import { UltimosPartidosComponent } from './Components/ultimos-partidos/ultimos-partidos.component';
-import { ProximosPartidosComponent } from './Components/proximos-partidos/proximos-partidos.component';
 import { ContactoComponent } from './Layouts/contacto/contacto.component';
 import { PlantillaComponent } from './Components/plantilla/plantilla.component';
 import { EquipoComponent } from './Layouts/equipo/equipo.component';
 import { ResultadosComponent } from './Components/resultados/resultados.component';
-import {JugadorService} from './Services/jugador.service';
-import {AdminService} from './Services/admin.service';
 import { AdminLoginComponent } from './Components/Admin/admin-login/admin-login.component';
 import { AdminComponent } from './Layouts/admin/admin.component';
-import {AuthGuard} from './Guard/auth.guard';
-import { AdminPlantillaComponent } from './Layouts/admin-plantilla/admin-plantilla.component';
+import { AuthGuard} from './Guard/auth.guard';
 import { CalendarioComponent } from './Components/calendario/calendario.component';
-import { MaxGolClubComponent } from './Components/max-gol-club/max-gol-club.component';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { Loader2Component } from './shared/loader2/loader2.component';
-import { MaxAsisClubComponent } from './Components/max-asis-club/max-asis-club.component';
-import { MaxAmonClubComponent } from './Components/max-amon-club/max-amon-club.component';
 import { AdminAddJugadorComponent } from './Components/Admin/admin-add-jugador/admin-add-jugador.component';
 import { FooterAccesoComponent } from './tools/footer-acceso/footer-acceso.component';
 import { FooterSortidaComponent } from './tools/footer-sortida/footer-sortida.component';
 import { AdminEditJugadorComponent } from './Components/Admin/admin-edit-jugador/admin-edit-jugador.component';
-import { MaxGolsEquipComponent } from './Components/max-gols-equip/max-gols-equip.component';
-import { MaxAsisEquipComponent } from './Components/max-asis-equip/max-asis-equip.component';
-import { MaxAmonEquipComponent } from './Components/max-amon-equip/max-amon-equip.component';
 import { EquipacionesComponent } from './Layouts/equipaciones/equipaciones.component';
 import { InstalacionesComponent} from './Layouts/instalaciones/instalaciones.component';
-import { MinGolClubComponent } from './Components/min-gol-club/min-gol-club.component';
-import { MinGolEquipComponent } from './Components/min-gol-equip/min-gol-equip.component';
-import { CronicaComponent } from './Components/cronica/cronica.component';
 import { AdminCronicasComponent } from './Layouts/admin-cronicas/admin-cronicas.component';
 import { AdminAddCronicaComponent } from './Components/Admin/admin-add-cronica/admin-add-cronica.component';
 import { AdminEditCronicaComponent } from './Components/Admin/admin-edit-cronica/admin-edit-cronica.component';
 import { AdminStatsComponent } from './Layouts/admin-stats/admin-stats.component';
+import { InicioPartidosComponent } from './Components/inicio-partidos/inicio-partidos.component';
+import { NavigationComponent } from './tools/navigation/navigation.component';
+import { AdminEquiposComponent } from './Layouts/admin-equipos/admin-equipos.component';
+import { AdminAddEquipoComponent } from './Components/Admin/admin-add-equipo/admin-add-equipo.component';
+import { StatsClubComponent } from './Components/stats-club/stats-club.component';
+import { StatsEquipoComponent } from './Components/stats-equipo/stats-equipo.component';
+import { FilterStatsPipe } from './tools/pipes/filter-stats.pipe';
+import { SortStatsPipe } from './tools/pipes/sort-stats.pipe';
 
 
 const appRoutes: Routes = [
@@ -56,55 +53,57 @@ const appRoutes: Routes = [
   { path: 'equip', component: EquipoComponent},
   { path: 'login', component: AdminLoginComponent},
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
-  { path: 'admin-plantilles', component: AdminPlantillaComponent, canActivate: [AuthGuard]},
-  { path: 'admin-croniques', component: AdminCronicasComponent, canActivate: [AuthGuard]},
-  { path: 'admin-stats', component: AdminStatsComponent, canActivate: [AuthGuard]},
-  { path: 'edit/:id', component: AdminEditJugadorComponent, canActivate: [AuthGuard]},
-  { path: 'edit-cronica/:id', component: AdminEditCronicaComponent, canActivate: [AuthGuard]}
+  { path: 'admin/admin-equips', component: AdminEquiposComponent, canActivate: [AuthGuard]},
+  { path: 'admin/admin-croniques', component: AdminCronicasComponent, canActivate: [AuthGuard]},
+  { path: 'admin/admin-stats', component: AdminStatsComponent, canActivate: [AuthGuard]},
+  { path: 'admin/add-jugador', component: AdminAddJugadorComponent, canActivate: [AuthGuard]},
+  { path: 'admin/add-equipo', component: AdminAddEquipoComponent, canActivate: [AuthGuard]},
+  { path: 'admin/add-cronica', component: AdminAddCronicaComponent, canActivate: [AuthGuard]},
+  { path: 'admin/edit-jugador/:id', component: AdminEditJugadorComponent, canActivate: [AuthGuard]},
+  { path: 'admin/edit-equipo/:id', component: AdminAddEquipoComponent, canActivate: [AuthGuard]},
+  { path: 'admin/edit-cronica/:id', component: AdminEditCronicaComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
-    UltimosPartidosComponent,
-    ProximosPartidosComponent,
     ContactoComponent,
     PlantillaComponent,
     EquipoComponent,
     ResultadosComponent,
     AdminLoginComponent,
     AdminComponent,
-    AdminPlantillaComponent,
     CalendarioComponent,
-    MaxGolClubComponent,
     LoaderComponent,
     Loader2Component,
-    MaxAsisClubComponent,
-    MaxAmonClubComponent,
     AdminAddJugadorComponent,
     FooterAccesoComponent,
     FooterSortidaComponent,
     AdminEditJugadorComponent,
-    MaxGolsEquipComponent,
-    MaxAsisEquipComponent,
-    MaxAmonEquipComponent,
     EquipacionesComponent,
     InstalacionesComponent,
-    MinGolClubComponent,
-    MinGolEquipComponent,
-    CronicaComponent,
     AdminCronicasComponent,
     AdminAddCronicaComponent,
     AdminEditCronicaComponent,
     AdminStatsComponent,
+    InicioPartidosComponent,
+    NavigationComponent,
+    AdminEquiposComponent,
+    AdminAddEquipoComponent,
+    StatsClubComponent,
+    StatsEquipoComponent,
+    FilterStatsPipe,
+    SortStatsPipe,
   ],
   imports: [BrowserModule,
     FormsModule,
     HttpModule,
+    DndModule,
     RouterModule.forRoot(appRoutes)],
-  providers: [PartidosService, EquipoService, AdminService, JugadorService, AuthGuard,
+  providers: [EquipoService, AdminService, JugadorService, CronicaService, AuthGuard,
      {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

@@ -15,9 +15,9 @@ export class FooterSortidaComponent implements OnInit {
 
   logout()  {
     localStorage.clear();
-    setTimeout(() => {this.router.navigate(['/inici']); }, 1000);
+    setTimeout(() => {this.router.navigate(['/login']); }, 1000);
   }
   toMenu(){
-    this.router.navigate(['/admin']);
+    this.router.navigate(['/admin'], { queryParams: { logged: 'csc_admin' } });
   }
 }

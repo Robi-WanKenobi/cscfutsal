@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminService} from "../../Services/admin.service";
-import {EquipoService} from "../../Services/equipo.service";
-import {Router} from "@angular/router";
-declare var swal: any;
+import { AdminService} from '../../Services/admin.service';
+import {EquipoService} from '../../Services/equipo.service';
+import {Router} from '@angular/router';
+import {JugadorService} from '../../Services/jugador.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-stats',
@@ -11,82 +12,45 @@ declare var swal: any;
 })
 export class AdminStatsComponent implements OnInit {
 
-  seniorA: any;
-  seniorB: any;
-  juvenilA: any;
-  juvenilB: any;
-  cadeteA: any;
-  status: string;
+  equipos: {};
 
   loading: boolean;
 
-  constructor(private adminService: AdminService, private equipoService: EquipoService, private router: Router) { }
+  constructor(private equipoService: EquipoService,
+              private jugadorService: JugadorService) {
+  }
 
   ngOnInit() {
-    this.getJugadoresSeniorA();
-    this.getJugadoresSeniorB();
-    this.getJugadoresJuvenilA();
-    this.getJugadoresJuvenilB();
-    this.getJugadoresCadeteA();
+    this.getEquipos();
   }
 
-  getJugadoresSeniorA() {
-    this.adminService.getJugadores('Sènior A').then((res) => {
-      this.seniorA = res;
-    }, (err) => {
-      console.log(err);
-    });
-  }
-  getJugadoresSeniorB() {
-    this.adminService.getJugadores('Sènior B').then((res) => {
-      this.seniorB = res;
-    }, (err) => {
-      console.log(err);
-    });
-  }
-
-  getJugadoresJuvenilA() {
-    this.adminService.getJugadores('Juvenil A').then((res) => {
-      this.juvenilA = res;
-    }, (err) => {
-      console.log(err);
-    });
-  }
-  getJugadoresJuvenilB() {
-    this.adminService.getJugadores('Juvenil B').then((res) => {
-      this.juvenilB = res;
-    }, (err) => {
-      console.log(err);
-    });
-  }
-  getJugadoresCadeteA() {
-    this.adminService.getJugadores('Cadet A').then((res) => {
-      this.cadeteA = res;
+  getEquipos() {
+    this.equipoService.getEquipos().then((res) => {
+      this.equipos = res;
     }, (err) => {
       console.log(err);
     });
   }
 
   popSave() {
-    swal(
-      'Actualitzat',
-      'Les estadístiques s\'han actualitzat correctament',
-      'success'
-    );
+    Swal.fire({
+      type: 'success',
+      title: 'Actualitzades',
+      text: 'Les estadístiques s\'han actualitzat correctament'
+    })  
   }
 
   updateJugador(j) {
     this.loading = true;
-    console.log(j);
-
-    this.adminService.updateJugador(j._id, j).then((res) => {
-      this.status = 'success';
-      setTimeout(() => {this.status = ''; }, 1000);
+    this.jugadorService.updateJugador(j._id, j).then((res) => {
       this.loading = false;
     }, (err) => {
       console.log(err);
-      this.status = 'error';
-      setTimeout(() => {this.status = ''; }, 1000);
+      Swal.fire({
+        type: 'error',
+        title: 'Error',
+        text: 'Revisa els valors de les estadístiques'
+      }) 
     });
   }
 }

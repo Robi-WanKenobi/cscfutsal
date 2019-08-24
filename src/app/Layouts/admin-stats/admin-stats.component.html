@@ -1,204 +1,43 @@
 <div class="container-fuild col-md-12">
-
-  <h4 class="text-center">
-    SÈNIOR A
-    <a style="float: right;" (click)="popSave()"><span style="color: whitesmoke" class="glyphicon glyphicon-save"></span></a>
-  </h4>
-  <table class="table">
-    <thead style="font-weight: bold;">
-    <th>Nom</th>
-    <th>Partits Jugats</th>
-    <th>Gols</th>
-    <th>Asistències</th>
-    <th>Grogues</th>
-    <th>Vermelles</th>
-    <th>Gols encaixats</th>
-    </thead>
-    <tbody>
-    <tr *ngFor="let j of seniorA">
-      <td><strong>{{j.nombre}}</strong></td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.partidos" name="partidos">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.goles" name="goles">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.asistencias" name="asis">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.amarillas" name="amarillas">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.rojas" name="rojas">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.goles_encajados" name="golesenc">
-      </td>
-    </tr>
-    </tbody>
-  </table>
-
-
-  <h4 class="text-center">
-    SÈNIOR B
-    <a style="float: right;" (click)="popSave()"><span style="color: whitesmoke" class="glyphicon glyphicon-save"></span></a>
-  </h4>
-  <table class="table">
-    <thead style="font-weight: bold;">
-    <th>Nom</th>
-    <th>Partits Jugats</th>
-    <th>Gols</th>
-    <th>Asistències</th>
-    <th>Grogues</th>
-    <th>Vermelles</th>
-    <th>Gols encaixats</th>
-    </thead>
-    <tbody>
-    <tr *ngFor="let j of seniorB">
-      <td><strong>{{j.nombre}}</strong></td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.partidos" name="partidos">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.goles" name="goles">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.asistencias" name="asis">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.amarillas" name="amarillas">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.rojas" name="rojas">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.goles_encajados" name="golesenc">
-      </td>
-    </tr>
-    </tbody>
-  </table>
-
-
-  <h4 class="text-center">
-    JUVENIL A
-    <a style="float: right;" (click)="popSave()"><span style="color: whitesmoke" class="glyphicon glyphicon-save"></span></a>
-  </h4>
-  <table class="table">
-    <thead style="font-weight: bold;">
-    <th>Nom</th>
-    <th>Partits Jugats</th>
-    <th>Gols</th>
-    <th>Asistències</th>
-    <th>Grogues</th>
-    <th>Vermelles</th>
-    <th>Gols encaixats</th>
-    </thead>
-    <tbody>
-    <tr *ngFor="let j of juvenilA">
-      <td><strong>{{j.nombre}}</strong></td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.partidos" name="partidos">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.goles" name="goles">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.asistencias" name="asis">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.amarillas" name="amarillas">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.rojas" name="rojas">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.goles_encajados" name="golesenc">
-      </td>
-    </tr>
-    </tbody>
-  </table>
-
-  <h4 class="text-center">
-    JUVENIL B
-    <a style="float: right;" (click)="popSave()"><span style="color: whitesmoke" class="glyphicon glyphicon-save"></span></a>
-  </h4>
-  <table class="table">
-    <thead style="font-weight: bold;">
-    <th>Nom</th>
-    <th>Partits Jugats</th>
-    <th>Gols</th>
-    <th>Asistències</th>
-    <th>Grogues</th>
-    <th>Vermelles</th>
-    <th>Gols encaixats</th>
-    </thead>
-    <tbody>
-    <tr *ngFor="let j of juvenilB">
-      <td><strong>{{j.nombre}}</strong></td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.partidos" name="partidos">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.goles" name="goles">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.asistencias" name="asis">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.amarillas" name="amarillas">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.rojas" name="rojas">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.goles_encajados" name="golesenc">
-      </td>
-    </tr>
-    </tbody>
-  </table>
-
-  <h4 class="text-center">
-    CADET A
-    <a style="float: right;" (click)="popSave()"><span style="color: whitesmoke" class="glyphicon glyphicon-save"></span></a>
-  </h4>
-  <table class="table">
-    <thead style="font-weight: bold;">
-    <th>Nom</th>
-    <th>Partits Jugats</th>
-    <th>Gols</th>
-    <th>Asistències</th>
-    <th>Grogues</th>
-    <th>Vermelles</th>
-    <th>Gols encaixats</th>
-    </thead>
-    <tbody>
-    <tr *ngFor="let j of cadeteA">
-      <td><strong>{{j.nombre}}</strong></td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.partidos" name="partidos">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.goles" name="goles">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.asistencias" name="asis">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.amarillas" name="amarillas">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.rojas" name="rojas">
-      </td>
-      <td>
-        <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.goles_encajados" name="golesenc">
-      </td>
-    </tr>
-    </tbody>
-  </table>
-
-  <div class="separador">
+  <div class="equipo custom-card" *ngFor="let equipo of equipos">
+    <h4 class="text-center">
+      {{equipo.nombre}}
+      <a style="float: right;" (click)="popSave()"><span style="color: whitesmoke" class="glyphicon glyphicon-save"></span></a>
+    </h4>
+    <table class="table">
+      <thead style="font-weight: bold;">
+      <th>Nom</th>
+      <th>Partits Jugats</th>
+      <th>Gols</th>
+      <th>Asistències</th>
+      <th>Grogues</th>
+      <th>Vermelles</th>
+      <th>Gols encaixats</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let j of equipo.jugadores">
+        <td><strong>{{j.nombre}}</strong></td>
+        <td>
+          <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.partidos" name="partidos">
+        </td>
+        <td>
+          <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.goles" name="goles">
+        </td>
+        <td>
+          <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.asistencias" name="asis">
+        </td>
+        <td>
+          <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.amarillas" name="amarillas">
+        </td>
+        <td>
+          <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.rojas" name="rojas">
+        </td>
+        <td>
+          <input type="number" class="form-control" (blur)="updateJugador(j)" [(ngModel)]="j.estadisticas.goles_encajados" name="golesenc">
+        </td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </div>
-
 <app-footer-sortida></app-footer-sortida>

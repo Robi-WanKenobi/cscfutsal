@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Params, ActivatedRoute } from '@angular/router';
 import {AdminService} from '../../../Services/admin.service';
-import {Jugador} from '../../../Models/jugador';
-import {Router} from "@angular/router";
-
-declare var swal: any;
+import {Router} from '@angular/router';
+import {JugadorService} from '../../../Services/jugador.service';
+import { EquipoService } from '../../../Services/equipo.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-add-jugador',
@@ -12,32 +13,48 @@ declare var swal: any;
 })
 export class AdminAddJugadorComponent implements OnInit {
 
-  jugador = new Jugador();
+  jugador = {};
+  equipo = "";
 
-  status: string;
-
-  constructor(private adminService: AdminService, private router: Router) { }
+  constructor(private equipoService: EquipoService,
+              private jugadorService: JugadorService,
+              private router: Router,
+              private route:  ActivatedRoute
+  ) { }
 
 
   ngOnInit() {
+    this.route.queryParams.forEach((params: Params) => {
+      this.equipo = params['equipo'];
+    });
   }
 
   submitJugador() {
-    this.adminService.saveJugador(this.jugador).then((res) => {
-      swal(
-        'Afegit',
-        'El jugador s\'ha creat correctament',
-        'success'
-      );
-      let id = res['_id'];
-      setTimeout(() => {this.router.navigate(['/edit', id]); }, 1000);
+    this.jugadorService.saveJugador(this.jugador).then((res) => {
+      const id = res['_id'];
+      this.equipoService.addJugadorToEquipo(this.equipo, id).then((res) => {
+      Swal.fire({
+        type: 'success',
+        title: 'Afegit',
+        text: 'El jugador s\'ha creat correctament'
+      })      
+      setTimeout(() => {this.router.navigate(['/admin/edit-jugador', id]); }, 1000);
+      },
+      (err) => {
+        console.log(err);
+        Swal.fire({
+          type: 'error',
+          title: 'Error',
+          text: 'S\'ha produït un error en afegit el jugador a l\'equip'
+        })  
+      });
     }, (err) => {
       console.log(err);
-      swal(
-        'Error',
-        'S\'ha produït un error en afegit al jugador',
-        'error'
-      );
+      Swal.fire({
+        type: 'error',
+        title: 'Error',
+        text: 'S\'ha produït un error en afegit el jugador a la base de dades'
+      })
     });
   }
 }

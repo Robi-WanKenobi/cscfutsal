@@ -16,3 +16,30 @@ a:hover {
   color: #fcfcfc !important;
   background-color: #333 !important;
 }
+.custom-card {
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.custom-card h4 {
+  margin-top: 0px;
+}
+.custom-card table {
+  margin-bottom: 0px;
+}
+.cronica h4 .glyphicon-plus {
+  float: right;
+}
+.cronica h4 .glyphicon-plus:hover {
+  cursor: pointer;
+  color: lightgreen;
+}
+.table-cronicas tbody tr td {
+  vertical-align: middle;
+}
+.table-cronicas tbody tr td a {
+  padding-right: 10px;
+}
+.table-cronicas tbody tr td a.delete:hover {
+  color: red;
+}

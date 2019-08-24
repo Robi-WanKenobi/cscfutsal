@@ -1,0 +1,55 @@
+.inicio_partidos {
+    -webkit-box-shadow: 5px 5px 2px 2px rgba(222,222,222,1);
+    -moz-box-shadow: 5px 5px 2px 2px rgba(222,222,222,1);
+    box-shadow: 5px 5px 2px 2px rgba(222,222,222,1);
+    border: 0.5px solid #dedede;
+}
+.nav-tabs li.active a{
+    border-bottom: none !important;
+  }
+.nav-tabs li a{
+    border-bottom: 0.5px solid #dedede !important;
+}
+.inicio_partidos h4 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.inicio_partidos table {
+    margin-bottom: 0px;
+}
+@media screen and (min-width: 768px) {
+    .table {
+        border-top: none;
+    }
+    .table tbody {
+        border-top: none;
+    }
+    .table tbody tr:first-of-type {
+        border-top: none;
+    }
+    .table tbody tr:first-of-type td {
+        border-top: none;
+    }
+}
+.form-group{
+    border: none;
+    border-radius: 0px;
+    margin-bottom: 0px;
+}
+.form-group select {
+    font-size: 17px;
+    border: 1px solid white;
+    border-radius: 0px;
+    background: none;
+    text-align: center;
+    text-align-last: center;
+   -ms-text-align-last: center;
+   -moz-text-align-last: center;
+}
+.form-control:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+option{
+    text-align: center;
+}
