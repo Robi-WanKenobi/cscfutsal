@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminService} from "../../Services/admin.service";
-import {EquipoService} from "../../Services/equipo.service";
-import {JugadorService} from "../../Services/jugador.service";
-import {Router} from "@angular/router";
-
-declare var swal: any;
+import {CronicaService} from '../../Services/cronica.service';
+import { EquipoService } from '../../Services/equipo.service';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-cronicas',
@@ -13,79 +11,61 @@ declare var swal: any;
 })
 export class AdminCronicasComponent implements OnInit {
 
-  seniorA: any;
-  seniorB: any;
-  juvenilA: any;
-  juvenilB: any;
-  cadeteA: any;
-  status: string;
+  equipos: {};
 
-  constructor(private adminService: AdminService) { }
+  constructor(private equipoService: EquipoService,
+              private cronicaService: CronicaService,
+              private router: Router
+  ) { }
 
   ngOnInit() {
-    this.getCronicasSeniorA();
-    this.getCronicasSeniorB();
-    this.getCronicasJuvenilA();
-    this.getCronicasJuvenilB();
-    this.getCronicasCadeteA();
+    this.getCronicas();
   }
 
-  getCronicasSeniorA() {
-    this.adminService.getCronicas('Sènior A').then((res) => {
-      this.seniorA = res;
-    }, (err) => {
-      console.log(err);
-    });
-  }
-  getCronicasSeniorB() {
-    this.adminService.getCronicas('Sènior B').then((res) => {
-      this.seniorB = res;
+  getCronicas() {
+    this.equipoService.getCronicas().then((res) => {
+      this.equipos = res;
     }, (err) => {
       console.log(err);
     });
   }
 
-  getCronicasJuvenilA() {
-    this.adminService.getCronicas('Juvenil A').then((res) => {
-      this.juvenilA = res;
-    }, (err) => {
-      console.log(err);
-    });
-  }
-  getCronicasJuvenilB() {
-    this.adminService.getCronicas('Juvenil B').then((res) => {
-      this.juvenilB = res;
-    }, (err) => {
-      console.log(err);
-    });
-  }
-  getCronicasCadeteA() {
-    this.adminService.getCronicas('Cadete A').then((res) => {
-      this.cadeteA = res;
-    }, (err) => {
-      console.log(err);
-    });
+  editCronica(idcronica, idequipo) {
+    this.router.navigate(['/admin/edit-cronica', idcronica],{queryParams: {equipo: idequipo}});
   }
 
+  addCronica(idequipo) {
+    this.router.navigate(['/admin/add-cronica'],{queryParams: {equipo: idequipo}});
+  }
 
-  deleteCronica(id) {
-    this.adminService.deleteCronica(id).then((result) => {
-      swal(
-        'Eliminada',
-        'La crònica s\'ha esborrat correctament',
-        'success'
-      );
-      setTimeout(() => {
-        this.ngOnInit();
-      }, 1000);
-    }, (err) => {
-      console.log(err);
-      swal(
-        'Error',
-        'S\'ha produït un error en eliminar la crònica',
-        'error'
-      );
-    });
-
+  deleteCronica(idcronica, idequipo) {
+    Swal.fire({
+      title: 'Estàs segur?',
+      text: "La crònica serà el·liminada permanentment",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Eliminar',
+      cancelButtonText: 'Cancel·lar'
+    }).then((result) => {
+      if (result.value) {
+        this.cronicaService.deleteCronica(idcronica, idequipo).then((res) => {
+            Swal.fire(
+              'Eliminat!',
+              'La crònica s\'ha el·liminat correctament',
+              'success'
+            )
+            this.getCronicas();
+        }, (err) => {
+          console.log(err);
+          Swal.fire(
+            'Error',
+            'S\'ha produït un error en el·liminar la crònica',
+            'error'
+          )
+        });
+      } 
+    })
   }
 }

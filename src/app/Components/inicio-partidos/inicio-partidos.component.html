@@ -1,0 +1,24 @@
+<div class="inicio_partidos">
+  <h4 class="text-center">
+    {{title}}
+    <app-loader style="float: right" [loading]="loading"></app-loader>
+  </h4>
+  <div class="form-group">
+    <select class="form-control" (change)="switchEquipo()" [(ngModel)]="selectedEquipo" name="equips" required>
+      <option *ngFor="let equipo of equipos" [value]="equipo._id" selected>{{equipo.nombre}}</option>
+    </select>
+  </div>
+  <table class="table table-condensed">
+    <tbody>
+      <tr>
+        <td class="equip"><p class="text-center">{{ partido?.local }}</p></td>
+        <td align="center" class="infor">
+          <p class="text-center menor">{{ partido?.fecha }}</p>
+          <p class="text-center result">{{ partido?.resultado }}</p>
+          <p class="text-center menor">{{ partido?.lugar }}</p>
+        </td>
+        <td class="equip"><p class="text-center">{{ partido?.visitante }}</p></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

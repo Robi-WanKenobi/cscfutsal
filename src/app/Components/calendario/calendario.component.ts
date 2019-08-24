@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, OnChanges} from '@angular/core';
-import {EquipoService} from "../../Services/equipo.service";
-import {Params, ActivatedRoute} from "@angular/router";
+import {EquipoService} from '../../Services/equipo.service';
+import {Params, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-calendario',
@@ -9,25 +9,20 @@ import {Params, ActivatedRoute} from "@angular/router";
 })
 export class CalendarioComponent implements OnInit {
 
-  @Input() infantil: boolean;
+  @Input() equipo: string;
   calendario: any;
-  equipo: string;
   calendario_1 = new Array();
   calendario_2 = new Array();
 
-  constructor(private equipoService: EquipoService,  private route:  ActivatedRoute) { }
+  constructor(private equipoService: EquipoService) { }
 
   ngOnInit() {
-    this.route.queryParams.forEach((params: Params) => {
-      this.equipo = params['cat'];
-      if (this.equipo === 'Infantil A')
-      {
-        this.infantil = true;
-      }else {
-        this.infantil = false;
-        this.getCalendario(this.equipo);
-      }
-    });
+  }
+
+  ngOnChanges(){
+    if (this.equipo) {
+      this.getCalendario(this.equipo);
+    }
   }
 
   getCalendario(equipo) {

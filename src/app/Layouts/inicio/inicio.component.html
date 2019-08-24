@@ -1,59 +1,21 @@
-<div class="row">
+<div class="row section-inicio less-margin-right">
   <div class="col-md-4 inicio">
-      <app-ultimos-partidos></app-ultimos-partidos>
+      <app-inicio-partidos
+        [title] = "current_title" 
+        [key] = "current_key"
+        [jornada] = "current">
+      </app-inicio-partidos>
   </div>
   <div class="col-md-4 inicio">
-
-    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
-      <div class="col-md-12">
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <h4 class="text-center">
-          ELS MILLORS
-        </h4>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner">
-        <div class="item active">
-          <h5 class="text-center">
-            Golejadors
-          </h5>
-          <app-max-gol-club></app-max-gol-club>
-        </div>
-
-        <div class="item">
-          <h5 class="text-center">
-            Assistents
-          </h5>
-          <app-max-asis-club></app-max-asis-club>
-        </div>
-
-        <div class="item">
-          <h5 class="text-center">
-            Amonestats
-          </h5>
-          <app-max-amon-club></app-max-amon-club>
-        </div>
-
-        <div class="item">
-          <h5 class="text-center">
-            Porters
-          </h5>
-          <app-min-gol-club></app-min-gol-club>
-        </div>
-      </div>
-    </div>
+    <app-stats-club></app-stats-club>
   </div>
 
   <div class="col-md-4 inicio">
-      <app-proximos-partidos></app-proximos-partidos>
+    <app-inicio-partidos 
+      [title] = "next_title"
+      [key] = "next_key"
+      [jornada] = "next">
+    </app-inicio-partidos>
   </div>
 </div>
 

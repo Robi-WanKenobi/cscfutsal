@@ -17,15 +17,15 @@ export class AdminComponent implements OnInit {
       }
     }
   
-     toPlantillas() {
-       this.router.navigate(['/admin-plantilles']);
-     }
+      toEquipos() {
+        this.router.navigate(['/admin/admin-equips']);
+      }
 
      toCronicas() {
-        this.router.navigate(['/admin-croniques']);
+        this.router.navigate(['/admin/admin-croniques']);
      }
 
      toStats() {
-        this.router.navigate(['/admin-stats']);
+        this.router.navigate(['/admin/admin-stats']);
      }
 }

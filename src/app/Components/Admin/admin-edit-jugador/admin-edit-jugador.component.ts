@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Jugador} from "../../../Models/jugador";
-import {ActivatedRoute, Router} from "@angular/router";
-import {AdminService} from "../../../Services/admin.service";
+import { ActivatedRoute } from '@angular/router';
+import { JugadorService } from '../../../Services/jugador.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-edit-jugador',
@@ -12,18 +12,16 @@ export class AdminEditJugadorComponent implements OnInit {
 
   jugador: any;
   imagen: FormData;
-  status: string;
-  image_status: string;
-  datos_status: string;
 
-  constructor(private adminService: AdminService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private jugadorService: JugadorService,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.getJugador(this.route.snapshot.params['id']);
   }
 
   getJugador(id) {
-    this.adminService.getJugador(id).then((res) => {
+    this.jugadorService.getJugador(id).then((res) => {
       this.jugador = res;
     }, (err) => {
       console.log(err);
@@ -31,33 +29,45 @@ export class AdminEditJugadorComponent implements OnInit {
   }
 
   updateDatosJugador(id) {
-    this.adminService.updateJugador(id, this.jugador).then((res) => {
-      this.datos_status = 'success';
-      setTimeout(() => {this.datos_status = ''; }, 1000);
+    this.jugadorService.updateJugador(id, this.jugador).then((res) => {
+      Swal.fire({
+        type: 'success',
+        title: 'Actualitzat',
+        text: 'El jugador s\'ha actualitzat correctament'
+      })  
     }, (err) => {
       console.log(err);
-      this.datos_status = 'error';
-      setTimeout(() => {this.datos_status = ''; }, 1000);
+      Swal.fire({
+        type: 'error',
+        title: 'Error',
+        text: 'S\'ha produït un error en actualitzar al jugador'
+      })  
     });
   }
 
   uploadImage(id) {
-    this.adminService.uploadImage(id, this.imagen).then((res) => {
-      this.image_status = 'success';
-      setTimeout(() => {this.image_status = ''; }, 1000);
+    this.jugadorService.uploadImage(id, this.imagen).then((res) => {
+      Swal.fire({
+        type: 'success',
+        title: 'Actualitzat',
+        text: 'La imatge s\'ha actualitzat correctament'
+      })
       setTimeout(() => {this.getJugador(id); }, 500);
     }, (err) => {
       console.log(err);
-      this.image_status = 'error';
-      setTimeout(() => {this.image_status = ''; }, 1000);
+      Swal.fire({
+        type: 'error',
+        title: 'Error',
+        text: 'S\'ha produït un error en afegit la imatge'
+      })  
     });
   }
 
   fileChange(event) {
-    let fileList: FileList = event.target.files;
+    const fileList: FileList = event.target.files;
     if (fileList.length > 0) {
-      let file: File = fileList[0];
-      let formData: FormData = new FormData();
+      const file: File = fileList[0];
+      const formData: FormData = new FormData();
       formData.append('image', file, file.name);
       this.imagen = formData;
     }else {

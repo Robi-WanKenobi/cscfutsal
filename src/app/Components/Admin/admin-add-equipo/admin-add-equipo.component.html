@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2 custom-card">
+      <form (submit)="submitEquipo()" #equipoForm="ngForm">
+        <div class="form-group">
+          <label for="n">Nom</label>
+          <input type="text" class="form-control" [(ngModel)]="equipo.nombre" name="nom" id="n" required>
+        </div>
+        <div class="form-group">
+          <label for="ntsearch">Nom de recerca</label>
+          <input type="text" class="form-control" [(ngModel)]="equipo.nombreToSearch" name="ntsearch" id="nts" required>
+        </div>
+        <div class="form-group">
+          <label for="order">Orden</label>
+          <input type="number" class="form-control" [(ngModel)]="equipo.orden" name="order" id="order" required>
+        </div>
+        <div class="form-group">
+          <label for="r">URL de resultats</label>
+          <input type="text" class="form-control" [(ngModel)]="equipo.resultadosUrl" name="resultadosUrl" id="r" required>
+        </div>
+        <div class="form-group">
+          <label for="cla">URL de clasificació</label>
+          <input type="text" class="form-control" [(ngModel)]="equipo.clasificacionUrl" name="clasificacionUrl" id="cla" required>
+        </div>
+        <div class="form-group">
+          <label for="cal">URL de calendari</label>
+          <input type="text" class="form-control" [(ngModel)]="equipo.calendarioUrl" name="calendarioUrl" id="cal" required>
+        </div>
+        <br>
+        <div class="form-group text-center">
+          <button *ngIf="!isUpdate" type="submit" class="btn btn-success" [disabled]="!equipoForm.valid">Afegir</button>
+          <button *ngIf="isUpdate" type="submit" class="btn btn-success" [disabled]="!equipoForm.valid">Actualitzar</button>
+          <button [routerLink]="['/admin/admin-equips']" class="btn btn-warning" >Cancel·lar</button>
+        </div>
+      </form>
+      <button *ngIf="isUpdate" (click)="deleteEquipo(equipo._id)" class="btn btn-danger">El·liminar equip</button>
+    </div>
+  </div>
+  
+  

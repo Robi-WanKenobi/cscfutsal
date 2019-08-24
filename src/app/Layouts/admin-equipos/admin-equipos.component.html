@@ -1,0 +1,41 @@
+<div class="col-md-12 container-equipo new-team">
+  <button [routerLink]="['/admin/add-equipo']" type="button" class="btn btn-primary">Crear nuevo equipo</button>
+</div>
+<div class="col-md-6 container-equipo" *ngFor="let equipo of equipos">
+  <div class="equipo"
+  dndDropzone
+  (dndDrop)="onDrop(equipo._id)"
+  >
+    <h4 class="text-left">{{equipo.nombre}}
+      <span [routerLink]="['/admin/edit-equipo', equipo._id]" class="glyphicon glyphicon-cog"></span>
+      <span (click)="addJugador(equipo._id)" class="glyphicon glyphicon-plus"></span>
+    </h4>
+    <div *ngFor="let jugador of equipo.jugadores" class="player"
+    [dndDraggable]="draggable.data"
+    [dndEffectAllowed]="draggable.effectAllowed"
+    [dndDisableIf]="draggable.disable"
+    (dndStart)="onDragStart({'equipo':equipo._id, 'jugador':jugador._id})"
+    >
+    <table class="table">
+      <tbody>
+        <tr>
+          <td class="photo">
+            <img class="img-responsive" src="/plantillas/{{jugador.imagen}}"
+            style="max-width: 20px; max-height: 30px;display: block;"/>
+          </td>
+          <td class="name">{{jugador.nombre}} {{jugador.apellido}}</td>
+          <td class="position">{{jugador.posicion}}</td>
+          <td class="icons">
+            <span [routerLink]="['/admin/edit-jugador', jugador._id]" class="glyphicon glyphicon-pencil"></span>
+          </td>
+          <td class="icons">
+            <span (click)="deleteJugador(jugador._id, equipo._id)" class="glyphicon glyphicon-remove"></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+<app-footer-sortida></app-footer-sortida>

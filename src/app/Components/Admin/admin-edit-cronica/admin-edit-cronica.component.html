@@ -1,28 +1,32 @@
+<div class="col-md-12 container-cronica edit-cronica">
+  <button [routerLink]="['/admin/admin-croniques']" type="button" class="btn btn-info">A gestió de cròniques</button>
+</div>
 <div class="col-md-3">
-  <h4 class="text-center">Jugadors</h4>
-  <div class="well">
-    <div class="form-group">
-      <label>Minuto:</label>
-      <input type="number" class="form-control" [(ngModel)]="minuto" name="min" required>
+  <div class="custom-card">
+    <h4 class="text-center">Jugadors</h4>
+    <div class="inner-card">
+      <div class="form-group">
+        <label>Minuto:</label>
+        <input type="number" class="form-control" [(ngModel)]="minuto" name="min" required>
+      </div>
+      <table class="table">
+        <tbody>
+        <tr *ngFor="let j of jugadores">
+          <td style="vertical-align: middle !important;"><strong>{{j.apodo}}</strong></td>
+          <td><a (click)="toGoleadores(j._id)"><i style="color: #333 !important;" class="fa fa-futbol-o"></i></a></td>
+          <td><a (click)="toAsistentes(j._id)"><i style="color: #333 !important;" class="fa fa-arrow-circle-right"></i></a></td>
+          <td><a (click)="toAmarillas(j._id)"><i style="color: yellow !important;" class="fa fa-square"></i></a></td>
+          <td><a (click)="toRojas(j._id)"><i style="color: red !important;" class="fa fa-square"></i></a></td>
+        </tr>
+        </tbody>
+      </table>
     </div>
-    <table class="table">
-      <tbody>
-      <tr *ngFor="let j of jugadores">
-        <td style="vertical-align: middle !important;"><strong>{{j.apodo}}</strong></td>
-        <td><a (click)="toGoleadores(j._id)"><i style="color: #333 !important;" class="fa fa-futbol-o"></i></a></td>
-        <td><a (click)="toAsistentes(j._id)"><i style="color: #333 !important;" class="fa fa-arrow-circle-right"></i></a></td>
-        <td><a (click)="toAmarillas(j._id)"><i style="color: yellow !important;" class="fa fa-square"></i></a></td>
-        <td><a (click)="toRojas(j._id)"><i style="color: red !important;" class="fa fa-square"></i></a></td>
-      </tr>
-      </tbody>
-    </table>
-    <a style="display: block" class="btn btn-warning" [routerLink]="['/admin-croniques']">Enrere</a>
   </div>
 </div>
 
-<div class="col-md-8">
+<div class="col-md-9 marcador">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 custom-card">
       <table class="table">
         <thead>
         <tr>
@@ -45,81 +49,69 @@
       </table>
     </div>
   </div>
-<div class="col-md-3">
-  <h4 class="text-center">Golejadors</h4>
-  <div class="well">
-    <table class="table">
-      <tbody>
-      <tr *ngFor="let j of goleadores">
-        <td style="vertical-align: middle !important;">{{j.jugador.apodo}}</td>
-        <td>min {{j.minuto}}</td>
-        <td><a (click)="delFromGoleadores(j._id)"><i style="color: #333 !important;" class="fa fa-times"></i></a></td>
-        <!--<td><a (click)="toAmar(j._id)"><i style="color: yellow !important;" class="fa fa-square"></i></a></td>-->
-        <!--<td><a (click)="toRojas(j._id)"><i style="color: red !important;" class="fa fa-square"></i></a></td>-->
-      </tr>
-      </tbody>
-    </table>
+  <div class="col-md-3">
+    <div class="custom-card">
+      <h4 class="text-center">Golejadors</h4>
+      <table class="table">
+        <tbody>
+        <tr *ngFor="let j of goleadores">
+          <td style="vertical-align: middle !important;">{{j.jugador.apodo}}</td>
+          <td>min {{j.minuto}}</td>
+          <td><a (click)="delFromGoleadores(j._id)"><i style="color: #333 !important;" class="fa fa-times"></i></a></td>
+          <!--<td><a (click)="toAmar(j._id)"><i style="color: yellow !important;" class="fa fa-square"></i></a></td>-->
+          <!--<td><a (click)="toRojas(j._id)"><i style="color: red !important;" class="fa fa-square"></i></a></td>-->
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
-
-<div class="col-md-3">
-  <h4 class="text-center">Asistents</h4>
-  <div class="well">
-    <table class="table">
-      <tbody>
-      <tr *ngFor="let j of asistentes">
-        <td style="vertical-align: middle !important;">{{j.jugador.apodo}}</td>
-        <td>min {{j.minuto}}</td>
-        <td><a (click)="delFromAsistentes(j._id)"><i style="color: #333 !important;" class="fa fa-times"></i></a></td>
-        <!--<td><a (click)="toAsis(j._id)"><i style="color: #333 !important;" class="fa fa-arrow-circle-right"></i></a></td>-->
-        <!--<td><a (click)="toAmar(j._id)"><i style="color: yellow !important;" class="fa fa-square"></i></a></td>-->
-        <!--<td><a (click)="toRojas(j._id)"><i style="color: red !important;" class="fa fa-square"></i></a></td>-->
-      </tr>
-      </tbody>
-    </table>
+  <div class="col-md-3">
+    <div class="custom-card">
+      <h4 class="text-center">Asistents</h4>
+      <table class="table">
+        <tbody>
+        <tr *ngFor="let j of asistentes">
+          <td style="vertical-align: middle !important;">{{j.jugador.apodo}}</td>
+          <td>min {{j.minuto}}</td>
+          <td><a (click)="delFromAsistentes(j._id)"><i style="color: #333 !important;" class="fa fa-times"></i></a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
-<div class="col-md-3">
-  <h4 class="text-center">Grogues</h4>
-  <div class="well">
-    <table class="table">
-      <tbody>
-      <tr *ngFor="let j of amarillas">
-        <td style="vertical-align: middle !important;">{{j.jugador.apodo}}</td>
-        <td>min {{j.minuto}}</td>
-        <td><a (click)="delFromAmarillas(j._id)"><i style="color: #333 !important;" class="fa fa-times"></i></a></td>
-        <!--<td><a (click)="toAsis(j._id)"><i style="color: #333 !important;" class="fa fa-arrow-circle-right"></i></a></td>-->
-        <!--<td><a (click)="toAmar(j._id)"><i style="color: yellow !important;" class="fa fa-square"></i></a></td>-->
-        <!--<td><a (click)="toRojas(j._id)"><i style="color: red !important;" class="fa fa-square"></i></a></td>-->
-      </tr>
-      </tbody>
-    </table>
+  <div class="col-md-3">
+    <div class="custom-card">
+      <h4 class="text-center">Grogues</h4>
+      <table class="table">
+        <tbody>
+        <tr *ngFor="let j of amarillas">
+          <td style="vertical-align: middle !important;">{{j.jugador.apodo}}</td>
+          <td>min {{j.minuto}}</td>
+          <td><a (click)="delFromAmarillas(j._id)"><i style="color: #333 !important;" class="fa fa-times"></i></a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
-
-<div class="col-md-3">
-  <h4 class="text-center">Vermelles</h4>
-  <div class="well">
-    <table class="table">
-      <tbody>
-      <tr *ngFor="let j of rojas">
-        <td style="vertical-align: middle !important;">{{j.jugador.apodo}}</td>
-        <td>min {{j.minuto}}</td>
-        <td><a (click)="delFromRojas(j._id)"><i style="color: #333 !important;" class="fa fa-times"></i></a></td>
-        <!--<td><a (click)="toAsis(j._id)"><i style="color: #333 !important;" class="fa fa-arrow-circle-right"></i></a></td>-->
-        <!--<td><a (click)="toAmar(j._id)"><i style="color: yellow !important;" class="fa fa-square"></i></a></td>-->
-        <!--<td><a (click)="toRojas(j._id)"><i style="color: red !important;" class="fa fa-square"></i></a></td>-->
-      </tr>
-      </tbody>
-    </table>
+  <div class="col-md-3">
+    <div class="custom-card">
+      <h4 class="text-center">Vermelles</h4>
+      <table class="table">
+        <tbody>
+        <tr *ngFor="let j of rojas">
+          <td style="vertical-align: middle !important;">{{j.jugador.apodo}}</td>
+          <td>min {{j.minuto}}</td>
+          <td><a (click)="delFromRojas(j._id)"><i style="color: #333 !important;" class="fa fa-times"></i></a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
-
   <div class="row">
-    <div class="col-md-12">
-      <h4 class="text-center">Crònica</h4>
-      <div class="well">
-        <form (submit)="submitCronica()" #cronicaForm="ngForm">
+    <div class="col-md-12 marcador">
+      <div class="custom-card">
+        <h4 class="text-center">Crònica</h4>
+        <form class="cronica-text" (submit)="submitCronica()" #cronicaForm="ngForm">
           <div class="form-group">
             <textarea type="text" [(ngModel)]="texto" class="form-control" rows="16" name="texto" required></textarea>
           </div>
@@ -130,7 +122,5 @@
       </div>
     </div>
   </div>
-
 </div>
-
 <app-footer-sortida></app-footer-sortida>

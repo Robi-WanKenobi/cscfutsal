@@ -1,47 +1,24 @@
-<ul class="nav nav-tabs nav-justified">
-  <li class="active"><a data-toggle="pill" href="#plantilla">Plantilla</a></li>
-  <li><a data-toggle="pill" href="#class">Classificació i resultats</a></li>
-  <li><a data-toggle="pill" href="#stats">Estadístiques</a></li>
-  <li><a data-toggle="pill" href="#cal">Calendari</a></li>
-</ul>
+<div class="section-equipo less-margin-right">
+  <ul class="nav nav-tabs nav-justified section-equipo">
+    <li class="active"><a data-toggle="pill" href="#plantilla">Plantilla</a></li>
+    <li><a data-toggle="pill" href="#class">Classificació i resultats</a></li>
+    <li><a data-toggle="pill" href="#stats">Estadístiques</a></li>
+    <li><a data-toggle="pill" href="#cal">Calendari</a></li>
+  </ul>
 
-<div class="tab-content" style="padding-top: 10px;">
-  <div id="plantilla" class="tab-pane fade in active">
-    <app-plantilla></app-plantilla>
-  </div>
-  <div id="class" class="tab-pane fade">
-    <app-resultados></app-resultados>
-  </div>
-  <div id="stats" class="tab-pane fade">
-    <div class="col-md-3">
-      <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a data-toggle="pill" href="#golejadors">Golejadors</a></li>
-        <li><a data-toggle="pill" href="#asistents">Assistents</a></li>
-        <li><a data-toggle="pill" href="#amonestats">Amonestats</a></li>
-        <li><a data-toggle="pill" href="#mingolejat">Mínim golejat</a></li>
-      </ul>
+  <div class="tab-content" style="padding-top: 10px;">
+    <div id="plantilla" class="tab-pane fade in active">
+      <app-plantilla [equipo] = "equipo"></app-plantilla>
     </div>
-
-    <div class="col-md-9">
-    <div class="tab-content">
-      <div id="golejadors" class="tab-pane fade in active">
-        <app-max-gols-equip></app-max-gols-equip>
-      </div>
-      <div id="asistents" class="tab-pane fade">
-        <app-max-asis-equip></app-max-asis-equip>
-      </div>
-      <div id="amonestats" class="tab-pane fade">
-        <app-max-amon-equip></app-max-amon-equip>
-      </div>
-      <div id="mingolejat" class="tab-pane fade">
-        <app-min-gol-equip></app-min-gol-equip>
-      </div>
+    <div id="class" class="tab-pane fade">
+      <app-resultados [equipo] = "equipo"></app-resultados>
     </div>
+    <div id="stats" class="tab-pane fade">
+      <app-stats-equipo [equipo] = "equipo"></app-stats-equipo>
     </div>
-  </div>
-  <div id="cal" class="tab-pane fade">
-    <app-calendario></app-calendario>
+    <div id="cal" class="tab-pane fade">
+      <app-calendario [equipo] = "equipo"></app-calendario>
+    </div>
   </div>
 </div>
-
 <app-footer-acceso></app-footer-acceso>

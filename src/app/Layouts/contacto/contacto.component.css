@@ -1,9 +1,12 @@
-h4{
-  background-color: #333;
-  color: #ebebeb;
-  border-radius: 3px;
-  border-color: #101010;
-  padding: 10px;
+.custom-card{
+  padding: 0px;
+}
+.custom-card h4 {
+  margin-top: 0px;
+}
+.col-md-7 .custom-card h4 {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 #twitter_c{
   font-size: 50px !important;
@@ -20,6 +23,7 @@ h4{
   background: -moz-linear-gradient(-135deg, #8a3ab9, #cd486b, #fbad50, #fccc63); /* For Firefox 3.6 to 15 */
   background: linear-gradient(-135deg, #8a3ab9, #cd486b, #fbad50, #fccc63); /* Standard syntax */
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 
 }

@@ -1,11 +1,40 @@
-h4{
-  background-color: #333;
-  color: #fcfcfc;
-  border-radius: 3px;
-  border-color: #101010;
-  padding: 5px;
-  margin: 0px;
-}
 td a:hover{
   cursor: pointer;
+}
+.container-cronica.edit-cronica {
+  margin-top: 10px;
+}
+.container-cronica.edit-cronica .btn{
+  border-radius: 0px;
+}
+.custom-card {
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.custom-card .inner-card{
+  padding-top: 0px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.custom-card .inner-card .form-group{
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+.custom-card .inner-card input{
+  border-radius: 0px;
+}
+.custom-card h4{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.marcador { 
+  padding-left: 30px;
+  padding-right: 30px;
+}
+table {
+  margin-bottom: 0px;
+}
+.cronica-text .form-group textarea {
+  border-radius: 0px;
 }

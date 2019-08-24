@@ -1,0 +1,42 @@
+<div class="custom-card">
+  <h4 class="text-center ranking">
+      ELS MILLORS
+  </h4>
+  <div class="form-group">
+    <select class="form-control" (change)="switchStat()" [(ngModel)]="selectedRanking" name="stats" required>
+      <option [value]="0">Golejadors</option>
+      <option [value]="1">Assitents</option>
+      <option [value]="2">Amonestats</option>
+      <option [value]="3">Porters</option>
+    </select>
+  </div>
+  <table class="table" id="resultados">
+    <tbody>
+    <tr *ngFor="let j of jugadores, let index = index">
+      <td class="position"><i class="c{{index}} fa fa-trophy fa-2x"></i></td>
+      <td class="name"><strong>{{j.apodo}}</strong></td>
+      <td class="icon" *ngIf="this.selectedRanking == 0">
+        {{j.estadisticas.goles}}
+        <i style="color: #333 !important;" class="fa fa-futbol-o"></i>
+      </td>
+      <td class="icon" *ngIf="this.selectedRanking == 1">
+        {{j.estadisticas.asistencias}}
+        <i style="color: #333 !important;" class="fa fa-arrow-circle-right"></i>
+      </td>
+      <td class="icon" *ngIf="this.selectedRanking == 2">
+        {{j.estadisticas.amarillas}}
+        <i style="color: yellow !important;" class="fa fa-square"></i>
+          
+        {{j.estadisticas.rojas}}
+        <i style="color: red !important;" class="fa fa-square"></i>
+      </td>
+      <td class="icon" *ngIf="this.selectedRanking == 3">
+        {{j.estadisticas.goles_encajados}}
+        <i style="color: red !important;" class="fa fa-futbol-o"></i>
+        {{j.estadisticas.goles_encajados_pp | number : '1.1-1'}}
+        <i style="color: red !important;" class="fa fa-futbol-o"></i>/p
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

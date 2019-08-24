@@ -2,6 +2,13 @@
   position: fixed;
   bottom: 0%;
 }
+.panel-default {
+  margin-top: 20px;
+  border-radius: 0px;
+}
+.panel-default>.panel-heading {
+  background-image: none;
+}
 .footer{
   display: none !important;
 }

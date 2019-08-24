@@ -1,10 +1,10 @@
-<div class="row">
+<div class="row calendario">
   <div class="col-md-5 col-md-offset-1" *ngIf="!infantil">
   <h4 id  class="text-center">
     Primera volta
-  </h4><br>
-  <div class="well" *ngFor="let jornada of calendario_1">
-    <table class="table table-striped">
+  </h4>
+  <div class="custom-card" *ngFor="let jornada of calendario_1">
+    <table class="table">
       <thead style="font-weight: bold;">
       <td class="jornada"><h5><strong>{{jornada.numero}}</strong></h5></td>
       <td></td>
@@ -23,9 +23,9 @@
   <div class="col-md-5" *ngIf="!infantil">
   <h4 class="text-center">
     Segona volta
-  </h4><br>
-    <div class="well" *ngFor="let jornada of calendario_2">
-      <table class="table table-striped">
+  </h4>
+    <div class="custom-card" *ngFor="let jornada of calendario_2">
+      <table class="table">
         <thead style="font-weight: bold;">
         <td class="jornada"><h5><strong>{{jornada.numero}}</strong></h5></td>
         <td></td>

@@ -1,43 +1,10 @@
-h4{
-  background-color: #333;
-  color: #fcfcfc;
-  border-radius: 3px;
-  border-color: #101010;
-  padding: 10px;
-  margin: 0px;
+.jugador-image {
+  max-width: 50% !important;
+  max-height: 50% !important;
 }
-h5#up{
-  background-color: #333;
-  color: #fcfcfc;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  border-color: #101010;
-  padding: 10px;
-  margin: 0px;
-  font-size: 17px !important;
+.container-equipo.new-team{
+  margin-top: 10px;
 }
-
-h5#down{
-  background-color: #333;
-  color: #fcfcfc;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  border-color: #101010;
-  padding: 10px;
-  margin: 0px;
-  font-size: 17px !important;
-}
-.dorsal{
-  background-color: transparent;
-  color: #fcfcfc;
-  border-radius: 3px;
-}
-
-.p {
-  padding: 5px !important;
-  background-image: linear-gradient(to bottom, #95959b, #d3ccde 100%) !important;
-}
-
-.dades {
-  margin-top: 15px;
+.container-equipo.new-team .btn{
+  border-radius: 0px;
 }

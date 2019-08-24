@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {AdminService} from "../../../Services/admin.service";
-import {ActivatedRoute, Router} from "@angular/router";
-
-declare var swal: any;
+import {ActivatedRoute, Router, Params} from "@angular/router";
+import {CronicaService} from '../../../Services/cronica.service';
+import { EquipoService } from '../../../Services/equipo.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-edit-cronica',
@@ -22,68 +22,67 @@ export class AdminEditCronicaComponent implements OnInit {
   local:string;
   visitante:string;
   resultado:string;
-
   minuto: number;
 
   id: any;
 
-  constructor(private adminService: AdminService,
+  constructor(private cronicaService: CronicaService,
+              private equipoService: EquipoService,
               private router: Router,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.queryParams.forEach((params: Params) => {
+      this.equipo = params['equipo'];
+    });
     this.getCronica(this.route.snapshot.params['id']);
     this.id = this.route.snapshot.params['id'];
   }
 
+  getJugadores(){
+    this.equipoService.getJugadores(this.equipo).then((res) => {
+      this.jugadores = res['jugadores'];
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
   getCronica(id) {
-    this.adminService.getCronica(id).then((res) => {
-      console.log(res);
-     this.equipo = res['equipo'];
-     this.jornada = res['jornada'];
-     this.goleadores = res['goleadores'];
-     console.log(this.goleadores);
-     this.asistentes = res['asistentes'];
-     this.amarillas = res['amarillas'];
-     this.rojas = res['rojas'];
-     this.getJugadores(this.equipo);
+    this.cronicaService.getCronica(id).then((res) => {
+      this.jornada = res['jornada'];
+      this.goleadores = res['goleadores'];
+      this.asistentes = res['asistentes'];
+      this.amarillas = res['amarillas'];
+      this.rojas = res['rojas'];
+      this.getJugadores();
 
-     this.local = res['local'];
-     this.resultado = res['resultado'];
-     this.visitante = res['visitante'];
-     this.texto = res['texto'];
-
+      this.local = res['local'];
+      this.resultado = res['resultado'];
+      this.visitante = res['visitante'];
+      this.texto = res['texto'];
     }, (err) => {
       console.log(err);
     });
   }
 
   submitCronica() {
-    this.adminService.updateCronica(this.id, {'texto': this.texto, 'resultado': this.resultado}).then((res) => {
-      swal(
-        'Actualitzada',
-        'La crònica s\'ha actualitzat correctament',
-        'success'
-      );
+    this.cronicaService.updateCronica(this.id, {'texto': this.texto, 'resultado': this.resultado}).then((res) => {
+      Swal.fire({
+        type: 'success',
+        title: 'Actualitzada',
+        text: 'La crònica s\'ha actualitzat correctament'
+      })
     }, (err) => {
-      swal(
-        'Error',
-        'S\'ha produït un error en actualitzar la crònica',
-        'error'
-      );
-    });
-  }
-
-  getJugadores(equipo) {
-    this.adminService.getJugadores(equipo).then((res) => {
-      this.jugadores = res;
-    }, (err) => {
-      console.log(err);
+      Swal.fire({
+        type: 'error',
+        title: 'Error',
+        text: 'S\'ha produït un error en actualitzar la crònica'
+      })
     });
   }
 
   toGoleadores(id) {
-    this.adminService.addToGols(this.id,{ 'jugador': id, 'minuto':this.minuto }).then((res) => {
+    this.cronicaService.addToGols(this.id,{ 'jugador': id, 'minuto':this.minuto }).then((res) => {
       this.getCronica(this.id);
     }, (err) => {
       console.log(err);
@@ -91,7 +90,7 @@ export class AdminEditCronicaComponent implements OnInit {
   }
 
   delFromGoleadores(id) {
-    this.adminService.delFromGols(this.id, id).then((res) => {
+    this.cronicaService.delFromGols(this.id, id).then((res) => {
       this.getCronica(this.id);
     }, (err) => {
       console.log(err);
@@ -99,7 +98,7 @@ export class AdminEditCronicaComponent implements OnInit {
   }
 
   toAsistentes(id) {
-    this.adminService.addToAsis(this.id, { 'jugador': id, 'minuto':this.minuto }).then((res) => {
+    this.cronicaService.addToAsis(this.id, { 'jugador': id, 'minuto':this.minuto }).then((res) => {
       this.getCronica(this.id);
     }, (err) => {
       console.log(err);
@@ -107,7 +106,7 @@ export class AdminEditCronicaComponent implements OnInit {
   }
 
   delFromAsistentes(id) {
-    this.adminService.delFromAsis(this.id, id).then((res) => {
+    this.cronicaService.delFromAsis(this.id, id).then((res) => {
       this.getCronica(this.id);
     }, (err) => {
       console.log(err);
@@ -115,7 +114,7 @@ export class AdminEditCronicaComponent implements OnInit {
   }
 
   toAmarillas(id) {
-    this.adminService.addToAmarillas(this.id, { 'jugador': id, 'minuto':this.minuto }).then((res) => {
+    this.cronicaService.addToAmarillas(this.id, { 'jugador': id, 'minuto':this.minuto }).then((res) => {
       this.getCronica(this.id);
     }, (err) => {
       console.log(err);
@@ -123,7 +122,7 @@ export class AdminEditCronicaComponent implements OnInit {
   }
 
   delFromAmarillas(id) {
-    this.adminService.delFromAmarillas(this.id, id).then((res) => {
+    this.cronicaService.delFromAmarillas(this.id, id).then((res) => {
       this.getCronica(this.id);
     }, (err) => {
       console.log(err);
@@ -131,7 +130,7 @@ export class AdminEditCronicaComponent implements OnInit {
   }
 
   toRojas(id) {
-    this.adminService.addToRojas(this.id, { 'jugador': id, 'minuto':this.minuto }).then((res) => {
+    this.cronicaService.addToRojas(this.id, { 'jugador': id, 'minuto':this.minuto }).then((res) => {
       this.getCronica(this.id);
     }, (err) => {
       console.log(err);
@@ -139,7 +138,7 @@ export class AdminEditCronicaComponent implements OnInit {
   }
 
   delFromRojas(id) {
-    this.adminService.delFromRojas(this.id, id).then((res) => {
+    this.cronicaService.delFromRojas(this.id, id).then((res) => {
       this.getCronica(this.id);
     }, (err) => {
       console.log(err);

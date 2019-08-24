@@ -1,16 +1,33 @@
-h4{
-  background-color: #333;
-  color: #fcfcfc;
-  border-radius: 3px;
-  border-color: #101010;
-  padding: 10px;
-}
 .custom_loader {
   position: fixed;
   bottom: 0%;
   width: 100%;
 }
-
+.custom-card {
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.custom-card h4 {
+  margin-top: 0px;
+}
+.custom-card table {
+  margin-bottom: 0px;
+}
+.custom-card table thead th {
+  padding: 8px;
+}
+.custom-card .table>tbody>tr>td {
+  padding: 5px;
+  vertical-align: middle;
+}
+.custom-card .table>tbody>tr>td input {
+  width: 50%;
+  height: 50%;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
 th,td{
   width: 14% !important;
 }
