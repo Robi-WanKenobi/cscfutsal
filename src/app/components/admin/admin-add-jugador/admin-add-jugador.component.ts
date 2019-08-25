@@ -3,7 +3,6 @@ import { Params, ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { JugadorService } from '../../../services/jugador.service';
 import { EquipoService } from '../../../services/equipo.service';
-import { Jugador } from '../../../models/models';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -13,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class AdminAddJugadorComponent implements OnInit {
 
-  jugador: Jugador;
+  jugador = {};
   equipo = "";
 
   constructor(private equipoService: EquipoService,
