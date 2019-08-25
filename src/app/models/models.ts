@@ -23,10 +23,7 @@ export class Jugador {
     imagen: string;
     estadisticas: Estadisticas;
     tipo: string;
-
-    constructor() {
-    }
-
+    
     constructor(nombre, apellido, apodo, dorsal, posicion, tipo) {
         this.nombre = nombre;
         this.apellido = apellido;
