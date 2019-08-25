@@ -1,27 +1,25 @@
 # Cscfutsal
 
+## Introduction
+
+This is the CSC futsal club webpage. The main goal of this project is to build a website capable of store and manage information about the club teams and players. Moreover, it's able to gather information from [FCF](http://fcf.cat/) for showing relevant data about results, classifications and calendars.
+
+This project was made with MEAN stack (aka MongoDB, Express, Agular and Node).
+
+## Features
+
+* Responsive design
+* Filtering and ordering in team stats
+* Docker deployment
+* Administration panel
+    * Teams management
+        * Drag and dropping for switching players between teams
+    * Players management
+        * Images management
+    * Stats management
+    * Chronicles management
+
+## Footer
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.7.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
