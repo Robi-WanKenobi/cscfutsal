@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var fs = require('fs');
 var Jugador = require('../models/jugador');
 var Equipo = require('../models/equipo');
 var md_auth = require('../../middlewares/authenticated');
