@@ -4,6 +4,9 @@
     box-shadow: 5px 5px 2px 2px rgba(222,222,222,1);
     border: 0.5px solid #dedede;
 }
+.inicio_partidos .season-alert{ 
+    padding: 15px;
+}
 .nav-tabs li.active a{
     border-bottom: none !important;
   }

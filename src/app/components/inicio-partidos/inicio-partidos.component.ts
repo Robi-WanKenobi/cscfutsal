@@ -22,12 +22,14 @@ export class InicioPartidosComponent implements OnInit {
   constructor(private equipoService: EquipoService) { }
 
   ngOnInit() {
-    this.loading = true;
   }
 
   ngOnChanges(){
     if (this.jornada) {
-      this.getEquipos();
+      if (this.jornada !== 0) {
+        this.loading = true;
+        this.getEquipos();
+      }
     }
   }
 
