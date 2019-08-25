@@ -13,6 +13,6 @@ RUN npm install -g @angular/cli@1.4.7
 
 # Bundle app source
 COPY . /CSCFUTSAL
-RUN ng build --prod
+RUN ng build
 
 EXPOSE 80
