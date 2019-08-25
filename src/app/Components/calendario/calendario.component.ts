@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, OnChanges} from '@angular/core';
-import {EquipoService} from '../../Services/equipo.service';
+import {EquipoService} from '../../services/equipo.service';
 import {Params, ActivatedRoute} from '@angular/router';
 
 @Component({

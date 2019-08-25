@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { JugadorService } from '../../Services/jugador.service';
+import { JugadorService } from '../../services/jugador.service';
 
 @Component({
   selector: 'app-stats-club',

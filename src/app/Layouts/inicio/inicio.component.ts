@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EquipoService } from '../../Services/equipo.service';
+import { EquipoService } from '../../services/equipo.service';
 
 @Component({
   selector: 'app-inicio',

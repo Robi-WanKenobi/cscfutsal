@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { EquipoService } from '../../Services/equipo.service';
+import { EquipoService } from '../../services/equipo.service';
+import { Partido } from '../../models/models';
 
 @Component({
   selector: 'app-inicio-partidos',
@@ -16,7 +17,7 @@ export class InicioPartidosComponent implements OnInit {
   selectedEquipo;
   equipos: {};
   loading: boolean;
-  partido : {}
+  partido: Partido;
 
   constructor(private equipoService: EquipoService) { }
 
@@ -47,7 +48,13 @@ export class InicioPartidosComponent implements OnInit {
   
   getPartidoJornada(equipoId, jornada) {
     this.equipoService.getPartido(equipoId, jornada).then((res) => {
-      this.partido = res;
+      this.partido = new Partido(
+        res['local'],
+        res['fecha'],
+        res['resultado'],
+        res['lugar'],
+        res['visitante'],
+      );
       this.loading = false;
     }, (err) => {
       console.log(err);

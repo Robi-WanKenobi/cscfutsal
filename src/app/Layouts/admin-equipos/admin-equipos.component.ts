@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { JugadorService } from '../../Services/jugador.service';
+import { JugadorService } from '../../services/jugador.service';
 import { Router } from '@angular/router';
-import { EquipoService } from '../../Services/equipo.service';
+import { EquipoService } from '../../services/equipo.service';
 import { DndDropEvent } from 'ngx-drag-drop';
 import Swal from 'sweetalert2';
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { JugadorService } from '../../../Services/jugador.service';
+import { JugadorService } from '../../../services/jugador.service';
 import Swal from 'sweetalert2';
 
 @Component({

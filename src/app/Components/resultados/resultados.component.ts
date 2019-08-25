@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { EquipoService} from "../../Services/equipo.service";
+import { EquipoService} from "../../services/equipo.service";
 import { Params, ActivatedRoute } from '@angular/router';
-import {CronicaService} from '../../Services/cronica.service';
+import {CronicaService} from '../../services/cronica.service';
 
 @Component({
   selector: 'app-resultados',

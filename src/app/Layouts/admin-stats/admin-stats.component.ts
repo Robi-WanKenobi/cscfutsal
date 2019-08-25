@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminService} from '../../Services/admin.service';
-import {EquipoService} from '../../Services/equipo.service';
+import { AdminService} from '../../services/admin.service';
+import {EquipoService} from '../../services/equipo.service';
 import {Router} from '@angular/router';
-import {JugadorService} from '../../Services/jugador.service';
+import {JugadorService} from '../../services/jugador.service';
 import Swal from 'sweetalert2';
 
 @Component({

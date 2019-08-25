@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router, Params} from "@angular/router";
-import {CronicaService} from '../../../Services/cronica.service';
-import { EquipoService } from '../../../Services/equipo.service';
+import {CronicaService} from '../../../services/cronica.service';
+import { EquipoService } from '../../../services/equipo.service';
 import Swal from 'sweetalert2';
 
 @Component({

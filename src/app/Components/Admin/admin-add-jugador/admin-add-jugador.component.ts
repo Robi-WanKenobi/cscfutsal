@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Params, ActivatedRoute } from '@angular/router';
-import {AdminService} from '../../../Services/admin.service';
-import {Router} from '@angular/router';
-import {JugadorService} from '../../../Services/jugador.service';
-import { EquipoService } from '../../../Services/equipo.service';
+import { Router } from '@angular/router';
+import { JugadorService } from '../../../services/jugador.service';
+import { EquipoService } from '../../../services/equipo.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -13,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class AdminAddJugadorComponent implements OnInit {
 
-  jugador = {};
+  jugador: Jugador;
   equipo = "";
 
   constructor(private equipoService: EquipoService,

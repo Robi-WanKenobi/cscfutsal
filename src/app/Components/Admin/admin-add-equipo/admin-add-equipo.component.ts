@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { ActivatedRoute, Router } from '@angular/router';
-import { JugadorService } from '../../../Services/jugador.service';
-import { EquipoService } from '../../../Services/equipo.service';
+import { EquipoService } from '../../../services/equipo.service';
 
 @Component({
   selector: 'app-admin-add-equipo',
