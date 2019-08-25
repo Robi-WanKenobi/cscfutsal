@@ -30,7 +30,15 @@ span:hover{
 .row{
   margin-top: 10px !important;
 }
-
+.seccion-resultados {
+  padding-left: 15%;
+  padding-right: 15%;
+  background-color: #f5f5f5;
+  padding-bottom: 40px;
+  border-left: 0.5px solid #dedede !important;
+  border-right: 0.5px solid #dedede !important;
+  border-bottom: 0.5px solid #dedede !important;
+}
 @media screen and (min-width: 600px) {
   .hide_mobile_small {
     display: none;
@@ -40,6 +48,10 @@ span:hover{
 @media screen and (max-width: 600px) {
   .hide_mobile_big {
     display: none;
+  }
+  .seccion-resultados {
+    padding-left: 30px;
+    padding-right: 30px;
   }
   table#resultados td{
     font-size: 11px;
@@ -60,15 +72,6 @@ a:hover{
 }
 .table.jornada>tbody>tr>td {
   border-top: none;
-}
-.seccion-resultados {
-  padding-left: 15%;
-  padding-right: 15%;
-  background-color: #f5f5f5;
-  padding-bottom: 40px;
-  border-left: 0.5px solid #dedede !important;
-  border-right: 0.5px solid #dedede !important;
-  border-bottom: 0.5px solid #dedede !important;
 }
 #cronica table td {
   text-align: center;
