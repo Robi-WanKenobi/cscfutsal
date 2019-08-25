@@ -34,23 +34,23 @@ router.post('/login', function(req, res) {
 });
 
 /* ADD ADMIN */
-router.post('/add', function(req, res) {
+// router.post('/add', function(req, res) {
   
-  var admin = new Admin();
-  var params = req.body;
+//   var admin = new Admin();
+//   var params = req.body;
 
-  if(params.usuario && params.password){
-    admin.usuario = params.usuario;
-    admin.password = params.password;
-    bcrypt.hash(params.password, 10, function (err, hash) {
-      admin.password = hash;
-        Admin.create(admin, function (err, admin) {
-          if (err) return next(err);
-          res.json(admin);
-        });
-    })
-  }
-});
+//   if(params.usuario && params.password){
+//     admin.usuario = params.usuario;
+//     admin.password = params.password;
+//     bcrypt.hash(params.password, 10, function (err, hash) {
+//       admin.password = hash;
+//         Admin.create(admin, function (err, admin) {
+//           if (err) return next(err);
+//           res.json(admin);
+//         });
+//     })
+//   }
+// });
 
 /* DELE ADMIN */
 /*router.delete('/login/:id', function(req, res, next) {
