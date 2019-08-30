@@ -106,6 +106,7 @@ export class ResultadosComponent implements OnInit {
       this.actual = 30;
     } else {
       this.loading = true;
+      this.is_cronica = false;
       this.actual = parseInt(this.actual.toString(), 10) + 1;
       this.getResultados(this.equipo, this.actual);
       this.getClasificacion(this.equipo, this.actual);
@@ -124,6 +125,7 @@ export class ResultadosComponent implements OnInit {
       this.actual = 1;
     } else {
       this.loading = true;
+      this.is_cronica = false;
       this.actual = parseInt(this.actual.toString(), 10) - 1;
       this.getResultados(this.equipo, this.actual);
       this.getClasificacion(this.equipo, this.actual);
