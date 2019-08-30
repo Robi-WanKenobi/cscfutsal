@@ -53,19 +53,13 @@ body{
 .navbar.navbar-inverse {
   border-radius: 0px;
   border: none;
+  border-color: #333;
   background-image: none;
   background-color: #333;
   margin-bottom: 5px;
   min-height: 40px;
 }
-.navbar-inverse .navbar-nav>li>a {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
 
-.navbar-collapse.collapse {
-  padding-left: 0px;
-}
 .dropdown-menu a{
   font-size: 18px;
 }
@@ -101,25 +95,25 @@ body{
 ul.nav li.dropdown:hover > ul.dropdown-menu {
   display: block;
 }
-
+.navbar-toggle {
+  padding: 12px 10px;
+  margin: 0px;
+}
 @media screen and (min-width: 768px){
   .navbar .navbar-inner {
     padding: 0;
   }
-
   .navbar .nav {
     margin: 0;
     display: table;
     width: 100%;
   }
-
   .navbar .nav > li {
     display: table-cell;
-    width: 20%;
+    width: 15%;
     float: none;
     text-align: center;
   }
-
   .dropdown:hover .dropdown-menu {
     position: absolute;
     width: 100%;
@@ -138,9 +132,22 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
     border-top-color: #ff9300;
     text-align: center;
   }
-
+  .dropdown:hover .dropdown-menu li a {
+    padding: 0px;
+  }
+  .dropdown:hover .dropdown-menu li.icons {
+    width: 50%;
+    display: inline-table;
+  }
   .navbar .nav > li {
     text-align: center;
+  }
+  .navbar-inverse .navbar-nav>li>a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  ul.nav li.dropdown:hover > ul.dropdown-menu {
+    margin-bottom: 20px;
   }
 }
 
