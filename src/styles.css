@@ -59,6 +59,10 @@ body{
   margin-bottom: 5px;
   min-height: 40px;
 }
+.navbar-collapse.collapse {
+  border-color: #333;
+  padding-left: 0px;
+}
 
 .dropdown-menu a{
   font-size: 18px;
