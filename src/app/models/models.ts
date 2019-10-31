@@ -18,21 +18,19 @@ export class Jugador {
     nombre: string;
     apellido: string;
     apodo: string;
+    equipo: string;
     dorsal: number;
     posicion: string;
     imagen: string;
     estadisticas: Estadisticas;
     tipo: string;
     
-    constructor(nombre, apellido, apodo, dorsal, posicion, tipo) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.apodo = apodo;
-        this.dorsal = dorsal;
-        this.posicion = posicion;
-        this.tipo = tipo;
+    constructor() {
     }
 
+    setEquipo(equipo) {
+        this.equipo = equipo;
+    }
     setImagen(imagen) {
         this.imagen = imagen;
     }

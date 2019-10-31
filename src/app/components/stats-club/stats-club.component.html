@@ -15,6 +15,7 @@
     <tr *ngFor="let j of jugadores, let index = index">
       <td class="position"><i class="c{{index}} fa fa-trophy fa-2x"></i></td>
       <td class="name"><strong>{{j.apodo}}</strong></td>
+      <td class="name"><strong>{{j.equipo}}</strong></td>
       <td class="icon" *ngIf="this.selectedRanking == 0">
         {{j.estadisticas.goles}}
         <i style="color: #333 !important;" class="fa fa-futbol-o"></i>

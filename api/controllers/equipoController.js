@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Equipo = require('../models/equipo');
+var Jugador = require('../models/jugador');
 var md_auth = require('../../middlewares/authenticated');
 var request = require('request');
 var cheerio = require('cheerio');
@@ -93,7 +94,15 @@ router.post('/:idequipo/add-jugador/:idjugador', md_auth.ensureAuth, function(re
     {"$push": {"jugadores":req.params.idjugador}},
     function (err, post) {
       if (err) return next(err);
-      res.json(post)
+      Equipo.findById(req.params.idequipo).exec(function (err, equipo) {
+        if (err) return next(err);
+        Jugador.update({_id: req.params.idjugador},
+          {"equipo": equipo.nombre},
+          function(err, jugador) {
+            if (err) return next(err);
+            res.json(post);
+          })
+      });   
     })
 })
 

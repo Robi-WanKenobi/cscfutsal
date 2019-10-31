@@ -1,7 +1,10 @@
 td {
-    width: 25%;
+    width: 30%;
     text-align: center !important;
     vertical-align: middle !important;
+}
+td.position {
+    width: 10%;
 }
 .c0{
     color: gold !important;

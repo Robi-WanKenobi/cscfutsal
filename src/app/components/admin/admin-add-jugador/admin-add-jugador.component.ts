@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { JugadorService } from '../../../services/jugador.service';
 import { EquipoService } from '../../../services/equipo.service';
 import Swal from 'sweetalert2';
+import { Jugador } from '../../../models/models';
 
 @Component({
   selector: 'app-admin-add-jugador',
@@ -12,8 +13,9 @@ import Swal from 'sweetalert2';
 })
 export class AdminAddJugadorComponent implements OnInit {
 
-  jugador = {};
+  jugador = new Jugador();
   equipo = "";
+  equipoName = "";
 
   constructor(private equipoService: EquipoService,
               private jugadorService: JugadorService,
@@ -25,6 +27,17 @@ export class AdminAddJugadorComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams.forEach((params: Params) => {
       this.equipo = params['equipo'];
+      this.getEquipoName();
+    });
+  }
+
+  getEquipoName() {
+    this.equipoService.getEquipo(this.equipo).then((res) => {
+      this.equipoName = res['nombre'];
+      this.jugador.setEquipo(this.equipoName);
+    },
+    (err) => {
+      console.log(err);
     });
   }
 
