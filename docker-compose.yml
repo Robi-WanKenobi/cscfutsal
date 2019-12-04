@@ -16,7 +16,7 @@ services:
     volumes:
      - api-img:/CSCFUTSAL/public/plantillas
     ports:
-     - "80:80"
+     - 80
     links:
      - mongo
      
